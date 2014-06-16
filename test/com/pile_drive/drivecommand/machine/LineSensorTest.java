@@ -7,7 +7,6 @@ import java.util.HashMap;
 import mockit.Expectations;
 import mockit.Mocked;
 
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.pile_drive.drivecommand.model.CommandType;
@@ -17,6 +16,7 @@ import com.pile_drive.drivecommand.model.IProtocol;
 public class LineSensorTest {
 	@Mocked private IProtocol protocol;
 	
+	@SuppressWarnings("serial")
 	@Test
 	public void getSensorValue() {
 		new Expectations() {{
