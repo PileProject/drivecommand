@@ -9,18 +9,18 @@ import mockit.Mocked;
 
 import org.testng.annotations.Test;
 
-import com.pile_drive.drivecommand.command.ICommand;
+import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.model.CommandType;
-import com.pile_drive.drivecommand.model.IProtocol;
+import com.pile_drive.drivecommand.model.ProtocolBase;
 
 public class LineSensorTest {
-	@Mocked private IProtocol protocol;
+	@Mocked private ProtocolBase protocol;
 	
 	@SuppressWarnings("serial")
 	@Test
 	public void getSensorValue() {
 		new Expectations() {{
-			protocol.exec(CommandType.GET_LS_VALUE.ordinal(), (ICommand)any); 
+			protocol.exec(CommandType.GET_LINE_VALUE.ordinal(), (CommandBase)any); 
 			result = new HashMap<String, Object>() {{put("value", 0xFF);}};
 		}};
 		LineSensor ls = new LineSensor(0, protocol);
