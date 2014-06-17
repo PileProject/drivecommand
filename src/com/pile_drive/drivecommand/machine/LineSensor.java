@@ -3,8 +3,8 @@ package com.pile_drive.drivecommand.machine;
 import java.util.HashMap;
 
 import com.pile_drive.drivecommand.command.CommandFactory;
+import com.pile_drive.drivecommand.command.ICommand;
 import com.pile_drive.drivecommand.model.CommandType;
-import com.pile_drive.drivecommand.model.ICommand;
 import com.pile_drive.drivecommand.model.IProtocol;
 
 public class LineSensor implements IDevice {

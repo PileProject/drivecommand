@@ -9,8 +9,8 @@ import mockit.Mocked;
 
 import org.testng.annotations.Test;
 
+import com.pile_drive.drivecommand.command.ICommand;
 import com.pile_drive.drivecommand.model.CommandType;
-import com.pile_drive.drivecommand.model.ICommand;
 import com.pile_drive.drivecommand.model.IProtocol;
 
 public class LineSensorTest {
