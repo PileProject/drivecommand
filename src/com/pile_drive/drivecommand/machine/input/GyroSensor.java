@@ -1,7 +1,12 @@
 package com.pile_drive.drivecommand.machine.input;
 
+import java.util.HashMap;
+
+import com.pile_drive.drivecommand.command.CommandBase;
+import com.pile_drive.drivecommand.command.CommandFactory;
 import com.pile_drive.drivecommand.machine.DeviceBase;
 import com.pile_drive.drivecommand.machine.DeviceType;
+import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
 
 public class GyroSensor extends DeviceBase {
@@ -11,17 +16,19 @@ public class GyroSensor extends DeviceBase {
 	}
 
 	public int getRate() {
-		return 0;
-	}
-
-	@Override
-	public DeviceType getDeviceType() {
-		return null;
+		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_GYRO_RATE, null);
+		HashMap<String, Object> res = exec(cmd);
+		return (Integer)res.get("value");
 	}
 
 	public int getAngle() {
-		// TODO 自動生成されたメソッド・スタブ
-		return 0;
+		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_GYRO_ANGLE, null);
+		HashMap<String, Object> res = exec(cmd);
+		return (Integer)res.get("value");
 	}
 	
+	@Override
+	public DeviceType getDeviceType() {
+		return DeviceType.GYRO_SENSOR;
+	}
 }
