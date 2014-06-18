@@ -12,8 +12,8 @@
   <table id='packages'>
     <caption>All Packages and Files<div style='font-size: smaller'>DriveCommand/src</div></caption>
     <tr>
-      <th style='cursor: col-resize' onclick='showHideAllFiles()'>Packages: 3</th>
-      <th onclick='location.reload()' style='cursor: n-resize' title='Click on the title for each metric to sort by size (total number of line segments, paths, or fields).'>Files: 9</th>
+      <th style='cursor: col-resize' onclick='showHideAllFiles()'>Packages: 6</th>
+      <th onclick='location.reload()' style='cursor: n-resize' title='Click on the title for each metric to sort by size (total number of line segments, paths, or fields).'>Files: 13</th>
       <th onclick='sortTables(1)' style='cursor: n-resize' title='Measures how much of the executable production code was exercised by tests.
 An executable line of code contains one or more executable segments.
 The percentages are calculated as 100*NE/NS, where NS is the number of segments and NE the number of executed segments.'>Line</th>
@@ -23,69 +23,109 @@ The percentages are calculated as 100*NE/NS, where NS is the number of segments 
       <td>
         <table width='100%'>
           <tr>
-            <td class='file class'><a target='_blank' href='com/pile_drive/drivecommand/command/Command.html'>Command.java</a>       </td>
-            <td style='background-color:#00ff00' title='Line segments: 1/1'>100%</td>
+            <td class='file class'><a target='_blank' href='com/pile_drive/drivecommand/command/Command.html'>Command.java</a>              </td>
+            <td style='background-color:#00ff00' title='Line segments: 2/2'>100%</td>
           </tr>
           <tr>
-            <td class='file class'><a target='_blank' href='com/pile_drive/drivecommand/command/CommandFactory.html'>CommandFactory.java</a></td>
-            <td style='background-color:#00ff00' title='Line segments: 2/2'>100%</td>
+            <td class='file abstractClass'><a target='_blank' href='com/pile_drive/drivecommand/command/CommandBase.html'>CommandBase.java</a>          </td>
+            <td style='background-color:#6d9200' title='Line segments: 4/7'>57%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='com/pile_drive/drivecommand/command/CommandFactory.html'>CommandFactory.java</a>       </td>
+            <td style='background-color:#7f8000' title='Line segments: 1/2'>50%</td>
           </tr>
         </table>
       </td>
-      <td class='pt' style='background-color:#00ff00' title='Line segments: 3/3'>100%</td>
+      <td class='pt' style='background-color:#5da200' title='Line segments: 7/11'>64%</td>
     </tr>
     <tr>
       <td class='package click' onclick='showHideFiles(this)'>com.pile_drive.drivecommand.machine</td>
       <td>
         <table width='100%'>
           <tr>
-            <td class='file interface'><a target='_blank' href='com/pile_drive/drivecommand/machine/IDevice.html'>IDevice.java</a>       </td>
-            <td class='nocode'>N/A</td>
+            <td class='file abstractClass'><a target='_blank' href='com/pile_drive/drivecommand/machine/DeviceBase.html'>DeviceBase.java</a>           </td>
+            <td style='background-color:#00ff00' title='Line segments: 5/5'>100%</td>
           </tr>
           <tr>
-            <td class='file class'><a target='_blank' href='com/pile_drive/drivecommand/machine/LineSensor.html'>LineSensor.java</a>    </td>
-            <td style='background-color:#00ff00' title='Line segments: 8/8'>100%</td>
+            <td class='file enum'><a target='_blank' href='com/pile_drive/drivecommand/machine/DeviceType.html'>DeviceType.java</a>           </td>
+            <td style='background-color:#7f8000' title='Line segments: 1/2'>50%</td>
           </tr>
           <tr>
-            <td class='file class'><a target='_blank' href='com/pile_drive/drivecommand/machine/Motor.html'>Motor.java</a>         </td>
-            <td style='background-color:#ff0000' title='Line segments: 0/1'>0%</td>
+            <td class='file class'><a target='_blank' href='com/pile_drive/drivecommand/machine/Machine.html'>Machine.java</a>              </td>
+            <td style='background-color:#ff0000' title='Line segments: 0/7'>0%</td>
           </tr>
         </table>
       </td>
-      <td class='pt' style='background-color:#1ce300' title='Line segments: 8/9'>89%</td>
+      <td class='pt' style='background-color:#926d00' title='Line segments: 6/14'>43%</td>
+    </tr>
+    <tr>
+      <td class='package click' onclick='showHideFiles(this)'>com.pile_drive.drivecommand.machine.input</td>
+      <td>
+        <table width='100%'>
+          <tr>
+            <td class='file class'><a target='_blank' href='com/pile_drive/drivecommand/machine/input/GyroSensor.html'>GyroSensor.java</a>           </td>
+            <td style='background-color:#00ff00' title='Line segments: 5/5'>100%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='com/pile_drive/drivecommand/machine/input/LineSensor.html'>LineSensor.java</a>           </td>
+            <td style='background-color:#00ff00' title='Line segments: 6/6'>100%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='com/pile_drive/drivecommand/machine/input/RemoteControlReciever.html'>RemoteControlReciever.java</a></td>
+            <td style='background-color:#00ff00' title='Line segments: 5/5'>100%</td>
+          </tr>
+        </table>
+      </td>
+      <td class='pt' style='background-color:#00ff00' title='Line segments: 16/16'>100%</td>
+    </tr>
+    <tr>
+      <td class='package'>com.pile_drive.drivecommand.machine.output</td>
+      <td>
+        <table width='100%'>
+          <tr>
+            <td class='file class'><a target='_blank' href='com/pile_drive/drivecommand/machine/output/Motor.html'>Motor.java</a>                </td>
+            <td style='background-color:#ff0000' title='Line segments: 0/9'>0%</td>
+          </tr>
+        </table>
+      </td>
+      <td class='pt' style='background-color:#ff0000' title='Line segments: 0/9'>0%</td>
     </tr>
     <tr>
       <td class='package click' onclick='showHideFiles(this)'>com.pile_drive.drivecommand.model</td>
       <td>
         <table width='100%'>
           <tr>
-            <td class='file enum'><a target='_blank' href='com/pile_drive/drivecommand/model/CommandType.html'>CommandType.java</a>   </td>
-            <td style='background-color:#7f8000' title='Line segments: 1/2'>50%</td>
+            <td class='file enum'><a target='_blank' href='com/pile_drive/drivecommand/model/CommandType.html'>CommandType.java</a>          </td>
+            <td style='background-color:#798600' title='Line segments: 21/40'>53%</td>
           </tr>
           <tr>
-            <td class='file interface'><a target='_blank' href='com/pile_drive/drivecommand/model/ICommand.html'>ICommand.java</a>      </td>
-            <td class='nocode'>N/A</td>
+            <td class='file abstractClass'><a target='_blank' href='com/pile_drive/drivecommand/model/ProtocolBase.html'>ProtocolBase.java</a>         </td>
+            <td style='background-color:#ff0000' title='Line segments: 0/4'>0%</td>
           </tr>
+        </table>
+      </td>
+      <td class='pt' style='background-color:#857a00' title='Line segments: 21/44'>48%</td>
+    </tr>
+    <tr>
+      <td class='package'>com.pile_drive.drivecommand.model.com</td>
+      <td>
+        <table width='100%'>
           <tr>
-            <td class='file interface'><a target='_blank' href='com/pile_drive/drivecommand/model/ICommunicator.html'>ICommunicator.java</a> </td>
-            <td class='nocode'>N/A</td>
-          </tr>
-          <tr>
-            <td class='file interface'><a target='_blank' href='com/pile_drive/drivecommand/model/IProtocol.html'>IProtocol.java</a>     </td>
+            <td class='file interface'><a target='_blank' href='com/pile_drive/drivecommand/model/com/ICommunicator.html'>ICommunicator.java</a>        </td>
             <td class='nocode'>N/A</td>
           </tr>
         </table>
       </td>
-      <td class='pt' style='background-color:#7f8000' title='Line segments: 1/2'>50%</td>
+      <td class='nocode'>N/A</td>
     </tr>
     <tr class='total'>
       <td>Total</td><td>&nbsp;</td>
-      <td class='pt' style='background-color:#24db00' title='Line segments: 12/14'>86%</td>
+      <td class='pt' style='background-color:#778800' title='Line segments: 50/94'>53%</td>
     </tr>
   </table>
   <p>
     <a href='http://jmockit.org'><img src='logo.png'></a>
-    Generated on Tue Jun 17 09:03:51 JST 2014
+    Generated on Wed Jun 18 22:11:26 JST 2014
   </p>
 </body>
 </html>
