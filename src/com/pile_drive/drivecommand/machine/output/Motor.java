@@ -1,5 +1,7 @@
-package com.pile_drive.drivecommand.machine;
+package com.pile_drive.drivecommand.machine.output;
 
+import com.pile_drive.drivecommand.machine.DeviceBase;
+import com.pile_drive.drivecommand.machine.DeviceType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
 
 public class Motor extends DeviceBase {

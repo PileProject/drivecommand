@@ -3,6 +3,7 @@ package com.pile_drive.drivecommand.model;
 import java.util.HashMap;
 
 import com.pile_drive.drivecommand.command.CommandBase;
+import com.pile_drive.drivecommand.model.com.ICommunicator;
 
 public abstract class ProtocolBase {
 	protected final ICommunicator mCommunicator;

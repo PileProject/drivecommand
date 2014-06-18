@@ -1,4 +1,4 @@
-package com.pile_drive.drivecommand.machine;
+package com.pile_drive.drivecommand.machine.input;
 
 import static org.testng.Assert.*;
 
@@ -10,6 +10,7 @@ import mockit.Mocked;
 import org.testng.annotations.Test;
 
 import com.pile_drive.drivecommand.command.CommandBase;
+import com.pile_drive.drivecommand.machine.input.LineSensor;
 import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
 
