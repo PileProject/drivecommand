@@ -1,5 +1,7 @@
 package com.pile_drive.drivecommand.machine;
 
+import com.pile_drive.drivecommand.machine.input.LineSensor;
+import com.pile_drive.drivecommand.machine.output.Motor;
 import com.pile_drive.drivecommand.model.ProtocolBase;
 
 public class Machine {

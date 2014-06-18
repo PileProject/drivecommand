@@ -1,4 +1,4 @@
-package com.pile_drive.drivecommand.model;
+package com.pile_drive.drivecommand.model.com;
 
 import java.nio.ByteBuffer;
 
