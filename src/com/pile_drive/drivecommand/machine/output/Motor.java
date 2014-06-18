@@ -26,4 +26,23 @@ public class Motor extends DeviceBase {
 		if (speed < 0 || speed > 100) return;
 		mSpeed = speed;
 	}
+
+	public void forward() {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
+
+	public void backward() {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
+
+	public void stop() {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
+
+	public int getSpeed() {
+		return mSpeed;
+	}
 }
