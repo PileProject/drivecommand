@@ -1,4 +1,4 @@
-package com.pile_drive.drivecommand.machine.input;
+package test.drivecommand.machine.input;
 
 import static org.testng.Assert.*;
 
@@ -10,14 +10,17 @@ import mockit.Mocked;
 import org.testng.annotations.Test;
 
 import com.pile_drive.drivecommand.command.CommandBase;
+import com.pile_drive.drivecommand.machine.DeviceType;
+import com.pile_drive.drivecommand.machine.input.GyroSensor;
 import com.pile_drive.drivecommand.model.ProtocolBase;
 
+@SuppressWarnings("serial")
 public class GyroSensorTest {
 	@Mocked private ProtocolBase protocol;
 	private final int PORT = 0;
 	private final int ANGLE = 100;
+	private final int RATE = 22;
 	
-	@SuppressWarnings("serial")
 	@Test
 	public void getGyroAngle() {
 		new Expectations() {{
@@ -36,6 +39,12 @@ public class GyroSensorTest {
 		}};
 		GyroSensor gs = new GyroSensor(PORT, protocol);
 		assertEquals(gs.getRate(), RATE);
+	}
+	
+	@Test
+	public void deviceTypeIsGyroSensor() {
+		GyroSensor gs = new GyroSensor(PORT, protocol);
+		assertEquals(gs.getDeviceType(), DeviceType.GYRO_SENSOR);
 	}
 }
 
