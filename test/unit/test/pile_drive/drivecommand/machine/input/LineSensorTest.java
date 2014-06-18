@@ -11,20 +11,21 @@ import org.testng.annotations.Test;
 
 import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.machine.input.LineSensor;
-import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
 
 public class LineSensorTest {
 	@Mocked private ProtocolBase protocol;
+	private final int PORT = 0;
+	private final int SENSOR_VALUE = 50;
 	
 	@SuppressWarnings("serial")
 	@Test
 	public void getSensorValue() {
 		new Expectations() {{
-			protocol.exec(CommandType.GET_LINE_VALUE.ordinal(), (CommandBase)any); 
-			result = new HashMap<String, Object>() {{put("value", 0xFF);}};
+			protocol.exec(PORT, (CommandBase)any); 
+			result = new HashMap<String, Object>() {{put("value", SENSOR_VALUE);}};
 		}};
-		LineSensor ls = new LineSensor(0, protocol);
-		assertEquals(ls.getSensorValue(), 0xFF);
+		LineSensor ls = new LineSensor(PORT, protocol);
+		assertEquals(ls.getSensorValue(), SENSOR_VALUE);
 	}
 }
