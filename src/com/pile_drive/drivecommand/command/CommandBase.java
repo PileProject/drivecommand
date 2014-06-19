@@ -17,7 +17,7 @@ public abstract class CommandBase {
 	/**
 	 * Get its command type
 	 * 
-	 * @return
+	 * @return CommandType
 	 */
 	public CommandType getCommandType() {
 		return mType;
@@ -25,7 +25,8 @@ public abstract class CommandBase {
 	
 	/**
 	 * Get the device type which is used in its command
-	 * @return
+	 * 
+	 * @return DeviceType
 	 */
 	public DeviceType getDeviceType() {
 		return mType.getDeviceType();
@@ -34,7 +35,7 @@ public abstract class CommandBase {
 	/**
 	 * Get the arguments
 	 * 
-	 * @return
+	 * @return HashMap
 	 */
 	public HashMap<String, Object> getArgs() {
 		return mArgs;
