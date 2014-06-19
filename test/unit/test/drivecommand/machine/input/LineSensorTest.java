@@ -13,8 +13,8 @@ import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.command.CommandFactory;
 import com.pile_drive.drivecommand.machine.DeviceType;
 import com.pile_drive.drivecommand.machine.input.LineSensor;
-import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
+
 @SuppressWarnings("serial")
 public class LineSensorTest {
 	@Mocked private ProtocolBase protocol;
@@ -25,7 +25,6 @@ public class LineSensorTest {
 	@Test
 	public void getSensorValue() {
 		new Expectations() {{
-			CommandFactory.createCommand(CommandType.GET_LINE_VALUE, null);
 			protocol.exec(PORT, (CommandBase)any); 
 			result = new HashMap<String, Object>() {{put("value", SENSOR_VALUE);}};
 		}};

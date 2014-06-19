@@ -13,7 +13,6 @@ import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.command.CommandFactory;
 import com.pile_drive.drivecommand.machine.DeviceType;
 import com.pile_drive.drivecommand.machine.input.GyroSensor;
-import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
 
 @SuppressWarnings("serial")
@@ -27,7 +26,6 @@ public class GyroSensorTest {
 	@Test
 	public void getGyroAngle() {
 		new Expectations() {{
-			CommandFactory.createCommand(CommandType.GET_GYRO_ANGLE, null);
 			protocol.exec(PORT, (CommandBase)any); 
 			result = new HashMap<String, Object>() {{put("value", ANGLE);}};
 		}};
@@ -38,7 +36,6 @@ public class GyroSensorTest {
 	@Test
 	public void getGyroRate() {
 		new Expectations() {{
-			CommandFactory.createCommand(CommandType.GET_GYRO_RATE, null);
 			protocol.exec(PORT, (CommandBase)any);
 			result = new HashMap<String, Object>() {{put("value", RATE);}};
 		}};
