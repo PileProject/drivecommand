@@ -11,13 +11,13 @@ import mockit.Mocked;
 
 import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.machine.DeviceType;
-import com.pile_drive.drivecommand.machine.input.LineSensor;
+import com.pile_drive.drivecommand.machine.output.Buzzer;
 import com.pile_drive.drivecommand.model.ProtocolBase;
 
+@SuppressWarnings("serial")
 public class BuzzerTest {
 	@Mocked private ProtocolBase protocol;
 	private final int PORT = 0;
-	private final String KEY_VALUE = "value";
 	private final String KEY_VALID = "valid";
 	private final boolean VALUE_VALID = true;
 	
@@ -25,7 +25,7 @@ public class BuzzerTest {
 	public void turnOnBuzzer() {
 		new Expectations() {{
 			protocol.exec(PORT, (CommandBase)any); 
-			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_VALID);}};
+			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
 		}};
 		Buzzer bz = new Buzzer(PORT, protocol);
 		assertEquals(bz.turnOn(), VALUE_VALID);
@@ -35,7 +35,7 @@ public class BuzzerTest {
 	public void turnOffBuzzer() {
 		new Expectations() {{
 			protocol.exec(PORT, (CommandBase)any); 
-			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_VALID);}};
+			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
 		}};
 		Buzzer bz = new Buzzer(PORT, protocol);
 		assertEquals(bz.turnOff(), VALUE_VALID);
@@ -45,7 +45,7 @@ public class BuzzerTest {
 	public void beepBuzzer() {
 		new Expectations() {{
 			protocol.exec(PORT, (CommandBase)any); 
-			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_VALID);}};
+			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
 		}};
 		Buzzer bz = new Buzzer(PORT, protocol);
 		assertEquals(bz.beep(), VALUE_VALID);
