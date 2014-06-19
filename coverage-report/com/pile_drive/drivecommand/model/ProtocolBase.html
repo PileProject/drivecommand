@@ -18,7 +18,8 @@
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'></td><td>&nbsp;</td>
-      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.util.HashMap;
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.io.IOException;
+import java.util.HashMap;
 
 import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.model.com.ICommunicator;
@@ -26,24 +27,24 @@ import com.pile_drive.drivecommand.model.com.ICommunicator;
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>8</td><td>&nbsp;</td>
+      <td class='line'>9</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>public abstract class ProtocolBase {</pre></td>
     </tr>
     <tr>
-      <td class='line'>9</td><td>&nbsp;</td>
+      <td class='line'>10</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	protected final ICommunicator mCommunicator;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>11</td><td>&nbsp;</td>
+      <td class='line'>12</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public ProtocolBase(ICommunicator comm) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>12</td><td>&nbsp;</td>
+      <td class='line'>13</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		mCommunicator = comm;</pre></td>
     </tr>
     <tr>
-      <td class='line'>13</td><td>&nbsp;</td>
+      <td class='line'>14</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -51,36 +52,37 @@ import com.pile_drive.drivecommand.model.com.ICommunicator;
       <td class='line'></td><td>&nbsp;</td>
       <td class='comment' onclick='showHideLines(this)'><div>	/**
 	 * Get communicator
+	 * 
 	 * @return
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>19</td><td>&nbsp;</td>
+      <td class='line'>21</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	protected ICommunicator getCommunicator() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>20</td><td>&nbsp;</td>
+      <td class='line'>22</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		return mCommunicator;</pre></td>
     </tr>
     <tr>
-      <td class='line'>21</td><td>&nbsp;</td>
+      <td class='line'>23</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>23</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public abstract void open();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>24</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public abstract void close();</pre></td>
-    </tr>
-    <tr>
       <td class='line'>25</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public abstract HashMap&lt;String, Object> exec(int port, CommandBase cmd);</pre></td>
+      <td><pre class='prettyprint'>	public abstract void open() throws IOException;</pre></td>
     </tr>
     <tr>
       <td class='line'>26</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public abstract void close();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>27</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public abstract HashMap&lt;String, Object> exec(int port, CommandBase cmd);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>28</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>

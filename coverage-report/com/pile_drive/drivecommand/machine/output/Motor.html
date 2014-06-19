@@ -34,8 +34,8 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
       <td><pre class='prettyprint'>public class Motor extends DeviceBase {</pre></td>
     </tr>
     <tr>
-      <td class='line'>13</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	private int mSpeed = 50; // initial value</pre></td>
+      <td class='line'>13</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l13s0'>	private int mSpeed = 50; // initial value</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -43,12 +43,12 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
       <td><pre class='prettyprint'>	public Motor(int port, ProtocolBase protocol) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>16</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		super(port, protocol);</pre></td>
+      <td class='line'>16</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l16s0'>		super(port, protocol);</pre></td>
     </tr>
     <tr>
-      <td class='line'>17</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
+      <td class='line'>17</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l17s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -66,16 +66,16 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
       <td><pre class='prettyprint'>	public void setSpeed(int speed) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>27</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		if (speed &lt; 0 || speed > 100) return;</pre></td>
+      <td class='line'>27</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l27s0' title='Executions: 0' class='uncovered'>if (speed &lt; 0</span> || <span id='l27s1' title='Executions: 0' class='uncovered'>speed > 100)</span> <span id='l27s2' title='Executions: 0' class='uncovered'>return;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>28</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		mSpeed = speed;</pre></td>
+      <td class='line'>28</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l28s0'>		mSpeed = speed;</pre></td>
     </tr>
     <tr>
-      <td class='line'>29</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
+      <td class='line'>29</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l29s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -91,24 +91,24 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
       <td><pre class='prettyprint'>	public boolean forward() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>37</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		HashMap&lt;String, Object> args = new HashMap&lt;String, Object>();</pre></td>
+      <td class='line'>37</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l37s0'>		HashMap&lt;String, Object> args = new HashMap&lt;String, Object>();</pre></td>
     </tr>
     <tr>
-      <td class='line'>38</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		args.put("speed", mSpeed);</pre></td>
+      <td class='line'>38</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l38s0'>		args.put("speed", mSpeed);</pre></td>
     </tr>
     <tr>
-      <td class='line'>39</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);</pre></td>
+      <td class='line'>39</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l39s0'>		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);</pre></td>
     </tr>
     <tr>
-      <td class='line'>40</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		HashMap&lt;String, Object> res = exec(cmd);</pre></td>
+      <td class='line'>40</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l40s0'>		HashMap&lt;String, Object> res = exec(cmd);</pre></td>
     </tr>
     <tr>
-      <td class='line'>41</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		return (Boolean) res.get("valid");</pre></td>
+      <td class='line'>41</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l41s0'>		return (Boolean) res.get("valid");</pre></td>
     </tr>
     <tr>
       <td class='line'>42</td><td>&nbsp;</td>
@@ -128,24 +128,24 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
       <td><pre class='prettyprint'>	public boolean backward() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>50</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		HashMap&lt;String, Object> args = new HashMap&lt;String, Object>();</pre></td>
+      <td class='line'>50</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l50s0'>		HashMap&lt;String, Object> args = new HashMap&lt;String, Object>();</pre></td>
     </tr>
     <tr>
-      <td class='line'>51</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		args.put("speed", -mSpeed);</pre></td>
+      <td class='line'>51</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l51s0'>		args.put("speed", -mSpeed);</pre></td>
     </tr>
     <tr>
-      <td class='line'>52</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);</pre></td>
+      <td class='line'>52</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l52s0'>		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);</pre></td>
     </tr>
     <tr>
-      <td class='line'>53</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		HashMap&lt;String, Object> res = exec(cmd);</pre></td>
+      <td class='line'>53</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l53s0'>		HashMap&lt;String, Object> res = exec(cmd);</pre></td>
     </tr>
     <tr>
-      <td class='line'>54</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		return (Boolean) res.get("valid");</pre></td>
+      <td class='line'>54</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l54s0'>		return (Boolean) res.get("valid");</pre></td>
     </tr>
     <tr>
       <td class='line'>55</td><td>&nbsp;</td>
@@ -165,24 +165,24 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
       <td><pre class='prettyprint'>	public boolean stop() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>63</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		HashMap&lt;String, Object> args = new HashMap&lt;String, Object>();</pre></td>
+      <td class='line'>63</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l63s0'>		HashMap&lt;String, Object> args = new HashMap&lt;String, Object>();</pre></td>
     </tr>
     <tr>
-      <td class='line'>64</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		args.put("speed", 0);</pre></td>
+      <td class='line'>64</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l64s0'>		args.put("speed", 0);</pre></td>
     </tr>
     <tr>
-      <td class='line'>65</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);</pre></td>
+      <td class='line'>65</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l65s0'>		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);</pre></td>
     </tr>
     <tr>
-      <td class='line'>66</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		HashMap&lt;String, Object> res = exec(cmd);</pre></td>
+      <td class='line'>66</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l66s0'>		HashMap&lt;String, Object> res = exec(cmd);</pre></td>
     </tr>
     <tr>
-      <td class='line'>67</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		return (Boolean) res.get("valid");</pre></td>
+      <td class='line'>67</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l67s0'>		return (Boolean) res.get("valid");</pre></td>
     </tr>
     <tr>
       <td class='line'>68</td><td>&nbsp;</td>
@@ -202,8 +202,8 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
       <td><pre class='prettyprint'>	public int getSpeed() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>76</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		return mSpeed;</pre></td>
+      <td class='line'>76</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l76s0'>		return mSpeed;</pre></td>
     </tr>
     <tr>
       <td class='line'>77</td><td>&nbsp;</td>
@@ -219,8 +219,8 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
       <td><pre class='prettyprint'>	public DeviceType getDeviceType() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>81</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		return DeviceType.MOTOR;</pre></td>
+      <td class='line'>81</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l81s0'>		return DeviceType.MOTOR;</pre></td>
     </tr>
     <tr>
       <td class='line'>82</td><td>&nbsp;</td>

@@ -18,32 +18,33 @@
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'></td><td>&nbsp;</td>
-      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.nio.ByteBuffer;
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.io.IOException;
+import java.nio.ByteBuffer;
 </div><span>import ...</span></pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>5</td><td>&nbsp;</td>
+      <td class='line'>6</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>public interface ICommunicator {</pre></td>
     </tr>
     <tr>
-      <td class='line'>6</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public void open();</pre></td>
-    </tr>
-    <tr>
       <td class='line'>7</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public void close();</pre></td>
+      <td><pre class='prettyprint'>	public void open() throws IOException;</pre></td>
     </tr>
     <tr>
       <td class='line'>8</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public boolean send(ByteBuffer data, int timeout);</pre></td>
+      <td><pre class='prettyprint'>	public void close();</pre></td>
     </tr>
     <tr>
       <td class='line'>9</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public ByteBuffer recv(int length, int timeout);</pre></td>
+      <td><pre class='prettyprint'>	public boolean send(ByteBuffer data, int timeout);</pre></td>
     </tr>
     <tr>
       <td class='line'>10</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public ByteBuffer recv(int length, int timeout);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>11</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>
