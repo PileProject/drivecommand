@@ -13,7 +13,6 @@ import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.command.CommandFactory;
 import com.pile_drive.drivecommand.machine.DeviceType;
 import com.pile_drive.drivecommand.machine.input.ColorSensor;
-import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
 
 @SuppressWarnings("serial")
@@ -27,7 +26,6 @@ public class ColorSensorTest {
 	@Test
 	public void getColorRgb() {
 		new Expectations() {{
-			CommandFactory.createCommand(CommandType.GET_COLOR_RGB, null);
 			protocol.exec(PORT, (CommandBase)any); 
 			result = new HashMap<String, Object>() {{put("value", RGB);}};
 		}};
@@ -38,7 +36,6 @@ public class ColorSensorTest {
 	@Test
 	public void getColorIlluminace() {
 		new Expectations() {{
-			CommandFactory.createCommand(CommandType.GET_COLOR_ILLUMINANCE, null);
 			protocol.exec(PORT, (CommandBase)any);
 			result = new HashMap<String, Object>() {{put("value", ILLUMINANCE);}};
 		}};

@@ -13,7 +13,6 @@ import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.command.CommandFactory;
 import com.pile_drive.drivecommand.machine.DeviceType;
 import com.pile_drive.drivecommand.machine.input.RemoteControlReciever;
-import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
 
 @SuppressWarnings("serial")
@@ -27,7 +26,6 @@ public class RemoteControlRecieverTest {
 	@Test
 	public void getRemoteControllerButton() {
 		new Expectations() {{
-			CommandFactory.createCommand(CommandType.GET_REMOTECONTROLLER_BUTTON, null);
 			protocol.exec(PORT, (CommandBase)any);
 			result = new HashMap<String, Object>() {{put("value", BUTTON);}};
 		}};
@@ -38,7 +36,6 @@ public class RemoteControlRecieverTest {
 	@Test
 	public void getRemoteControllerDistance() {
 		new Expectations() {{
-			CommandFactory.createCommand(CommandType.GET_REMOTECONTROLLER_DIST, null);
 			protocol.exec(PORT, (CommandBase)any);
 			result = new HashMap<String, Object>() {{put("value", DISTANCE);}};
 		}};
