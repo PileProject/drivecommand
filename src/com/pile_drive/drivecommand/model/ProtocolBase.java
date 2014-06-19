@@ -1,5 +1,6 @@
 package com.pile_drive.drivecommand.model;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import com.pile_drive.drivecommand.command.CommandBase;
@@ -14,13 +15,14 @@ public abstract class ProtocolBase {
 	
 	/**
 	 * Get communicator
+	 * 
 	 * @return
 	 */
 	protected ICommunicator getCommunicator() {
 		return mCommunicator;
 	}
 	
-	public abstract void open();
+	public abstract void open() throws IOException;
 	public abstract void close();
 	public abstract HashMap<String, Object> exec(int port, CommandBase cmd);
 }
