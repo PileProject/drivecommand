@@ -93,7 +93,7 @@ public enum CommandType {
 			return DeviceType.COLOR_SENSOR;
 		}
 	},
-	GET_RANGFINDER_DIST {
+	GET_RANGEFINDER_DIST {
 		@Override
 		public DeviceType getDeviceType() {
 			return DeviceType.RANGEFINDER;
