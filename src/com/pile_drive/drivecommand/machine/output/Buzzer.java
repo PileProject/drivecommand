@@ -15,22 +15,37 @@ public class Buzzer extends DeviceBase {
 		super(port, protocol);
 	}
 	
+	/**
+	 * Turn on the buzzer if it is off
+	 * 
+	 * @return
+	 */
 	public boolean turnOn() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_BUZZER_ON, null);
 		HashMap<String, Object> res = exec(cmd);
-		return (Boolean)res.get("valid");
+		return (Boolean) res.get("valid");
 	}
 	
+	/**
+	 * Turn off the buzzer if it is on
+	 * 
+	 * @return
+	 */
 	public boolean turnOff() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_BUZZER_OFF, null);
 		HashMap<String, Object> res = exec(cmd);
-		return (Boolean)res.get("valid");
+		return (Boolean) res.get("valid");
 	}
 	
+	/**
+	 * Keep buzzer beeping
+	 * 
+	 * @return
+	 */
 	public boolean beep() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_BUZZER_BEEP, null);
 		HashMap<String, Object> res = exec(cmd);
-		return (Boolean)res.get("valid");
+		return (Boolean) res.get("valid");
 	}
 	
 	@Override
