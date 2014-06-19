@@ -10,7 +10,6 @@ import mockit.Mocked;
 import org.testng.annotations.Test;
 
 import com.pile_drive.drivecommand.command.CommandBase;
-import com.pile_drive.drivecommand.command.CommandFactory;
 import com.pile_drive.drivecommand.machine.DeviceType;
 import com.pile_drive.drivecommand.machine.input.GyroSensor;
 import com.pile_drive.drivecommand.model.ProtocolBase;
@@ -18,29 +17,29 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
 @SuppressWarnings("serial")
 public class GyroSensorTest {
 	@Mocked private ProtocolBase protocol;
-	@Mocked private CommandFactory factory = null;
 	private final int PORT = 0;
-	private final int ANGLE = 100;
-	private final int RATE = 22;
+	private final int VALUE_ANGLE = 100;
+	private final int VALUE_RATE = 22;
+	private final String KEY_VALUE = "value";
 	
 	@Test
 	public void getGyroAngle() {
 		new Expectations() {{
 			protocol.exec(PORT, (CommandBase)any); 
-			result = new HashMap<String, Object>() {{put("value", ANGLE);}};
+			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_ANGLE);}};
 		}};
 		GyroSensor gs = new GyroSensor(PORT, protocol);
-		assertEquals(gs.getAngle(), ANGLE);
+		assertEquals(gs.getAngle(), VALUE_ANGLE);
 	}
 	
 	@Test
 	public void getGyroRate() {
 		new Expectations() {{
 			protocol.exec(PORT, (CommandBase)any);
-			result = new HashMap<String, Object>() {{put("value", RATE);}};
+			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_RATE);}};
 		}};
 		GyroSensor gs = new GyroSensor(PORT, protocol);
-		assertEquals(gs.getRate(), RATE);
+		assertEquals(gs.getRate(), VALUE_RATE);
 	}
 	
 	@Test

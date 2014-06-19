@@ -10,7 +10,6 @@ import mockit.Mocked;
 import org.testng.annotations.Test;
 
 import com.pile_drive.drivecommand.command.CommandBase;
-import com.pile_drive.drivecommand.command.CommandFactory;
 import com.pile_drive.drivecommand.machine.DeviceType;
 import com.pile_drive.drivecommand.machine.input.LineSensor;
 import com.pile_drive.drivecommand.model.ProtocolBase;
@@ -18,18 +17,18 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
 @SuppressWarnings("serial")
 public class LineSensorTest {
 	@Mocked private ProtocolBase protocol;
-	@Mocked private CommandFactory factory = null;
 	private final int PORT = 0;
-	private final int SENSOR_VALUE = 50;
+	private final int VALUE_SENSOR = 50;
+	private final String KEY_VALUE = "value";
 	
 	@Test
 	public void getSensorValue() {
 		new Expectations() {{
 			protocol.exec(PORT, (CommandBase)any); 
-			result = new HashMap<String, Object>() {{put("value", SENSOR_VALUE);}};
+			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_SENSOR);}};
 		}};
 		LineSensor ls = new LineSensor(PORT, protocol);
-		assertEquals(ls.getSensorValue(), SENSOR_VALUE);
+		assertEquals(ls.getSensorValue(), VALUE_SENSOR);
 	}
 	
 	@Test
