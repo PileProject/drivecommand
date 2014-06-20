@@ -58,116 +58,83 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>25</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public void connect() throws IOException{</pre></td>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Connect to device
+	 * 
+	 * @throws IOException
+	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>26</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l26s0'>		mProtocol.open();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>27</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l27s0'>	}</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>29</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public void disconnect() {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>30</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l30s0'>		mProtocol.close();</pre></td>
+      <td class='line'>30</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public void connect() throws IOException {</pre></td>
     </tr>
     <tr>
       <td class='line'>31</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l31s0'>	}</pre></td>
+      <td><pre class='prettyprint covered' id='l31s0'>		mProtocol.open();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>32</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l32s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>33</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public LineSensor createLineSensor(int port) {</pre></td>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Disconnect from device
+	 */</div><span>	/*...*/</span></td>
     </tr>
-    <tr>
-      <td class='line'>34</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l34s0'>		return new LineSensor(port, mProtocol);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>35</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>37</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public Motor createMotor(int port) {</pre></td>
+      <td><pre class='prettyprint'>	public void disconnect() {</pre></td>
     </tr>
     <tr>
       <td class='line'>38</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l38s0'>		return new Motor(port, mProtocol);</pre></td>
+      <td><pre class='prettyprint covered' id='l38s0'>		mProtocol.close();</pre></td>
     </tr>
     <tr>
-      <td class='line'>39</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>41</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public Servomotor createServomotor(int port) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>42</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l42s0'>		return new Servomotor(port, mProtocol);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>43</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
+      <td class='line'>39</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l39s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>45</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public Buzzer createBuzzer(int port) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>46</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l46s0'>		return new Buzzer(port, mProtocol);</pre></td>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Create LineSensor
+	 * 
+	 * @param port
+	 * @return
+	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
       <td class='line'>47</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
+      <td><pre class='prettyprint'>	public LineSensor createLineSensor(int port) {</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>48</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l48s0'>		return new LineSensor(port, mProtocol);</pre></td>
+    </tr>
     <tr>
       <td class='line'>49</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public Led createLed(int port) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>50</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l50s0'>		return new Led(port, mProtocol);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>51</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>53</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public GyroSensor createGyroSensor(int port) {</pre></td>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Create Motor
+	 * 
+	 * @param port
+	 * @return
+	 */</div><span>	/*...*/</span></td>
     </tr>
-    <tr>
-      <td class='line'>54</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l54s0'>		return new GyroSensor(port, mProtocol);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>55</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>57</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public TouchSensor createTouchSensor(int port) {</pre></td>
+      <td><pre class='prettyprint'>	public Motor createMotor(int port) {</pre></td>
     </tr>
     <tr>
       <td class='line'>58</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l58s0'>		return new TouchSensor(port, mProtocol);</pre></td>
+      <td><pre class='prettyprint covered' id='l58s0'>		return new Motor(port, mProtocol);</pre></td>
     </tr>
     <tr>
       <td class='line'>59</td><td>&nbsp;</td>
@@ -175,59 +142,204 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>61</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public ColorSensor createColorSensor(int port) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>62</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l62s0'>		return new ColorSensor(port, mProtocol);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>63</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>65</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public Rangefinder createRangefinder(int port) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>66</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l66s0'>		return new Rangefinder(port, mProtocol);</pre></td>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Create Servomotor
+	 * 
+	 * @param port
+	 * @return
+	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
       <td class='line'>67</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Servomotor createServomotor(int port) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>68</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l68s0'>		return new Servomotor(port, mProtocol);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>69</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>69</td><td>&nbsp;</td>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Create Buzzer
+	 * 
+	 * @param port
+	 * @return
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>77</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Buzzer createBuzzer(int port) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>78</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l78s0'>		return new Buzzer(port, mProtocol);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>79</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Create LED
+	 * 
+	 * @param port
+	 * @return
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>87</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Led createLed(int port) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>88</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l88s0'>		return new Led(port, mProtocol);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>89</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Create GyroSensor
+	 * 
+	 * @param port
+	 * @return
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>97</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public GyroSensor createGyroSensor(int port) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>98</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l98s0'>		return new GyroSensor(port, mProtocol);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>99</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Create TouchSensor
+	 * 
+	 * @param port
+	 * @return
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>107</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public TouchSensor createTouchSensor(int port) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>108</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l108s0'>		return new TouchSensor(port, mProtocol);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>109</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Create ColorSensor
+	 * 
+	 * @param port
+	 * @return
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>117</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public ColorSensor createColorSensor(int port) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>118</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l118s0'>		return new ColorSensor(port, mProtocol);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>119</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Create Rangefinder
+	 * 
+	 * @param port
+	 * @return
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>127</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Rangefinder createRangefinder(int port) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>128</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l128s0'>		return new Rangefinder(port, mProtocol);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>129</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Create SoundSensor
+	 * 
+	 * @param port
+	 * @return
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>137</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public SoundSensor createSoundSensor(int port) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>70</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l70s0'>		return new SoundSensor(port, mProtocol);</pre></td>
+      <td class='line'>138</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l138s0'>		return new SoundSensor(port, mProtocol);</pre></td>
     </tr>
     <tr>
-      <td class='line'>71</td><td>&nbsp;</td>
+      <td class='line'>139</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>73</td><td>&nbsp;</td>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * Create RemoteControlReciever
+	 * 
+	 * @param port
+	 * @return
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>147</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public RemoteControlReciever createRemoteControlReciever(int port) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>74</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l74s0'>		return new RemoteControlReciever(port, mProtocol);</pre></td>
+      <td class='line'>148</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l148s0'>		return new RemoteControlReciever(port, mProtocol);</pre></td>
     </tr>
     <tr>
-      <td class='line'>75</td><td>&nbsp;</td>
+      <td class='line'>149</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>77</td><td>&nbsp;</td>
+      <td class='line'>150</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>
