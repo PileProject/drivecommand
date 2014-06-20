@@ -39,12 +39,12 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
       <td><pre class='prettyprint'>	public ColorSensor(int port, ProtocolBase protocol) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>15</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l15s0'>		super(port, protocol);</pre></td>
+      <td class='line'>15</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		super(port, protocol);</pre></td>
     </tr>
     <tr>
-      <td class='line'>16</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l16s0'>	}</pre></td>
+      <td class='line'>16</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -60,16 +60,16 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
       <td><pre class='prettyprint'>	public byte[] getRgb() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>24</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l24s0'>		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_COLOR_RGB, null);</pre></td>
+      <td class='line'>24</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_COLOR_RGB, null);</pre></td>
     </tr>
     <tr>
-      <td class='line'>25</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l25s0'>		HashMap&lt;String, Object> res = exec(cmd);</pre></td>
+      <td class='line'>25</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		HashMap&lt;String, Object> res = exec(cmd);</pre></td>
     </tr>
     <tr>
-      <td class='line'>26</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l26s0'>		return (byte[]) res.get("value");</pre></td>
+      <td class='line'>26</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return (byte[]) res.get("value");</pre></td>
     </tr>
     <tr>
       <td class='line'>27</td><td>&nbsp;</td>
@@ -89,16 +89,16 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
       <td><pre class='prettyprint'>	public int getIlluminace() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>35</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l35s0'>		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_COLOR_ILLUMINANCE, null);</pre></td>
+      <td class='line'>35</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_COLOR_ILLUMINANCE, null);</pre></td>
     </tr>
     <tr>
-      <td class='line'>36</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l36s0'>		HashMap&lt;String, Object> res = exec(cmd);</pre></td>
+      <td class='line'>36</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		HashMap&lt;String, Object> res = exec(cmd);</pre></td>
     </tr>
     <tr>
-      <td class='line'>37</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l37s0'>		return (Integer) res.get("value");</pre></td>
+      <td class='line'>37</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return (Integer) res.get("value");</pre></td>
     </tr>
     <tr>
       <td class='line'>38</td><td>&nbsp;</td>
@@ -114,8 +114,8 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
       <td><pre class='prettyprint'>	public DeviceType getDeviceType() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>42</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l42s0'>		return DeviceType.COLOR_SENSOR;</pre></td>
+      <td class='line'>42</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return DeviceType.COLOR_SENSOR;</pre></td>
     </tr>
     <tr>
       <td class='line'>43</td><td>&nbsp;</td>
