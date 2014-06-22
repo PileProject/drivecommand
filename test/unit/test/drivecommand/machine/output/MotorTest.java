@@ -22,6 +22,7 @@ public class MotorTest {
 	private final int PORT = 0;
 	private final String KEY_VALID = "valid";
 	private final int VALUE_SPEED = 30;
+	private final int VALUE_SPEED_OUT_OF_RANGE = -1;
 	private final boolean VALUE_VALID = true;
 	private final int INITIAL_SPEED = 50;
 	
@@ -41,6 +42,14 @@ public class MotorTest {
 		assertEquals(motor.getSpeed(), VALUE_SPEED);
 	}
 	
+	@Test
+	public void setMotorSpeedButItIsOutOfRange() {
+		Motor motor = new Motor(PORT, protocol);
+		assertEquals(motor.getSpeed(), INITIAL_SPEED);	// initial power
+		motor.setSpeed(VALUE_SPEED_OUT_OF_RANGE);
+		assertEquals(motor.getSpeed(), INITIAL_SPEED);
+	}
+
 	@Test
 	public void forwardMotor() {
 		new Expectations() {{
