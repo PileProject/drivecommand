@@ -1,8 +1,6 @@
 package test.drivecommand.machine;
 
-import static org.testng.AssertJUnit.assertFalse;
-import static org.testng.AssertJUnit.assertTrue;
-import java.io.IOException;
+import static org.testng.AssertJUnit.*;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -10,7 +8,7 @@ import org.testng.annotations.Test;
 import com.pile_drive.drivecommand.machine.Machine;
 import com.pile_drive.drivecommand.machine.input.TouchSensor;
 
-public class EV3MachineEndToEndTest {
+public class MachineEndToEndTest {
 	StubCommunicator comm = new StubCommunicator();
 	EV3Protocol protocol = new EV3Protocol(comm);
 	Machine machine = new Machine(protocol);
