@@ -10,7 +10,7 @@
 </head>
 <body onload='prettyPrint()'>
   <table cellpadding='0' cellspacing='1'>
-    <caption>DriveCommand/src/com/pile_drive/drivecommand/machine/output/Servomotor.java</caption>
+    <caption>drivecommand\src\com\pile_drive\drivecommand\machine\output\Servomotor.java</caption>
     <tr>
       <td class='line'>1</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>package com.pile_drive.drivecommand.machine.output;</pre></td>
@@ -39,12 +39,12 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
       <td><pre class='prettyprint'>	public Servomotor(int port, ProtocolBase protocol) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>15</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		super(port, protocol);</pre></td>
+      <td class='line'>15</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l15s0'>		super(port, protocol);</pre></td>
     </tr>
     <tr>
-      <td class='line'>16</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
+      <td class='line'>16</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l16s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -60,24 +60,24 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
       <td><pre class='prettyprint'>	public boolean setAngle(int angle) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>24</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		HashMap&lt;String, Object> args = new HashMap&lt;String, Object>();</pre></td>
+      <td class='line'>24</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l24s0'>		HashMap&lt;String, Object> args = new HashMap&lt;String, Object>();</pre></td>
     </tr>
     <tr>
-      <td class='line'>25</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		args.put("speed", angle);</pre></td>
+      <td class='line'>25</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l25s0'>		args.put("speed", angle);</pre></td>
     </tr>
     <tr>
-      <td class='line'>26</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);</pre></td>
+      <td class='line'>26</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l26s0'>		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);</pre></td>
     </tr>
     <tr>
-      <td class='line'>27</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		HashMap&lt;String, Object> res = exec(cmd);</pre></td>
+      <td class='line'>27</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l27s0'>		HashMap&lt;String, Object> res = exec(cmd);</pre></td>
     </tr>
     <tr>
-      <td class='line'>28</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		return (Boolean) res.get("valid");</pre></td>
+      <td class='line'>28</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l28s0'>		return (Boolean) res.get("valid");</pre></td>
     </tr>
     <tr>
       <td class='line'>29</td><td>&nbsp;</td>
@@ -97,16 +97,16 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
       <td><pre class='prettyprint'>	public int getAngle() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>37</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_SERVO_ANGLE, null);</pre></td>
+      <td class='line'>37</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l37s0'>		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_SERVO_ANGLE, null);</pre></td>
     </tr>
     <tr>
-      <td class='line'>38</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		HashMap&lt;String, Object> res = exec(cmd);</pre></td>
+      <td class='line'>38</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l38s0'>		HashMap&lt;String, Object> res = exec(cmd);</pre></td>
     </tr>
     <tr>
-      <td class='line'>39</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		return (Integer) res.get("value");</pre></td>
+      <td class='line'>39</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l39s0'>		return (Integer) res.get("value");</pre></td>
     </tr>
     <tr>
       <td class='line'>40</td><td>&nbsp;</td>
@@ -122,8 +122,8 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
       <td><pre class='prettyprint'>	public DeviceType getDeviceType() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>44</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		return DeviceType.SERVOMOTOR;</pre></td>
+      <td class='line'>44</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l44s0'>		return DeviceType.SERVOMOTOR;</pre></td>
     </tr>
     <tr>
       <td class='line'>45</td><td>&nbsp;</td>
