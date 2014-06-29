@@ -1,34 +1,38 @@
 package test.drivecommand.machine;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
 
 import com.pile_drive.drivecommand.model.com.ICommunicator;
 
-public class StubCommunicator implements ICommunicator{
-
+public class StubCommunicator implements ICommunicator {
+	private byte[] mValue = null;
+	private boolean mIsOpen = false;
+	
 	@Override
 	public void open() throws IOException {
-		// TODO 自動生成されたメソッド・スタブ
-		
+		mIsOpen = true;
 	}
 
 	@Override
 	public void close() {
-		// TODO 自動生成されたメソッド・スタブ
-		
-	}
-
-	@Override
-	public boolean send(ByteBuffer data, int timeout) {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
-	}
-
-	@Override
-	public ByteBuffer recv(int length, int timeout) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		mIsOpen = false;
 	}
 	
+	@Override
+	public boolean send(byte[] data, int timeout) {
+		return true;
+	}
+
+	@Override
+	public byte[] recv(int length, int timeout) {
+		return mValue;
+	}
+	
+	public void setValue(byte[] value) {
+		mValue = value;
+	}
+	
+	public boolean isOpen() {
+		return mIsOpen;
+	}
 }

@@ -12,6 +12,7 @@
 bin/
 gen/
 test-output/
+coverage-report/
 
 # Eclipse project files
 .classpath
