@@ -1,7 +1,11 @@
 package test.drivecommand.machine;
 
+<<<<<<< HEAD
 import static org.testng.AssertJUnit.assertTrue;
 import java.io.IOException;
+=======
+import static org.testng.AssertJUnit.*;
+>>>>>>> 0a9f0a536d203dbdea5c053df36f8e863414988c
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
