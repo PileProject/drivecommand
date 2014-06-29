@@ -19,12 +19,11 @@ public class StubCommunicator implements ICommunicator {
 	}
 	
 	@Override
-	public boolean send(byte[] data, int timeout) {
-		return true;
+	public void write(byte[] data, int timeout) {
 	}
 
 	@Override
-	public byte[] recv(int length, int timeout) {
+	public byte[] read(int length, int timeout) {
 		return mValue;
 	}
 	
