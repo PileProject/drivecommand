@@ -13,15 +13,6 @@ public abstract class ProtocolBase {
 		mCommunicator = comm;
 	}
 	
-	/**
-	 * Get communicator
-	 * 
-	 * @return
-	 */
-	protected ICommunicator getCommunicator() {
-		return mCommunicator;
-	}
-	
 	public abstract void open() throws IOException;
 	public abstract void close();
 	public abstract HashMap<String, Object> exec(int port, CommandBase cmd);
