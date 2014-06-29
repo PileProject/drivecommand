@@ -15,14 +15,14 @@ public interface ICommunicator {
 	/**
 	 * Write the byte array data to the device.
 	 * @param data
-	 * @param timeout
+	 * @param timeout Max waiting time for the end of this communication. [Unit: ms]
 	 * @throws RuntimeException
 	 */
 	public void write(byte[] data, int timeout) throws RuntimeException;
 	/**
 	 * Read the respose from the device.
-	 * @param length The max length of response wanted to be read
-	 * @param timeout
+	 * @param length The max length of response wanted to be read.
+	 * @param timeout Max waiting time for the end of this communication. [Unit: ms]
 	 * @return
 	 * @throws RuntimeException
 	 */

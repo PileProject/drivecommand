@@ -15,8 +15,8 @@ import com.pile_drive.drivecommand.model.com.ICommunicator;
 
 public class BluetoothCommunicator implements ICommunicator{
 	
-	private final static String TAG = "AndroidComm";
-	private static final UUID MY_UUID = UUID
+	private final static String TAG = "BluetoothCommunicator";
+	private static final UUID SPP_UUID = UUID
 			.fromString("00001101-0000-1000-8000-00805F9B34FB");
 	 
 	private BluetoothDevice mDevice;
@@ -24,20 +24,7 @@ public class BluetoothCommunicator implements ICommunicator{
 	private OutputStream mOutputStream;
 	private InputStream mInputStream;
 	
-	static class SingletonHolder {
-		static BluetoothCommunicator mmInstance = new BluetoothCommunicator();
-	}
-	
-	public static BluetoothCommunicator getInstance() {
-		return SingletonHolder.mmInstance;
-	}
-	
-	private BluetoothCommunicator() {
-		// Singleton class.
-	}
-	
-	public void setDevice(BluetoothDevice device) {
-		close();
+	public BluetoothCommunicator(BluetoothDevice device) {
 		mDevice = device;
 	}
 	
@@ -46,15 +33,17 @@ public class BluetoothCommunicator implements ICommunicator{
 		if (mDevice == null) throw new IOException();
 		
 		// Orthodox method
-		mSocket = mDevice.createRfcommSocketToServiceRecord(MY_UUID);
+		// This call may fail. It depends on the device. 
+		// Therefore, we do redundancy check with the below reflection method.
+		mSocket = mDevice.createRfcommSocketToServiceRecord(SPP_UUID);
 		
 		try {
 			mSocket.connect();
 		}
 		catch (IOException firstIOException) {
 			Log.d(TAG, "Failed to connect by orthodox method");
-			// Thanks to Micael Biermann
 			try {
+				// Redundancy check
 				Method method = mDevice.getClass().getMethod("createRfcommSocket", new Class[] {
 					int.class
 				});
