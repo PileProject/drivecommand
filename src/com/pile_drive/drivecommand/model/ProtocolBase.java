@@ -13,7 +13,22 @@ public abstract class ProtocolBase {
 		mCommunicator = comm;
 	}
 	
+	/**
+	 * Open the connection between devices.
+	 * @throws IOException
+	 */
 	public abstract void open() throws IOException;
+	
+	/**
+	 * Close the connection between devices.
+	 */
 	public abstract void close();
+	
+	/**
+	 * Execute the command.
+	 * @param port
+	 * @param cmd
+	 * @return
+	 */
 	public abstract HashMap<String, Object> exec(int port, CommandBase cmd);
 }
