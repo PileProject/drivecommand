@@ -1,9 +1,10 @@
-package com.pile_drive.drivecommand.model;
+package com.pile_drive.drivecommand.model.ev3;
 
 import java.io.IOException;
 import java.util.HashMap;
 
 import com.pile_drive.drivecommand.command.CommandBase;
+import com.pile_drive.drivecommand.model.ProtocolBase;
 import com.pile_drive.drivecommand.model.com.ICommunicator;
 
 public class Ev3Protocol extends ProtocolBase {
@@ -26,4 +27,6 @@ public class Ev3Protocol extends ProtocolBase {
 	public HashMap<String, Object> exec(int port, CommandBase cmd) {
 		return null;
 	}
+	
+	
 }
