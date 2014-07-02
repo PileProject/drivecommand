@@ -15,14 +15,15 @@ public class StubProtocol extends ProtocolBase {
 
 	@Override
 	public void open() throws IOException {
-		mCommunicator.open();
+		getCommunicator().open();
 	}
 
 	@Override
 	public void close() {
-		mCommunicator.close();
+		getCommunicator().close();
 	}
 
+	@SuppressWarnings("serial")
 	@Override
 	public HashMap<String, Object> exec(int port, CommandBase cmd) {
 		return new HashMap<String, Object>(){{put("value", true);}};
