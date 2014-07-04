@@ -149,7 +149,7 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 		byte[] reply = readData();
 		
 		// Check the validity of the response
-		boolean valid = (reply[2] == DIRECT_COMMAND_SUCCESS);
+//		boolean valid = (reply[2] == DIRECT_COMMAND_SUCCESS);
 		
 		// Read the SI unit value in float type
 		float[] result = new float[nvalue];
@@ -194,7 +194,7 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 		byte[] reply = readData();
 		
 		// Check the validity of the response
-		boolean valid = (reply[2] == DIRECT_COMMAND_SUCCESS);
+//		boolean valid = (reply[2] == DIRECT_COMMAND_SUCCESS);
 		
 		// Read the percent value in short type
 		short[] result = new short[nvalue];
