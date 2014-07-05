@@ -46,7 +46,7 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 			}
 			case GET_COLOR_RGB: {
 				// TOOD: NXT has own color sensor (NXT_COLOR).
-				short[] values = getPercentValue(port, COLOR, COL_RGB, 3);
+				float[] values = getSiValue(port, COLOR, COL_RGB, 3);
 				res.put(KEY_VALUE, values);
 				break;
 			}
@@ -62,7 +62,9 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 				break;
 			}
 			case GET_RANGEFINDER_DIST: {
-				throw new UnsupportedOperationException("GET RANGEFINDER DIST Operation hasn't been implemented yet");
+				float[] values = getSiValue(port, ULTRASONIC, US_CM, 1);
+				res.put(KEY_VALUE, (int) values[0]);
+				break;
 			}
 			case GET_REMOTECONTROLLER_BUTTON: {
 				throw new UnsupportedOperationException("GET REMOTECONTROLLER BUTTON Operation hasn't been implemented yet");
@@ -89,6 +91,7 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 				break;
 			}
 			case SET_BUZZER_BEEP: {
+				// TODO: something wrong
 				soundTone(50, (short) 1000, (short) 1000);
 				break;
 			}
@@ -212,13 +215,13 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 	
 	private byte getRealPortNumber(int port) {
 		switch (port) {
-			case 0x00:
+			case 0:
 				return 0x01;
-			case 0x01:
+			case 1:
 				return 0x02;
-			case 0x02:
+			case 2:
 				return 0x04;
-			case 0x03:
+			case 3:
 				return 0x08;
 			default:
 				return 0x00;	// something wrong

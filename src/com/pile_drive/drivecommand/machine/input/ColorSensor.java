@@ -18,12 +18,14 @@ public class ColorSensor extends DeviceBase {
 	/**
 	 * Get the color in RGB (0 - 255)
 	 * 
-	 * @return short[] (byte[0]: r, byte[1]: g, byte[2]: b)
+	 * TODO: this method doesn't return proper value.
+	 * 
+	 * @return float[] ([0]: r, [1]: g, [2]: b)
 	 */
-	public short[] getRgb() {
+	public float[] getRgb() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_COLOR_RGB, null);
 		HashMap<String, Object> res = exec(cmd);
-		return (short[]) res.get("value");
+		return (float[]) res.get("value");
 	}
 	
 	/**
