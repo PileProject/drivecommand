@@ -1,6 +1,5 @@
 package com.pile_drive.drivecommand.machine.output;
 
-
 import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.command.CommandFactory;
 import com.pile_drive.drivecommand.machine.DeviceBase;
@@ -16,8 +15,6 @@ public class Buzzer extends DeviceBase {
 	
 	/**
 	 * Turn on the buzzer if it is off
-	 * 
-	 * @return
 	 */
 	public void turnOn() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_BUZZER_ON, null);
@@ -26,8 +23,6 @@ public class Buzzer extends DeviceBase {
 	
 	/**
 	 * Turn off the buzzer if it is on
-	 * 
-	 * @return
 	 */
 	public void turnOff() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_BUZZER_OFF, null);
@@ -36,8 +31,6 @@ public class Buzzer extends DeviceBase {
 	
 	/**
 	 * Keep buzzer beeping
-	 * 
-	 * @return
 	 */
 	public void beep() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_BUZZER_BEEP, null);

@@ -30,8 +30,6 @@ public class Motor extends DeviceBase {
 	
 	/**
 	 * Move motor forward
-	 * 
-	 * @return valid
 	 */
 	public void forward() {
 		HashMap<String, Object> args = new HashMap<String, Object>();
@@ -42,8 +40,6 @@ public class Motor extends DeviceBase {
 	
 	/**
 	 * Move motor backward
-	 * 
-	 * @return valid
 	 */
 	public void backward() {
 		HashMap<String, Object> args = new HashMap<String, Object>();
@@ -54,8 +50,6 @@ public class Motor extends DeviceBase {
 	
 	/**
 	 * Stop motor
-	 * 
-	 * @return valid
 	 */
 	public void stop() {
 		HashMap<String, Object> args = new HashMap<String, Object>();
