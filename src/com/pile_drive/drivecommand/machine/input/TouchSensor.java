@@ -23,7 +23,7 @@ public class TouchSensor extends DeviceBase {
 	public boolean isTouched() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_TOUCH_TOUCHED, null);
 		HashMap<String, Object> res = exec(cmd);
-		return (Boolean) res.get("value");
+		return ((Integer) res.get("value") == 1);
 	}
 	
 	/**

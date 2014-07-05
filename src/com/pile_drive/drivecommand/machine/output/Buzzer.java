@@ -1,6 +1,5 @@
 package com.pile_drive.drivecommand.machine.output;
 
-import java.util.HashMap;
 
 import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.command.CommandFactory;
@@ -20,10 +19,9 @@ public class Buzzer extends DeviceBase {
 	 * 
 	 * @return
 	 */
-	public boolean turnOn() {
+	public void turnOn() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_BUZZER_ON, null);
-		HashMap<String, Object> res = exec(cmd);
-		return (Boolean) res.get("valid");
+		exec(cmd);
 	}
 	
 	/**
@@ -31,10 +29,9 @@ public class Buzzer extends DeviceBase {
 	 * 
 	 * @return
 	 */
-	public boolean turnOff() {
+	public void turnOff() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_BUZZER_OFF, null);
-		HashMap<String, Object> res = exec(cmd);
-		return (Boolean) res.get("valid");
+		exec(cmd);
 	}
 	
 	/**
@@ -42,10 +39,9 @@ public class Buzzer extends DeviceBase {
 	 * 
 	 * @return
 	 */
-	public boolean beep() {
+	public void beep() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_BUZZER_BEEP, null);
-		HashMap<String, Object> res = exec(cmd);
-		return (Boolean) res.get("valid");
+		exec(cmd);
 	}
 	
 	@Override
