@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
+
 import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
@@ -14,8 +16,8 @@ import com.pile_drive.drivecommand.model.com.ICommunicator;
 
 public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 	private static final String KEY_VALUE = "value";
-	private static final String KEY_VALID = "valid";
-	private static int TIMEOUT = 1000;
+	private static final int TIMEOUT = 1000;
+	private static final String TAG = "Ev3Protocol";
 	
 	public Ev3Protocol(ICommunicator comm) {
 		super(comm);
@@ -87,7 +89,7 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 				break;
 			}
 			case SET_BUZZER_BEEP: {
-				soundTone(50, (short) 10000, (short) 1000);
+				soundTone(50, (short) 1000, (short) 1000);
 				break;
 			}
 			case SET_BUZZER_OFF: {
@@ -106,7 +108,6 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 				HashMap<String, Object> args = cmd.getArgs();
 				int speed = (Integer) args.get("speed");
 				setOutputState(port, speed);
-				res.put(KEY_VALID, true);
 				break;
 			}
 			case SET_SERVO_ANGLE: {
@@ -138,7 +139,7 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 		byteCode.addOpCode(DIRECT_COMMAND_REPLY); // Command Types
 		
 		// TODO: NOT TESTED
-		byteCode.addGlobalAndLocalBufferSize(4, 0);
+		byteCode.addGlobalAndLocalBufferSize(4 * nvalue, 0);
 		byteCode.addOpCode(INPUT_DEVICE);
 		byteCode.addOpCode(READY_SI);
 		byteCode.addParameter(LAYER_MASTER);
@@ -183,7 +184,7 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 		byteCode.addOpCode(DIRECT_COMMAND_REPLY); // Command Types
 		
 		// TODO: NOT TESTED
-		byteCode.addGlobalAndLocalBufferSize(1, 0);
+		byteCode.addGlobalAndLocalBufferSize(1 * nvalue, 0);
 		byteCode.addOpCode(INPUT_DEVICE);
 		byteCode.addOpCode(READY_PCT);
 		byteCode.addParameter(LAYER_MASTER);
@@ -294,6 +295,7 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 		
 		// Get result
 		byte[] result = com.read(numBytes, TIMEOUT);
+		Log.d(TAG, "read: " + result.length + " bytes");
 		
 		return result;
 	}
