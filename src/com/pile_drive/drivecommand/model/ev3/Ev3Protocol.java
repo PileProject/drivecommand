@@ -6,6 +6,7 @@ import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import android.annotation.SuppressLint;
 import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
@@ -13,6 +14,7 @@ import com.pile_drive.drivecommand.model.com.ICommunicator;
 
 public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 	private static final String KEY_VALUE = "value";
+	private static final String KEY_VALID = "valid";
 	private static int TIMEOUT = 1000;
 	
 	public Ev3Protocol(ICommunicator comm) {
@@ -85,7 +87,7 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 				break;
 			}
 			case SET_BUZZER_BEEP: {
-				soundTone(50, (short)10000, (short)1000);
+				soundTone(50, (short) 10000, (short) 1000);
 				break;
 			}
 			case SET_BUZZER_OFF: {
@@ -102,8 +104,10 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 			}
 			case SET_MOTOR_SPEED: {
 				HashMap<String, Object> args = cmd.getArgs();
-				int speed = (Integer)args.get("speed");
+				int speed = (Integer) args.get("speed");
 				setOutputState(port, speed);
+				res.put(KEY_VALID, true);
+				break;
 			}
 			case SET_SERVO_ANGLE: {
 				throw new UnsupportedOperationException("SET SERVO ANGLE Operation hasn't been implemented yet");
@@ -128,6 +132,7 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 	 *            The number of the response value
 	 * @return
 	 */
+	@SuppressLint("NewApi")
 	private float[] getSiValue(int port, int type, int mode, int nvalue) {
 		ByteCodeFormatter byteCode = new ByteCodeFormatter();
 		byteCode.addOpCode(DIRECT_COMMAND_REPLY); // Command Types
@@ -149,7 +154,7 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 		byte[] reply = readData();
 		
 		// Check the validity of the response
-//		boolean valid = (reply[2] == DIRECT_COMMAND_SUCCESS);
+		// boolean valid = (reply[2] == DIRECT_COMMAND_SUCCESS);
 		
 		// Read the SI unit value in float type
 		float[] result = new float[nvalue];
@@ -194,7 +199,7 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 		byte[] reply = readData();
 		
 		// Check the validity of the response
-//		boolean valid = (reply[2] == DIRECT_COMMAND_SUCCESS);
+		// boolean valid = (reply[2] == DIRECT_COMMAND_SUCCESS);
 		
 		// Read the percent value in short type
 		short[] result = new short[nvalue];
@@ -204,39 +209,62 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 		return result;
 	}
 	
+	private byte getRealPortNumber(int port) {
+		switch (port) {
+			case 0x00:
+				return 0x01;
+			case 0x01:
+				return 0x02;
+			case 0x02:
+				return 0x04;
+			case 0x03:
+				return 0x08;
+			default:
+				return 0x00;	// something wrong
+		}
+	}
+	
 	/**
 	 * Set output device condition.
 	 * 
-	 * @param port The port of the device
-	 * @param speed The speed of the device
+	 * @param port
+	 *            The port of the device
+	 * @param speed
+	 *            The speed of the device
 	 */
 	private void setOutputState(int port, int speed) {
 		ByteCodeFormatter byteCode = new ByteCodeFormatter();
+		
+		// Convert port number
+		byte outputPort = getRealPortNumber(port);
 		
 		byteCode.addOpCode(DIRECT_COMMAND_NOREPLY);
 		byteCode.addGlobalAndLocalBufferSize(0, 0);
 		
 		byteCode.addOpCode(OUTPUT_POWER);
 		byteCode.addParameter(LAYER_MASTER);
-		byteCode.addParameter(port);
-		byteCode.addParameter((byte)speed);
+		byteCode.addParameter(outputPort);
+		byteCode.addParameter((byte) speed);
 		
 		byteCode.addOpCode(OUTPUT_START);
 		byteCode.addParameter(LAYER_MASTER);
-		byteCode.addParameter(port);
+		byteCode.addParameter(outputPort);
 		
 		// Send message
 		getCommunicator().write(byteCode.byteArray(), TIMEOUT);
 	}
 	
 	/**
-	 * Make a sound 
-	 *  
-	 * @param volume The volume of the sound (0 ~ 100 [%])
-	 * @param freq The frequency 
-	 * @param duration The duration of the tone
+	 * Make a sound
+	 * 
+	 * @param volume
+	 *            The volume of the sound (0 ~ 100 [%])
+	 * @param freq
+	 *            The frequency
+	 * @param duration
+	 *            The duration of the tone
 	 */
-	private void soundTone(int volume, short freq, short duration) {
+	private void soundTone(int volume, int freq, int duration) {
 		ByteCodeFormatter byteCode = new ByteCodeFormatter();
 		
 		byteCode.addOpCode(DIRECT_COMMAND_REPLY);
@@ -245,8 +273,8 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 		byteCode.addOpCode(SOUND_CONTROL);
 		byteCode.addOpCode(SOUND_TONE);
 		byteCode.addParameter(volume);
-		byteCode.addParameter(freq);
-		byteCode.addParameter(duration);
+		byteCode.addParameter((short) freq);
+		byteCode.addParameter((short) duration);
 		
 		// Send message
 		getCommunicator().write(byteCode.byteArray(), TIMEOUT);

@@ -53,7 +53,7 @@ public class Motor extends DeviceBase {
 		HashMap<String, Object> res = exec(cmd);
 		return (Boolean) res.get("valid");
 	}
-
+	
 	/**
 	 * Stop motor
 	 * 
