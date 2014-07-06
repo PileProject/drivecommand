@@ -40,40 +40,54 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 		switch (type) {
 			case GET_COLOR_ILLUMINANCE: {
 				// TOOD: NXT has own color sensor (NXT_COLOR).
-				short[] values = getPercentValue(port, COLOR, COL_REFLECT, 1);
+				short[] values = getPercentValue(port, EV3_COLOR, COL_REFLECT, 1);
 				res.put(KEY_VALUE, (int) values[0]);
 				break;
 			}
 			case GET_COLOR_RGB: {
 				// TOOD: NXT has own color sensor (NXT_COLOR).
-				float[] values = getSiValue(port, COLOR, COL_RGB, 3);
+				// Something wrong
+				float[] values = getSiValue(port, EV3_COLOR, COL_RGB, 3);
 				res.put(KEY_VALUE, values);
 				break;
 			}
 			case GET_GYRO_ANGLE: {
-				throw new UnsupportedOperationException("GET GYRO ANGLE Operation hasn't been implemented yet");
+				float[] value = getSiValue(port, EV3_GYRO, GYRO_ANGLE, 1);
+				res.put(KEY_VALUE, (int) value[0]);
+				break;
 			}
 			case GET_GYRO_RATE: {
-				throw new UnsupportedOperationException("GET GYRO RATE Operation hasn't been implemented yet");
+				float[] value = getSiValue(port, EV3_GYRO, GYRO_RATE, 1);
+				res.put(KEY_VALUE, (int) value[0]);
+				break;
 			}
 			case GET_LINE_VALUE: {
+				// TODO: NOT TESTED
 				short[] values = getPercentValue(port, NXT_LIGHT, LIGHT_REFLECT, 1);
 				res.put(KEY_VALUE, (int) values[0]);
 				break;
 			}
 			case GET_RANGEFINDER_DIST: {
-				float[] values = getSiValue(port, ULTRASONIC, US_CM, 1);
+				float[] values = getSiValue(port, EV3_ULTRASONIC, US_CM, 1);
 				res.put(KEY_VALUE, (int) values[0]);
 				break;
 			}
 			case GET_REMOTECONTROLLER_BUTTON: {
-				throw new UnsupportedOperationException("GET REMOTECONTROLLER BUTTON Operation hasn't been implemented yet");
+				// TODO: NOT TESTED
+				float[] values = getSiValue(port, EV3_IR, IR_REMOTE, 1);
+				res.put(KEY_VALUE, (int) values[0]);
+				break;
 			}
 			case GET_REMOTECONTROLLER_DIST: {
-				throw new UnsupportedOperationException("GET REMOTECONTROLLER DIST Operation hasn't been implemented yet");
+				// TODO: NOT TESTED
+				float[] values = getSiValue(port, EV3_IR, IR_PROX, 1);
+				res.put(KEY_VALUE, (int) values[0]);
+				break;
 			}
 			case GET_SERVO_ANGLE: {
-				throw new UnsupportedOperationException("GET SERVO ANGLE Operation hasn't been implemented yet");
+				float[] values = getSiValue((0x10 | port), L_MOTOR, L_MOTOR_DEGREE, 1);
+				res.put(KEY_VALUE, (int) values[0]);
+				break;
 			}
 			case GET_SOUND_DB: {
 				float[] values = getSiValue(port, NXT_SOUND, SOUND_DB, 1);
@@ -81,12 +95,12 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 				break;
 			}
 			case GET_TOUCH_COUNT: {
-				float[] values = getSiValue(port, TOUCH, TOUCH_BUMPS, 1);
+				float[] values = getSiValue(port, EV3_TOUCH, TOUCH_BUMPS, 1);
 				res.put(KEY_VALUE, (int) values[0]);
 				break;
 			}
 			case GET_TOUCH_TOUCHED: {
-				float[] values = getSiValue(port, TOUCH, TOUCH_TOUCH, 1);
+				float[] values = getSiValue(port, EV3_TOUCH, TOUCH_TOUCH, 1);
 				res.put(KEY_VALUE, (int) values[0]);
 				break;
 			}
@@ -224,7 +238,7 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 			case 3:
 				return 0x08;
 			default:
-				return 0x00;	// something wrong
+				return 0x00; // something wrong
 		}
 	}
 	

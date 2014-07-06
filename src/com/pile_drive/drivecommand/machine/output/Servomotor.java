@@ -28,9 +28,10 @@ public class Servomotor extends DeviceBase {
 	/**
 	 * Get the angle of the servomotor
 	 */
-	public void getAngle() {
+	public int getAngle() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_SERVO_ANGLE, null);
-		exec(cmd);
+		HashMap<String, Object> res = exec(cmd);
+		return (Integer) res.get("value");
 	}
 
 	@Override
