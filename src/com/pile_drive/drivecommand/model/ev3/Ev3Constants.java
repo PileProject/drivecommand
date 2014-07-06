@@ -97,9 +97,13 @@ public interface Ev3Constants {
 	public static byte NXT_SOUND = (byte) 0x03;
 	public static byte NXT_COLOR = (byte) 0x04;
 	public static byte NXT_ULTRASONIC = (byte) 0x05;
-	public static byte TOUCH = (byte) 0x10;
-	public static byte COLOR = (byte) 0x1D;
-	public static byte ULTRASONIC = (byte) 0x1E;
+	public static byte L_MOTOR = (byte) 0x07;
+	public static byte M_MOTOR = (byte) 0x08;
+	public static byte EV3_TOUCH = (byte) 0x10;
+	public static byte EV3_COLOR = (byte) 0x1D;
+	public static byte EV3_ULTRASONIC = (byte) 0x1E;
+	public static byte EV3_GYRO = (byte) 0x20;
+	public static byte EV3_IR = (byte) 0x21;
 	
 	// Sensor Mode:
 	public static byte NOT_INITIALIZED = (byte) 0xff;
@@ -122,4 +126,21 @@ public interface Ev3Constants {
 	public static byte US_CM = (byte) 0x00;
 	public static byte US_INCH = (byte) 0x01;
 	public static byte US_LISTEN = (byte) 0x02;
+	/** Gyro */
+	public static byte GYRO_ANGLE = (byte) 0x00;
+	public static byte GYRO_RATE = (byte) 0x01;
+	/** IR */
+	public static byte IR_PROX = (byte) 0x00;
+	public static byte IR_SEEK = (byte) 0x01;
+	public static byte IR_REMOTE = (byte) 0x02;
+	
+	/** L-Motor */
+	public static byte L_MOTOR_DEGREE = (byte) 0x00;
+	public static byte L_MOTOR_ROTATE = (byte) 0x01;
+	public static byte L_MOTOR_SPEED = (byte) 0x02;
+	/** M-Motor */
+	public static byte M_MOTOR_DEGREE = (byte) 0x00;
+	public static byte M_MOTOR_ROTATE = (byte) 0x01;
+	public static byte M_MOTOR_SPEED = (byte) 0x02;
+	
 }
