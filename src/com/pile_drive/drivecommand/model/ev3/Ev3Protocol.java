@@ -105,8 +105,8 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 				break;
 			}
 			case SET_BUZZER_BEEP: {
-				// TODO: something wrong
-				soundTone(50, (short) 1000, (short) 1000);
+				// TODO: maybe OK.
+				soundTone(50, 600, 200);
 				break;
 			}
 			case SET_BUZZER_OFF: {
@@ -290,7 +290,7 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 		
 		byteCode.addOpCode(SOUND_CONTROL);
 		byteCode.addOpCode(SOUND_TONE);
-		byteCode.addParameter(volume);
+		byteCode.addParameter((byte) volume);
 		byteCode.addParameter((short) freq);
 		byteCode.addParameter((short) duration);
 		
