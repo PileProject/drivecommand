@@ -7,19 +7,10 @@ import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.model.com.ICommunicator;
 
 public abstract class ProtocolBase {
-	private final ICommunicator mCommunicator;
+	protected final ICommunicator mCommunicator;
 	
 	public ProtocolBase(ICommunicator comm) {
 		mCommunicator = comm;
-	}
-	
-	/**
-	 * Get the communicator.
-	 * 
-	 * @return
-	 */
-	public ICommunicator getCommunicator() {
-		return mCommunicator;
 	}
 	
 	/**
