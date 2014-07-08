@@ -24,6 +24,7 @@ public class ByteCodeFormatter {
 	private static byte BYTE_SIZE = (byte) 0x81;
 	private static byte SHORT_SIZE = (byte) 0x82;
 	private static byte INT_SIZE = (byte) 0x83;
+	@SuppressWarnings("unused")
 	private static byte STRING_SIZE = (byte) 0x84;
 	
 	private static byte GLOBAL_INDEX_SIZE = (byte) 0xe1;
@@ -79,7 +80,7 @@ public class ByteCodeFormatter {
 		// Write 2 bytes in form of (llllllgg gggggggg)
 		try {
 			mWriter.writeByte(global); // LSB
-			mWriter.writeByte((local << 2) | (global >> 8) & 0x03); // MSB
+			mWriter.writeByte((local << 2) | ((global >> 8) & 0x03)); // MSB
 		}
 		catch (IOException e) {
 			Log.e(TAG, "Couldn't write global and local buffer size", e);
@@ -109,7 +110,8 @@ public class ByteCodeFormatter {
 	public void addParameter(short param) {
 		try {
 			mWriter.writeByte(SHORT_SIZE);
-			mWriter.writeShort(param);
+			mWriter.writeByte(param);
+			mWriter.writeByte(param >> 8);
 		}
 		catch (IOException e) {
 			Log.e(TAG, "Couldn't write paramameter (short)", e);
@@ -124,29 +126,16 @@ public class ByteCodeFormatter {
 	public void addParameter(int param) {
 		try {
 			mWriter.writeByte(INT_SIZE);
-			mWriter.writeInt(param);
+			mWriter.writeByte(param);
+			mWriter.writeByte(param >> 8);
+			mWriter.writeByte(param >> 16);
+			mWriter.writeByte(param >> 24);
 		}
 		catch (IOException e) {
 			Log.e(TAG, "Couldn't write paramameter (int)", e);
 		}
 	}
 	
-	/**
-	 * Add String parameter
-	 * TODO: NOT TESTED
-	 * 
-	 * @param param
-	 */
-	public void addParameter(String param) {
-		try {
-			mWriter.writeByte(STRING_SIZE);
-			mWriter.writeChars(param);
-			mWriter.write((byte) 0x00); // terminal
-		}
-		catch (IOException e) {
-			Log.e(TAG, "Couldn't write paramameter (String)", e);
-		}
-	}
 	
 	/**
 	 * Add global index

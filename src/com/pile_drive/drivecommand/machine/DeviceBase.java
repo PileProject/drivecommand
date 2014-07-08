@@ -15,7 +15,7 @@ public abstract class DeviceBase {
 	 * @param port
 	 */
 	public DeviceBase(int port, ProtocolBase protocol) {
-		if (port < 0 || port > 4) throw new IllegalArgumentException("The port should be between 0 to 4.");
+		if (port < 0 || port > 3) throw new IllegalArgumentException("The port should be between 0 to 3.");
 		mPort = port;
 		mProtocol = protocol;
 	}

@@ -39,7 +39,7 @@ public class RemoteControlRecieverTest {
 			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_DISTANCE);}};
 		}};
 		RemoteControlReciever rr = new RemoteControlReciever(PORT, protocol);
-		AssertJUnit.assertEquals(rr.getRate(), VALUE_DISTANCE);
+		AssertJUnit.assertEquals(rr.getRemoteDistance(), VALUE_DISTANCE);
 	}
 	
 	@Test

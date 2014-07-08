@@ -15,13 +15,23 @@ public class RemoteControlReciever extends DeviceBase {
 		super(port, protocol);
 	}
 	
+	/**
+	 * Get pushed buttons on the controller.
+	 * 
+	 * @return button number
+	 */
 	public int getRemoteButton() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_REMOTECONTROLLER_BUTTON, null);
 		HashMap<String, Object> res = exec(cmd);
 		return (Integer)res.get("value");
 	}
 
-	public int getRate() {
+	/**
+	 * Get distance between this device and the controller.
+	 * 
+	 * @return distance [cm] TODO: not tested
+	 */
+	public int getRemoteDistance() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_REMOTECONTROLLER_DIST, null);
 		HashMap<String, Object> res = exec(cmd);
 		return (Integer)res.get("value");
