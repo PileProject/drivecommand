@@ -14,7 +14,9 @@ import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
 import com.pile_drive.drivecommand.model.com.ICommunicator;
 
-public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
+import static com.pile_drive.drivecommand.model.ev3.Ev3Constants.*;
+
+public class Ev3Protocol extends ProtocolBase {
 	private static final String KEY_VALUE = "value";
 	private static final int TIMEOUT = 1000;
 	private static final String TAG = "Ev3Protocol";
