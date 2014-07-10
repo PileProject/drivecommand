@@ -287,7 +287,7 @@ public class Ev3Protocol extends ProtocolBase implements Ev3Constants {
 	private void soundTone(int volume, int freq, int duration) {
 		ByteCodeFormatter byteCode = new ByteCodeFormatter();
 		
-		byteCode.addOpCode(DIRECT_COMMAND_REPLY);
+		byteCode.addOpCode(DIRECT_COMMAND_NOREPLY);
 		byteCode.addGlobalAndLocalBufferSize(0, 0);
 		
 		byteCode.addOpCode(SOUND_CONTROL);
