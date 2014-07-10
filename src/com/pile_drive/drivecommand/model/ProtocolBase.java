@@ -15,6 +15,7 @@ public abstract class ProtocolBase {
 	
 	/**
 	 * Open the connection between devices.
+	 * 
 	 * @throws IOException
 	 */
 	public abstract void open() throws IOException;
@@ -26,6 +27,7 @@ public abstract class ProtocolBase {
 	
 	/**
 	 * Execute the command.
+	 * 
 	 * @param port
 	 * @param cmd
 	 * @return

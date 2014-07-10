@@ -12,13 +12,12 @@ import android.util.Log;
 
 import com.pile_drive.drivecommand.model.com.ICommunicator;
 
-
-public class BluetoothCommunicator implements ICommunicator{
+public class BluetoothCommunicator implements ICommunicator {
 	
 	private final static String TAG = "BluetoothCommunicator";
 	private static final UUID SPP_UUID = UUID
 			.fromString("00001101-0000-1000-8000-00805F9B34FB");
-	 
+	
 	private BluetoothDevice mDevice;
 	private BluetoothSocket mSocket;
 	private OutputStream mOutputStream;
@@ -33,7 +32,7 @@ public class BluetoothCommunicator implements ICommunicator{
 		if (mDevice == null) throw new IOException();
 		
 		// Orthodox method
-		// This call may fail. It depends on the device. 
+		// This call may fail. It depends on the device.
 		// Therefore, we do redundancy check with the below reflection method.
 		mSocket = mDevice.createRfcommSocketToServiceRecord(SPP_UUID);
 		
@@ -45,7 +44,7 @@ public class BluetoothCommunicator implements ICommunicator{
 			try {
 				// Redundancy check
 				Method method = mDevice.getClass().getMethod("createRfcommSocket", new Class[] {
-					int.class
+						int.class
 				});
 				mSocket = (BluetoothSocket) method.invoke(mDevice, Integer.valueOf(1));
 				mSocket.connect();
@@ -94,7 +93,11 @@ public class BluetoothCommunicator implements ICommunicator{
 			Log.e(TAG, "Write failed.", e);
 			throw new RuntimeException(e);
 		}
-		Log.v(TAG, "Sent: " + request);
+
+		Log.d(TAG, "Write");
+		for (int i = 0; i < request.length; i++) {
+			Log.d(TAG, "[" + i + "]" + request[i]);
+		}
 	}
 	
 	@Override
@@ -111,7 +114,11 @@ public class BluetoothCommunicator implements ICommunicator{
 		}
 		byte[] result = new byte[numBytes];
 		System.arraycopy(buffer, 0, result, 0, numBytes);
-		Log.v(TAG, "Read: " + result);
+		
+		Log.d(TAG, "Read ");
+		for (int i = 0; i < result.length; i++) {
+			Log.d(TAG, "[" + i + "]" + result[i]);
+		}
 		return result;
 	}
 }

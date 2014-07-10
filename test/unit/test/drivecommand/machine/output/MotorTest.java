@@ -56,7 +56,7 @@ public class MotorTest {
 			protocol.exec(PORT, (CommandBase)any);
 			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
 		}};
-		assertEquals(motor.forward(), VALUE_VALID);
+		motor.forward();
 	}
 
 	@Test
@@ -65,7 +65,7 @@ public class MotorTest {
 			protocol.exec(PORT, (CommandBase)any);
 			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
 		}};
-		assertEquals(motor.backward(), VALUE_VALID);
+		motor.backward();
 	}
 	
 	@Test
@@ -74,7 +74,7 @@ public class MotorTest {
 			protocol.exec(PORT, (CommandBase)any); 
 			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
 		}};
-		assertEquals(motor.stop(), VALUE_VALID);
+		motor.stop();
 	}
 	
 	@Test
