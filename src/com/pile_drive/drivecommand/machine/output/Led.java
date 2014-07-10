@@ -1,6 +1,5 @@
 package com.pile_drive.drivecommand.machine.output;
 
-import java.util.HashMap;
 
 import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.command.CommandFactory;
@@ -17,24 +16,18 @@ public class Led extends DeviceBase {
 	
 	/**
 	 * Turn on the LED if it is off
-	 * 
-	 * @return
 	 */
-	public boolean turnOn() {
+	public void turnOn() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_LED_ON, null);
-		HashMap<String, Object> res = exec(cmd);
-		return (Boolean) res.get("valid");
+		exec(cmd);
 	}
 	
 	/**
 	 * Turn off the LED if it is on
-	 * 
-	 * @return
 	 */
-	public boolean turnOff() {
+	public void turnOff() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_LED_OFF, null);
-		HashMap<String, Object> res = exec(cmd);
-		return (Boolean) res.get("valid");
+		exec(cmd);
 	}
 	
 	@Override

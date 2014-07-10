@@ -28,7 +28,7 @@ public class BuzzerTest {
 			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
 		}};
 		Buzzer bz = new Buzzer(PORT, protocol);
-		assertEquals(bz.turnOn(), VALUE_VALID);
+		bz.turnOn();
 	}
 	
 	@Test
@@ -38,7 +38,7 @@ public class BuzzerTest {
 			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
 		}};
 		Buzzer bz = new Buzzer(PORT, protocol);
-		assertEquals(bz.turnOff(), VALUE_VALID);
+		bz.turnOff();
 	}
 	
 	@Test
@@ -48,7 +48,7 @@ public class BuzzerTest {
 			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
 		}};
 		Buzzer bz = new Buzzer(PORT, protocol);
-		assertEquals(bz.beep(), VALUE_VALID);
+		bz.beep();
 	}
 	
 	@Test

@@ -30,41 +30,32 @@ public class Motor extends DeviceBase {
 	
 	/**
 	 * Move motor forward
-	 * 
-	 * @return valid
 	 */
-	public boolean forward() {
+	public void forward() {
 		HashMap<String, Object> args = new HashMap<String, Object>();
 		args.put("speed", mSpeed);
 		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);
-		HashMap<String, Object> res = exec(cmd);
-		return (Boolean) res.get("valid");
+		exec(cmd);
 	}
 	
 	/**
 	 * Move motor backward
-	 * 
-	 * @return valid
 	 */
-	public boolean backward() {
+	public void backward() {
 		HashMap<String, Object> args = new HashMap<String, Object>();
 		args.put("speed", -mSpeed);
 		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);
-		HashMap<String, Object> res = exec(cmd);
-		return (Boolean) res.get("valid");
+		exec(cmd);
 	}
-
+	
 	/**
 	 * Stop motor
-	 * 
-	 * @return valid
 	 */
-	public boolean stop() {
+	public void stop() {
 		HashMap<String, Object> args = new HashMap<String, Object>();
 		args.put("speed", 0);
 		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);
-		HashMap<String, Object> res = exec(cmd);
-		return (Boolean) res.get("valid");
+		exec(cmd);
 	}
 	
 	/**

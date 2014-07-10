@@ -28,7 +28,7 @@ public class LedTest {
 			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
 		}};
 		Led led = new Led(PORT, protocol);
-		assertEquals(led.turnOn(), VALUE_VALID);
+		led.turnOn();
 	}
 	
 	@Test
@@ -38,7 +38,7 @@ public class LedTest {
 			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
 		}};
 		Led led = new Led(PORT, protocol);
-		assertEquals(led.turnOff(), VALUE_VALID);
+		led.turnOff();
 	}
 	
 	

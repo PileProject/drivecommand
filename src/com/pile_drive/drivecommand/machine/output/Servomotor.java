@@ -17,21 +17,16 @@ public class Servomotor extends DeviceBase {
 	
 	/**
 	 * Set the angle to this servomotor
-	 * 
-	 * @return valid
 	 */
-	public boolean setAngle(int angle) {
+	public void setAngle(int angle) {
 		HashMap<String, Object> args = new HashMap<String, Object>();
 		args.put("speed", angle);
 		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);
-		HashMap<String, Object> res = exec(cmd);
-		return (Boolean) res.get("valid");
+		exec(cmd);
 	}
 	
 	/**
 	 * Get the angle of the servomotor
-	 * 
-	 * @return valid
 	 */
 	public int getAngle() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_SERVO_ANGLE, null);
