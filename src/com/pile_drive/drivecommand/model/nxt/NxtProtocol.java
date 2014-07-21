@@ -5,8 +5,6 @@ import static com.pile_drive.drivecommand.model.nxt.NxtConstants.*;
 import java.io.IOException;
 import java.util.HashMap;
 
-import android.util.Log;
-
 import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
@@ -64,6 +62,9 @@ public class NxtProtocol extends ProtocolBase {
 				break;
 			}
 			case GET_SOUND_DB: {
+				setInputMode(port, SOUND_DB, PCTFULLSCALEMODE);
+				InputValues values = getInputValues(port);
+				res.put(KEY_VALUE, (int)values.scaledValue);
 				break;
 			}
 			case GET_TOUCH_COUNT: {
@@ -72,9 +73,6 @@ public class NxtProtocol extends ProtocolBase {
 			case GET_TOUCH_TOUCHED: {
 				setInputMode(port, SWITCH, BOOLEANMODE);
 				InputValues values = getInputValues(port);
-				values = getInputValues(port);
-				Log.d(TAG, "" + values.scaledValue);
-				
 				res.put(KEY_VALUE, values.scaledValue < 600);
 				break;
 			}
