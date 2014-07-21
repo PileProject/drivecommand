@@ -93,11 +93,11 @@ public class BluetoothCommunicator implements ICommunicator {
 			Log.e(TAG, "Write failed.", e);
 			throw new RuntimeException(e);
 		}
-
-		Log.d(TAG, "Write");
-		for (int i = 0; i < request.length; i++) {
-			Log.d(TAG, "[" + i + "]" + request[i]);
-		}
+		
+		// Log.d(TAG, "Write");
+		// for (int i = 0; i < request.length; i++) {
+		// Log.d(TAG, "[" + i + "]" + request[i]);
+		// }
 	}
 	
 	@Override
@@ -115,10 +115,10 @@ public class BluetoothCommunicator implements ICommunicator {
 		byte[] result = new byte[numBytes];
 		System.arraycopy(buffer, 0, result, 0, numBytes);
 		
-		Log.d(TAG, "Read ");
-		for (int i = 0; i < result.length; i++) {
-			Log.d(TAG, "[" + i + "]" + result[i]);
-		}
+		// Log.d(TAG, "Read ");
+		// for (int i = 0; i < result.length; i++) {
+		// Log.d(TAG, "[" + i + "]" + result[i]);
+		// }
 		return result;
 	}
 }
