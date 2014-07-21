@@ -10,11 +10,14 @@ import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
 import com.pile_drive.drivecommand.model.com.ICommunicator;
 
+/**
+ * @see <a href="http://sourceforge.net/projects/lejos/files/lejos-NXJ/">LeJOS</a>
+ */
 public class NxtProtocol extends ProtocolBase {
 	private static final String KEY_VALUE = "value";
 	private static final int TIMEOUT = 1000;
 	private static final String TAG = "NxtProtocol";
-	
+
 	public NxtProtocol(ICommunicator comm) {
 		super(comm);
 	}
@@ -47,6 +50,9 @@ public class NxtProtocol extends ProtocolBase {
 				break;
 			}
 			case GET_LINE_VALUE: {
+				setInputMode(port, LIGHT_ACTIVE, PCTFULLSCALEMODE);
+				InputValues values = getInputValues(port);
+				res.put(KEY_VALUE, (int)(values.scaledValue / 10));
 				break;
 			}
 			case GET_RANGEFINDER_DIST: {
@@ -64,7 +70,7 @@ public class NxtProtocol extends ProtocolBase {
 			case GET_SOUND_DB: {
 				setInputMode(port, SOUND_DB, PCTFULLSCALEMODE);
 				InputValues values = getInputValues(port);
-				res.put(KEY_VALUE, (int)values.scaledValue);
+				res.put(KEY_VALUE, (int)(values.scaledValue / 10));
 				break;
 			}
 			case GET_TOUCH_COUNT: {
@@ -173,19 +179,12 @@ public class NxtProtocol extends ProtocolBase {
 		inputValues.inputPort = reply[3];
 		// 0 is false, 1 is true.
 		inputValues.valid = (reply[4] != 0);
-		// 0 is false, 1 is true.
+		// 0 is false, 1 is true. 
 		inputValues.isCalibrated = (reply[5] == 0);
 		inputValues.sensorType = reply[6];
 		inputValues.sensorMode = reply[7];
-		inputValues.rawADValue = (0xFF & reply[8]) | ((0xFF & reply[9]) << 8);
-		inputValues.normalizedADValue = (0xFF & reply[10])
-				| ((0xFF & reply[11]) << 8);
-		// inputValues.scaledValue = (short) ((0xFF & reply[12]) | (reply[13] <<
-		// 8));
-		// inputValues.calibratedValue = (short) ((0xFF & reply[14]) |
-		// (reply[15] << 8));
-		// * Untested if scaledValue and calibrateValue above work as shown. Alt
-		// code below.
+		inputValues.rawADValue = (short) ((0xFF & reply[8]) | ((0xFF & reply[9]) << 8));
+		inputValues.normalizedADValue = (short) ((0xFF & reply[10]) | ((0xFF & reply[11]) << 8));
 		inputValues.scaledValue = (short) ((0xFF & reply[12]) | ((0xFF & reply[13]) << 8));
 		inputValues.calibratedValue = (short) ((0xFF & reply[14]) | ((0xFF & reply[15]) << 8));
 
