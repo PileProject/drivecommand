@@ -5,6 +5,8 @@ import static com.pile_drive.drivecommand.model.nxt.NxtConstants.*;
 import java.io.IOException;
 import java.util.HashMap;
 
+import android.util.Log;
+
 import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
@@ -68,6 +70,12 @@ public class NxtProtocol extends ProtocolBase {
 				break;
 			}
 			case GET_TOUCH_TOUCHED: {
+				setInputMode(port, SWITCH, BOOLEANMODE);
+				InputValues values = getInputValues(port);
+				values = getInputValues(port);
+				Log.d(TAG, "" + values.scaledValue);
+				
+				res.put(KEY_VALUE, values.scaledValue < 600);
 				break;
 			}
 			case SET_BUZZER_BEEP: {
@@ -156,5 +164,51 @@ public class NxtProtocol extends ProtocolBase {
 		
 		// Send request
 		mCommunicator.write(data, TIMEOUT);
+	}	
+
+	private InputValues getInputValues(int port) {
+		// !! Needs to check port to verify they are correct ranges.
+		byte[] request = { DIRECT_COMMAND_REPLY, GET_INPUT_VALUES, (byte) port };
+		sendData(request);
+		byte[] reply = mCommunicator.read(66, TIMEOUT);
+		InputValues inputValues = new InputValues();
+		inputValues.inputPort = reply[3];
+		// 0 is false, 1 is true.
+		inputValues.valid = (reply[4] != 0);
+		// 0 is false, 1 is true.
+		inputValues.isCalibrated = (reply[5] == 0);
+		inputValues.sensorType = reply[6];
+		inputValues.sensorMode = reply[7];
+		inputValues.rawADValue = (0xFF & reply[8]) | ((0xFF & reply[9]) << 8);
+		inputValues.normalizedADValue = (0xFF & reply[10])
+				| ((0xFF & reply[11]) << 8);
+		// inputValues.scaledValue = (short) ((0xFF & reply[12]) | (reply[13] <<
+		// 8));
+		// inputValues.calibratedValue = (short) ((0xFF & reply[14]) |
+		// (reply[15] << 8));
+		// * Untested if scaledValue and calibrateValue above work as shown. Alt
+		// code below.
+		inputValues.scaledValue = (short) ((0xFF & reply[12]) | ((0xFF & reply[13]) << 8));
+		inputValues.calibratedValue = (short) ((0xFF & reply[14]) | ((0xFF & reply[15]) << 8));
+
+		return inputValues;
+	}
+	
+	/**
+	 * Tells the NXT what type of sensor you are using and the mode to operate
+	 * in.
+	 *
+	 * @param port
+	 *            - 0 to 3
+	 * @param sensorType
+	 *            - Enumeration for sensor type (see NXTProtocol)
+	 * @param sensorMode
+	 *            - Enumeration for sensor mode (see NXTProtocol)
+	 */
+	public void setInputMode(int port, int sensorType, int sensorMode) {
+		// !! Needs to check port to verify they are correct ranges.
+		byte[] request = { DIRECT_COMMAND_NOREPLY, SET_INPUT_MODE, (byte) port,
+				(byte) sensorType, (byte) sensorMode };
+		sendData(request);
 	}
 }
