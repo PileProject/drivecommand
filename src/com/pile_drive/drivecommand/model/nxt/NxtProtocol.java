@@ -14,8 +14,7 @@ import com.pile_drive.drivecommand.model.ProtocolBase;
 import com.pile_drive.drivecommand.model.com.ICommunicator;
 
 /**
- * @see <a
- *      href="http://sourceforge.net/projects/lejos/files/lejos-NXJ/">LeJOS</a>
+ * @see <a href="http://sourceforge.net/projects/lejos/files/lejos-NXJ/">LeJOS</a>
  */
 public class NxtProtocol extends ProtocolBase {
 	private static final String KEY_VALUE = "value";
@@ -46,16 +45,16 @@ public class NxtProtocol extends ProtocolBase {
 		CommandType type = cmd.getCommandType();
 		switch (type) {
 			case GET_COLOR_ILLUMINANCE: {
-				break;
+				throw new UnsupportedOperationException("GET COLOR ILLUMINANCE Operation hasn't been implemented yet");
 			}
 			case GET_COLOR_RGB: {
-				break;
-			}
+				throw new UnsupportedOperationException("GET COLOR RGB Operation hasn't been implemented yet");
+							}
 			case GET_GYRO_ANGLE: {
-				break;
+				throw new UnsupportedOperationException("GET GYRO ANGLE Operation hasn't been implemented yet");
 			}
 			case GET_GYRO_RATE: {
-				break;
+				throw new UnsupportedOperationException("GET GYRO RATE Operation hasn't been implemented yet");
 			}
 			case GET_LINE_VALUE: {
 				setInputMode(port, LIGHT_ACTIVE, PCTFULLSCALEMODE);
@@ -64,16 +63,16 @@ public class NxtProtocol extends ProtocolBase {
 				break;
 			}
 			case GET_RANGEFINDER_DIST: {
-				break;
+				throw new UnsupportedOperationException("GET RANGEFINDER DIST Operation hasn't been implemented yet");
 			}
 			case GET_REMOTECONTROLLER_BUTTON: {
-				break;
+				throw new UnsupportedOperationException("GET REMOTECONTROLLER BUTTON Operation hasn't been implemented yet");
 			}
 			case GET_REMOTECONTROLLER_DIST: {
-				break;
+				throw new UnsupportedOperationException("GET GET REMOTECONTROLLER DIST Operation hasn't been implemented yet");
 			}
 			case GET_SERVO_ANGLE: {
-				break;
+				throw new UnsupportedOperationException("GET SERVO ANGLE Operation hasn't been implemented yet");
 			}
 			case GET_SOUND_DB: {
 				setInputMode(port, SOUND_DB, PCTFULLSCALEMODE);
@@ -82,7 +81,7 @@ public class NxtProtocol extends ProtocolBase {
 				break;
 			}
 			case GET_TOUCH_COUNT: {
-				break;
+				throw new UnsupportedOperationException("GET TOUCH COUNT Operation hasn't been implemented yet");
 			}
 			case GET_TOUCH_TOUCHED: {
 				setInputMode(port, SWITCH, BOOLEANMODE);
@@ -91,19 +90,19 @@ public class NxtProtocol extends ProtocolBase {
 				break;
 			}
 			case SET_BUZZER_BEEP: {
-				break;
+				throw new UnsupportedOperationException("SET BUZZER BEEP Operation hasn't been implemented yet");
 			}
 			case SET_BUZZER_OFF: {
-				break;
+				throw new UnsupportedOperationException("SET BUZZER OFF Operation hasn't been implemented yet");
 			}
 			case SET_BUZZER_ON: {
-				break;
+				throw new UnsupportedOperationException("SET BUZZER ON Operation hasn't been implemented yet");
 			}
 			case SET_LED_OFF: {
-				break;
+				throw new UnsupportedOperationException("SET LED OFF Operation hasn't been implemented yet");
 			}
 			case SET_LED_ON: {
-				break;
+				throw new UnsupportedOperationException("SET LED ON Operation hasn't been implemented yet");
 			}
 			case SET_MOTOR_SPEED: {
 				HashMap<String, Object> args = cmd.getArgs();
@@ -113,7 +112,7 @@ public class NxtProtocol extends ProtocolBase {
 				break;
 			}
 			case SET_SERVO_ANGLE: {
-				break;
+				throw new UnsupportedOperationException("SET SERVO ANGLE Operation hasn't been implemented yet");
 			}
 			default: {
 				throw new UnsupportedOperationException("This Operation hasn't been implemented yet");
@@ -231,7 +230,8 @@ public class NxtProtocol extends ProtocolBase {
 			sendData(request);
 			getInputValues(port); // Skip the first value (it may be invalid)
 			
-			// Sound sensor needs more initializing time based on our experiments.
+			// Sound sensor needs more initializing time based on our
+			// experiments.
 			if (sensorType == SOUND_DB) waitMillSeconds(250);
 		}
 	}
