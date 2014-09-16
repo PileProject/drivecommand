@@ -70,12 +70,13 @@ public class PileProtocol extends ProtocolBase {
 				break;
 			}
 			case SET_MOTOR_SPEED: {
-				byte[] request = {0x04};
-				mCommunicator.write(request, TIMEOUT);
-				res.put(KEY_VALUE, mCommunicator.read(1, TIMEOUT));
-//				HashMap<String, Object> args = cmd.getArgs();
-//				int speed = (Integer) args.get("speed");
-//				setOutputState(port, speed);
+				HashMap<String, Object> args = cmd.getArgs();
+				int speed = (Integer) args.get("speed");
+				if (speed > 100 || speed < -100) {
+					throw new UnsupportedOperationException(type.name() + "Speed is out of range: " + speed);
+				}
+				boolean ack = setMotor(port, speed);
+				res.put(KEY_VALUE, (ack) ? 1 : 0);
 				break;
 			}
 			
@@ -102,92 +103,24 @@ public class PileProtocol extends ProtocolBase {
 		return res;
 	}
 	
-	/**
-	 * Get SI unit value
-	 * 
-	 * @param port
-	 *            The port of the device
-	 * @param type
-	 *            The device type
-	 * @param mode
-	 *            The mode of the device
-	 * @param nvalue
-	 *            The number of the response value
-	 * @return
-	 */
-	@SuppressLint("NewApi")
-	private float[] getSiValue(int port, int type, int mode, int nvalue) {
-		// TODO this is a sample
-		byte[] request = {0x00, (byte)port, (byte)type, (byte)mode, (byte)nvalue};
-
-		// Send message
-		mCommunicator.write(request, TIMEOUT);
-		
-		// TODO use reply values
-		byte[] reply = readData();
-		
-		float[] result = null;
-		return result;
-	}
-	
-	/**
-	 * Get percent value
-	 * 
-	 * @param port
-	 *            The port of the device
-	 * @param type
-	 *            The device type
-	 * @param mode
-	 *            The mode of the device
-	 * @param nvalue
-	 *            The number of the response value
-	 * @return
-	 */
-	private short[] getPercentValue(int port, int type, int mode, int nvalue) {
-		// TODO this is a sample
-		byte[] request = {0x01, (byte)port, (byte)type, (byte)mode, (byte)nvalue};
-
-		// Send message
-		mCommunicator.write(request, TIMEOUT);
-		
-		// TODO use reply values
-		byte[] reply = readData();
-		
-		// Read the percent value in short type
-		short[] result = new short[nvalue];
-		return result;
-	}
-	
-	/**
-	 * Set output device condition.
-	 * 
-	 * @param port
-	 *            The port of the device
-	 * @param speed
-	 *            The speed of the device
-	 */
-	private void setOutputState(int port, int speed) {
-		// TODO this is a sample
-		byte[] request = {0x00, (byte)port, (byte)speed};
-		
-		// Send message
-		mCommunicator.write(request, TIMEOUT);
-	}
-	
-	/**
-	 * Read data from the device
-	 * 
-	 * @return
-	 */
-	private byte[] readData() {
-		// Calculate the size of response by reading 2 bytes.
-		byte[] header = mCommunicator.read(2, TIMEOUT);
-		int numBytes = (int) (((header[1] & 0x00ff) << 8) | (header[0] & 0x00ff) );
-		
-		// Get result
-		byte[] result = mCommunicator.read(numBytes, TIMEOUT);
-		Log.d(TAG, "read: " + result.length + " bytes");
-		
-		return result;
+	private boolean setMotor(int port, int speed) {
+		PileConstants.MotorDir dir = PileConstants.MotorDir.FORWARD;
+		if (speed < 0) {
+			dir = PileConstants.MotorDir.BACKWARD;
+			speed = -speed;
+		}
+		PilePacketFormatter packet = new PilePacketFormatter(PileConstants.CommandTypes.MOVE);
+		packet.setDataByte((byte)(((port&0x0F) << 2) | 0x01)); // Byte 0
+		packet.setDataByte((byte)(speed&0xFF)); // Byte 1
+		packet.calculateChecksum();
+		mCommunicator.write(packet.byteArray(), TIMEOUT);
+		byte[] ack = mCommunicator.read(4, TIMEOUT);
+		System.out.println(ack.length);
+		for (byte b : ack) {
+			System.out.print(b);
+			System.out.print(' ');
+		}
+		System.out.println();
+		return ((ack[2] & 0x01) == 0x01) ? true : false;
 	}
 }
