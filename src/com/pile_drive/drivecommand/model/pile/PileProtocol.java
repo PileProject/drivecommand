@@ -38,33 +38,22 @@ public class PileProtocol extends ProtocolBase {
 		CommandType type = cmd.getCommandType();
 		switch (type) {
 			case GET_LINE_VALUE: {
-				byte[] request = {0x00};
-				mCommunicator.write(request, TIMEOUT);
-				res.put(KEY_VALUE, mCommunicator.read(1, TIMEOUT));
+				int response = requestOneByte(port, PileConstants.CommandTypes.LINESENSOR);
+				res.put(KEY_VALUE, response);
 //				short[] values = getPercentValue(port, /*type*/0, /*mode*/0, /*nvalue*/1);
 //				res.put(KEY_VALUE, (int) values[0]);
 				break;
 			}
 			case GET_RANGEFINDER_DIST: {
-				byte[] request = {0x01};
-				mCommunicator.write(request, TIMEOUT);
-				res.put(KEY_VALUE, mCommunicator.read(1, TIMEOUT));
-//				float[] values = getSiValue(port, /*type*/0, /*mode*/0, /*nvalue*/1);
-//				res.put(KEY_VALUE, (int) values[0]);
-				break;
-			}
-			case GET_TOUCH_COUNT: {
-				byte[] request = {0x02};
-				mCommunicator.write(request, TIMEOUT);
-				res.put(KEY_VALUE, mCommunicator.read(1, TIMEOUT));
+				int response = requestOneByte(port, PileConstants.CommandTypes.DISTANCE);
+				res.put(KEY_VALUE, response);
 //				float[] values = getSiValue(port, /*type*/0, /*mode*/0, /*nvalue*/1);
 //				res.put(KEY_VALUE, (int) values[0]);
 				break;
 			}
 			case GET_TOUCH_TOUCHED: {
-				byte[] request = {0x03};
-				mCommunicator.write(request, TIMEOUT);
-				res.put(KEY_VALUE, mCommunicator.read(1, TIMEOUT));
+				int response = requestOneByte(port, PileConstants.CommandTypes.TOUCH);
+				res.put(KEY_VALUE, response);
 //				float[] values = getSiValue(port, /*type*/0, /*mode*/0, /*nvalue*/1);
 //				res.put(KEY_VALUE, ((int) values[0]) == 1);
 				break;
@@ -79,7 +68,7 @@ public class PileProtocol extends ProtocolBase {
 				res.put(KEY_VALUE, (ack) ? 1 : 0);
 				break;
 			}
-			
+			case GET_TOUCH_COUNT:
 			case GET_COLOR_ILLUMINANCE:
 			case GET_COLOR_RGB:
 			case GET_GYRO_ANGLE:
@@ -101,6 +90,18 @@ public class PileProtocol extends ProtocolBase {
 			}
 		}
 		return res;
+	}
+	
+	private int requestOneByte(int port, PileConstants.CommandTypes type) {
+		PilePacketFormatter packet = new PilePacketFormatter(type);
+		packet.setDataByte((byte)port);
+		packet.calculateChecksum();
+		mCommunicator.write(packet.byteArray(), TIMEOUT);
+		byte[] receivedByteArray = mCommunicator.read(4, TIMEOUT);
+		packet = new PilePacketFormatter(receivedByteArray);
+		if (!packet.isValid())
+			return -1;
+		return packet.data()[0] & 0xFF;
 	}
 	
 	private boolean setMotor(int port, int speed) {
