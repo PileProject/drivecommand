@@ -40,22 +40,16 @@ public class PileProtocol extends ProtocolBase {
 			case GET_LINE_VALUE: {
 				int response = requestOneByte(port, PileConstants.CommandTypes.LINESENSOR);
 				res.put(KEY_VALUE, response);
-//				short[] values = getPercentValue(port, /*type*/0, /*mode*/0, /*nvalue*/1);
-//				res.put(KEY_VALUE, (int) values[0]);
 				break;
 			}
 			case GET_RANGEFINDER_DIST: {
 				int response = requestOneByte(port, PileConstants.CommandTypes.DISTANCE);
 				res.put(KEY_VALUE, response);
-//				float[] values = getSiValue(port, /*type*/0, /*mode*/0, /*nvalue*/1);
-//				res.put(KEY_VALUE, (int) values[0]);
 				break;
 			}
 			case GET_TOUCH_TOUCHED: {
 				int response = requestOneByte(port, PileConstants.CommandTypes.TOUCH);
-				res.put(KEY_VALUE, response);
-//				float[] values = getSiValue(port, /*type*/0, /*mode*/0, /*nvalue*/1);
-//				res.put(KEY_VALUE, ((int) values[0]) == 1);
+				res.put(KEY_VALUE, (response == 1));
 				break;
 			}
 			case SET_MOTOR_SPEED: {
