@@ -13,7 +13,7 @@ import com.pile_drive.drivecommand.machine.input.ColorSensor;
 import com.pile_drive.drivecommand.machine.input.GyroSensor;
 import com.pile_drive.drivecommand.machine.input.LineSensor;
 import com.pile_drive.drivecommand.machine.input.Rangefinder;
-import com.pile_drive.drivecommand.machine.input.RemoteControlReciever;
+import com.pile_drive.drivecommand.machine.input.RemoteControlReceiver;
 import com.pile_drive.drivecommand.machine.input.SoundSensor;
 import com.pile_drive.drivecommand.machine.input.TouchSensor;
 import com.pile_drive.drivecommand.machine.output.Buzzer;
@@ -107,6 +107,6 @@ public class MachineTest {
 	@Test
 	public void getRemoteControlRecieverFromMachine() {
 		Machine machine = new Machine(protocol);
-		AssertJUnit.assertTrue(machine.createRemoteControlReciever(PORT) instanceof RemoteControlReciever);
+		AssertJUnit.assertTrue(machine.createRemoteControlReceiver(PORT) instanceof RemoteControlReceiver);
 	}
 }

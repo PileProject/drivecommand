@@ -11,7 +11,7 @@ import mockit.Mocked;
 
 import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.machine.DeviceType;
-import com.pile_drive.drivecommand.machine.input.RemoteControlReciever;
+import com.pile_drive.drivecommand.machine.input.RemoteControlReceiver;
 import com.pile_drive.drivecommand.model.ProtocolBase;
 
 @SuppressWarnings("serial")
@@ -28,7 +28,7 @@ public class RemoteControlRecieverTest {
 			protocol.exec(PORT, (CommandBase)any);
 			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_BUTTON);}};
 		}};
-		RemoteControlReciever rr = new RemoteControlReciever(PORT, protocol);
+		RemoteControlReceiver rr = new RemoteControlReceiver(PORT, protocol);
 		assertEquals(rr.getRemoteButton(), VALUE_BUTTON);
 	}
 	
@@ -38,13 +38,13 @@ public class RemoteControlRecieverTest {
 			protocol.exec(PORT, (CommandBase)any);
 			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_DISTANCE);}};
 		}};
-		RemoteControlReciever rr = new RemoteControlReciever(PORT, protocol);
+		RemoteControlReceiver rr = new RemoteControlReceiver(PORT, protocol);
 		AssertJUnit.assertEquals(rr.getRemoteDistance(), VALUE_DISTANCE);
 	}
 	
 	@Test
 	public void deviceTypeIsRemoteControlReciever() {
-		RemoteControlReciever rr = new RemoteControlReciever(PORT, protocol);
+		RemoteControlReceiver rr = new RemoteControlReceiver(PORT, protocol);
 		assertEquals(rr.getDeviceType(), DeviceType.REMOTECONTROL_RECIEVER);
 	}
 }
