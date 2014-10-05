@@ -44,7 +44,7 @@ public class PileProtocol extends ProtocolBase {
 			}
 			case GET_RANGEFINDER_DIST: {
 				int response = requestOneByte(port, PileConstants.CommandTypes.DISTANCE);
-				res.put(KEY_VALUE, response);
+				res.put(KEY_VALUE, 0xFF - response);
 				break;
 			}
 			case GET_TOUCH_TOUCHED: {
@@ -105,7 +105,7 @@ public class PileProtocol extends ProtocolBase {
 			speed = -speed;
 		}
 		PilePacketFormatter packet = new PilePacketFormatter(PileConstants.CommandTypes.MOVE);
-		packet.setDataByte((byte)(((port&0x0F) << 2) | 0x01)); // Byte 0
+		packet.setDataByte((byte)(((port&0x0F) << 2) | dir.value())); // Byte 0
 		packet.setDataByte((byte)(speed&0xFF)); // Byte 1
 		packet.calculateChecksum();
 		mCommunicator.write(packet.byteArray(), TIMEOUT);
