@@ -9,9 +9,9 @@ import com.pile_drive.drivecommand.machine.DeviceType;
 import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
 
-public class RemoteControlReciever extends DeviceBase {
+public class RemoteControlReceiver extends DeviceBase {
 
-	public RemoteControlReciever(int port, ProtocolBase protocol) {
+	public RemoteControlReceiver(int port, ProtocolBase protocol) {
 		super(port, protocol);
 	}
 	
