@@ -6,7 +6,7 @@ import com.pile_drive.drivecommand.machine.input.ColorSensor;
 import com.pile_drive.drivecommand.machine.input.GyroSensor;
 import com.pile_drive.drivecommand.machine.input.LineSensor;
 import com.pile_drive.drivecommand.machine.input.Rangefinder;
-import com.pile_drive.drivecommand.machine.input.RemoteControlReciever;
+import com.pile_drive.drivecommand.machine.input.RemoteControlReceiver;
 import com.pile_drive.drivecommand.machine.input.SoundSensor;
 import com.pile_drive.drivecommand.machine.input.TouchSensor;
 import com.pile_drive.drivecommand.machine.output.Buzzer;
@@ -144,7 +144,7 @@ public class Machine {
 	 * @param port
 	 * @return
 	 */
-	public RemoteControlReciever createRemoteControlReciever(int port) {
-		return new RemoteControlReciever(port, mProtocol);
+	public RemoteControlReceiver createRemoteControlReceiver(int port) {
+		return new RemoteControlReceiver(port, mProtocol);
 	}
 }
