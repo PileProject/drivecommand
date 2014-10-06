@@ -237,13 +237,13 @@ public class NxtProtocol extends ProtocolBase {
 	}
 	
 	/**
-	 * A helper method to wait for specified mill seconds.
+	 * A helper method to wait for specified milli seconds.
 	 * 
-	 * @param millseconds
+	 * @param milliseconds
 	 */
-	private void waitMillSeconds(int millseconds) {
+	private void waitMillSeconds(int milliseconds) {
 		try {
-			Thread.sleep(millseconds);
+			Thread.sleep(milliseconds);
 		}
 		catch (InterruptedException e) {
 			e.printStackTrace();
