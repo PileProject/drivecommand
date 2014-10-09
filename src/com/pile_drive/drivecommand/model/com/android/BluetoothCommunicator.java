@@ -93,7 +93,7 @@ public class BluetoothCommunicator implements ICommunicator {
 			Log.e(TAG, "Write failed.", e);
 			throw new RuntimeException(e);
 		}
-
+		
 		Log.d(TAG, "Write");
 		for (int i = 0; i < request.length; i++) {
 			Log.d(TAG, "[" + i + "]" + request[i]);
