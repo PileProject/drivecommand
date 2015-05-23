@@ -105,8 +105,9 @@ public class PileProtocol extends ProtocolBase {
 
 	private boolean switchLed(boolean turnOn) {
 		PilePacketFormatter packet = new PilePacketFormatter(PileConstants.CommandTypes.LED);
-		packet.setDataByte((byte)0); // default
-		packet.setDataByte((byte)(turnOn ? 1 : 0));
+		packet.setDataByte((byte)(turnOn ? 
+								PileConstants.LedState.ON.value() 
+								: PileConstants.LedState.OFF.value()));
 		packet.calculateChecksum();
 		mCommunicator.write(packet.byteArray(), TIMEOUT);
 		byte[] ack = mCommunicator.read(4, TIMEOUT);

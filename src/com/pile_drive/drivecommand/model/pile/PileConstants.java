@@ -21,6 +21,19 @@ public class PileConstants {
 			return mValue;
 		}
 	}
+	public enum LedState {
+		// RESERVED[4bit] | PORT[3bit] (0: default) | ONOFF[1bit] (1: ON, 0: OFF)
+		ON((byte)(0x00 | 0x00 | 0x01)),
+		OFF((byte)(0x00 | 0x00 | 0x00));
+		
+		private byte mValue;
+		private LedState(byte value) {
+			mValue = value;
+		}
+		public byte value() {
+			return mValue;
+		}
+	}
 	public enum MotorDir {
 		FREE((byte)0x00),
 		FORWARD((byte)0x01),
