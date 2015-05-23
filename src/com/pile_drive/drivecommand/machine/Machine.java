@@ -39,6 +39,14 @@ public class Machine {
 	}
 	
 	/**
+	 * Transaction apply command
+	 * for Pile Robot
+	 */
+	public void apply() {
+		mProtocol.apply();
+	}
+	
+	/**
 	 * Create LineSensor
 	 * 
 	 * @param port
