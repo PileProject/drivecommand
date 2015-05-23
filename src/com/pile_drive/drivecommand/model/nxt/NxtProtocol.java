@@ -1,13 +1,11 @@
 package com.pile_drive.drivecommand.model.nxt;
 
 import static com.pile_drive.drivecommand.model.nxt.NxtConstants.*;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
+import android.annotation.SuppressLint;
 import android.util.Log;
-
 import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
@@ -16,6 +14,7 @@ import com.pile_drive.drivecommand.model.com.ICommunicator;
 /**
  * @see <a href="http://sourceforge.net/projects/lejos/files/lejos-NXJ/">LeJOS</a>
  */
+@SuppressLint("UseSparseArrays")
 public class NxtProtocol extends ProtocolBase {
 	private static final String KEY_VALUE = "value";
 	private static final int TIMEOUT = 1000;
@@ -248,5 +247,12 @@ public class NxtProtocol extends ProtocolBase {
 		catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public boolean apply() {
+		// this protocol does not support transactions.
+		throw new UnsupportedOperationException("Nxt Protocol does not support transactions");
+		// return false;
 	}
 }

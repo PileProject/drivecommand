@@ -3,15 +3,11 @@ package com.pile_drive.drivecommand.model.pile;
 import java.io.IOException;
 import java.util.HashMap;
 
-import android.annotation.SuppressLint;
-import android.util.Log;
 
 import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
 import com.pile_drive.drivecommand.model.com.ICommunicator;
-
-import static com.pile_drive.drivecommand.model.pile.PileConstants.*;
 
 public class PileProtocol extends ProtocolBase {
 	private static final String KEY_VALUE = "value";
@@ -62,6 +58,17 @@ public class PileProtocol extends ProtocolBase {
 				res.put(KEY_VALUE, (ack) ? 1 : 0);
 				break;
 			}
+			case SET_LED_OFF: {
+				boolean ack = switchLed(false);
+				res.put(KEY_VALUE, (ack) ? 1 : 0);
+				break;
+			}
+			case SET_LED_ON: {
+				boolean ack = switchLed(true);
+				res.put(KEY_VALUE, (ack) ? 1 : 0);
+				break;
+			}
+				
 			case GET_TOUCH_COUNT:
 			case GET_COLOR_ILLUMINANCE:
 			case GET_COLOR_RGB:
@@ -74,8 +81,6 @@ public class PileProtocol extends ProtocolBase {
 			case SET_BUZZER_BEEP: 
 			case SET_BUZZER_OFF: 
 			case SET_BUZZER_ON: 
-			case SET_LED_OFF: 
-			case SET_LED_ON: 
 			case SET_SERVO_ANGLE: 
 				throw new UnsupportedOperationException(type.name() + "Operation hasn't been implemented yet");
 				
@@ -97,6 +102,16 @@ public class PileProtocol extends ProtocolBase {
 			return -1;
 		return packet.data()[0] & 0xFF;
 	}
+
+	private boolean switchLed(boolean turnOn) {
+		PilePacketFormatter packet = new PilePacketFormatter(PileConstants.CommandTypes.LED);
+		packet.setDataByte((byte)0); // default
+		packet.setDataByte((byte)(turnOn ? 1 : 0));
+		packet.calculateChecksum();
+		mCommunicator.write(packet.byteArray(), TIMEOUT);
+		byte[] ack = mCommunicator.read(4, TIMEOUT);
+		return ((ack[2] & 0x01) == 0x01) ? true : false;
+	}
 	
 	private boolean setMotor(int port, int speed) {
 		PileConstants.MotorDir dir = PileConstants.MotorDir.FORWARD;
@@ -110,12 +125,16 @@ public class PileProtocol extends ProtocolBase {
 		packet.calculateChecksum();
 		mCommunicator.write(packet.byteArray(), TIMEOUT);
 		byte[] ack = mCommunicator.read(4, TIMEOUT);
-		System.out.println(ack.length);
-		for (byte b : ack) {
-			System.out.print(b);
-			System.out.print(' ');
-		}
-		System.out.println();
+		return ((ack[2] & 0x01) == 0x01) ? true : false;
+	}
+
+	@Override
+	public boolean apply() {
+		PilePacketFormatter packet = new PilePacketFormatter(PileConstants.CommandTypes.APPLY);
+		packet.setDataByte((byte)0); // any data (1 byte) is OK
+		packet.calculateChecksum();
+		mCommunicator.write(packet.byteArray(), TIMEOUT);
+		byte[] ack = mCommunicator.read(4, TIMEOUT);
 		return ((ack[2] & 0x01) == 0x01) ? true : false;
 	}
 }

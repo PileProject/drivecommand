@@ -318,4 +318,11 @@ public class Ev3Protocol extends ProtocolBase {
 		
 		return result;
 	}
+
+	@Override
+	public boolean apply() {
+		// this protocol does not support transactions.
+		throw new UnsupportedOperationException("Nxt Protocol does not support transactions");
+		// return false;
+	}
 }

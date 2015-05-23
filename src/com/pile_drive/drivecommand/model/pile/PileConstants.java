@@ -8,6 +8,8 @@ public class PileConstants {
 		TOUCH(0x10),
 		DISTANCE(0x11),
 		LINESENSOR(0x12),
+		LED(0x13),
+		APPLY(0x70),
 		PRINT(0x80),
 		ECHOBACK(0x81);
 		

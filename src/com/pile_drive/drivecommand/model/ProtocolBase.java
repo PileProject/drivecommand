@@ -33,4 +33,12 @@ public abstract class ProtocolBase {
 	 * @return
 	 */
 	public abstract HashMap<String, Object> exec(int port, CommandBase cmd);
+
+	/**
+	 * Apply commands
+	 * 
+	 * This will be used with devices supporting transactions.
+	 * @return success (true) or not (false)
+	 */
+	public abstract boolean apply();
 }
