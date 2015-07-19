@@ -10,10 +10,10 @@ import java.util.HashMap;
 import mockit.Expectations;
 import mockit.Mocked;
 
-import com.pile_drive.drivecommand.command.CommandBase;
-import com.pile_drive.drivecommand.machine.DeviceType;
-import com.pile_drive.drivecommand.machine.output.Motor;
-import com.pile_drive.drivecommand.model.ProtocolBase;
+import com.pileproject.drivecommand.command.CommandBase;
+import com.pileproject.drivecommand.machine.DeviceType;
+import com.pileproject.drivecommand.machine.output.Motor;
+import com.pileproject.drivecommand.model.ProtocolBase;
 
 @SuppressWarnings("serial")
 public class MotorTest {

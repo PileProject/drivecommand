@@ -9,10 +9,10 @@ import mockit.Mocked;
 
 import org.testng.annotations.Test;
 
-import com.pile_drive.drivecommand.command.CommandBase;
-import com.pile_drive.drivecommand.machine.DeviceType;
-import com.pile_drive.drivecommand.machine.input.TouchSensor;
-import com.pile_drive.drivecommand.model.ProtocolBase;
+import com.pileproject.drivecommand.command.CommandBase;
+import com.pileproject.drivecommand.machine.DeviceType;
+import com.pileproject.drivecommand.machine.input.TouchSensor;
+import com.pileproject.drivecommand.model.ProtocolBase;
 
 @SuppressWarnings("serial")
 public class TouchSensorTest {

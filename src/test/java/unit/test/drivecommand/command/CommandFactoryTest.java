@@ -6,9 +6,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import java.util.HashMap;
 
-import com.pile_drive.drivecommand.command.CommandBase;
-import com.pile_drive.drivecommand.command.CommandFactory;
-import com.pile_drive.drivecommand.model.CommandType;
+import com.pileproject.drivecommand.command.CommandBase;
+import com.pileproject.drivecommand.command.CommandFactory;
+import com.pileproject.drivecommand.model.CommandType;
 
 public class CommandFactoryTest {
 	
