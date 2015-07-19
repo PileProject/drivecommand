@@ -2,22 +2,32 @@
 A general library which enables robots and devices to communicate each other through same interface.
 
 ## Available Communication
-* Android - LEGO MINDSTORMS NXT
-* Android - LEGO MINDSTORMS EV3
-* Android - Pile Original Robot
+* Android <-> LEGO MINDSTORMS NXT
+* Android <-> LEGO MINDSTORMS EV3
+* Android <-> Pile Original Robot
 
-## Run Test
-* If your environment has gradle (2.5 or later)
-
-``` 
-gradle test
-```
-
-* Otherwise
+## Build
 
 ```
-./gradlew test     # Linux/Mac
-./gradlew.bat test # Windows
+# Linux/Mac
+./gradlew build
+# Windows
+./gradlew.bat build
 ```
 
-Test reports are generated in build/reports/tests/index.html
+## Run Test and Generate Javadoc
+
+```
+# Linux/Mac
+./gradlew test
+./gradlew javadoc
+
+# Windows
+./gradlew.bat test
+./gradlew.bat javadoc
+```
+
+Test reports are generated in build/reports/tests (See index.html)
+
+Javadocs are generated in build/docs/javadoc (See index.html)
+
