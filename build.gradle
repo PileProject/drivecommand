@@ -13,6 +13,9 @@ apply plugin: 'java'
 // Apply the eclipse plugin to generate eclipse project files
 apply plugin: 'eclipse'
 
+// Apply the maven plugin to deploy this project to a maven repository
+apply plugin: 'maven'
+
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use 'jcenter' for resolving your dependencies.
@@ -39,4 +42,32 @@ dependencies {
 
 task wraper(type: Wrapper) {
     gradleVersion = '2.5'
+}
+
+
+// Maven repository identity setting
+group = 'com.pileproject.drivecommand'
+archivesBaseName = 'drivecommand'
+version = '1.0.0'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "file:${projectDir}")
+        }
+    }
+}
+
+[install.repositories.mavenInstaller, uploadArchives.repositories.mavenDeployer]*.pom*.whenConfigured { pom ->
+    pom.project {
+        inceptionYear '2013'
+        packaging 'jar'
+        licenses {
+            license {
+                name 'The Apache Software License, Version 2.0'
+                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                distribution 'repo'
+            }
+        }
+    }
 }
