@@ -8,19 +8,19 @@ import org.testng.AssertJUnit;
 import mockit.Expectations;
 import mockit.Mocked;
 
-import com.pile_drive.drivecommand.machine.Machine;
-import com.pile_drive.drivecommand.machine.input.ColorSensor;
-import com.pile_drive.drivecommand.machine.input.GyroSensor;
-import com.pile_drive.drivecommand.machine.input.LineSensor;
-import com.pile_drive.drivecommand.machine.input.Rangefinder;
-import com.pile_drive.drivecommand.machine.input.RemoteControlReceiver;
-import com.pile_drive.drivecommand.machine.input.SoundSensor;
-import com.pile_drive.drivecommand.machine.input.TouchSensor;
-import com.pile_drive.drivecommand.machine.output.Buzzer;
-import com.pile_drive.drivecommand.machine.output.Led;
-import com.pile_drive.drivecommand.machine.output.Motor;
-import com.pile_drive.drivecommand.machine.output.Servomotor;
-import com.pile_drive.drivecommand.model.ProtocolBase;
+import com.pileproject.drivecommand.machine.Machine;
+import com.pileproject.drivecommand.machine.input.ColorSensor;
+import com.pileproject.drivecommand.machine.input.GyroSensor;
+import com.pileproject.drivecommand.machine.input.LineSensor;
+import com.pileproject.drivecommand.machine.input.Rangefinder;
+import com.pileproject.drivecommand.machine.input.RemoteControlReceiver;
+import com.pileproject.drivecommand.machine.input.SoundSensor;
+import com.pileproject.drivecommand.machine.input.TouchSensor;
+import com.pileproject.drivecommand.machine.output.Buzzer;
+import com.pileproject.drivecommand.machine.output.Led;
+import com.pileproject.drivecommand.machine.output.Motor;
+import com.pileproject.drivecommand.machine.output.Servomotor;
+import com.pileproject.drivecommand.model.ProtocolBase;
 
 public class MachineTest {
 	@Mocked ProtocolBase protocol;

@@ -2,8 +2,8 @@ package test.drivecommand.model.pile;
 
 import static org.testng.AssertJUnit.assertEquals;
 import org.testng.annotations.*;
-import com.pile_drive.drivecommand.model.pile.PileConstants;
-import com.pile_drive.drivecommand.model.pile.PilePacketFormatter;
+import com.pileproject.drivecommand.model.pile.PileConstants;
+import com.pileproject.drivecommand.model.pile.PilePacketFormatter;
 
 public class PilePacketFormatterTest {
 	@Test
