@@ -6,9 +6,7 @@ import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import android.annotation.SuppressLint;
-import android.util.Log;
-
+import com.pile_drive.drivecommand.util.Log;
 import com.pile_drive.drivecommand.command.CommandBase;
 import com.pile_drive.drivecommand.model.CommandType;
 import com.pile_drive.drivecommand.model.ProtocolBase;
@@ -159,7 +157,6 @@ public class Ev3Protocol extends ProtocolBase {
 	 *            The number of the response value
 	 * @return
 	 */
-	@SuppressLint("NewApi")
 	private float[] getSiValue(int port, int type, int mode, int nvalue) {
 		ByteCodeFormatter byteCode = new ByteCodeFormatter();
 		byteCode.addOpCode(DIRECT_COMMAND_REPLY);

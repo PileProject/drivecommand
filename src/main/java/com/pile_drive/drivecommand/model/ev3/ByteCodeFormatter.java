@@ -4,7 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-import android.util.Log;
+import com.pile_drive.drivecommand.util.Log;
 
 /**
  * EV3 Byte Code Formatter.
