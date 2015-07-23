@@ -1,4 +1,4 @@
-package test.drivecommand.machine.input;
+package unit.drivecommand.machine.input;
 
 import static org.testng.Assert.*;
 
@@ -18,7 +18,7 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 public class ColorSensorTest {
 	@Mocked private ProtocolBase protocol;
 	private final int PORT = 0;
-	private final byte[] VALUE_RGB = {0, 100, (byte) 255};
+	private final float[] VALUE_RGB = {0, 100, 255};
 	private final int VALUE_ILLUMINANCE = 22;
 	private final String KEY_VALUE = "value";
 	
@@ -33,7 +33,7 @@ public class ColorSensorTest {
 	}
 	
 	@Test
-	public void getColorIlluminace() {
+	public void getColorIlluminance() {
 		new Expectations() {{
 			protocol.exec(PORT, (CommandBase)any);
 			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_ILLUMINANCE);}};

@@ -1,4 +1,4 @@
-package test.drivecommand.machine.output;
+package unit.drivecommand.machine.output;
 
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;

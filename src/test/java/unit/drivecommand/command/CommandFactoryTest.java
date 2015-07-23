@@ -1,4 +1,4 @@
-package test.drivecommand.command;
+package unit.drivecommand.command;
 
 import static org.testng.AssertJUnit.assertEquals;
 

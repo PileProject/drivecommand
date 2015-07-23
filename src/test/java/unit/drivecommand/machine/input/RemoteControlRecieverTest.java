@@ -1,4 +1,4 @@
-package test.drivecommand.machine.input;
+package unit.drivecommand.machine.input;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
