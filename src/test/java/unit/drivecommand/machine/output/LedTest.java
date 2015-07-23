@@ -1,4 +1,4 @@
-package test.drivecommand.machine.output;
+package unit.drivecommand.machine.output;
 
 import static org.testng.Assert.assertEquals;
 
@@ -11,48 +11,40 @@ import mockit.Mocked;
 
 import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.machine.DeviceType;
-import com.pileproject.drivecommand.machine.output.Buzzer;
+import com.pileproject.drivecommand.machine.output.Led;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
 @SuppressWarnings("serial")
-public class BuzzerTest {
+public class LedTest {
 	@Mocked private ProtocolBase protocol;
 	private final int PORT = 0;
 	private final String KEY_VALID = "valid";
 	private final boolean VALUE_VALID = true;
 	
 	@Test
-	public void turnOnBuzzer() {
+	public void turnOnLed() {
 		new Expectations() {{
 			protocol.exec(PORT, (CommandBase)any); 
 			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
 		}};
-		Buzzer bz = new Buzzer(PORT, protocol);
-		bz.turnOn();
+		Led led = new Led(PORT, protocol);
+		led.turnOn();
 	}
 	
 	@Test
-	public void turnOffBuzzer() {
+	public void turnOffLed() {
 		new Expectations() {{
 			protocol.exec(PORT, (CommandBase)any); 
 			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
 		}};
-		Buzzer bz = new Buzzer(PORT, protocol);
-		bz.turnOff();
+		Led led = new Led(PORT, protocol);
+		led.turnOff();
 	}
 	
-	@Test
-	public void beepBuzzer() {
-		new Expectations() {{
-			protocol.exec(PORT, (CommandBase)any); 
-			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
-		}};
-		Buzzer bz = new Buzzer(PORT, protocol);
-		bz.beep();
-	}
 	
 	@Test
-	public void deviceTypeIsBuzzer() {
-		Buzzer bz = new Buzzer(PORT, protocol);
-		assertEquals(bz.getDeviceType(), DeviceType.BUZZER);
-	}}
+	public void deviceTypeIsLed() {
+		Led led = new Led(PORT, protocol);
+		assertEquals(led.getDeviceType(), DeviceType.LED);
+	}
+}

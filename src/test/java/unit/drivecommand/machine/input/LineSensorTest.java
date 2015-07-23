@@ -1,4 +1,4 @@
-package test.drivecommand.machine.input;
+package unit.drivecommand.machine.input;
 
 import static org.testng.Assert.*;
 
@@ -11,30 +11,29 @@ import org.testng.annotations.Test;
 
 import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.machine.DeviceType;
-import com.pileproject.drivecommand.machine.input.Rangefinder;
+import com.pileproject.drivecommand.machine.input.LineSensor;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
 @SuppressWarnings("serial")
-public class RangefinderTest {
+public class LineSensorTest {
 	@Mocked private ProtocolBase protocol;
 	private final int PORT = 0;
-	private final int VALUE_DISTANCE = 200;
+	private final int VALUE_SENSOR = 50;
 	private final String KEY_VALUE = "value";
 	
 	@Test
-	public void getDistance() {
+	public void getSensorValue() {
 		new Expectations() {{
 			protocol.exec(PORT, (CommandBase)any); 
-			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_DISTANCE);}};
+			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_SENSOR);}};
 		}};
-		Rangefinder rf = new Rangefinder(PORT, protocol);
-		assertEquals(rf.getDistance(), VALUE_DISTANCE);
+		LineSensor ls = new LineSensor(PORT, protocol);
+		assertEquals(ls.getSensorValue(), VALUE_SENSOR);
 	}
 	
 	@Test
-	public void deviceTypeIsRangefinder() {
-		Rangefinder rf = new Rangefinder(PORT, protocol);
-		assertEquals(rf.getDeviceType(), DeviceType.RANGEFINDER);
+	public void deviceTypeIsLineSensor() {
+		LineSensor ls = new LineSensor(PORT, protocol);
+		assertEquals(ls.getDeviceType(), DeviceType.LINE_SENSOR);
 	}
 }
-

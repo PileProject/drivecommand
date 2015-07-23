@@ -1,4 +1,4 @@
-package test.drivecommand.machine.input;
+package unit.drivecommand.machine.input;
 
 import static org.testng.Assert.*;
 
@@ -11,29 +11,30 @@ import org.testng.annotations.Test;
 
 import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.machine.DeviceType;
-import com.pileproject.drivecommand.machine.input.LineSensor;
+import com.pileproject.drivecommand.machine.input.SoundSensor;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
 @SuppressWarnings("serial")
-public class LineSensorTest {
+public class SoundSensorTest {
 	@Mocked private ProtocolBase protocol;
 	private final int PORT = 0;
-	private final int VALUE_SENSOR = 50;
+	private final int VALUE_DB = 100;
 	private final String KEY_VALUE = "value";
 	
 	@Test
-	public void getSensorValue() {
+	public void getSoundDb() {
 		new Expectations() {{
 			protocol.exec(PORT, (CommandBase)any); 
-			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_SENSOR);}};
+			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_DB);}};
 		}};
-		LineSensor ls = new LineSensor(PORT, protocol);
-		assertEquals(ls.getSensorValue(), VALUE_SENSOR);
+		SoundSensor ss = new SoundSensor(PORT, protocol);
+		assertEquals(ss.getDb(), VALUE_DB);
 	}
 	
 	@Test
-	public void deviceTypeIsLineSensor() {
-		LineSensor ls = new LineSensor(PORT, protocol);
-		assertEquals(ls.getDeviceType(), DeviceType.LINE_SENSOR);
+	public void deviceTypeIsSoundSensor() {
+		SoundSensor ss = new SoundSensor(PORT, protocol);
+		assertEquals(ss.getDeviceType(), DeviceType.SOUND_SENSOR);
 	}
 }
+
