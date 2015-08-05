@@ -51,3 +51,7 @@ proguard/
 
 # Design files
 *.bak
+
+.classpath
+.settings/
+.project
