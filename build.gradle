@@ -48,7 +48,7 @@ task wraper(type: Wrapper) {
 // Maven repository identity setting
 group = 'com.pileproject.drivecommand'
 archivesBaseName = 'drivecommand'
-version = '1.0.0'
+version = '1.0.1'
 
 uploadArchives {
     repositories {
