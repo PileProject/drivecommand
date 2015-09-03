@@ -15,8 +15,8 @@ import com.pileproject.drivecommand.machine.output.Motor;
 import com.pileproject.drivecommand.machine.output.Servomotor;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
-public class Machine {
-	private ProtocolBase mProtocol;
+public abstract class Machine {
+	protected ProtocolBase mProtocol;
 	
 	public Machine(ProtocolBase protocol) {
 		mProtocol = protocol;
@@ -43,17 +43,7 @@ public class Machine {
 	 * for Pile Robot
 	 */
 	public void apply() {
-		mProtocol.apply();
-	}
-	
-	/**
-	 * Create LineSensor
-	 * 
-	 * @param port
-	 * @return
-	 */
-	public LineSensor createLineSensor(int port) {
-		return new LineSensor(port, mProtocol);
+		throw new UnsupportedOperationException("This machine does not support 'apply' command");
 	}
 	
 	/**
@@ -63,7 +53,7 @@ public class Machine {
 	 * @return
 	 */
 	public Motor createMotor(int port) {
-		return new Motor(port, mProtocol);
+		throw new UnsupportedOperationException("This machine does not support Motor");
 	}
 
 	/**
@@ -73,9 +63,9 @@ public class Machine {
 	 * @return
 	 */
 	public Servomotor createServomotor(int port) {
-		return new Servomotor(port, mProtocol);
+		throw new UnsupportedOperationException("This machine does not support Servomotor");
 	}
-	
+
 	/**
 	 * Create Buzzer
 	 * 
@@ -83,7 +73,7 @@ public class Machine {
 	 * @return
 	 */
 	public Buzzer createBuzzer(int port) {
-		return new Buzzer(port, mProtocol);
+		throw new UnsupportedOperationException("This machine does not support Buzzer");
 	}
 
 	/**
@@ -93,7 +83,17 @@ public class Machine {
 	 * @return
 	 */
 	public Led createLed(int port) {
-		return new Led(port, mProtocol);
+		throw new UnsupportedOperationException("This machine does not support LED");
+	}
+
+	/**
+	 * Create LineSensor
+	 *
+	 * @param port
+	 * @return
+	 */
+	public LineSensor createLineSensor(int port) {
+		throw new UnsupportedOperationException("This machine does not support LineSensor");
 	}
 
 	/**
@@ -103,7 +103,7 @@ public class Machine {
 	 * @return
 	 */
 	public GyroSensor createGyroSensor(int port) {
-		return new GyroSensor(port, mProtocol);
+		throw new UnsupportedOperationException("This machine does not support GyroSensor");
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class Machine {
 	 * @return
 	 */
 	public TouchSensor createTouchSensor(int port) {
-		return new TouchSensor(port, mProtocol);
+		throw new UnsupportedOperationException("This machine does not support TouchSensor");
 	}
 
 	/**
@@ -123,7 +123,7 @@ public class Machine {
 	 * @return
 	 */
 	public ColorSensor createColorSensor(int port) {
-		return new ColorSensor(port, mProtocol);
+		throw new UnsupportedOperationException("This machine does not support ColorSensor");
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class Machine {
 	 * @return
 	 */
 	public Rangefinder createRangefinder(int port) {
-		return new Rangefinder(port, mProtocol);
+		throw new UnsupportedOperationException("This machine does not support Rangefinder");
 	}
 
 	/**
@@ -143,7 +143,7 @@ public class Machine {
 	 * @return
 	 */
 	public SoundSensor createSoundSensor(int port) {
-		return new SoundSensor(port, mProtocol);
+		throw new UnsupportedOperationException("This machine does not support SoundSensor");
 	}
 
 	/**
@@ -153,6 +153,6 @@ public class Machine {
 	 * @return
 	 */
 	public RemoteControlReceiver createRemoteControlReceiver(int port) {
-		return new RemoteControlReceiver(port, mProtocol);
+		throw new UnsupportedOperationException("This machine does not support RemoteControlReceiver");
 	}
 }
