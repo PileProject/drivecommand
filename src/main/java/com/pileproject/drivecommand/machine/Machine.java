@@ -52,7 +52,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public Motor createMotor(int port) {
+	public Motor createMotor(DevicePort port) {
 		throw new UnsupportedOperationException("This machine does not support Motor");
 	}
 
@@ -62,7 +62,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public Servomotor createServomotor(int port) {
+	public Servomotor createServomotor(DevicePort port) {
 		throw new UnsupportedOperationException("This machine does not support Servomotor");
 	}
 
@@ -72,7 +72,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public Buzzer createBuzzer(int port) {
+	public Buzzer createBuzzer(DevicePort port) {
 		throw new UnsupportedOperationException("This machine does not support Buzzer");
 	}
 
@@ -81,18 +81,18 @@ public abstract class Machine {
 	 * 
 	 * @param port
 	 * @return
-	 */
-	public Led createLed(int port) {
+
+	public Led createLed(DevicePort port) {
 		throw new UnsupportedOperationException("This machine does not support LED");
 	}
 
 	/**
-	 * Create LineSensor
+	 * Create LineDevice
 	 *
 	 * @param port
 	 * @return
 	 */
-	public LineSensor createLineSensor(int port) {
+	public LineSensor createLineSensor(DevicePort port) {
 		throw new UnsupportedOperationException("This machine does not support LineSensor");
 	}
 
@@ -102,7 +102,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public GyroSensor createGyroSensor(int port) {
+	public GyroSensor createGyroSensor(DevicePort port) {
 		throw new UnsupportedOperationException("This machine does not support GyroSensor");
 	}
 
@@ -112,7 +112,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public TouchSensor createTouchSensor(int port) {
+	public TouchSensor createTouchSensor(DevicePort port) {
 		throw new UnsupportedOperationException("This machine does not support TouchSensor");
 	}
 
@@ -122,7 +122,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public ColorSensor createColorSensor(int port) {
+	public ColorSensor createColorSensor(DevicePort port) {
 		throw new UnsupportedOperationException("This machine does not support ColorSensor");
 	}
 
@@ -132,7 +132,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public Rangefinder createRangefinder(int port) {
+	public Rangefinder createRangefinder(DevicePort port) {
 		throw new UnsupportedOperationException("This machine does not support Rangefinder");
 	}
 
@@ -142,7 +142,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public SoundSensor createSoundSensor(int port) {
+	public SoundSensor createSoundSensor(DevicePort port) {
 		throw new UnsupportedOperationException("This machine does not support SoundSensor");
 	}
 
@@ -152,7 +152,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public RemoteControlReceiver createRemoteControlReceiver(int port) {
+	public RemoteControlReceiver createRemoteControlReceiver(DevicePort port) {
 		throw new UnsupportedOperationException("This machine does not support RemoteControlReceiver");
 	}
 }

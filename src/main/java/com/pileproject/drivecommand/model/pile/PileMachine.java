@@ -1,12 +1,13 @@
 package com.pileproject.drivecommand.model.pile;
 
 import com.pileproject.drivecommand.machine.Machine;
+import com.pileproject.drivecommand.machine.DevicePort;
+import com.pileproject.drivecommand.machine.input.LineSensor;
 import com.pileproject.drivecommand.machine.input.Rangefinder;
 import com.pileproject.drivecommand.machine.input.TouchSensor;
 import com.pileproject.drivecommand.machine.output.Led;
 import com.pileproject.drivecommand.machine.output.Motor;
 import com.pileproject.drivecommand.model.ProtocolBase;
-import com.pileproject.drivecommand.machine.input.LineSensor;
 
 /**
  * PILE Robot
@@ -23,28 +24,28 @@ public class PileMachine extends Machine {
     }
 
     @Override
-    public LineSensor createLineSensor(int port) {
-        return new LineSensor(port, mProtocol);
+    public Motor createMotor(DevicePort port) {
+        return new Motor(port.getRaw(), mProtocol);
     }
 
     @Override
-    public Motor createMotor(int port) {
-        return new Motor(port, mProtocol);
+    public LineSensor createLineSensor(DevicePort port) {
+        return new LineSensor(port.getRaw(), mProtocol);
     }
 
     @Override
-    public Led createLed(int port) {
-        return new Led(port, mProtocol);
+    public Led createLed(DevicePort port) {
+        return new Led(port.getRaw(), mProtocol);
     }
 
     @Override
-    public TouchSensor createTouchSensor(int port) {
-        return new TouchSensor(port, mProtocol);
+    public TouchSensor createTouchSensor(DevicePort port) {
+        return new TouchSensor(port.getRaw(), mProtocol);
     }
 
     @Override
-    public Rangefinder createRangefinder(int port) {
-        return new Rangefinder(port, mProtocol);
+    public Rangefinder createRangefinder(DevicePort port) {
+        return new Rangefinder(port.getRaw(), mProtocol);
     }
 }
 

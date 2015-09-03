@@ -1,5 +1,6 @@
 package com.pileproject.drivecommand.model.nxt;
 
+import com.pileproject.drivecommand.machine.DevicePort;
 import com.pileproject.drivecommand.machine.Machine;
 import com.pileproject.drivecommand.machine.input.SoundSensor;
 import com.pileproject.drivecommand.machine.input.TouchSensor;
@@ -31,11 +32,6 @@ public class NxtMachine extends Machine {
         public static final int SENSOR_LINE = 2;
         public static final int SENSOR_SOUND = 3;
 
-        public static final int PORT_1 = 0;
-        public static final int PORT_2 = 1;
-        public static final int PORT_3 = 2;
-        public static final int PORT_4 = 3;
-
         public static final class LineSensor {
             public static final int PctMin = 0;
             public static final int PctMax = 100;
@@ -65,10 +61,6 @@ public class NxtMachine extends Machine {
         public static final int MOTOR_LEFT = 1;
         public static final int MOTOR_RIGHT = 2;
 
-        public static final int PORT_A = 0;
-        public static final int PORT_B = 1;
-        public static final int PORT_C = 2;
-
         public static List<Integer> getAllMotors() {
             List<Integer> motors = new LinkedList<Integer>();
             motors.add(MOTOR_LEFT);
@@ -84,22 +76,22 @@ public class NxtMachine extends Machine {
     }
 
     @Override
-    public LineSensor createLineSensor(int port) {
-        return new LineSensor(port, mProtocol);
+    public LineSensor createLineSensor(DevicePort port) {
+        return new LineSensor(port.getRaw(), mProtocol);
     }
 
     @Override
-    public Motor createMotor(int port) {
-        return new Motor(port, mProtocol);
+    public Motor createMotor(DevicePort port) {
+        return new Motor(port.getRaw(), mProtocol);
     }
 
     @Override
-    public TouchSensor createTouchSensor(int port) {
-        return new TouchSensor(port, mProtocol);
+    public TouchSensor createTouchSensor(DevicePort port) {
+        return new TouchSensor(port.getRaw(), mProtocol);
     }
 
     @Override
-    public SoundSensor createSoundSensor(int port) {
-        return new SoundSensor(port, mProtocol);
+    public SoundSensor createSoundSensor(DevicePort port) {
+        return new SoundSensor(port.getRaw(), mProtocol);
     }
 }
