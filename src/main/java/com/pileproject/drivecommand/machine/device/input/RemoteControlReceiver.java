@@ -1,13 +1,13 @@
 package com.pileproject.drivecommand.machine.device.input;
 
-import java.util.HashMap;
-
 import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.command.CommandFactory;
 import com.pileproject.drivecommand.machine.device.DeviceBase;
 import com.pileproject.drivecommand.machine.device.DeviceType;
 import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
+
+import java.util.HashMap;
 
 public class RemoteControlReceiver extends DeviceBase {
 

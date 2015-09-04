@@ -1,16 +1,16 @@
 package unit.drivecommand.machine.input;
 
-import java.util.HashMap;
-
-import mockit.Expectations;
-import mockit.Mocked;
-
-import org.testng.annotations.Test;
-
 import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.machine.device.DeviceType;
 import com.pileproject.drivecommand.machine.device.input.GyroSensor;
 import com.pileproject.drivecommand.model.ProtocolBase;
+
+import org.testng.annotations.Test;
+
+import java.util.HashMap;
+
+import mockit.Expectations;
+import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class GyroSensorTest {

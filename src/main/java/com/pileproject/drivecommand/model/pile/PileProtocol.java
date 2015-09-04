@@ -1,13 +1,12 @@
 package com.pileproject.drivecommand.model.pile;
 
-import java.io.IOException;
-import java.util.HashMap;
-
-
 import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 import com.pileproject.drivecommand.model.com.ICommunicator;
+
+import java.io.IOException;
+import java.util.HashMap;
 
 public class PileProtocol extends ProtocolBase {
 	private static final String KEY_VALUE = "value";
