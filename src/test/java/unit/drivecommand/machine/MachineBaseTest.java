@@ -1,6 +1,6 @@
 package unit.drivecommand.machine;
 
-import com.pileproject.drivecommand.machine.Machine;
+import com.pileproject.drivecommand.machine.MachineBase;
 import com.pileproject.drivecommand.machine.device.input.ColorSensor;
 import com.pileproject.drivecommand.machine.device.input.GyroSensor;
 import com.pileproject.drivecommand.machine.device.input.LineSensor;
@@ -22,7 +22,7 @@ import java.io.IOException;
 import mockit.Expectations;
 import mockit.Mocked;
 
-public class MachineTest {
+public class MachineBaseTest {
 	@Mocked ProtocolBase protocol;
 	private final int PORT = 0;
 	
@@ -31,8 +31,8 @@ public class MachineTest {
 		new Expectations() {{
 			protocol.open();
 		}};
-		Machine machine = new Machine(protocol);
-		machine.connect();
+		MachineBase machineBase = new MachineBase(protocol);
+		machineBase.connect();
 	}
 	
 	@Test
@@ -40,73 +40,73 @@ public class MachineTest {
 		new Expectations() {{
 			protocol.close();
 		}};
-		Machine machine = new Machine(protocol);
-		machine.disconnect();
+		MachineBase machineBase = new MachineBase(protocol);
+		machineBase.disconnect();
 	}
 	
 	@Test
 	public void getMotorFromMachine() {
-		Machine machine = new Machine(protocol);
-		AssertJUnit.assertTrue(machine.createMotor(PORT) instanceof Motor);
+		MachineBase machineBase = new MachineBase(protocol);
+		AssertJUnit.assertTrue(machineBase.createMotor(PORT) instanceof Motor);
 	}
 
 	@Test
 	public void getServomotorFromMachine() {
-		Machine machine = new Machine(protocol);
-		AssertJUnit.assertTrue(machine.createServomotor(PORT) instanceof Servomotor);
+		MachineBase machineBase = new MachineBase(protocol);
+		AssertJUnit.assertTrue(machineBase.createServomotor(PORT) instanceof Servomotor);
 	}
 
 	@Test
 	public void getBuzzerFromMachine() {
-		Machine machine = new Machine(protocol);
-		AssertJUnit.assertTrue(machine.createBuzzer(PORT) instanceof Buzzer);
+		MachineBase machineBase = new MachineBase(protocol);
+		AssertJUnit.assertTrue(machineBase.createBuzzer(PORT) instanceof Buzzer);
 	}
 
 	@Test
 	public void getLedFromMachine() {
-		Machine machine = new Machine(protocol);
-		AssertJUnit.assertTrue(machine.createLed(PORT) instanceof Led);
+		MachineBase machineBase = new MachineBase(protocol);
+		AssertJUnit.assertTrue(machineBase.createLed(PORT) instanceof Led);
 	}
 
 	@Test
 	public void getLineSensorFromMachine() {
-		Machine machine = new Machine(protocol);
-		AssertJUnit.assertTrue(machine.createLineSensor(PORT) instanceof LineSensor);
+		MachineBase machineBase = new MachineBase(protocol);
+		AssertJUnit.assertTrue(machineBase.createLineSensor(PORT) instanceof LineSensor);
 	}
 
 	@Test
 	public void getGyroFromMachine() {
-		Machine machine = new Machine(protocol);
-		AssertJUnit.assertTrue(machine.createGyroSensor(PORT) instanceof GyroSensor);
+		MachineBase machineBase = new MachineBase(protocol);
+		AssertJUnit.assertTrue(machineBase.createGyroSensor(PORT) instanceof GyroSensor);
 	}
 
 	@Test
 	public void getTouchSensorFromMachine() {
-		Machine machine = new Machine(protocol);
-		AssertJUnit.assertTrue(machine.createTouchSensor(PORT) instanceof TouchSensor);
+		MachineBase machineBase = new MachineBase(protocol);
+		AssertJUnit.assertTrue(machineBase.createTouchSensor(PORT) instanceof TouchSensor);
 	}
 
 	@Test
 	public void getColorSensorFromMachine() {
-		Machine machine = new Machine(protocol);
-		AssertJUnit.assertTrue(machine.createColorSensor(PORT) instanceof ColorSensor);
+		MachineBase machineBase = new MachineBase(protocol);
+		AssertJUnit.assertTrue(machineBase.createColorSensor(PORT) instanceof ColorSensor);
 	}
 
 	@Test
 	public void getRangefinderFromMachine() {
-		Machine machine = new Machine(protocol);
-		AssertJUnit.assertTrue(machine.createRangefinder(PORT) instanceof Rangefinder);
+		MachineBase machineBase = new MachineBase(protocol);
+		AssertJUnit.assertTrue(machineBase.createRangefinder(PORT) instanceof Rangefinder);
 	}
 
 	@Test
 	public void getSoundSensorFromMachine() {
-		Machine machine = new Machine(protocol);
-		AssertJUnit.assertTrue(machine.createSoundSensor(PORT) instanceof SoundSensor);
+		MachineBase machineBase = new MachineBase(protocol);
+		AssertJUnit.assertTrue(machineBase.createSoundSensor(PORT) instanceof SoundSensor);
 	}
 
 	@Test
 	public void getRemoteControlRecieverFromMachine() {
-		Machine machine = new Machine(protocol);
-		AssertJUnit.assertTrue(machine.createRemoteControlReceiver(PORT) instanceof RemoteControlReceiver);
+		MachineBase machineBase = new MachineBase(protocol);
+		AssertJUnit.assertTrue(machineBase.createRemoteControlReceiver(PORT) instanceof RemoteControlReceiver);
 	}
 }

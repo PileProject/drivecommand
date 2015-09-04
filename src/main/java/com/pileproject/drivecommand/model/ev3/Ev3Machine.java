@@ -1,6 +1,7 @@
 package com.pileproject.drivecommand.model.ev3;
 
-import com.pileproject.drivecommand.machine.Machine;
+import com.pileproject.drivecommand.machine.MachineBase;
+import com.pileproject.drivecommand.machine.MachineStatus;
 import com.pileproject.drivecommand.machine.device.input.ColorSensor;
 import com.pileproject.drivecommand.machine.device.input.GyroSensor;
 import com.pileproject.drivecommand.machine.device.input.LineSensor;
@@ -12,14 +13,15 @@ import com.pileproject.drivecommand.machine.device.output.Buzzer;
 import com.pileproject.drivecommand.machine.device.output.Led;
 import com.pileproject.drivecommand.machine.device.output.Motor;
 import com.pileproject.drivecommand.machine.device.output.Servomotor;
-import com.pileproject.drivecommand.machine.device.port.DevicePort;
+import com.pileproject.drivecommand.machine.device.port.InputPort;
+import com.pileproject.drivecommand.machine.device.port.OutputPort;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
 /**
  * LEGO MINDSTORMS EV3
  * @author Tatsuya Iwanari
  */
-public class Ev3Machine extends Machine {
+public class Ev3Machine extends MachineBase {
     public Ev3Machine(ProtocolBase protocol) {
         super(protocol);
     }
@@ -30,57 +32,122 @@ public class Ev3Machine extends Machine {
     }
 
     @Override
-    public LineSensor createLineSensor(DevicePort port) {
-        return new LineSensor(port.getRaw(), mProtocol);
+    public MachineStatus fetchStatus() {
+        return mStatus;
     }
 
     @Override
-    public Motor createMotor(DevicePort port) {
+    public boolean applyStatus(MachineStatus status) {
+        mStatus = status;
+        return true;
+    }
+
+    private boolean isValidOutputPort(OutputPort port) {
+        // TODO: implement
+        return false;
+    }
+
+    private boolean isValidInputPort(InputPort port) {
+        // TODO: implement
+        return false;
+    }
+
+    @Override
+    public Motor createMotor(OutputPort port) {
+        if (isValidOutputPort(port)) {
+            // TODO: what kind of exception should be thrown
+            return null;
+        }
         return new Motor(port.getRaw(), mProtocol);
     }
 
     @Override
-    public TouchSensor createTouchSensor(DevicePort port) {
-        return new TouchSensor(port.getRaw(), mProtocol);
-    }
-
-    @Override
-    public SoundSensor createSoundSensor(DevicePort port) {
-        return new SoundSensor(port.getRaw(), mProtocol);
-    }
-
-    @Override
-    public Servomotor createServomotor(DevicePort port) {
+    public Servomotor createServomotor(OutputPort port) {
+        if (isValidOutputPort(port)) {
+            // TODO: what kind of exception should be thrown
+            return null;
+        }
         return new Servomotor(port.getRaw(), mProtocol);
     }
 
+
     @Override
-    public Buzzer createBuzzer(DevicePort port) {
+    public Buzzer createBuzzer(OutputPort port) {
+        if (isValidOutputPort(port)) {
+            // TODO: what kind of exception should be thrown
+            return null;
+        }
         return new Buzzer(port.getRaw(), mProtocol);
     }
 
     @Override
-    public Led createLed(DevicePort port) {
+    public Led createLed(OutputPort port) {
+        if (isValidOutputPort(port)) {
+            // TODO: what kind of exception should be thrown
+            return null;
+        }
         return new Led(port.getRaw(), mProtocol);
     }
 
     @Override
-    public GyroSensor createGyroSensor(DevicePort port) {
+    public LineSensor createLineSensor(InputPort port) {
+        if (isValidInputPort(port)) {
+            // TODO: what kind of exception should be thrown
+            return null;
+        }
+        return new LineSensor(port.getRaw(), mProtocol);
+    }
+
+    @Override
+    public TouchSensor createTouchSensor(InputPort port) {
+        if (isValidInputPort(port)) {
+            // TODO: what kind of exception should be thrown
+            return null;
+        }
+        return new TouchSensor(port.getRaw(), mProtocol);
+    }
+
+    @Override
+    public SoundSensor createSoundSensor(InputPort port) {
+        if (isValidInputPort(port)) {
+            // TODO: what kind of exception should be thrown
+            return null;
+        }
+        return new SoundSensor(port.getRaw(), mProtocol);
+    }
+    @Override
+    public GyroSensor createGyroSensor(InputPort port) {
+        if (isValidInputPort(port)) {
+            // TODO: what kind of exception should be thrown
+            return null;
+        }
         return new GyroSensor(port.getRaw(), mProtocol);
     }
 
     @Override
-    public ColorSensor createColorSensor(DevicePort port) {
+    public ColorSensor createColorSensor(InputPort port) {
+        if (isValidInputPort(port)) {
+            // TODO: what kind of exception should be thrown
+            return null;
+        }
         return new ColorSensor(port.getRaw(), mProtocol);
     }
 
     @Override
-    public Rangefinder createRangefinder(DevicePort port) {
+    public Rangefinder createRangefinder(InputPort port) {
+        if (isValidInputPort(port)) {
+            // TODO: what kind of exception should be thrown
+            return null;
+        }
         return new Rangefinder(port.getRaw(), mProtocol);
     }
 
     @Override
-    public RemoteControlReceiver createRemoteControlReceiver(DevicePort port) {
+    public RemoteControlReceiver createRemoteControlReceiver(InputPort port) {
+        if (isValidInputPort(port)) {
+            // TODO: what kind of exception should be thrown
+            return null;
+        }
         return new RemoteControlReceiver(port.getRaw(), mProtocol);
     }
 

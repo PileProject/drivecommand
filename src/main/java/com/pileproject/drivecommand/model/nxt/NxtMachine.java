@@ -1,6 +1,8 @@
 package com.pileproject.drivecommand.model.nxt;
 
-import com.pileproject.drivecommand.machine.Machine;
+import com.pileproject.drivecommand.machine.MachineBase;
+import com.pileproject.drivecommand.machine.MachineStatus;
+import com.pileproject.drivecommand.machine.device.DeviceType;
 import com.pileproject.drivecommand.machine.device.input.LineSensor;
 import com.pileproject.drivecommand.machine.device.input.SoundSensor;
 import com.pileproject.drivecommand.machine.device.input.TouchSensor;
@@ -16,10 +18,9 @@ import java.util.List;
  * LEGO MINDSTORMS NXT
  * @author Tatsuya Iwanari
  */
-public class NxtMachine extends Machine {
+public class NxtMachine extends MachineBase {
     public static final int MAX_MOTOR_POWER = 900;
     public static final int INIT_MOTOR_POWER = 500;
-
 
     public static final class SensorProperty {
         public static final int NUMBER_OF_SENSORS = 3;
@@ -59,14 +60,13 @@ public class NxtMachine extends Machine {
         public static final int MOTOR_RIGHT = 2;
 
         public static List<Integer> getAllMotors() {
-            List<Integer> motors = new LinkedList<Integer>();
+            List<Integer> motors = new LinkedList<>();
             motors.add(MOTOR_LEFT);
             motors.add(MOTOR_RIGHT);
 
             return motors;
         }
     }
-
 
     public NxtMachine(ProtocolBase protocol) {
         super(protocol);
@@ -81,17 +81,16 @@ public class NxtMachine extends Machine {
     }
 
     @Override
-    private boolean isValidInputPort(InputPort port) {
-        int portId = port.getRaw();
-        return port.isValid(mProtocol)
-                && portId >= 0 && portId < SensorProperty.NUMBER_OF_SENSOR_PORTS;
+    public MachineStatus fetchStatus() {
+        return mStatus;
     }
 
     @Override
-    private boolean isValidOutputPort(OutputPort port) {
-        int portId = port.getRaw();
-        return port.isValid(mProtocol)
-                && portId >= 0 && portId < MotorProperty.NUMBER_OF_MOTOR_PORTS;
+    public boolean applyStatus(MachineStatus status) {
+        mStatus = status;
+        // TODO: give some information to this machine with the argument "status"
+        // Is this necessary? We can update the status with each creation method
+        return true;
     }
 
     @Override
@@ -100,6 +99,7 @@ public class NxtMachine extends Machine {
             // TODO: what kind of exception should be thrown
             return null;
         }
+        mStatus.bind(port, DeviceType.MOTOR);
         return new Motor(port.getRaw(), mProtocol);
     }
 
@@ -109,6 +109,7 @@ public class NxtMachine extends Machine {
             // TODO: what kind of exception should be thrown
             return null;
         }
+        mStatus.bind(port, DeviceType.LINE_SENSOR);
         return new LineSensor(port.getRaw(), mProtocol);
     }
 
@@ -118,6 +119,7 @@ public class NxtMachine extends Machine {
             // TODO: what kind of exception should be thrown
             return null;
         }
+        mStatus.bind(port, DeviceType.TOUCH_SENSOR);
         return new TouchSensor(port.getRaw(), mProtocol);
     }
 
@@ -127,6 +129,19 @@ public class NxtMachine extends Machine {
             // TODO: what kind of exception should be thrown
             return null;
         }
+        mStatus.bind(port, DeviceType.SOUND_SENSOR);
         return new SoundSensor(port.getRaw(), mProtocol);
+    }
+
+    private boolean isValidInputPort(InputPort port) {
+        int portId = port.getRaw();
+        return port.isValid(mProtocol)
+                && portId >= 0 && portId < SensorProperty.NUMBER_OF_SENSOR_PORTS;
+    }
+
+    private boolean isValidOutputPort(OutputPort port) {
+        int portId = port.getRaw();
+        return port.isValid(mProtocol)
+                && portId >= 0 && portId < MotorProperty.NUMBER_OF_MOTOR_PORTS;
     }
 }

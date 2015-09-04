@@ -17,16 +17,17 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 
 import java.io.IOException;
 
-public abstract class Machine {
+public abstract class MachineBase {
 	protected ProtocolBase mProtocol;
-	
-	public Machine(ProtocolBase protocol) {
+	protected MachineStatus mStatus;
+
+	public MachineBase(ProtocolBase protocol) {
 		mProtocol = protocol;
+		mStatus = new MachineStatus();
 	}
 	
 	/**
-	 * Connect to device
-	 * 
+	 * connect to device
 	 * @throws IOException
 	 */
 	public void connect() throws IOException {
@@ -34,14 +35,14 @@ public abstract class Machine {
 	}
 	
 	/**
-	 * Disconnect from device
+	 * disconnect from device
 	 */
 	public void disconnect() {
 		mProtocol.close();
 	}
 	
 	/**
-	 * Transaction apply command
+	 * transaction apply command
 	 * for Pile Robot
 	 */
 	public void apply() {
@@ -49,18 +50,18 @@ public abstract class Machine {
 	}
 
 	/**
-	 * Check the port is a valid output port or not
-	 * @param port
+	 * fetch MachineStatus from this machine
+	 * by making connection
 	 * @return
 	 */
-	public abstract boolean isValidOutputPort(OutputPort port);
+	public abstract MachineStatus fetchStatus();
 
 	/**
-	 * Check the port is a valid input port or not
-	 * @param port
+	 * apply MachineStatus to this machine
+	 * @param status
 	 * @return
 	 */
-	public abstract boolean isValidInputPort(InputPort port);
+	public abstract boolean applyStatus(MachineStatus status);
 
 	/**
 	 * Create Motor

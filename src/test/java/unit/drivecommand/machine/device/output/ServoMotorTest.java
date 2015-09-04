@@ -1,4 +1,4 @@
-package unit.drivecommand.machine.output;
+package unit.drivecommand.machine.device.output;
 
 import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.machine.device.DeviceType;
