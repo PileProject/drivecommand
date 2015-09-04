@@ -2,7 +2,7 @@ package com.pileproject.drivecommand.command;
 
 import java.util.HashMap;
 
-import com.pileproject.drivecommand.machine.DeviceType;
+import com.pileproject.drivecommand.machine.device.DeviceType;
 import com.pileproject.drivecommand.model.CommandType;
 
 public abstract class CommandBase {

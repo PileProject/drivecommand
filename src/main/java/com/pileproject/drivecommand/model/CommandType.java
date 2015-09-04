@@ -1,6 +1,6 @@
 package com.pileproject.drivecommand.model;
 
-import com.pileproject.drivecommand.machine.DeviceType;
+import com.pileproject.drivecommand.machine.device.DeviceType;
 
 public enum CommandType {
 	SET_LED_ON {

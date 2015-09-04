@@ -1,12 +1,14 @@
 package com.pileproject.drivecommand.model.nxt;
 
-import com.pileproject.drivecommand.machine.DevicePort;
+import com.pileproject.drivecommand.machine.device.port.DevicePort;
 import com.pileproject.drivecommand.machine.Machine;
-import com.pileproject.drivecommand.machine.input.SoundSensor;
-import com.pileproject.drivecommand.machine.input.TouchSensor;
-import com.pileproject.drivecommand.machine.output.Motor;
+import com.pileproject.drivecommand.machine.device.input.SoundSensor;
+import com.pileproject.drivecommand.machine.device.input.TouchSensor;
+import com.pileproject.drivecommand.machine.device.output.Motor;
+import com.pileproject.drivecommand.machine.device.port.InputPort;
+import com.pileproject.drivecommand.machine.device.port.OutputPort;
 import com.pileproject.drivecommand.model.ProtocolBase;
-import com.pileproject.drivecommand.machine.input.LineSensor;
+import com.pileproject.drivecommand.machine.device.input.LineSensor;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -16,10 +18,6 @@ import java.util.List;
  * @author Tatsuya Iwanari
  */
 public class NxtMachine extends Machine {
-    public NxtMachine(ProtocolBase protocol) {
-        super(protocol);
-    }
-
     public static final int MAX_MOTOR_POWER = 900;
     public static final int INIT_MOTOR_POWER = 500;
 
@@ -70,28 +68,66 @@ public class NxtMachine extends Machine {
         }
     }
 
+
+    public NxtMachine(ProtocolBase protocol) {
+        super(protocol);
+        if (!(protocol instanceof NxtProtocol)) {
+            // TODO: what kind of exception should be thrown
+        }
+    }
+
     @Override
     public void apply() {
         mProtocol.apply();
     }
 
     @Override
-    public LineSensor createLineSensor(DevicePort port) {
-        return new LineSensor(port.getRaw(), mProtocol);
+    private boolean isValidInputPort(InputPort port) {
+        int portId = port.getRaw();
+        return port.isValid(mProtocol)
+                && portId >= 0 && portId < SensorProperty.NUMBER_OF_SENSOR_PORTS;
     }
 
     @Override
-    public Motor createMotor(DevicePort port) {
+    private boolean isValidOutputPort(OutputPort port) {
+        int portId = port.getRaw();
+        return port.isValid(mProtocol)
+                && portId >= 0 && portId < MotorProperty.NUMBER_OF_MOTOR_PORTS;
+    }
+
+    @Override
+    public Motor createMotor(OutputPort port) {
+        if (isValidOutputPort(port)) {
+            // TODO: what kind of exception should be thrown
+            return null;
+        }
         return new Motor(port.getRaw(), mProtocol);
     }
 
     @Override
-    public TouchSensor createTouchSensor(DevicePort port) {
+    public LineSensor createLineSensor(InputPort port) {
+        if (isValidInputPort(port)) {
+            // TODO: what kind of exception should be thrown
+            return null;
+        }
+        return new LineSensor(port.getRaw(), mProtocol);
+    }
+
+    @Override
+    public TouchSensor createTouchSensor(InputPort port) {
+        if (isValidInputPort(port)) {
+            // TODO: what kind of exception should be thrown
+            return null;
+        }
         return new TouchSensor(port.getRaw(), mProtocol);
     }
 
     @Override
-    public SoundSensor createSoundSensor(DevicePort port) {
+    public SoundSensor createSoundSensor(InputPort port) {
+        if (isValidInputPort(port)) {
+            // TODO: what kind of exception should be thrown
+            return null;
+        }
         return new SoundSensor(port.getRaw(), mProtocol);
     }
 }

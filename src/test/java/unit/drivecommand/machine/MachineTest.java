@@ -9,17 +9,17 @@ import mockit.Expectations;
 import mockit.Mocked;
 
 import com.pileproject.drivecommand.machine.Machine;
-import com.pileproject.drivecommand.machine.input.ColorSensor;
-import com.pileproject.drivecommand.machine.input.GyroSensor;
-import com.pileproject.drivecommand.machine.input.LineSensor;
-import com.pileproject.drivecommand.machine.input.Rangefinder;
-import com.pileproject.drivecommand.machine.input.RemoteControlReceiver;
-import com.pileproject.drivecommand.machine.input.SoundSensor;
-import com.pileproject.drivecommand.machine.input.TouchSensor;
-import com.pileproject.drivecommand.machine.output.Buzzer;
-import com.pileproject.drivecommand.machine.output.Led;
-import com.pileproject.drivecommand.machine.output.Motor;
-import com.pileproject.drivecommand.machine.output.Servomotor;
+import com.pileproject.drivecommand.machine.device.input.ColorSensor;
+import com.pileproject.drivecommand.machine.device.input.GyroSensor;
+import com.pileproject.drivecommand.machine.device.input.LineSensor;
+import com.pileproject.drivecommand.machine.device.input.Rangefinder;
+import com.pileproject.drivecommand.machine.device.input.RemoteControlReceiver;
+import com.pileproject.drivecommand.machine.device.input.SoundSensor;
+import com.pileproject.drivecommand.machine.device.input.TouchSensor;
+import com.pileproject.drivecommand.machine.device.output.Buzzer;
+import com.pileproject.drivecommand.machine.device.output.Led;
+import com.pileproject.drivecommand.machine.device.output.Motor;
+import com.pileproject.drivecommand.machine.device.output.Servomotor;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
 public class MachineTest {

@@ -1,4 +1,4 @@
-package com.pileproject.drivecommand.machine;
+package com.pileproject.drivecommand.machine.device.port;
 
 import com.pileproject.drivecommand.model.ProtocolBase;
 

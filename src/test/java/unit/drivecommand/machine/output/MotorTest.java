@@ -2,7 +2,6 @@ package unit.drivecommand.machine.output;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import static org.testng.Assert.*;
 
 
 import java.util.HashMap;
@@ -11,8 +10,8 @@ import mockit.Expectations;
 import mockit.Mocked;
 
 import com.pileproject.drivecommand.command.CommandBase;
-import com.pileproject.drivecommand.machine.DeviceType;
-import com.pileproject.drivecommand.machine.output.Motor;
+import com.pileproject.drivecommand.machine.device.DeviceType;
+import com.pileproject.drivecommand.machine.device.output.Motor;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
 @SuppressWarnings("serial")

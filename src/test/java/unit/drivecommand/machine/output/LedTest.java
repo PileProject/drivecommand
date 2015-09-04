@@ -10,8 +10,8 @@ import mockit.Expectations;
 import mockit.Mocked;
 
 import com.pileproject.drivecommand.command.CommandBase;
-import com.pileproject.drivecommand.machine.DeviceType;
-import com.pileproject.drivecommand.machine.output.Led;
+import com.pileproject.drivecommand.machine.device.DeviceType;
+import com.pileproject.drivecommand.machine.device.output.Led;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
 @SuppressWarnings("serial")
