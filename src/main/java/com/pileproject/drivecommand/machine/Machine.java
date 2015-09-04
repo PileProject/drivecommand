@@ -2,17 +2,20 @@ package com.pileproject.drivecommand.machine;
 
 import java.io.IOException;
 
-import com.pileproject.drivecommand.machine.input.ColorSensor;
-import com.pileproject.drivecommand.machine.input.GyroSensor;
-import com.pileproject.drivecommand.machine.input.LineSensor;
-import com.pileproject.drivecommand.machine.input.Rangefinder;
-import com.pileproject.drivecommand.machine.input.RemoteControlReceiver;
-import com.pileproject.drivecommand.machine.input.SoundSensor;
-import com.pileproject.drivecommand.machine.input.TouchSensor;
-import com.pileproject.drivecommand.machine.output.Buzzer;
-import com.pileproject.drivecommand.machine.output.Led;
-import com.pileproject.drivecommand.machine.output.Motor;
-import com.pileproject.drivecommand.machine.output.Servomotor;
+import com.pileproject.drivecommand.machine.device.port.DevicePort;
+import com.pileproject.drivecommand.machine.device.input.ColorSensor;
+import com.pileproject.drivecommand.machine.device.input.GyroSensor;
+import com.pileproject.drivecommand.machine.device.input.LineSensor;
+import com.pileproject.drivecommand.machine.device.input.Rangefinder;
+import com.pileproject.drivecommand.machine.device.input.RemoteControlReceiver;
+import com.pileproject.drivecommand.machine.device.input.SoundSensor;
+import com.pileproject.drivecommand.machine.device.input.TouchSensor;
+import com.pileproject.drivecommand.machine.device.output.Buzzer;
+import com.pileproject.drivecommand.machine.device.output.Led;
+import com.pileproject.drivecommand.machine.device.output.Motor;
+import com.pileproject.drivecommand.machine.device.output.Servomotor;
+import com.pileproject.drivecommand.machine.device.port.InputPort;
+import com.pileproject.drivecommand.machine.device.port.OutputPort;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
 public abstract class Machine {
@@ -52,7 +55,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public Motor createMotor(DevicePort port) {
+	public Motor createMotor(OutputPort port) {
 		throw new UnsupportedOperationException("This machine does not support Motor");
 	}
 
@@ -62,7 +65,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public Servomotor createServomotor(DevicePort port) {
+	public Servomotor createServomotor(OutputPort port) {
 		throw new UnsupportedOperationException("This machine does not support Servomotor");
 	}
 
@@ -72,7 +75,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public Buzzer createBuzzer(DevicePort port) {
+	public Buzzer createBuzzer(OutputPort port) {
 		throw new UnsupportedOperationException("This machine does not support Buzzer");
 	}
 
@@ -81,8 +84,8 @@ public abstract class Machine {
 	 * 
 	 * @param port
 	 * @return
-
-	public Led createLed(DevicePort port) {
+	 */
+	public Led createLed(OutputPort port) {
 		throw new UnsupportedOperationException("This machine does not support LED");
 	}
 
@@ -92,7 +95,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public LineSensor createLineSensor(DevicePort port) {
+	public LineSensor createLineSensor(InputPort port) {
 		throw new UnsupportedOperationException("This machine does not support LineSensor");
 	}
 
@@ -102,7 +105,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public GyroSensor createGyroSensor(DevicePort port) {
+	public GyroSensor createGyroSensor(InputPort port) {
 		throw new UnsupportedOperationException("This machine does not support GyroSensor");
 	}
 
@@ -112,7 +115,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public TouchSensor createTouchSensor(DevicePort port) {
+	public TouchSensor createTouchSensor(InputPort port) {
 		throw new UnsupportedOperationException("This machine does not support TouchSensor");
 	}
 
@@ -122,7 +125,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public ColorSensor createColorSensor(DevicePort port) {
+	public ColorSensor createColorSensor(InputPort port) {
 		throw new UnsupportedOperationException("This machine does not support ColorSensor");
 	}
 
@@ -132,7 +135,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public Rangefinder createRangefinder(DevicePort port) {
+	public Rangefinder createRangefinder(InputPort port) {
 		throw new UnsupportedOperationException("This machine does not support Rangefinder");
 	}
 
@@ -142,7 +145,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public SoundSensor createSoundSensor(DevicePort port) {
+	public SoundSensor createSoundSensor(InputPort port) {
 		throw new UnsupportedOperationException("This machine does not support SoundSensor");
 	}
 
@@ -152,7 +155,7 @@ public abstract class Machine {
 	 * @param port
 	 * @return
 	 */
-	public RemoteControlReceiver createRemoteControlReceiver(DevicePort port) {
+	public RemoteControlReceiver createRemoteControlReceiver(InputPort port) {
 		throw new UnsupportedOperationException("This machine does not support RemoteControlReceiver");
 	}
 }

@@ -1,9 +1,9 @@
-package com.pileproject.drivecommand.machine.output;
+package com.pileproject.drivecommand.machine.device.output;
 
 import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.command.CommandFactory;
-import com.pileproject.drivecommand.machine.DeviceBase;
-import com.pileproject.drivecommand.machine.DeviceType;
+import com.pileproject.drivecommand.machine.device.DeviceBase;
+import com.pileproject.drivecommand.machine.device.DeviceType;
 import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 

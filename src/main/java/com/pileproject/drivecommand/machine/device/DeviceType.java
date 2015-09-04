@@ -1,4 +1,4 @@
-package com.pileproject.drivecommand.machine;
+package com.pileproject.drivecommand.machine.device;
 
 public enum DeviceType {
 	/**

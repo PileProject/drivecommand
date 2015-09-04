@@ -2,7 +2,6 @@ package unit.drivecommand.machine.input;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
-import static org.testng.Assert.*;
 
 import java.util.HashMap;
 
@@ -10,8 +9,8 @@ import mockit.Expectations;
 import mockit.Mocked;
 
 import com.pileproject.drivecommand.command.CommandBase;
-import com.pileproject.drivecommand.machine.DeviceType;
-import com.pileproject.drivecommand.machine.input.RemoteControlReceiver;
+import com.pileproject.drivecommand.machine.device.DeviceType;
+import com.pileproject.drivecommand.machine.device.input.RemoteControlReceiver;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
 @SuppressWarnings("serial")
