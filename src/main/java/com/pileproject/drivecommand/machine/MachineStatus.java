@@ -20,14 +20,19 @@ public class MachineStatus {
         this.mDevices = devices;
     }
 
+    /**
+     * Bind ports and device types
+     * @param port
+     * @param type
+     * @return updated or not
+     */
     public boolean bind(DevicePort port, DeviceType type) {
-        if (mDevices.containsKey(port)) return false;
+        boolean isUpdated = mDevices.containsKey(port);
         mDevices.put(port, type);
-        return true;
+        return isUpdated;
     }
 
     public Map<DevicePort, DeviceType> getPorts() {
         return mDevices;
     }
-
 }
