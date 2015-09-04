@@ -1,12 +1,12 @@
 package com.pileproject.drivecommand.model.pile;
 
 import com.pileproject.drivecommand.machine.Machine;
-import com.pileproject.drivecommand.machine.device.port.DevicePort;
 import com.pileproject.drivecommand.machine.device.input.LineSensor;
 import com.pileproject.drivecommand.machine.device.input.Rangefinder;
 import com.pileproject.drivecommand.machine.device.input.TouchSensor;
 import com.pileproject.drivecommand.machine.device.output.Led;
 import com.pileproject.drivecommand.machine.device.output.Motor;
+import com.pileproject.drivecommand.machine.device.port.DevicePort;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
 /**

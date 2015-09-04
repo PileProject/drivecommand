@@ -1,10 +1,10 @@
 package com.pileproject.drivecommand.model.ev3;
 
+import com.pileproject.drivecommand.util.Log;
+
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-
-import com.pileproject.drivecommand.util.Log;
 
 /**
  * EV3 Byte Code Formatter.

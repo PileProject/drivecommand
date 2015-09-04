@@ -1,9 +1,9 @@
 package com.pileproject.drivecommand.model.ev3;
 
-import com.pileproject.drivecommand.machine.device.port.DevicePort;
 import com.pileproject.drivecommand.machine.Machine;
 import com.pileproject.drivecommand.machine.device.input.ColorSensor;
 import com.pileproject.drivecommand.machine.device.input.GyroSensor;
+import com.pileproject.drivecommand.machine.device.input.LineSensor;
 import com.pileproject.drivecommand.machine.device.input.Rangefinder;
 import com.pileproject.drivecommand.machine.device.input.RemoteControlReceiver;
 import com.pileproject.drivecommand.machine.device.input.SoundSensor;
@@ -12,8 +12,8 @@ import com.pileproject.drivecommand.machine.device.output.Buzzer;
 import com.pileproject.drivecommand.machine.device.output.Led;
 import com.pileproject.drivecommand.machine.device.output.Motor;
 import com.pileproject.drivecommand.machine.device.output.Servomotor;
+import com.pileproject.drivecommand.machine.device.port.DevicePort;
 import com.pileproject.drivecommand.model.ProtocolBase;
-import com.pileproject.drivecommand.machine.device.input.LineSensor;
 
 /**
  * LEGO MINDSTORMS EV3

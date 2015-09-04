@@ -1,14 +1,15 @@
 package unit.drivecommand.command;
 
-import static org.testng.AssertJUnit.assertEquals;
-
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-import java.util.HashMap;
-
 import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.command.CommandFactory;
 import com.pileproject.drivecommand.model.CommandType;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.HashMap;
+
+import static org.testng.AssertJUnit.assertEquals;
 
 public class CommandFactoryTest {
 	

@@ -1,9 +1,9 @@
 package com.pileproject.drivecommand.machine.device;
 
-import java.util.HashMap;
-
 import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.model.ProtocolBase;
+
+import java.util.HashMap;
 
 public abstract class DeviceBase {
 	private final int mPort;

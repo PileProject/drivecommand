@@ -1,14 +1,13 @@
 package com.pileproject.drivecommand.model.nxt;
 
-import com.pileproject.drivecommand.machine.device.port.DevicePort;
 import com.pileproject.drivecommand.machine.Machine;
+import com.pileproject.drivecommand.machine.device.input.LineSensor;
 import com.pileproject.drivecommand.machine.device.input.SoundSensor;
 import com.pileproject.drivecommand.machine.device.input.TouchSensor;
 import com.pileproject.drivecommand.machine.device.output.Motor;
 import com.pileproject.drivecommand.machine.device.port.InputPort;
 import com.pileproject.drivecommand.machine.device.port.OutputPort;
 import com.pileproject.drivecommand.model.ProtocolBase;
-import com.pileproject.drivecommand.machine.device.input.LineSensor;
 
 import java.util.LinkedList;
 import java.util.List;

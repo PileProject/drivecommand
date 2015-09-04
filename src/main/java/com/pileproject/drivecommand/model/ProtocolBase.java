@@ -1,10 +1,10 @@
 package com.pileproject.drivecommand.model;
 
-import java.io.IOException;
-import java.util.HashMap;
-
 import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.model.com.ICommunicator;
+
+import java.io.IOException;
+import java.util.HashMap;
 
 public abstract class ProtocolBase {
 	protected final ICommunicator mCommunicator;

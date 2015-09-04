@@ -1,18 +1,47 @@
 package com.pileproject.drivecommand.model.ev3;
 
+import com.pileproject.drivecommand.command.CommandBase;
+import com.pileproject.drivecommand.model.CommandType;
+import com.pileproject.drivecommand.model.ProtocolBase;
+import com.pileproject.drivecommand.model.com.ICommunicator;
+import com.pileproject.drivecommand.util.Log;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import com.pileproject.drivecommand.util.Log;
-import com.pileproject.drivecommand.command.CommandBase;
-import com.pileproject.drivecommand.model.CommandType;
-import com.pileproject.drivecommand.model.ProtocolBase;
-import com.pileproject.drivecommand.model.com.ICommunicator;
-
-import static com.pileproject.drivecommand.model.ev3.Ev3Constants.*;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.COL_REFLECT;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.COL_RGB;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.DIRECT_COMMAND_NOREPLY;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.DIRECT_COMMAND_REPLY;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.EV3_COLOR;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.EV3_GYRO;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.EV3_IR;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.EV3_TOUCH;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.EV3_ULTRASONIC;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.GYRO_ANGLE;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.GYRO_RATE;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.INPUT_DEVICE;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.IR_REMOTE;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.IR_SEEK;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.LAYER_MASTER;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.LIGHT_REFLECT;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.L_MOTOR;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.L_MOTOR_DEGREE;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.NXT_LIGHT;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.NXT_SOUND;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.OUTPUT_POWER;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.OUTPUT_START;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.READY_PCT;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.READY_SI;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.SOUND_CONTROL;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.SOUND_DB;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.SOUND_TONE;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.TOUCH_BUMPS;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.TOUCH_TOUCH;
+import static com.pileproject.drivecommand.model.ev3.Ev3Constants.US_CM;
 
 public class Ev3Protocol extends ProtocolBase {
 	private static final String KEY_VALUE = "value";

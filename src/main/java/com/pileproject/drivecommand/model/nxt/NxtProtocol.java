@@ -1,15 +1,30 @@
 package com.pileproject.drivecommand.model.nxt;
 
-import static com.pileproject.drivecommand.model.nxt.NxtConstants.*;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
-import com.pileproject.drivecommand.util.Log;
 import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 import com.pileproject.drivecommand.model.com.ICommunicator;
+import com.pileproject.drivecommand.util.Log;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.pileproject.drivecommand.model.nxt.NxtConstants.BOOLEANMODE;
+import static com.pileproject.drivecommand.model.nxt.NxtConstants.BRAKE;
+import static com.pileproject.drivecommand.model.nxt.NxtConstants.DIRECT_COMMAND_NOREPLY;
+import static com.pileproject.drivecommand.model.nxt.NxtConstants.DIRECT_COMMAND_REPLY;
+import static com.pileproject.drivecommand.model.nxt.NxtConstants.GET_INPUT_VALUES;
+import static com.pileproject.drivecommand.model.nxt.NxtConstants.LIGHT_ACTIVE;
+import static com.pileproject.drivecommand.model.nxt.NxtConstants.MOTORON;
+import static com.pileproject.drivecommand.model.nxt.NxtConstants.MOTOR_RUN_STATE_RUNNING;
+import static com.pileproject.drivecommand.model.nxt.NxtConstants.PCTFULLSCALEMODE;
+import static com.pileproject.drivecommand.model.nxt.NxtConstants.REGULATED;
+import static com.pileproject.drivecommand.model.nxt.NxtConstants.REGULATION_MODE_MOTOR_SPEED;
+import static com.pileproject.drivecommand.model.nxt.NxtConstants.SET_INPUT_MODE;
+import static com.pileproject.drivecommand.model.nxt.NxtConstants.SET_OUTPUT_STATE;
+import static com.pileproject.drivecommand.model.nxt.NxtConstants.SOUND_DB;
+import static com.pileproject.drivecommand.model.nxt.NxtConstants.SWITCH;
 
 /**
  * @see <a href="http://sourceforge.net/projects/lejos/files/lejos-NXJ/">LeJOS</a>

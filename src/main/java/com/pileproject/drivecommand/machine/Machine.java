@@ -1,8 +1,5 @@
 package com.pileproject.drivecommand.machine;
 
-import java.io.IOException;
-
-import com.pileproject.drivecommand.machine.device.port.DevicePort;
 import com.pileproject.drivecommand.machine.device.input.ColorSensor;
 import com.pileproject.drivecommand.machine.device.input.GyroSensor;
 import com.pileproject.drivecommand.machine.device.input.LineSensor;
@@ -17,6 +14,8 @@ import com.pileproject.drivecommand.machine.device.output.Servomotor;
 import com.pileproject.drivecommand.machine.device.port.InputPort;
 import com.pileproject.drivecommand.machine.device.port.OutputPort;
 import com.pileproject.drivecommand.model.ProtocolBase;
+
+import java.io.IOException;
 
 public abstract class Machine {
 	protected ProtocolBase mProtocol;
@@ -48,7 +47,21 @@ public abstract class Machine {
 	public void apply() {
 		throw new UnsupportedOperationException("This machine does not support 'apply' command");
 	}
-	
+
+	/**
+	 * Check the port is a valid output port or not
+	 * @param port
+	 * @return
+	 */
+	public abstract boolean isValidOutputPort(OutputPort port);
+
+	/**
+	 * Check the port is a valid input port or not
+	 * @param port
+	 * @return
+	 */
+	public abstract boolean isValidInputPort(InputPort port);
+
 	/**
 	 * Create Motor
 	 * 

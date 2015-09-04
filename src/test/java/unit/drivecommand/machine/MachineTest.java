@@ -1,13 +1,5 @@
 package unit.drivecommand.machine;
 
-import java.io.IOException;
-
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
-
-import mockit.Expectations;
-import mockit.Mocked;
-
 import com.pileproject.drivecommand.machine.Machine;
 import com.pileproject.drivecommand.machine.device.input.ColorSensor;
 import com.pileproject.drivecommand.machine.device.input.GyroSensor;
@@ -21,6 +13,14 @@ import com.pileproject.drivecommand.machine.device.output.Led;
 import com.pileproject.drivecommand.machine.device.output.Motor;
 import com.pileproject.drivecommand.machine.device.output.Servomotor;
 import com.pileproject.drivecommand.model.ProtocolBase;
+
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
+
+import java.io.IOException;
+
+import mockit.Expectations;
+import mockit.Mocked;
 
 public class MachineTest {
 	@Mocked ProtocolBase protocol;

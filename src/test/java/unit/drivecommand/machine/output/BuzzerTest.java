@@ -1,18 +1,16 @@
 package unit.drivecommand.machine.output;
 
-import static org.testng.Assert.assertEquals;
-
-import java.util.HashMap;
-
-import org.testng.annotations.Test;
-
-import mockit.Expectations;
-import mockit.Mocked;
-
 import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.machine.device.DeviceType;
 import com.pileproject.drivecommand.machine.device.output.Buzzer;
 import com.pileproject.drivecommand.model.ProtocolBase;
+
+import org.testng.annotations.Test;
+
+import java.util.HashMap;
+
+import mockit.Expectations;
+import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class BuzzerTest {
