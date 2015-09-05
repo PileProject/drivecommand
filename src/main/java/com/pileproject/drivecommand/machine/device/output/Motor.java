@@ -4,6 +4,7 @@ import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.command.CommandFactory;
 import com.pileproject.drivecommand.machine.device.DeviceBase;
 import com.pileproject.drivecommand.machine.device.DeviceType;
+import com.pileproject.drivecommand.machine.device.port.OutputPort;
 import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
@@ -12,7 +13,7 @@ import java.util.HashMap;
 public class Motor extends DeviceBase {
 	private int mSpeed = 50; // initial value
 	
-	public Motor(int port, ProtocolBase protocol) {
+	public Motor(OutputPort port, ProtocolBase protocol) {
 		super(port, protocol);
 	}
 	
