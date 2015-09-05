@@ -11,9 +11,6 @@ import com.pileproject.drivecommand.machine.device.port.InputPort;
 import com.pileproject.drivecommand.machine.device.port.OutputPort;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * LEGO MINDSTORMS NXT
  * @author Tatsuya Iwanari
@@ -41,15 +38,6 @@ public class NxtMachine extends MachineBase {
             public static final int SI_dB_SiMax = 120;
             public static final int SI_dB_DEFAULT = 70;
         }
-
-        public static List<Integer> getAllSensors() {
-            List<Integer> sensors = new LinkedList<>();
-            sensors.add(SENSOR_TOUCH);
-            sensors.add(SENSOR_LINE);
-            sensors.add(SENSOR_SOUND);
-
-            return sensors;
-        }
     }
 
     public static final class MotorProperty {
@@ -58,14 +46,6 @@ public class NxtMachine extends MachineBase {
         public static final int MOTOR_UNUSED = 0;
         public static final int MOTOR_LEFT = 1;
         public static final int MOTOR_RIGHT = 2;
-
-        public static List<Integer> getAllMotors() {
-            List<Integer> motors = new LinkedList<>();
-            motors.add(MOTOR_LEFT);
-            motors.add(MOTOR_RIGHT);
-
-            return motors;
-        }
     }
 
     public NxtMachine(ProtocolBase protocol) {
@@ -100,7 +80,7 @@ public class NxtMachine extends MachineBase {
             return null;
         }
         mStatus.bind(port, DeviceType.MOTOR);
-        return new Motor(port.getRaw(), mProtocol);
+        return new Motor(port, mProtocol);
     }
 
     @Override
@@ -110,7 +90,7 @@ public class NxtMachine extends MachineBase {
             return null;
         }
         mStatus.bind(port, DeviceType.LINE_SENSOR);
-        return new LineSensor(port.getRaw(), mProtocol);
+        return new LineSensor(port, mProtocol);
     }
 
     @Override
@@ -120,7 +100,7 @@ public class NxtMachine extends MachineBase {
             return null;
         }
         mStatus.bind(port, DeviceType.TOUCH_SENSOR);
-        return new TouchSensor(port.getRaw(), mProtocol);
+        return new TouchSensor(port, mProtocol);
     }
 
     @Override
@@ -130,7 +110,7 @@ public class NxtMachine extends MachineBase {
             return null;
         }
         mStatus.bind(port, DeviceType.SOUND_SENSOR);
-        return new SoundSensor(port.getRaw(), mProtocol);
+        return new SoundSensor(port, mProtocol);
     }
 
     private boolean isValidInputPort(InputPort port) {

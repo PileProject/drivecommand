@@ -4,12 +4,13 @@ import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.command.CommandFactory;
 import com.pileproject.drivecommand.machine.device.DeviceBase;
 import com.pileproject.drivecommand.machine.device.DeviceType;
+import com.pileproject.drivecommand.machine.device.port.OutputPort;
 import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
 public class Buzzer extends DeviceBase {
 	
-	public Buzzer(int port, ProtocolBase protocol) {
+	public Buzzer(OutputPort port, ProtocolBase protocol) {
 		super(port, protocol);
 	}
 	

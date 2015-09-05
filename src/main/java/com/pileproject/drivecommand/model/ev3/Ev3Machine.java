@@ -70,7 +70,6 @@ public class Ev3Machine extends MachineBase {
         return new Servomotor(port.getRaw(), mProtocol);
     }
 
-
     @Override
     public Buzzer createBuzzer(OutputPort port) {
         if (isValidOutputPort(port)) {
@@ -88,6 +87,7 @@ public class Ev3Machine extends MachineBase {
         }
         return new Led(port.getRaw(), mProtocol);
     }
+
 
     @Override
     public LineSensor createLineSensor(InputPort port) {

@@ -1,12 +1,13 @@
 package com.pileproject.drivecommand.machine.device;
 
 import com.pileproject.drivecommand.command.CommandBase;
+import com.pileproject.drivecommand.machine.device.port.DevicePort;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
 import java.util.HashMap;
 
 public abstract class DeviceBase {
-	private final int mPort;
+	private final DevicePort mPort;
 	private final ProtocolBase mProtocol;
 	
 	/**
@@ -14,8 +15,7 @@ public abstract class DeviceBase {
 	 * 
 	 * @param port
 	 */
-	public DeviceBase(int port, ProtocolBase protocol) {
-		if (port < 0 || port > 3) throw new IllegalArgumentException("The port should be between 0 to 3.");
+	public DeviceBase(DevicePort port, ProtocolBase protocol) {
 		mPort = port;
 		mProtocol = protocol;
 	}
@@ -27,7 +27,7 @@ public abstract class DeviceBase {
 	 * @return result
 	 */
 	protected HashMap<String, Object> exec(CommandBase command) {
-		return mProtocol.exec(mPort, command);
+		return mProtocol.exec(mPort.getRaw(), command);
 	}
 	
 	public abstract DeviceType getDeviceType();
