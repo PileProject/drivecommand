@@ -18,7 +18,7 @@ public class SoundSensor extends DeviceBase {
 	
 	/**
 	 * Get the sound in dB
-	 * 
+	 *
 	 * @return dB
 	 */
 	public int getDb() {

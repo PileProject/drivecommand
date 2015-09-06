@@ -16,7 +16,8 @@ import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class GyroSensorTest {
-	@Mocked private ProtocolBase protocol;
+	@Mocked
+	private ProtocolBase protocol;
 	private final InputPort PORT = new InputPort() {
 		@Override
 		public boolean isValid(ProtocolBase protocol) {
@@ -40,8 +41,10 @@ public class GyroSensorTest {
 	@Test
 	public void getGyroAngle() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_ANGLE);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALUE, VALUE_ANGLE);
+			}};
 		}};
 		GyroSensor gs = new GyroSensor(PORT, protocol);
 		AssertJUnit.assertEquals(gs.getAngle(), VALUE_ANGLE);
@@ -50,8 +53,10 @@ public class GyroSensorTest {
 	@Test
 	public void getGyroRate() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_RATE);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALUE, VALUE_RATE);
+			}};
 		}};
 		GyroSensor gs = new GyroSensor(PORT, protocol);
 		AssertJUnit.assertEquals(gs.getRate(), VALUE_RATE);

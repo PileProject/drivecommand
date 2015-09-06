@@ -18,7 +18,7 @@ public class TouchSensor extends DeviceBase {
 	
 	/**
 	 * Check this sensor is touched now
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public boolean isTouched() {
@@ -29,7 +29,7 @@ public class TouchSensor extends DeviceBase {
 	
 	/**
 	 * Get the touched count
-	 * 
+	 *
 	 * @return number of count
 	 */
 	public int getTouchedCount() {

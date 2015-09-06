@@ -2,7 +2,7 @@ package com.pileproject.drivecommand.model.nxt;
 
 /**
  * Sensor input values for a remote NXT accessed via LCP.
- * 
+ *
  * @author <a href="mailto:bbagnall@mts.net">Brian Bagnall</a>
  * @see <a href="http://sourceforge.net/projects/lejos/files/lejos-NXJ/">LeJOS</a>
  */

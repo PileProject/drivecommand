@@ -16,7 +16,7 @@ public class PilePacketFormatterTest {
 		PilePacketFormatter packetFormat = new PilePacketFormatter(PileConstants.CommandTypes.MOVE);
 		assertEquals(false, packetFormat.isFixed());
 		assertEquals(false, packetFormat.isValid());
-		packetFormat.setDataByte((byte)((port << 2)|dir));
+		packetFormat.setDataByte((byte) ((port << 2) | dir));
 		assertEquals(false, packetFormat.isFixed());
 		assertEquals(false, packetFormat.isValid());
 		packetFormat.setDataByte(percent);
@@ -28,9 +28,10 @@ public class PilePacketFormatterTest {
 		byte[] expected = {0x05, 0x00, 0x01, 0x0A, 0x0E};
 		assertEquals(expected, packetFormat.byteArray());
 	}
+
 	@Test
 	public void receivePacket() {
-		byte[] good= {0x05, 0x00, 0x01, 0x0A, 0x0E};
+		byte[] good = {0x05, 0x00, 0x01, 0x0A, 0x0E};
 		byte[] expectedData = {0x01, 0x0A};
 		PilePacketFormatter goodPacket = new PilePacketFormatter(good);
 		assertEquals(true, goodPacket.isFixed());

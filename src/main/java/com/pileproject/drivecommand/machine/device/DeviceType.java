@@ -27,7 +27,7 @@ public enum DeviceType {
 	/**
 	 * Range finder
 	 * ex. Ultrasonic sensor for ev3
-	 * */
+	 */
 	RANGEFINDER,
 	SOUND_SENSOR,
 	REMOTECONTROL_RECIEVER

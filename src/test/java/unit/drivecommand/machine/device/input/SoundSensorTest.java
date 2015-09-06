@@ -16,7 +16,8 @@ import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class SoundSensorTest {
-	@Mocked private ProtocolBase protocol;
+	@Mocked
+	private ProtocolBase protocol;
 	private final InputPort PORT = new InputPort() {
 		@Override
 		public boolean isValid(ProtocolBase protocol) {
@@ -39,8 +40,10 @@ public class SoundSensorTest {
 	@Test
 	public void getSoundDb() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_DB);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALUE, VALUE_DB);
+			}};
 		}};
 		SoundSensor ss = new SoundSensor(PORT, protocol);
 		AssertJUnit.assertEquals(ss.getDb(), VALUE_DB);

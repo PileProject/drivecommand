@@ -12,7 +12,7 @@ public abstract class DeviceBase {
 	
 	/**
 	 * Constructor
-	 * 
+	 *
 	 * @param port
 	 */
 	public DeviceBase(DevicePort port, ProtocolBase protocol) {
@@ -22,7 +22,7 @@ public abstract class DeviceBase {
 	
 	/**
 	 * Execute command
-	 * 
+	 *
 	 * @param command
 	 * @return result
 	 */

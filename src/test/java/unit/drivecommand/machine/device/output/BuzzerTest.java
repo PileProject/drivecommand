@@ -16,7 +16,8 @@ import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class BuzzerTest {
-	@Mocked private ProtocolBase protocol;
+	@Mocked
+	private ProtocolBase protocol;
 	private final OutputPort PORT = new OutputPort() {
 		@Override
 		public boolean isValid(ProtocolBase protocol) {
@@ -40,8 +41,10 @@ public class BuzzerTest {
 	@Test
 	public void turnOnBuzzer() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALID, VALUE_VALID);
+			}};
 		}};
 		Buzzer bz = new Buzzer(PORT, protocol);
 		bz.turnOn();
@@ -50,8 +53,10 @@ public class BuzzerTest {
 	@Test
 	public void turnOffBuzzer() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALID, VALUE_VALID);
+			}};
 		}};
 		Buzzer bz = new Buzzer(PORT, protocol);
 		bz.turnOff();
@@ -60,8 +65,10 @@ public class BuzzerTest {
 	@Test
 	public void beepBuzzer() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALID, VALUE_VALID);
+			}};
 		}};
 		Buzzer bz = new Buzzer(PORT, protocol);
 		bz.beep();
@@ -71,4 +78,5 @@ public class BuzzerTest {
 	public void deviceTypeIsBuzzer() {
 		Buzzer bz = new Buzzer(PORT, protocol);
 		AssertJUnit.assertEquals(bz.getDeviceType(), DeviceType.BUZZER);
-	}}
+	}
+}

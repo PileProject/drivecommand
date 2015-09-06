@@ -18,12 +18,13 @@ public class LineSensor extends DeviceBase {
 	
 	/**
 	 * Get light sensor value
+	 *
 	 * @return sensor value (0 ~ 100%)
 	 */
 	public int getSensorValue() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_LINE_VALUE, null);
 		HashMap<String, Object> value = exec(cmd);
-		return (Integer)value.get("value");
+		return (Integer) value.get("value");
 	}
 	
 	@Override
