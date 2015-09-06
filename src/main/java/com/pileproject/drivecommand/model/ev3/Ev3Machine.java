@@ -58,7 +58,7 @@ public class Ev3Machine extends MachineBase {
             // TODO: what kind of exception should be thrown
             return null;
         }
-        return new Motor(port.getRaw(), mProtocol);
+        return new Motor(port, mProtocol);
     }
 
     @Override
@@ -67,7 +67,7 @@ public class Ev3Machine extends MachineBase {
             // TODO: what kind of exception should be thrown
             return null;
         }
-        return new Servomotor(port.getRaw(), mProtocol);
+        return new Servomotor(port, mProtocol);
     }
 
     @Override
@@ -76,7 +76,7 @@ public class Ev3Machine extends MachineBase {
             // TODO: what kind of exception should be thrown
             return null;
         }
-        return new Buzzer(port.getRaw(), mProtocol);
+        return new Buzzer(port, mProtocol);
     }
 
     @Override
@@ -85,7 +85,7 @@ public class Ev3Machine extends MachineBase {
             // TODO: what kind of exception should be thrown
             return null;
         }
-        return new Led(port.getRaw(), mProtocol);
+        return new Led(port, mProtocol);
     }
 
 
@@ -95,7 +95,7 @@ public class Ev3Machine extends MachineBase {
             // TODO: what kind of exception should be thrown
             return null;
         }
-        return new LineSensor(port.getRaw(), mProtocol);
+        return new LineSensor(port, mProtocol);
     }
 
     @Override
@@ -104,7 +104,7 @@ public class Ev3Machine extends MachineBase {
             // TODO: what kind of exception should be thrown
             return null;
         }
-        return new TouchSensor(port.getRaw(), mProtocol);
+        return new TouchSensor(port, mProtocol);
     }
 
     @Override
@@ -113,7 +113,7 @@ public class Ev3Machine extends MachineBase {
             // TODO: what kind of exception should be thrown
             return null;
         }
-        return new SoundSensor(port.getRaw(), mProtocol);
+        return new SoundSensor(port, mProtocol);
     }
     @Override
     public GyroSensor createGyroSensor(InputPort port) {
@@ -121,7 +121,7 @@ public class Ev3Machine extends MachineBase {
             // TODO: what kind of exception should be thrown
             return null;
         }
-        return new GyroSensor(port.getRaw(), mProtocol);
+        return new GyroSensor(port, mProtocol);
     }
 
     @Override
@@ -130,7 +130,7 @@ public class Ev3Machine extends MachineBase {
             // TODO: what kind of exception should be thrown
             return null;
         }
-        return new ColorSensor(port.getRaw(), mProtocol);
+        return new ColorSensor(port, mProtocol);
     }
 
     @Override
@@ -139,7 +139,7 @@ public class Ev3Machine extends MachineBase {
             // TODO: what kind of exception should be thrown
             return null;
         }
-        return new Rangefinder(port.getRaw(), mProtocol);
+        return new Rangefinder(port, mProtocol);
     }
 
     @Override
@@ -148,7 +148,7 @@ public class Ev3Machine extends MachineBase {
             // TODO: what kind of exception should be thrown
             return null;
         }
-        return new RemoteControlReceiver(port.getRaw(), mProtocol);
+        return new RemoteControlReceiver(port, mProtocol);
     }
 
 }

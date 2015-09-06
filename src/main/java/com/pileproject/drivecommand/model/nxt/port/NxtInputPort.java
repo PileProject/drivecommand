@@ -1,13 +1,13 @@
 package com.pileproject.drivecommand.model.nxt.port;
 
-import com.pileproject.drivecommand.machine.device.port.DevicePort;
+import com.pileproject.drivecommand.machine.device.port.InputPort;
 import com.pileproject.drivecommand.model.ProtocolBase;
 import com.pileproject.drivecommand.model.nxt.NxtProtocol;
 
 /**
  * Created by tatsuya on 15/09/03.
  */
-public class NxtInputPort implements DevicePort {
+public class NxtInputPort extends InputPort {
     private final int mPort;
 
     public static final NxtInputPort PORT_1 = new NxtInputPort(0);

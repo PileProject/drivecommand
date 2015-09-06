@@ -47,27 +47,27 @@ public class PileMachine extends MachineBase {
 
     @Override
     public Motor createMotor(OutputPort port) {
-        return new Motor(port.getRaw(), mProtocol);
+        return new Motor(port, mProtocol);
     }
 
     @Override
     public Led createLed(OutputPort port) {
-        return new Led(port.getRaw(), mProtocol);
+        return new Led(port, mProtocol);
     }
 
     @Override
     public LineSensor createLineSensor(InputPort port) {
-        return new LineSensor(port.getRaw(), mProtocol);
+        return new LineSensor(port, mProtocol);
     }
 
     @Override
     public TouchSensor createTouchSensor(InputPort port) {
-        return new TouchSensor(port.getRaw(), mProtocol);
+        return new TouchSensor(port, mProtocol);
     }
 
     @Override
     public Rangefinder createRangefinder(InputPort port) {
-        return new Rangefinder(port.getRaw(), mProtocol);
+        return new Rangefinder(port, mProtocol);
     }
 }
 
