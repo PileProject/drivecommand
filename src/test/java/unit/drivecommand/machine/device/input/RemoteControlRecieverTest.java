@@ -3,6 +3,7 @@ package unit.drivecommand.machine.device.input;
 import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.machine.device.DeviceType;
 import com.pileproject.drivecommand.machine.device.input.RemoteControlReceiver;
+import com.pileproject.drivecommand.machine.device.port.InputPort;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
 import org.testng.AssertJUnit;
@@ -16,7 +17,22 @@ import mockit.Mocked;
 @SuppressWarnings("serial")
 public class RemoteControlRecieverTest {
 	@Mocked private ProtocolBase protocol;
-	private final int PORT = 0;
+	private final InputPort PORT = new InputPort() {
+		@Override
+		public boolean isValid(ProtocolBase protocol) {
+			return true;
+		}
+
+		@Override
+		public boolean isInvalid(ProtocolBase protocol) {
+			return false;
+		}
+
+		@Override
+		public int getRaw() {
+			return 1;
+		}
+	};
 	private final int VALUE_BUTTON = 3;
 	private final int VALUE_DISTANCE = 3;
 	private final String KEY_VALUE = "value";
@@ -24,17 +40,17 @@ public class RemoteControlRecieverTest {
 	@Test
 	public void getRemoteControllerButton() {
 		new Expectations() {{
-			protocol.exec(PORT, (CommandBase)any);
+			protocol.exec(PORT.getRaw(), (CommandBase)any);
 			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_BUTTON);}};
 		}};
 		RemoteControlReceiver rr = new RemoteControlReceiver(PORT, protocol);
-		assertEquals(rr.getRemoteButton(), VALUE_BUTTON);
+		AssertJUnit.assertEquals(rr.getRemoteButton(), VALUE_BUTTON);
 	}
 	
 	@Test
 	public void getRemoteControllerDistance() {
 		new Expectations() {{
-			protocol.exec(PORT, (CommandBase)any);
+			protocol.exec(PORT.getRaw(), (CommandBase)any);
 			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_DISTANCE);}};
 		}};
 		RemoteControlReceiver rr = new RemoteControlReceiver(PORT, protocol);
@@ -44,7 +60,7 @@ public class RemoteControlRecieverTest {
 	@Test
 	public void deviceTypeIsRemoteControlReciever() {
 		RemoteControlReceiver rr = new RemoteControlReceiver(PORT, protocol);
-		assertEquals(rr.getDeviceType(), DeviceType.REMOTECONTROL_RECIEVER);
+		AssertJUnit.assertEquals(rr.getDeviceType(), DeviceType.REMOTECONTROL_RECIEVER);
 	}
 }
 

@@ -3,8 +3,10 @@ package unit.drivecommand.machine.device.output;
 import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.machine.device.DeviceType;
 import com.pileproject.drivecommand.machine.device.output.Motor;
+import com.pileproject.drivecommand.machine.device.port.OutputPort;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
+import org.testng.AssertJUnit;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -17,7 +19,22 @@ import mockit.Mocked;
 public class MotorTest {
 	@Mocked private ProtocolBase protocol;
 	@Mocked private HashMap<String, Object> args;
-	private final int PORT = 0;
+	private final OutputPort PORT = new OutputPort() {
+		@Override
+		public boolean isValid(ProtocolBase protocol) {
+			return true;
+		}
+
+		@Override
+		public boolean isInvalid(ProtocolBase protocol) {
+			return false;
+		}
+
+		@Override
+		public int getRaw() {
+			return 1;
+		}
+	};
 	private final String KEY_VALID = "valid";
 	private final int VALUE_SPEED = 30;
 	private final int VALUE_SPEED_OUT_OF_RANGE = -1;
@@ -35,23 +52,23 @@ public class MotorTest {
 	@Test
 	public void setMotorSpeed() {
 		Motor motor = new Motor(PORT, protocol);
-		assertEquals(motor.getSpeed(), INITIAL_SPEED);	// initial power
+		AssertJUnit.assertEquals(motor.getSpeed(), INITIAL_SPEED);	// initial power
 		motor.setSpeed(VALUE_SPEED);
-		assertEquals(motor.getSpeed(), VALUE_SPEED);
+		AssertJUnit.assertEquals(motor.getSpeed(), VALUE_SPEED);
 	}
 	
 	@Test
 	public void setMotorSpeedButItIsOutOfRange() {
 		Motor motor = new Motor(PORT, protocol);
-		assertEquals(motor.getSpeed(), INITIAL_SPEED);	// initial power
+		AssertJUnit.assertEquals(motor.getSpeed(), INITIAL_SPEED);	// initial power
 		motor.setSpeed(VALUE_SPEED_OUT_OF_RANGE);
-		assertEquals(motor.getSpeed(), INITIAL_SPEED);
+		AssertJUnit.assertEquals(motor.getSpeed(), INITIAL_SPEED);
 	}
 
 	@Test
 	public void forwardMotor() {
 		new Expectations() {{
-			protocol.exec(PORT, (CommandBase)any);
+			protocol.exec(PORT.getRaw(), (CommandBase)any);
 			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
 		}};
 		motor.forward();
@@ -60,7 +77,7 @@ public class MotorTest {
 	@Test
 	public void backwardMotor() {
 		new Expectations() {{
-			protocol.exec(PORT, (CommandBase)any);
+			protocol.exec(PORT.getRaw(), (CommandBase)any);
 			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
 		}};
 		motor.backward();
@@ -69,7 +86,7 @@ public class MotorTest {
 	@Test
 	public void stopMotor() {
 		new Expectations() {{
-			protocol.exec(PORT, (CommandBase)any); 
+			protocol.exec(PORT.getRaw(), (CommandBase)any);
 			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
 		}};
 		motor.stop();
@@ -77,6 +94,6 @@ public class MotorTest {
 	
 	@Test
 	public void deviceTypeIsMotor() {
-		assertEquals(motor.getDeviceType(), DeviceType.MOTOR);
+		AssertJUnit.assertEquals(motor.getDeviceType(), DeviceType.MOTOR);
 	}
 }
