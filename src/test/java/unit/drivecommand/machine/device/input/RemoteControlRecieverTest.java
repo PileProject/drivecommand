@@ -16,7 +16,8 @@ import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class RemoteControlRecieverTest {
-	@Mocked private ProtocolBase protocol;
+	@Mocked
+	private ProtocolBase protocol;
 	private final InputPort PORT = new InputPort() {
 		@Override
 		public boolean isValid(ProtocolBase protocol) {
@@ -40,8 +41,10 @@ public class RemoteControlRecieverTest {
 	@Test
 	public void getRemoteControllerButton() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_BUTTON);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALUE, VALUE_BUTTON);
+			}};
 		}};
 		RemoteControlReceiver rr = new RemoteControlReceiver(PORT, protocol);
 		AssertJUnit.assertEquals(rr.getRemoteButton(), VALUE_BUTTON);
@@ -50,8 +53,10 @@ public class RemoteControlRecieverTest {
 	@Test
 	public void getRemoteControllerDistance() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_DISTANCE);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALUE, VALUE_DISTANCE);
+			}};
 		}};
 		RemoteControlReceiver rr = new RemoteControlReceiver(PORT, protocol);
 		AssertJUnit.assertEquals(rr.getRemoteDistance(), VALUE_DISTANCE);

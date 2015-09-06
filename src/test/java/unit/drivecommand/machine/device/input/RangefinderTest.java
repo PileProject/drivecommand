@@ -16,7 +16,8 @@ import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class RangefinderTest {
-	@Mocked private ProtocolBase protocol;
+	@Mocked
+	private ProtocolBase protocol;
 	private final InputPort PORT = new InputPort() {
 		@Override
 		public boolean isValid(ProtocolBase protocol) {
@@ -39,8 +40,10 @@ public class RangefinderTest {
 	@Test
 	public void getDistance() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_DISTANCE);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALUE, VALUE_DISTANCE);
+			}};
 		}};
 		Rangefinder rf = new Rangefinder(PORT, protocol);
 		AssertJUnit.assertEquals(rf.getDistance(), VALUE_DISTANCE);

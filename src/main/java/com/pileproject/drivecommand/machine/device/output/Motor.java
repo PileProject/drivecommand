@@ -21,7 +21,7 @@ public class Motor extends DeviceBase {
 	 * Set speed (0 - 100%)
 	 * if the speed is out of the range,
 	 * this method do nothing.
-	 * 
+	 *
 	 * @param speed
 	 */
 	public void setSpeed(int speed) {
@@ -61,7 +61,7 @@ public class Motor extends DeviceBase {
 	
 	/**
 	 * Get the speed of motor
-	 * 
+	 *
 	 * @return speed (0 - 100%)
 	 */
 	public int getSpeed() {

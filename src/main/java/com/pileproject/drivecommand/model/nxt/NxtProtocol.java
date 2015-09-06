@@ -62,7 +62,7 @@ public class NxtProtocol extends ProtocolBase {
 			}
 			case GET_COLOR_RGB: {
 				throw new UnsupportedOperationException("GET COLOR RGB Operation hasn't been implemented yet");
-							}
+			}
 			case GET_GYRO_ANGLE: {
 				throw new UnsupportedOperationException("GET GYRO ANGLE Operation hasn't been implemented yet");
 			}
@@ -136,38 +136,31 @@ public class NxtProtocol extends ProtocolBase {
 	
 	/**
 	 * Set output device condition.
-	 * 
-	 * @param port
-	 *            The port of the device (0 ~ 3).
-	 * @param speed
-	 *            The speed of the device.
-	 * @param mode
-	 *            The mode of the device. (ex. MOTORON, BRAKE, and/or
-	 *            REGULATED). This field is a bitfield.
-	 * @param regulationMode
-	 *            see NxtConstants.
-	 * @param turnRatio
-	 *            Use this parameter to move more than two motor.
-	 * @param runState
-	 *            see NxtConstants.
-	 * @param tachoLimit
-	 *            - Number of degrees to rotate before stopping.
+	 *
+	 * @param port           The port of the device (0 ~ 3).
+	 * @param speed          The speed of the device.
+	 * @param mode           The mode of the device. (ex. MOTORON, BRAKE, and/or
+	 *                       REGULATED). This field is a bitfield.
+	 * @param regulationMode see NxtConstants.
+	 * @param turnRatio      Use this parameter to move more than two motor.
+	 * @param runState       see NxtConstants.
+	 * @param tachoLimit     - Number of degrees to rotate before stopping.
 	 */
 	private void setOutputState(int port, int speed, int mode,
-			int regulationMode, int turnRatio, int runState, int tachoLimit) {
+	                            int regulationMode, int turnRatio, int runState, int tachoLimit) {
 		byte[] request = {
-			DIRECT_COMMAND_NOREPLY,
-			SET_OUTPUT_STATE,
-			(byte) port,
-			(byte) speed,
-			(byte) mode,
-			(byte) regulationMode,
-			(byte) turnRatio,
-			(byte) runState,
-			(byte) tachoLimit,
-			(byte) (tachoLimit >>> 8),
-			(byte) (tachoLimit >>> 16),
-			(byte) (tachoLimit >>> 24)
+				DIRECT_COMMAND_NOREPLY,
+				SET_OUTPUT_STATE,
+				(byte) port,
+				(byte) speed,
+				(byte) mode,
+				(byte) regulationMode,
+				(byte) turnRatio,
+				(byte) runState,
+				(byte) tachoLimit,
+				(byte) (tachoLimit >>> 8),
+				(byte) (tachoLimit >>> 16),
+				(byte) (tachoLimit >>> 24)
 		};
 		// Send request
 		sendData(request);
@@ -176,7 +169,7 @@ public class NxtProtocol extends ProtocolBase {
 	/**
 	 * A small helper to send data. This method calculates the size of the data
 	 * and append it to the data.
-	 * 
+	 *
 	 * @param request
 	 */
 	private void sendData(byte[] request) {
@@ -192,9 +185,9 @@ public class NxtProtocol extends ProtocolBase {
 	
 	private InputValues getInputValues(int port) {
 		byte[] request = {
-			DIRECT_COMMAND_REPLY,
-			GET_INPUT_VALUES,
-			(byte) port
+				DIRECT_COMMAND_REPLY,
+				GET_INPUT_VALUES,
+				(byte) port
 		};
 		sendData(request);
 		byte[] reply = mCommunicator.read(MAX_RES_LENGTH, TIMEOUT);
@@ -217,13 +210,10 @@ public class NxtProtocol extends ProtocolBase {
 	/**
 	 * Tells the NXT what type of sensor you are using and the mode to operate
 	 * in.
-	 * 
-	 * @param port
-	 *            The port of the device (0 ~ 3).
-	 * @param sensorType
-	 *            see NxtConstants
-	 * @param sensorMode
-	 *            see NxtConstants
+	 *
+	 * @param port       The port of the device (0 ~ 3).
+	 * @param sensorType see NxtConstants
+	 * @param sensorMode see NxtConstants
 	 */
 	public void setInputMode(int port, int sensorType, int sensorMode) {
 		// If the port is not initialized, set the mode
@@ -233,11 +223,11 @@ public class NxtProtocol extends ProtocolBase {
 			Log.d(TAG, "port(" + port + ") is initailized to " + sensorType);
 			
 			byte[] request = {
-				DIRECT_COMMAND_NOREPLY,
-				SET_INPUT_MODE,
-				(byte) port,
-				(byte) sensorType,
-				(byte) sensorMode
+					DIRECT_COMMAND_NOREPLY,
+					SET_INPUT_MODE,
+					(byte) port,
+					(byte) sensorType,
+					(byte) sensorMode
 			};
 			
 			sendData(request);
@@ -251,14 +241,13 @@ public class NxtProtocol extends ProtocolBase {
 	
 	/**
 	 * A helper method to wait for specified milli seconds.
-	 * 
+	 *
 	 * @param milliseconds
 	 */
 	private void waitMillSeconds(int milliseconds) {
 		try {
 			Thread.sleep(milliseconds);
-		}
-		catch (InterruptedException e) {
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}

@@ -16,7 +16,8 @@ import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class LedTest {
-	@Mocked private ProtocolBase protocol;
+	@Mocked
+	private ProtocolBase protocol;
 	private final OutputPort PORT = new OutputPort() {
 		@Override
 		public boolean isValid(ProtocolBase protocol) {
@@ -40,8 +41,10 @@ public class LedTest {
 	@Test
 	public void turnOnLed() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALID, VALUE_VALID);
+			}};
 		}};
 		Led led = new Led(PORT, protocol);
 		led.turnOn();
@@ -50,8 +53,10 @@ public class LedTest {
 	@Test
 	public void turnOffLed() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALID, VALUE_VALID);
+			}};
 		}};
 		Led led = new Led(PORT, protocol);
 		led.turnOff();

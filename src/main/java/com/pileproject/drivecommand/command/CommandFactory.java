@@ -8,6 +8,7 @@ public class CommandFactory {
 	
 	/**
 	 * Create command
+	 *
 	 * @param type
 	 * @param args
 	 * @return command

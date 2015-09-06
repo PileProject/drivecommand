@@ -18,9 +18,9 @@ public class ColorSensor extends DeviceBase {
 	
 	/**
 	 * Get the color in RGB (0 - 255)
-	 * 
+	 * <p>
 	 * TODO: this method doesn't return proper value.
-	 * 
+	 *
 	 * @return float[] ([0]: r, [1]: g, [2]: b)
 	 */
 	public float[] getRgb() {
@@ -31,7 +31,7 @@ public class ColorSensor extends DeviceBase {
 	
 	/**
 	 * Get the illuminance in percent (0 - 100)
-	 * 
+	 *
 	 * @return int (0 - 100 %)
 	 */
 	public int getIlluminace() {

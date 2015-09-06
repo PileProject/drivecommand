@@ -16,8 +16,10 @@ import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class ServoMotorTest {
-	@Mocked private ProtocolBase protocol;
-	@Mocked private HashMap<String, Object> args;
+	@Mocked
+	private ProtocolBase protocol;
+	@Mocked
+	private HashMap<String, Object> args;
 	private final OutputPort PORT = new OutputPort() {
 		@Override
 		public boolean isValid(ProtocolBase protocol) {
@@ -39,12 +41,13 @@ public class ServoMotorTest {
 	private final int VALUE_ANGLE = 30;
 	private final boolean VALUE_VALID = true;
 	
-	
 	@Test
 	public void getServomotorAngle() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_ANGLE);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALUE, VALUE_ANGLE);
+			}};
 		}};
 		Servomotor motor = new Servomotor(PORT, protocol);
 		motor.getAngle();
@@ -53,8 +56,10 @@ public class ServoMotorTest {
 	@Test
 	public void setServomotorAngle() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALID, VALUE_VALID);
+			}};
 		}};
 		Servomotor motor = new Servomotor(PORT, protocol);
 		motor.setAngle(VALUE_ANGLE);

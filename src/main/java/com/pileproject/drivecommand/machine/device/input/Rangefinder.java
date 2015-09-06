@@ -18,13 +18,13 @@ public class Rangefinder extends DeviceBase {
 
 	/**
 	 * Get the distance between obstacles and this sensor
-	 * 
+	 *
 	 * @return distance (in centimeter)
 	 */
 	public int getDistance() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_RANGEFINDER_DIST, null);
 		HashMap<String, Object> res = exec(cmd);
-		return (Integer)res.get("value");
+		return (Integer) res.get("value");
 	}
 	
 	@Override

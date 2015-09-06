@@ -175,15 +175,11 @@ public class Ev3Protocol extends ProtocolBase {
 	
 	/**
 	 * Get SI unit value
-	 * 
-	 * @param port
-	 *            The port of the device
-	 * @param type
-	 *            The device type
-	 * @param mode
-	 *            The mode of the device
-	 * @param nvalue
-	 *            The number of the response value
+	 *
+	 * @param port   The port of the device
+	 * @param type   The device type
+	 * @param mode   The mode of the device
+	 * @param nvalue The number of the response value
 	 * @return
 	 */
 	private float[] getSiValue(int port, int type, int mode, int nvalue) {
@@ -220,15 +216,11 @@ public class Ev3Protocol extends ProtocolBase {
 	
 	/**
 	 * Get percent value
-	 * 
-	 * @param port
-	 *            The port of the device
-	 * @param type
-	 *            The device type
-	 * @param mode
-	 *            The mode of the device
-	 * @param nvalue
-	 *            The number of the response value
+	 *
+	 * @param port   The port of the device
+	 * @param type   The device type
+	 * @param mode   The mode of the device
+	 * @param nvalue The number of the response value
 	 * @return
 	 */
 	private short[] getPercentValue(int port, int type, int mode, int nvalue) {
@@ -264,21 +256,20 @@ public class Ev3Protocol extends ProtocolBase {
 	
 	/**
 	 * Convert output port to byte code port
+	 *
 	 * @param port
 	 * @return
 	 */
 	private byte toByteCodePort(int port) {
-		if (port >= 0x00 && port <= 0x03) return (byte)(0x01 << port);
+		if (port >= 0x00 && port <= 0x03) return (byte) (0x01 << port);
 		else return 0x00; // this will not happen
 	}
 	
 	/**
 	 * Set output device condition.
-	 * 
-	 * @param port
-	 *            The port of the device
-	 * @param speed
-	 *            The speed of the device
+	 *
+	 * @param port  The port of the device
+	 * @param speed The speed of the device
 	 */
 	private void setOutputState(int port, int speed) {
 		ByteCodeFormatter byteCode = new ByteCodeFormatter();
@@ -304,13 +295,10 @@ public class Ev3Protocol extends ProtocolBase {
 	
 	/**
 	 * Make a sound
-	 * 
-	 * @param volume
-	 *            The volume of the sound (0 ~ 100 [%])
-	 * @param freq
-	 *            The frequency [Hz]
-	 * @param duration
-	 *            The duration of the tone [msec]
+	 *
+	 * @param volume   The volume of the sound (0 ~ 100 [%])
+	 * @param freq     The frequency [Hz]
+	 * @param duration The duration of the tone [msec]
 	 */
 	private void soundTone(int volume, int freq, int duration) {
 		ByteCodeFormatter byteCode = new ByteCodeFormatter();
@@ -330,13 +318,13 @@ public class Ev3Protocol extends ProtocolBase {
 	
 	/**
 	 * Read data from the device
-	 * 
+	 *
 	 * @return
 	 */
 	private byte[] readData() {
 		// Calculate the size of response by reading 2 bytes.
 		byte[] header = mCommunicator.read(2, TIMEOUT);
-		int numBytes = (int) (((header[1] & 0x00ff) << 8) | (header[0] & 0x00ff) );
+		int numBytes = (int) (((header[1] & 0x00ff) << 8) | (header[0] & 0x00ff));
 		
 		// Get result
 		byte[] result = mCommunicator.read(numBytes, TIMEOUT);

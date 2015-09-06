@@ -61,29 +61,49 @@ public class NxtConstants {
 
 	// Output state constants
 	// Mode:
-	/** Turn on the specified motor */
+	/**
+	 * Turn on the specified motor
+	 */
 	public static final byte MOTORON = 0x01;
-	/** Use run/brake instead of run/float in PWM */
+	/**
+	 * Use run/brake instead of run/float in PWM
+	 */
 	public static final byte BRAKE = 0x02;
-	/** Turns on the regulation */
+	/**
+	 * Turns on the regulation
+	 */
 	public static final byte REGULATED = 0x04;
 
 	// Regulation Mode:
-	/** No regulation will be enabled */
+	/**
+	 * No regulation will be enabled
+	 */
 	public static final byte REGULATION_MODE_IDLE = 0x00;
-	/** Power control will be enabled on specified output */
+	/**
+	 * Power control will be enabled on specified output
+	 */
 	public static final byte REGULATION_MODE_MOTOR_SPEED = 0x01;
-	/** Synchronization will be enabled (Needs enabled on two output) */
+	/**
+	 * Synchronization will be enabled (Needs enabled on two output)
+	 */
 	public static final byte REGULATION_MODE_MOTOR_SYNC = 0x02;
 
 	// RunState:
-	/** Output will be idle */
+	/**
+	 * Output will be idle
+	 */
 	public static final byte MOTOR_RUN_STATE_IDLE = 0x00;
-	/** Output will ramp-up */
+	/**
+	 * Output will ramp-up
+	 */
 	public static final byte MOTOR_RUN_STATE_RAMPUP = 0x10;
-	/** Output will be running */
+	/**
+	 * Output will be running
+	 */
 	public static final byte MOTOR_RUN_STATE_RUNNING = 0x20;
-	/** Output will ramp-down */
+	/**
+	 * Output will ramp-down
+	 */
 	public static final byte MOTOR_RUN_STATE_RAMPDOWN = 0x40;
 
 	// Input Mode Constants

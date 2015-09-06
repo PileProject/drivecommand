@@ -19,13 +19,13 @@ public class GyroSensor extends DeviceBase {
 	public int getRate() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_GYRO_RATE, null);
 		HashMap<String, Object> res = exec(cmd);
-		return (Integer)res.get("value");
+		return (Integer) res.get("value");
 	}
 
 	public int getAngle() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_GYRO_ANGLE, null);
 		HashMap<String, Object> res = exec(cmd);
-		return (Integer)res.get("value");
+		return (Integer) res.get("value");
 	}
 	
 	@Override

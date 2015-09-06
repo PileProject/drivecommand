@@ -17,7 +17,8 @@ import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class LineSensorTest {
-	@Mocked private ProtocolBase protocol;
+	@Mocked
+	private ProtocolBase protocol;
 	private final InputPort PORT = new InputPort() {
 		@Override
 		public boolean isValid(ProtocolBase protocol) {
@@ -40,8 +41,10 @@ public class LineSensorTest {
 	@Test
 	public void getSensorValue() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_SENSOR);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALUE, VALUE_SENSOR);
+			}};
 		}};
 
 		LineSensor ls = new LineSensor(PORT, protocol);

@@ -17,8 +17,10 @@ import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class MotorTest {
-	@Mocked private ProtocolBase protocol;
-	@Mocked private HashMap<String, Object> args;
+	@Mocked
+	private ProtocolBase protocol;
+	@Mocked
+	private HashMap<String, Object> args;
 	private final OutputPort PORT = new OutputPort() {
 		@Override
 		public boolean isValid(ProtocolBase protocol) {
@@ -52,7 +54,7 @@ public class MotorTest {
 	@Test
 	public void setMotorSpeed() {
 		Motor motor = new Motor(PORT, protocol);
-		AssertJUnit.assertEquals(motor.getSpeed(), INITIAL_SPEED);	// initial power
+		AssertJUnit.assertEquals(motor.getSpeed(), INITIAL_SPEED);    // initial power
 		motor.setSpeed(VALUE_SPEED);
 		AssertJUnit.assertEquals(motor.getSpeed(), VALUE_SPEED);
 	}
@@ -60,7 +62,7 @@ public class MotorTest {
 	@Test
 	public void setMotorSpeedButItIsOutOfRange() {
 		Motor motor = new Motor(PORT, protocol);
-		AssertJUnit.assertEquals(motor.getSpeed(), INITIAL_SPEED);	// initial power
+		AssertJUnit.assertEquals(motor.getSpeed(), INITIAL_SPEED);    // initial power
 		motor.setSpeed(VALUE_SPEED_OUT_OF_RANGE);
 		AssertJUnit.assertEquals(motor.getSpeed(), INITIAL_SPEED);
 	}
@@ -68,8 +70,10 @@ public class MotorTest {
 	@Test
 	public void forwardMotor() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALID, VALUE_VALID);
+			}};
 		}};
 		motor.forward();
 	}
@@ -77,8 +81,10 @@ public class MotorTest {
 	@Test
 	public void backwardMotor() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALID, VALUE_VALID);
+			}};
 		}};
 		motor.backward();
 	}
@@ -86,8 +92,10 @@ public class MotorTest {
 	@Test
 	public void stopMotor() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALID, VALUE_VALID);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALID, VALUE_VALID);
+			}};
 		}};
 		motor.stop();
 	}

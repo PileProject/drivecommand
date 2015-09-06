@@ -14,7 +14,8 @@ import mockit.Expectations;
 import mockit.Mocked;
 
 public class MachineBaseTest {
-	@Mocked ProtocolBase protocol;
+	@Mocked
+	ProtocolBase protocol;
 	private final OutputPort OUT_PORT = new OutputPort() {
 		@Override
 		public boolean isValid(ProtocolBase protocol) {
@@ -79,7 +80,7 @@ public class MachineBaseTest {
 		MachineBase machineBase = newMachineBase(protocol);
 		machineBase.disconnect();
 	}
-	
+
 //	@Test
 //	public void getMotorFromMachine() {
 //		MachineBase machineBase = newMachineBase(protocol);

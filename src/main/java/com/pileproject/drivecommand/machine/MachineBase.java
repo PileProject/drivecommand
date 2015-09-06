@@ -28,6 +28,7 @@ public abstract class MachineBase {
 	
 	/**
 	 * connect to device
+	 *
 	 * @throws IOException
 	 */
 	public void connect() throws IOException {
@@ -52,12 +53,14 @@ public abstract class MachineBase {
 	/**
 	 * fetch MachineStatus from this machine
 	 * by making connection
+	 *
 	 * @return
 	 */
 	public abstract MachineStatus fetchStatus();
 
 	/**
 	 * apply MachineStatus to this machine
+	 *
 	 * @param status
 	 * @return
 	 */
@@ -65,7 +68,7 @@ public abstract class MachineBase {
 
 	/**
 	 * Create Motor
-	 * 
+	 *
 	 * @param port
 	 * @return
 	 */
@@ -75,7 +78,7 @@ public abstract class MachineBase {
 
 	/**
 	 * Create Servomotor
-	 * 
+	 *
 	 * @param port
 	 * @return
 	 */
@@ -85,7 +88,7 @@ public abstract class MachineBase {
 
 	/**
 	 * Create Buzzer
-	 * 
+	 *
 	 * @param port
 	 * @return
 	 */
@@ -95,7 +98,7 @@ public abstract class MachineBase {
 
 	/**
 	 * Create LED
-	 * 
+	 *
 	 * @param port
 	 * @return
 	 */
@@ -115,7 +118,7 @@ public abstract class MachineBase {
 
 	/**
 	 * Create GyroSensor
-	 * 
+	 *
 	 * @param port
 	 * @return
 	 */
@@ -125,7 +128,7 @@ public abstract class MachineBase {
 
 	/**
 	 * Create TouchSensor
-	 * 
+	 *
 	 * @param port
 	 * @return
 	 */
@@ -135,7 +138,7 @@ public abstract class MachineBase {
 
 	/**
 	 * Create ColorSensor
-	 * 
+	 *
 	 * @param port
 	 * @return
 	 */
@@ -145,7 +148,7 @@ public abstract class MachineBase {
 
 	/**
 	 * Create Rangefinder
-	 * 
+	 *
 	 * @param port
 	 * @return
 	 */
@@ -155,7 +158,7 @@ public abstract class MachineBase {
 
 	/**
 	 * Create SoundSensor
-	 * 
+	 *
 	 * @param port
 	 * @return
 	 */
@@ -165,7 +168,7 @@ public abstract class MachineBase {
 
 	/**
 	 * Create RemoteControlReciever
-	 * 
+	 *
 	 * @param port
 	 * @return
 	 */

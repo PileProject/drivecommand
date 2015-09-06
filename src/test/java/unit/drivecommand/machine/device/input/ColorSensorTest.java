@@ -16,7 +16,8 @@ import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class ColorSensorTest {
-	@Mocked private ProtocolBase protocol;
+	@Mocked
+	private ProtocolBase protocol;
 	private final InputPort PORT = new InputPort() {
 		@Override
 		public boolean isValid(ProtocolBase protocol) {
@@ -40,8 +41,10 @@ public class ColorSensorTest {
 	@Test
 	public void getColorRgb() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_RGB);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALUE, VALUE_RGB);
+			}};
 		}};
 		ColorSensor cs = new ColorSensor(PORT, protocol);
 		AssertJUnit.assertEquals(cs.getRgb(), VALUE_RGB);
@@ -50,8 +53,10 @@ public class ColorSensorTest {
 	@Test
 	public void getColorIlluminance() {
 		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase)any);
-			result = new HashMap<String, Object>() {{put(KEY_VALUE, VALUE_ILLUMINANCE);}};
+			protocol.exec(PORT.getRaw(), (CommandBase) any);
+			result = new HashMap<String, Object>() {{
+				put(KEY_VALUE, VALUE_ILLUMINANCE);
+			}};
 		}};
 		ColorSensor cs = new ColorSensor(PORT, protocol);
 		AssertJUnit.assertEquals(cs.getIlluminace(), VALUE_ILLUMINANCE);
