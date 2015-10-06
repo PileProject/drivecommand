@@ -1,8 +1,6 @@
 package com.pileproject.drivecommand.model.nxt.port;
 
 import com.pileproject.drivecommand.machine.device.port.OutputPort;
-import com.pileproject.drivecommand.model.ProtocolBase;
-import com.pileproject.drivecommand.model.nxt.NxtProtocol;
 
 /**
  * Created by tatsuya on 15/09/03.
@@ -19,18 +17,15 @@ public class NxtOutputPort extends OutputPort {
 	}
 
 	@Override
-	public boolean isValid(ProtocolBase protocol) {
-		return protocol instanceof NxtProtocol;
-	}
-
-	@Override
-	public boolean isInvalid(ProtocolBase protocol) {
-		return !isValid(protocol);
-	}
-
-	@Override
 	public int getRaw() {
 		return mPort;
+	}
+
+	@Override
+	public String toString() {
+		final int A = 65;
+
+		return "[NXT] OUTPUT-PORT-" +  (char)(A + mPort);
 	}
 }
 

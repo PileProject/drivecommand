@@ -1,8 +1,6 @@
 package com.pileproject.drivecommand.model.nxt.port;
 
 import com.pileproject.drivecommand.machine.device.port.InputPort;
-import com.pileproject.drivecommand.model.ProtocolBase;
-import com.pileproject.drivecommand.model.nxt.NxtProtocol;
 
 /**
  * Created by tatsuya on 15/09/03.
@@ -20,17 +18,12 @@ public class NxtInputPort extends InputPort {
 	}
 
 	@Override
-	public boolean isValid(ProtocolBase protocol) {
-		return protocol instanceof NxtProtocol;
-	}
-
-	@Override
-	public boolean isInvalid(ProtocolBase protocol) {
-		return !(protocol instanceof NxtProtocol);
-	}
-
-	@Override
 	public int getRaw() {
 		return mPort;
+	}
+
+	@Override
+	public String toString() {
+		return "[NXT] INPUT-PORT-" + mPort;
 	}
 }

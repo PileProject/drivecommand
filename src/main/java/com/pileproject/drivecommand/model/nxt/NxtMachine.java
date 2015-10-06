@@ -2,6 +2,7 @@ package com.pileproject.drivecommand.model.nxt;
 
 import com.pileproject.drivecommand.machine.MachineBase;
 import com.pileproject.drivecommand.machine.MachineStatus;
+import com.pileproject.drivecommand.machine.DevicePortTypeMismatchException;
 import com.pileproject.drivecommand.machine.device.DeviceType;
 import com.pileproject.drivecommand.machine.device.input.LineSensor;
 import com.pileproject.drivecommand.machine.device.input.SoundSensor;
@@ -10,6 +11,8 @@ import com.pileproject.drivecommand.machine.device.output.Motor;
 import com.pileproject.drivecommand.machine.device.port.InputPort;
 import com.pileproject.drivecommand.machine.device.port.OutputPort;
 import com.pileproject.drivecommand.model.ProtocolBase;
+import com.pileproject.drivecommand.model.nxt.port.NxtInputPort;
+import com.pileproject.drivecommand.model.nxt.port.NxtOutputPort;
 
 /**
  * LEGO MINDSTORMS NXT
@@ -76,53 +79,49 @@ public class NxtMachine extends MachineBase {
 
 	@Override
 	public Motor createMotor(OutputPort port) {
-		if (isValidOutputPort(port)) {
-			// TODO: what kind of exception should be thrown
-			return null;
-		}
+		checkOutputPortCompatibility(port);
+
 		mStatus.bind(port, DeviceType.MOTOR);
 		return new Motor(port, mProtocol);
 	}
 
 	@Override
 	public LineSensor createLineSensor(InputPort port) {
-		if (isValidInputPort(port)) {
-			// TODO: what kind of exception should be thrown
-			return null;
-		}
+		checkInputPortCompatibility(port);
+
 		mStatus.bind(port, DeviceType.LINE_SENSOR);
 		return new LineSensor(port, mProtocol);
 	}
 
 	@Override
 	public TouchSensor createTouchSensor(InputPort port) {
-		if (isValidInputPort(port)) {
-			// TODO: what kind of exception should be thrown
-			return null;
-		}
+		checkInputPortCompatibility(port);
+
 		mStatus.bind(port, DeviceType.TOUCH_SENSOR);
 		return new TouchSensor(port, mProtocol);
 	}
 
 	@Override
 	public SoundSensor createSoundSensor(InputPort port) {
-		if (isValidInputPort(port)) {
-			// TODO: what kind of exception should be thrown
-			return null;
-		}
+		checkInputPortCompatibility(port);
+
 		mStatus.bind(port, DeviceType.SOUND_SENSOR);
 		return new SoundSensor(port, mProtocol);
 	}
 
-	private boolean isValidInputPort(InputPort port) {
-		int portId = port.getRaw();
-		return port.isValid(mProtocol)
-				&& portId >= 0 && portId < SensorProperty.NUMBER_OF_SENSOR_PORTS;
+	private void checkOutputPortCompatibility(OutputPort port) {
+		if (port instanceof NxtOutputPort) {
+			return ;
+		}
+
+		throw new DevicePortTypeMismatchException("Expected: NxtOutputPort, Actual: " + port.getClass());
 	}
 
-	private boolean isValidOutputPort(OutputPort port) {
-		int portId = port.getRaw();
-		return port.isValid(mProtocol)
-				&& portId >= 0 && portId < MotorProperty.NUMBER_OF_MOTOR_PORTS;
+	private void checkInputPortCompatibility(InputPort port) {
+        if (port instanceof NxtInputPort) {
+			return ;
+		}
+
+		throw new DevicePortTypeMismatchException("Expected: NxtInputPort, Actual: " + port.getClass());
 	}
 }
