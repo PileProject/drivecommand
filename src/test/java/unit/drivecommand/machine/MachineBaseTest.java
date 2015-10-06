@@ -18,31 +18,11 @@ public class MachineBaseTest {
 	ProtocolBase protocol;
 	private final OutputPort OUT_PORT = new OutputPort() {
 		@Override
-		public boolean isValid(ProtocolBase protocol) {
-			return true;
-		}
-
-		@Override
-		public boolean isInvalid(ProtocolBase protocol) {
-			return false;
-		}
-
-		@Override
 		public int getRaw() {
 			return 1;
 		}
 	};
 	private final InputPort IN_PORT = new InputPort() {
-		@Override
-		public boolean isValid(ProtocolBase protocol) {
-			return true;
-		}
-
-		@Override
-		public boolean isInvalid(ProtocolBase protocol) {
-			return false;
-		}
-
 		@Override
 		public int getRaw() {
 			return 1;

@@ -22,16 +22,6 @@ public class ServoMotorTest {
 	private HashMap<String, Object> args;
 	private final OutputPort PORT = new OutputPort() {
 		@Override
-		public boolean isValid(ProtocolBase protocol) {
-			return true;
-		}
-
-		@Override
-		public boolean isInvalid(ProtocolBase protocol) {
-			return false;
-		}
-
-		@Override
 		public int getRaw() {
 			return 1;
 		}
