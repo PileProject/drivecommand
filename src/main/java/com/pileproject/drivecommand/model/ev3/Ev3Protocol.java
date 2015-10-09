@@ -1,6 +1,7 @@
 package com.pileproject.drivecommand.model.ev3;
 
 import com.pileproject.drivecommand.command.CommandBase;
+import com.pileproject.drivecommand.machine.MachineBase;
 import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 import com.pileproject.drivecommand.model.com.ICommunicator;
@@ -338,5 +339,10 @@ public class Ev3Protocol extends ProtocolBase {
 		// this protocol does not support transactions.
 		throw new UnsupportedOperationException("Nxt Protocol does not support transactions");
 		// return false;
+	}
+
+	@Override
+	public MachineBase createMachine() {
+		return new Ev3Machine(this);
 	}
 }

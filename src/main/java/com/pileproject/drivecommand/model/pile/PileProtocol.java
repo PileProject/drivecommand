@@ -1,6 +1,7 @@
 package com.pileproject.drivecommand.model.pile;
 
 import com.pileproject.drivecommand.command.CommandBase;
+import com.pileproject.drivecommand.machine.MachineBase;
 import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 import com.pileproject.drivecommand.model.com.ICommunicator;
@@ -136,5 +137,10 @@ public class PileProtocol extends ProtocolBase {
 		mCommunicator.write(packet.byteArray(), TIMEOUT);
 		byte[] ack = mCommunicator.read(4, TIMEOUT);
 		return ((ack[2] & 0x01) == 0x01) ? true : false;
+	}
+
+	@Override
+	public MachineBase createMachine() {
+		return new PileMachine(this);
 	}
 }
