@@ -28,7 +28,7 @@ import com.pileproject.drivecommand.model.ev3.port.Ev3OutputPort;
  */
 public class Ev3Machine extends MachineBase {
 
-	public Ev3Machine(ProtocolBase protocol) {
+	Ev3Machine(ProtocolBase protocol) {
 		super(protocol);
 	}
 

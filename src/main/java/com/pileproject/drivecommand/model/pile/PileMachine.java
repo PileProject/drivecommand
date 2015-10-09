@@ -18,7 +18,7 @@ import com.pileproject.drivecommand.model.pile.port.PileInputPort;
  * @author Tatsuya Iwanari
  */
 public class PileMachine extends MachineBase {
-	public PileMachine(ProtocolBase protocol) {
+	PileMachine(ProtocolBase protocol) {
 		super(protocol);
 	}
 
