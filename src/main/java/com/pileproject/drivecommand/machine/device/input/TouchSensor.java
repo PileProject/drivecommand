@@ -11,35 +11,35 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 import java.util.Map;
 
 public class TouchSensor extends DeviceBase {
-	
-	public TouchSensor(InputPort port, ProtocolBase protocol) {
-		super(port, protocol);
-	}
-	
-	/**
-	 * Check this sensor is touched now
-	 *
-	 * @return boolean
-	 */
-	public boolean isTouched() {
-		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_TOUCH_TOUCHED, null);
-		Map<String, Object> res = exec(cmd);
-		return (Boolean) res.get("value");
-	}
-	
-	/**
-	 * Get the touched count
-	 *
-	 * @return number of count
-	 */
-	public int getTouchedCount() {
-		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_TOUCH_COUNT, null);
-		Map<String, Object> res = exec(cmd);
-		return (Integer) res.get("value");
-	}
-	
-	@Override
-	public DeviceType getDeviceType() {
-		return DeviceType.TOUCH_SENSOR;
-	}
+    
+    public TouchSensor(InputPort port, ProtocolBase protocol) {
+        super(port, protocol);
+    }
+    
+    /**
+     * Check this sensor is touched now
+     *
+     * @return boolean
+     */
+    public boolean isTouched() {
+        CommandBase cmd = CommandFactory.createCommand(CommandType.GET_TOUCH_TOUCHED, null);
+        Map<String, Object> res = exec(cmd);
+        return (Boolean) res.get("value");
+    }
+    
+    /**
+     * Get the touched count
+     *
+     * @return number of count
+     */
+    public int getTouchedCount() {
+        CommandBase cmd = CommandFactory.createCommand(CommandType.GET_TOUCH_COUNT, null);
+        Map<String, Object> res = exec(cmd);
+        return (Integer) res.get("value");
+    }
+    
+    @Override
+    public DeviceType getDeviceType() {
+        return DeviceType.TOUCH_SENSOR;
+    }
 }

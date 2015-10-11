@@ -18,63 +18,63 @@ import com.pileproject.drivecommand.model.pile.port.PileInputPort;
  * @author Tatsuya Iwanari
  */
 public class PileMachine extends MachineBase {
-	public PileMachine(ICommunicator comm) {
-		super(new PileProtocol(comm));
-	}
+    public PileMachine(ICommunicator comm) {
+        super(new PileProtocol(comm));
+    }
 
-	@Override
-	public void apply() {
-		mProtocol.apply();
-	}
+    @Override
+    public void apply() {
+        mProtocol.apply();
+    }
 
-	@Override
-	public MachineStatus fetchStatus() {
-		return mStatus;
-	}
+    @Override
+    public MachineStatus fetchStatus() {
+        return mStatus;
+    }
 
-	@Override
-	public boolean applyStatus(MachineStatus status) {
-		return false;
-	}
+    @Override
+    public boolean applyStatus(MachineStatus status) {
+        return false;
+    }
 
-	@Override
-	public Motor createMotor(OutputPort port) {
-		return new Motor(port, mProtocol);
-	}
+    @Override
+    public Motor createMotor(OutputPort port) {
+        return new Motor(port, mProtocol);
+    }
 
-	@Override
-	public LineSensor createLineSensor(InputPort port) {
-		if (port.equals(PileInputPort.LINE_SENSOR_L)
-				|| port.equals(PileInputPort.LINE_SENSOR_R)) {
-			return new LineSensor(port, mProtocol);
-		}
+    @Override
+    public LineSensor createLineSensor(InputPort port) {
+        if (port.equals(PileInputPort.LINE_SENSOR_L)
+                || port.equals(PileInputPort.LINE_SENSOR_R)) {
+            return new LineSensor(port, mProtocol);
+        }
 
-		throw new DevicePortTypeMismatchException( String.format(
+        throw new DevicePortTypeMismatchException( String.format(
                     "Expected: %s or %s, Actual %s",
                     PileInputPort.LINE_SENSOR_L,
                     PileInputPort.LINE_SENSOR_R,
                     port) );
-	}
+    }
 
-	@Override
-	public TouchSensor createTouchSensor(InputPort port) {
-		if (port.equals(PileInputPort.TOUCH_SENSOR)) {
-			return new TouchSensor(port, mProtocol);
-		}
+    @Override
+    public TouchSensor createTouchSensor(InputPort port) {
+        if (port.equals(PileInputPort.TOUCH_SENSOR)) {
+            return new TouchSensor(port, mProtocol);
+        }
 
-		throw new DevicePortTypeMismatchException(
-				"Expected: " + PileInputPort.TOUCH_SENSOR + ", Actual: " + port);
-	}
+        throw new DevicePortTypeMismatchException(
+                "Expected: " + PileInputPort.TOUCH_SENSOR + ", Actual: " + port);
+    }
 
-	@Override
-	public Rangefinder createRangefinder(InputPort port) {
-		if (port.equals(PileInputPort.RANGEFINDER)) {
-			return new Rangefinder(port, mProtocol);
-		}
+    @Override
+    public Rangefinder createRangefinder(InputPort port) {
+        if (port.equals(PileInputPort.RANGEFINDER)) {
+            return new Rangefinder(port, mProtocol);
+        }
 
-		throw new DevicePortTypeMismatchException(
-				"Expected: " + PileInputPort.RANGEFINDER + ", Actual: " + port);
-	}
+        throw new DevicePortTypeMismatchException(
+                "Expected: " + PileInputPort.RANGEFINDER + ", Actual: " + port);
+    }
 }
 
 

@@ -16,57 +16,57 @@ import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class BuzzerTest {
-	@Mocked
-	private ProtocolBase protocol;
-	private final OutputPort PORT = new OutputPort() {
-		@Override
-		public int getRaw() {
-			return 1;
-		}
-	};
+    @Mocked
+    private ProtocolBase protocol;
+    private final OutputPort PORT = new OutputPort() {
+        @Override
+        public int getRaw() {
+            return 1;
+        }
+    };
 
-	private final String KEY_VALID = "valid";
-	private final boolean VALUE_VALID = true;
-	
-	@Test
-	public void turnOnBuzzer() {
-		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase) any);
-			result = new HashMap<String, Object>() {{
-				put(KEY_VALID, VALUE_VALID);
-			}};
-		}};
-		Buzzer bz = new Buzzer(PORT, protocol);
-		bz.turnOn();
-	}
-	
-	@Test
-	public void turnOffBuzzer() {
-		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase) any);
-			result = new HashMap<String, Object>() {{
-				put(KEY_VALID, VALUE_VALID);
-			}};
-		}};
-		Buzzer bz = new Buzzer(PORT, protocol);
-		bz.turnOff();
-	}
-	
-	@Test
-	public void beepBuzzer() {
-		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase) any);
-			result = new HashMap<String, Object>() {{
-				put(KEY_VALID, VALUE_VALID);
-			}};
-		}};
-		Buzzer bz = new Buzzer(PORT, protocol);
-		bz.beep();
-	}
-	
-	@Test
-	public void deviceTypeIsBuzzer() {
-		Buzzer bz = new Buzzer(PORT, protocol);
-		AssertJUnit.assertEquals(bz.getDeviceType(), DeviceType.BUZZER);
-	}
+    private final String KEY_VALID = "valid";
+    private final boolean VALUE_VALID = true;
+    
+    @Test
+    public void turnOnBuzzer() {
+        new Expectations() {{
+            protocol.exec(PORT.getRaw(), (CommandBase) any);
+            result = new HashMap<String, Object>() {{
+                put(KEY_VALID, VALUE_VALID);
+            }};
+        }};
+        Buzzer bz = new Buzzer(PORT, protocol);
+        bz.turnOn();
+    }
+    
+    @Test
+    public void turnOffBuzzer() {
+        new Expectations() {{
+            protocol.exec(PORT.getRaw(), (CommandBase) any);
+            result = new HashMap<String, Object>() {{
+                put(KEY_VALID, VALUE_VALID);
+            }};
+        }};
+        Buzzer bz = new Buzzer(PORT, protocol);
+        bz.turnOff();
+    }
+    
+    @Test
+    public void beepBuzzer() {
+        new Expectations() {{
+            protocol.exec(PORT.getRaw(), (CommandBase) any);
+            result = new HashMap<String, Object>() {{
+                put(KEY_VALID, VALUE_VALID);
+            }};
+        }};
+        Buzzer bz = new Buzzer(PORT, protocol);
+        bz.beep();
+    }
+    
+    @Test
+    public void deviceTypeIsBuzzer() {
+        Buzzer bz = new Buzzer(PORT, protocol);
+        AssertJUnit.assertEquals(bz.getDeviceType(), DeviceType.BUZZER);
+    }
 }

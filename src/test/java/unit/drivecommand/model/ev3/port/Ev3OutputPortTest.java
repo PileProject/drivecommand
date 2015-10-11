@@ -19,20 +19,20 @@ public class Ev3OutputPortTest {
     @DataProvider(name = "ports")
     public static Object[][] ports() {
         return new Object[][] {
-				{ Ev3OutputPort.PORT_A },
-				{ Ev3OutputPort.PORT_B },
-				{ Ev3OutputPort.PORT_C },
-				{ Ev3OutputPort.PORT_D },
+                { Ev3OutputPort.PORT_A },
+                { Ev3OutputPort.PORT_B },
+                { Ev3OutputPort.PORT_C },
+                { Ev3OutputPort.PORT_D },
         };
     }
 
-	public static Pattern pattern = Pattern.compile("^\\[EV3\\] OUTPUT-PORT-[A-D].*$");
+    public static Pattern pattern = Pattern.compile("^\\[EV3\\] OUTPUT-PORT-[A-D].*$");
 
-	@Test(dataProvider = "ports")
-	public void testToString(Ev3OutputPort port) {
-		Matcher m = pattern.matcher(port.toString());
-		assertTrue(m.matches());
-	}
+    @Test(dataProvider = "ports")
+    public void testToString(Ev3OutputPort port) {
+        Matcher m = pattern.matcher(port.toString());
+        assertTrue(m.matches());
+    }
 
     @Test
     public void testGetRaw() throws Exception {

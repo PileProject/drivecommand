@@ -28,127 +28,127 @@ import com.pileproject.drivecommand.model.ev3.port.Ev3OutputPort;
  */
 public class Ev3Machine extends MachineBase {
 
-	public Ev3Machine(ICommunicator comm) {
-		super(new Ev3Protocol(comm));
-	}
+    public Ev3Machine(ICommunicator comm) {
+        super(new Ev3Protocol(comm));
+    }
 
-	@Override
-	public void apply() {
-		mProtocol.apply();
-	}
+    @Override
+    public void apply() {
+        mProtocol.apply();
+    }
 
-	@Override
-	public MachineStatus fetchStatus() {
-		return mStatus;
-	}
+    @Override
+    public MachineStatus fetchStatus() {
+        return mStatus;
+    }
 
-	@Override
-	public boolean applyStatus(MachineStatus status) {
-		mStatus = status;
-		return true;
-	}
+    @Override
+    public boolean applyStatus(MachineStatus status) {
+        mStatus = status;
+        return true;
+    }
 
-	@Override
-	public Motor createMotor(OutputPort port) {
-		checkOutputPortCompatibility(port);
+    @Override
+    public Motor createMotor(OutputPort port) {
+        checkOutputPortCompatibility(port);
 
-		mStatus.bind(port, DeviceType.MOTOR);
-		return new Motor(port, mProtocol);
-	}
+        mStatus.bind(port, DeviceType.MOTOR);
+        return new Motor(port, mProtocol);
+    }
 
-	@Override
-	public Servomotor createServomotor(OutputPort port) {
-		checkOutputPortCompatibility(port);
+    @Override
+    public Servomotor createServomotor(OutputPort port) {
+        checkOutputPortCompatibility(port);
 
-		mStatus.bind(port, DeviceType.SERVOMOTOR);
-		return new Servomotor(port, mProtocol);
-	}
+        mStatus.bind(port, DeviceType.SERVOMOTOR);
+        return new Servomotor(port, mProtocol);
+    }
 
-	@Override
-	public Buzzer createBuzzer(OutputPort port) {
-		checkOutputPortCompatibility(port);
+    @Override
+    public Buzzer createBuzzer(OutputPort port) {
+        checkOutputPortCompatibility(port);
 
-		mStatus.bind(port, DeviceType.BUZZER);
-		return new Buzzer(port, mProtocol);
-	}
+        mStatus.bind(port, DeviceType.BUZZER);
+        return new Buzzer(port, mProtocol);
+    }
 
-	@Override
-	public Led createLed(OutputPort port) {
-		checkOutputPortCompatibility(port);
+    @Override
+    public Led createLed(OutputPort port) {
+        checkOutputPortCompatibility(port);
 
-		mStatus.bind(port, DeviceType.LED);
-		return new Led(port, mProtocol);
-	}
+        mStatus.bind(port, DeviceType.LED);
+        return new Led(port, mProtocol);
+    }
 
-	@Override
-	public LineSensor createLineSensor(InputPort port) {
-		checkInputPortCompatibility(port);
+    @Override
+    public LineSensor createLineSensor(InputPort port) {
+        checkInputPortCompatibility(port);
 
-		mStatus.bind(port, DeviceType.LINE_SENSOR);
-		return new LineSensor(port, mProtocol);
-	}
+        mStatus.bind(port, DeviceType.LINE_SENSOR);
+        return new LineSensor(port, mProtocol);
+    }
 
-	@Override
-	public TouchSensor createTouchSensor(InputPort port) {
-		checkInputPortCompatibility(port);
+    @Override
+    public TouchSensor createTouchSensor(InputPort port) {
+        checkInputPortCompatibility(port);
 
-		mStatus.bind(port, DeviceType.TOUCH_SENSOR);
-		return new TouchSensor(port, mProtocol);
-	}
+        mStatus.bind(port, DeviceType.TOUCH_SENSOR);
+        return new TouchSensor(port, mProtocol);
+    }
 
-	@Override
-	public SoundSensor createSoundSensor(InputPort port) {
-		checkInputPortCompatibility(port);
+    @Override
+    public SoundSensor createSoundSensor(InputPort port) {
+        checkInputPortCompatibility(port);
 
-		mStatus.bind(port, DeviceType.SOUND_SENSOR);
-		return new SoundSensor(port, mProtocol);
-	}
+        mStatus.bind(port, DeviceType.SOUND_SENSOR);
+        return new SoundSensor(port, mProtocol);
+    }
 
-	@Override
-	public GyroSensor createGyroSensor(InputPort port) {
-		checkInputPortCompatibility(port);
+    @Override
+    public GyroSensor createGyroSensor(InputPort port) {
+        checkInputPortCompatibility(port);
 
-		mStatus.bind(port, DeviceType.GYRO_SENSOR);
-		return new GyroSensor(port, mProtocol);
-	}
+        mStatus.bind(port, DeviceType.GYRO_SENSOR);
+        return new GyroSensor(port, mProtocol);
+    }
 
-	@Override
-	public ColorSensor createColorSensor(InputPort port) {
-		checkInputPortCompatibility(port);
+    @Override
+    public ColorSensor createColorSensor(InputPort port) {
+        checkInputPortCompatibility(port);
 
-		mStatus.bind(port, DeviceType.COLOR_SENSOR);
-		return new ColorSensor(port, mProtocol);
-	}
+        mStatus.bind(port, DeviceType.COLOR_SENSOR);
+        return new ColorSensor(port, mProtocol);
+    }
 
-	@Override
-	public Rangefinder createRangefinder(InputPort port) {
-		checkInputPortCompatibility(port);
+    @Override
+    public Rangefinder createRangefinder(InputPort port) {
+        checkInputPortCompatibility(port);
 
-		mStatus.bind(port, DeviceType.RANGEFINDER);
-		return new Rangefinder(port, mProtocol);
-	}
+        mStatus.bind(port, DeviceType.RANGEFINDER);
+        return new Rangefinder(port, mProtocol);
+    }
 
-	@Override
-	public RemoteControlReceiver createRemoteControlReceiver(InputPort port) {
-		checkInputPortCompatibility(port);
+    @Override
+    public RemoteControlReceiver createRemoteControlReceiver(InputPort port) {
+        checkInputPortCompatibility(port);
 
-		mStatus.bind(port, DeviceType.REMOTECONTROL_RECEIVER);
-		return new RemoteControlReceiver(port, mProtocol);
-	}
+        mStatus.bind(port, DeviceType.REMOTECONTROL_RECEIVER);
+        return new RemoteControlReceiver(port, mProtocol);
+    }
 
-	private void checkInputPortCompatibility(InputPort port) {
-		if (port instanceof Ev3InputPort) {
-			return ;
-		}
+    private void checkInputPortCompatibility(InputPort port) {
+        if (port instanceof Ev3InputPort) {
+            return ;
+        }
 
-		throw new DevicePortTypeMismatchException("Expected: Ev3InputPort class, Actual: " + port);
-	}
+        throw new DevicePortTypeMismatchException("Expected: Ev3InputPort class, Actual: " + port);
+    }
 
-	private void checkOutputPortCompatibility(OutputPort port) {
-		if (port instanceof Ev3OutputPort) {
-			return ;
-		}
+    private void checkOutputPortCompatibility(OutputPort port) {
+        if (port instanceof Ev3OutputPort) {
+            return ;
+        }
 
-		throw new DevicePortTypeMismatchException("Expected: Ev3OutputPort class, Actual: " + port);
-	}
+        throw new DevicePortTypeMismatchException("Expected: Ev3OutputPort class, Actual: " + port);
+    }
 }

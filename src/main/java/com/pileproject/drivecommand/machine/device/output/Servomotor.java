@@ -12,33 +12,33 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Servomotor extends DeviceBase {
-	
-	public Servomotor(OutputPort port, ProtocolBase protocol) {
-		super(port, protocol);
-	}
-	
-	/**
-	 * Set the angle to this servomotor
-	 */
-	public void setAngle(int angle) {
-		HashMap<String, Object> args = new HashMap<String, Object>();
-		args.put("speed", angle);
-		CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);
-		exec(cmd);
-	}
-	
-	/**
-	 * Get the angle of the servomotor
-	 */
-	public int getAngle() {
-		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_SERVO_ANGLE, null);
-		Map<String, Object> res = exec(cmd);
-		return (Integer) res.get("value");
-	}
+    
+    public Servomotor(OutputPort port, ProtocolBase protocol) {
+        super(port, protocol);
+    }
+    
+    /**
+     * Set the angle to this servomotor
+     */
+    public void setAngle(int angle) {
+        HashMap<String, Object> args = new HashMap<String, Object>();
+        args.put("speed", angle);
+        CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);
+        exec(cmd);
+    }
+    
+    /**
+     * Get the angle of the servomotor
+     */
+    public int getAngle() {
+        CommandBase cmd = CommandFactory.createCommand(CommandType.GET_SERVO_ANGLE, null);
+        Map<String, Object> res = exec(cmd);
+        return (Integer) res.get("value");
+    }
 
-	@Override
-	public DeviceType getDeviceType() {
-		return DeviceType.SERVOMOTOR;
-	}
-	
+    @Override
+    public DeviceType getDeviceType() {
+        return DeviceType.SERVOMOTOR;
+    }
+    
 }

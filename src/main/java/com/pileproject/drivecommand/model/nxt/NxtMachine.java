@@ -21,73 +21,73 @@ import com.pileproject.drivecommand.model.nxt.port.NxtOutputPort;
  */
 public class NxtMachine extends MachineBase {
 
-	public NxtMachine(ICommunicator comm) {
-		super(new NxtProtocol(comm));
-	}
+    public NxtMachine(ICommunicator comm) {
+        super(new NxtProtocol(comm));
+    }
 
-	@Override
-	public void apply() {
-		mProtocol.apply();
-	}
+    @Override
+    public void apply() {
+        mProtocol.apply();
+    }
 
-	@Override
-	public MachineStatus fetchStatus() {
-		return mStatus;
-	}
+    @Override
+    public MachineStatus fetchStatus() {
+        return mStatus;
+    }
 
-	@Override
-	public boolean applyStatus(MachineStatus status) {
-		mStatus = status;
-		// TODO: give some information to this machine with the argument "status"
-		// Is this necessary? We can update the status with each creation method
-		return true;
-	}
+    @Override
+    public boolean applyStatus(MachineStatus status) {
+        mStatus = status;
+        // TODO: give some information to this machine with the argument "status"
+        // Is this necessary? We can update the status with each creation method
+        return true;
+    }
 
-	@Override
-	public Motor createMotor(OutputPort port) {
-		checkOutputPortCompatibility(port);
+    @Override
+    public Motor createMotor(OutputPort port) {
+        checkOutputPortCompatibility(port);
 
-		mStatus.bind(port, DeviceType.MOTOR);
-		return new Motor(port, mProtocol);
-	}
+        mStatus.bind(port, DeviceType.MOTOR);
+        return new Motor(port, mProtocol);
+    }
 
-	@Override
-	public LineSensor createLineSensor(InputPort port) {
-		checkInputPortCompatibility(port);
+    @Override
+    public LineSensor createLineSensor(InputPort port) {
+        checkInputPortCompatibility(port);
 
-		mStatus.bind(port, DeviceType.LINE_SENSOR);
-		return new LineSensor(port, mProtocol);
-	}
+        mStatus.bind(port, DeviceType.LINE_SENSOR);
+        return new LineSensor(port, mProtocol);
+    }
 
-	@Override
-	public TouchSensor createTouchSensor(InputPort port) {
-		checkInputPortCompatibility(port);
+    @Override
+    public TouchSensor createTouchSensor(InputPort port) {
+        checkInputPortCompatibility(port);
 
-		mStatus.bind(port, DeviceType.TOUCH_SENSOR);
-		return new TouchSensor(port, mProtocol);
-	}
+        mStatus.bind(port, DeviceType.TOUCH_SENSOR);
+        return new TouchSensor(port, mProtocol);
+    }
 
-	@Override
-	public SoundSensor createSoundSensor(InputPort port) {
-		checkInputPortCompatibility(port);
+    @Override
+    public SoundSensor createSoundSensor(InputPort port) {
+        checkInputPortCompatibility(port);
 
-		mStatus.bind(port, DeviceType.SOUND_SENSOR);
-		return new SoundSensor(port, mProtocol);
-	}
+        mStatus.bind(port, DeviceType.SOUND_SENSOR);
+        return new SoundSensor(port, mProtocol);
+    }
 
-	private void checkOutputPortCompatibility(OutputPort port) {
-		if (port instanceof NxtOutputPort) {
-			return ;
-		}
+    private void checkOutputPortCompatibility(OutputPort port) {
+        if (port instanceof NxtOutputPort) {
+            return ;
+        }
 
-		throw new DevicePortTypeMismatchException("Expected: NxtOutputPort, Actual: " + port.getClass());
-	}
+        throw new DevicePortTypeMismatchException("Expected: NxtOutputPort, Actual: " + port.getClass());
+    }
 
-	private void checkInputPortCompatibility(InputPort port) {
-		if (port instanceof NxtInputPort) {
-			return ;
-		}
+    private void checkInputPortCompatibility(InputPort port) {
+        if (port instanceof NxtInputPort) {
+            return ;
+        }
 
-		throw new DevicePortTypeMismatchException("Expected: NxtInputPort, Actual: " + port.getClass());
-	}
+        throw new DevicePortTypeMismatchException("Expected: NxtInputPort, Actual: " + port.getClass());
+    }
 }

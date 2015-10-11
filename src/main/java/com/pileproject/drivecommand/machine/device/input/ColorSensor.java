@@ -11,37 +11,37 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 import java.util.Map;
 
 public class ColorSensor extends DeviceBase {
-	
-	public ColorSensor(InputPort port, ProtocolBase protocol) {
-		super(port, protocol);
-	}
-	
-	/**
-	 * Get the color in RGB (0 - 255)
-	 * <p>
-	 * TODO: this method doesn't return proper value.
-	 *
-	 * @return float[] ([0]: r, [1]: g, [2]: b)
-	 */
-	public float[] getRgb() {
-		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_COLOR_RGB, null);
-		Map<String, Object> res = exec(cmd);
-		return (float[]) res.get("value");
-	}
-	
-	/**
-	 * Get the illuminance in percent (0 - 100)
-	 *
-	 * @return int (0 - 100 %)
-	 */
-	public int getIlluminance() {
-		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_COLOR_ILLUMINANCE, null);
-		Map<String, Object> res = exec(cmd);
-		return (Integer) res.get("value");
-	}
-	
-	@Override
-	public DeviceType getDeviceType() {
-		return DeviceType.COLOR_SENSOR;
-	}
+    
+    public ColorSensor(InputPort port, ProtocolBase protocol) {
+        super(port, protocol);
+    }
+    
+    /**
+     * Get the color in RGB (0 - 255)
+     * <p>
+     * TODO: this method doesn't return proper value.
+     *
+     * @return float[] ([0]: r, [1]: g, [2]: b)
+     */
+    public float[] getRgb() {
+        CommandBase cmd = CommandFactory.createCommand(CommandType.GET_COLOR_RGB, null);
+        Map<String, Object> res = exec(cmd);
+        return (float[]) res.get("value");
+    }
+    
+    /**
+     * Get the illuminance in percent (0 - 100)
+     *
+     * @return int (0 - 100 %)
+     */
+    public int getIlluminance() {
+        CommandBase cmd = CommandFactory.createCommand(CommandType.GET_COLOR_ILLUMINANCE, null);
+        Map<String, Object> res = exec(cmd);
+        return (Integer) res.get("value");
+    }
+    
+    @Override
+    public DeviceType getDeviceType() {
+        return DeviceType.COLOR_SENSOR;
+    }
 }

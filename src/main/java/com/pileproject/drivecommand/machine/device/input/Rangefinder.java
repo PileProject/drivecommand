@@ -12,24 +12,24 @@ import java.util.Map;
 
 public class Rangefinder extends DeviceBase {
 
-	public Rangefinder(InputPort port, ProtocolBase protocol) {
-		super(port, protocol);
-	}
+    public Rangefinder(InputPort port, ProtocolBase protocol) {
+        super(port, protocol);
+    }
 
-	/**
-	 * Get the distance between obstacles and this sensor
-	 *
-	 * @return distance (in centimeter)
-	 */
-	public int getDistance() {
-		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_RANGEFINDER_DIST, null);
-		Map<String, Object> res = exec(cmd);
-		return (Integer) res.get("value");
-	}
-	
-	@Override
-	public DeviceType getDeviceType() {
-		return DeviceType.RANGEFINDER;
-	}
+    /**
+     * Get the distance between obstacles and this sensor
+     *
+     * @return distance (in centimeter)
+     */
+    public int getDistance() {
+        CommandBase cmd = CommandFactory.createCommand(CommandType.GET_RANGEFINDER_DIST, null);
+        Map<String, Object> res = exec(cmd);
+        return (Integer) res.get("value");
+    }
+    
+    @Override
+    public DeviceType getDeviceType() {
+        return DeviceType.RANGEFINDER;
+    }
 
 }

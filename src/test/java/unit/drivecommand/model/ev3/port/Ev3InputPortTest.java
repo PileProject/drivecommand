@@ -26,13 +26,13 @@ public class Ev3InputPortTest {
         };
     }
 
-	public static Pattern pattern = Pattern.compile("^\\[EV3\\] INPUT-PORT-[1-4].*$");
+    public static Pattern pattern = Pattern.compile("^\\[EV3\\] INPUT-PORT-[1-4].*$");
 
-	@Test(dataProvider = "ports")
-	public void testToString(Ev3InputPort port) {
-		Matcher m = pattern.matcher(port.toString());
-		assertTrue(m.matches());
-	}
+    @Test(dataProvider = "ports")
+    public void testToString(Ev3InputPort port) {
+        Matcher m = pattern.matcher(port.toString());
+        assertTrue(m.matches());
+    }
 
     @Test
     public void testGetRaw() throws Exception {

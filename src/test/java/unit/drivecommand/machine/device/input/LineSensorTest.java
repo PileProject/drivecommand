@@ -17,33 +17,33 @@ import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class LineSensorTest {
-	@Mocked
-	private ProtocolBase protocol;
-	private final InputPort PORT = new InputPort() {
-		@Override
-		public int getRaw() {
-			return 1;
-		}
-	};
-	private final int VALUE_SENSOR = 50;
-	private final String KEY_VALUE = "value";
-	
-	@Test
-	public void getSensorValue() {
-		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase) any);
-			result = new HashMap<String, Object>() {{
-				put(KEY_VALUE, VALUE_SENSOR);
-			}};
-		}};
+    @Mocked
+    private ProtocolBase protocol;
+    private final InputPort PORT = new InputPort() {
+        @Override
+        public int getRaw() {
+            return 1;
+        }
+    };
+    private final int VALUE_SENSOR = 50;
+    private final String KEY_VALUE = "value";
+    
+    @Test
+    public void getSensorValue() {
+        new Expectations() {{
+            protocol.exec(PORT.getRaw(), (CommandBase) any);
+            result = new HashMap<String, Object>() {{
+                put(KEY_VALUE, VALUE_SENSOR);
+            }};
+        }};
 
-		LineSensor ls = new LineSensor(PORT, protocol);
-		AssertJUnit.assertEquals(ls.getSensorValue(), VALUE_SENSOR);
-	}
-	
-	@Test
-	public void deviceTypeIsLineSensor() {
-		LineSensor ls = new LineSensor(NxtInputPort.PORT_1, protocol);
-		AssertJUnit.assertEquals(ls.getDeviceType(), DeviceType.LINE_SENSOR);
-	}
+        LineSensor ls = new LineSensor(PORT, protocol);
+        AssertJUnit.assertEquals(ls.getSensorValue(), VALUE_SENSOR);
+    }
+    
+    @Test
+    public void deviceTypeIsLineSensor() {
+        LineSensor ls = new LineSensor(NxtInputPort.PORT_1, protocol);
+        AssertJUnit.assertEquals(ls.getDeviceType(), DeviceType.LINE_SENSOR);
+    }
 }
