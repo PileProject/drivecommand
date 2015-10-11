@@ -11,6 +11,7 @@ public class Ev3OutputPort extends OutputPort {
     public static final Ev3OutputPort PORT_A = new Ev3OutputPort(0);
     public static final Ev3OutputPort PORT_B = new Ev3OutputPort(1);
     public static final Ev3OutputPort PORT_C = new Ev3OutputPort(2);
+    public static final Ev3OutputPort PORT_D = new Ev3OutputPort(3);
 
     private Ev3OutputPort(int port) {
         mPort = port;
@@ -23,8 +24,6 @@ public class Ev3OutputPort extends OutputPort {
 
     @Override
     public String toString() {
-        int a = 65;
-
-        return "[EV3] OUTPUT-PORT-" + (char)(a + mPort);
+        return "[EV3] OUTPUT-PORT-" + (char)('A' + mPort);
     }
 }

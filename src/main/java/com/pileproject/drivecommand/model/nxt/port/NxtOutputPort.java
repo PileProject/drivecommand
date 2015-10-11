@@ -23,9 +23,7 @@ public class NxtOutputPort extends OutputPort {
 
 	@Override
 	public String toString() {
-		final int A = 65;
-
-		return "[NXT] OUTPUT-PORT-" +  (char)(A + mPort);
+		return "[NXT] OUTPUT-PORT-" +  (char)('A' + mPort);
 	}
 }
 

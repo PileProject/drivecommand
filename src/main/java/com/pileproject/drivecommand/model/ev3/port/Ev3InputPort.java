@@ -24,6 +24,6 @@ public class Ev3InputPort extends InputPort {
 
     @Override
     public String toString() {
-        return "[EV3] INPUT-PORT-" + mPort;
+        return "[EV3] INPUT-PORT-" + (mPort + 1);
     }
 }
