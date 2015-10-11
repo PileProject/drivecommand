@@ -11,14 +11,8 @@ public class PileOutputPort extends OutputPort {
 
     public static final PileOutputPort MOTOR_RIGHT
             = new PileOutputPort(1, Type.MOTOR_RIGHT);
-
-    private enum Type {
-        MOTOR_LEFT, MOTOR_RIGHT,
-    }
-
     private final int mPort;
     private final Type mType;
-
     private PileOutputPort(int port, Type type) {
         mPort = port;
         mType = type;
@@ -32,5 +26,9 @@ public class PileOutputPort extends OutputPort {
     @Override
     public String toString() {
         return "[PILE] OUTPUT-PORT-" + mType;
+    }
+
+    private enum Type {
+        MOTOR_LEFT, MOTOR_RIGHT,
     }
 }

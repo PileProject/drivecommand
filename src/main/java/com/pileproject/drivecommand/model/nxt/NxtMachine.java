@@ -77,7 +77,7 @@ public class NxtMachine extends MachineBase {
 
     private void checkOutputPortCompatibility(OutputPort port) {
         if (port instanceof NxtOutputPort) {
-            return ;
+            return;
         }
 
         throw new DevicePortTypeMismatchException("Expected: NxtOutputPort, Actual: " + port.getClass());
@@ -85,7 +85,7 @@ public class NxtMachine extends MachineBase {
 
     private void checkInputPortCompatibility(InputPort port) {
         if (port instanceof NxtInputPort) {
-            return ;
+            return;
         }
 
         throw new DevicePortTypeMismatchException("Expected: NxtInputPort, Actual: " + port.getClass());

@@ -35,26 +35,26 @@ public class NxtProtocol extends ProtocolBase {
     private static final String TAG = "NxtProtocol";
     private static final int MAX_RES_LENGTH = 66;
     private Map<Integer, Byte> mPortTypes;
-    
+
     public NxtProtocol(ICommunicator comm) {
         super(comm);
     }
-    
+
     @Override
     public void open() throws IOException {
         mCommunicator.open();
-        mPortTypes = new HashMap<Integer, Byte>();
+        mPortTypes = new HashMap<>();
     }
-    
+
     @Override
     public void close() {
         mCommunicator.close();
         mPortTypes = null;
     }
-    
+
     @Override
     public Map<String, Object> exec(int port, CommandBase cmd) {
-        HashMap<String, Object> res = new HashMap<String, Object>();
+        HashMap<String, Object> res = new HashMap<>();
         CommandType type = cmd.getCommandType();
         switch (type) {
             case GET_COLOR_ILLUMINANCE: {
@@ -133,7 +133,7 @@ public class NxtProtocol extends ProtocolBase {
         }
         return res;
     }
-    
+
     /**
      * Set output device condition.
      *
@@ -165,7 +165,7 @@ public class NxtProtocol extends ProtocolBase {
         // Send request
         sendData(request);
     }
-    
+
     /**
      * A small helper to send data. This method calculates the size of the data
      * and append it to the data.
@@ -178,11 +178,11 @@ public class NxtProtocol extends ProtocolBase {
         data[0] = (byte) request.length;
         data[1] = (byte) (request.length >> 8);
         System.arraycopy(request, 0, data, 2, request.length);
-        
+
         // Send request
         mCommunicator.write(data, TIMEOUT);
     }
-    
+
     private InputValues getInputValues(int port) {
         byte[] request = {
                 DIRECT_COMMAND_REPLY,
@@ -203,10 +203,10 @@ public class NxtProtocol extends ProtocolBase {
         inputValues.normalizedADValue = (short) ((0xFF & reply[10]) | ((0xFF & reply[11]) << 8));
         inputValues.scaledValue = (short) ((0xFF & reply[12]) | ((0xFF & reply[13]) << 8));
         inputValues.calibratedValue = (short) ((0xFF & reply[14]) | ((0xFF & reply[15]) << 8));
-        
+
         return inputValues;
     }
-    
+
     /**
      * Tells the NXT what type of sensor you are using and the mode to operate
      * in.
@@ -221,7 +221,7 @@ public class NxtProtocol extends ProtocolBase {
             // Save the setting to a map and set the mode of sensor
             mPortTypes.put(port, (byte) sensorType);
             Log.d(TAG, "port(" + port + ") is initailized to " + sensorType);
-            
+
             byte[] request = {
                     DIRECT_COMMAND_NOREPLY,
                     SET_INPUT_MODE,
@@ -229,16 +229,16 @@ public class NxtProtocol extends ProtocolBase {
                     (byte) sensorType,
                     (byte) sensorMode
             };
-            
+
             sendData(request);
             getInputValues(port); // Skip the first value (it may be invalid)
-            
+
             // Sound sensor needs more initializing time based on our
             // experiments.
             if (sensorType == SOUND_DB) waitMillSeconds(250);
         }
     }
-    
+
     /**
      * A helper method to wait for specified milli seconds.
      *

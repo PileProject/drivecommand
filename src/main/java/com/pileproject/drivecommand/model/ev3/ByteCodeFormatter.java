@@ -16,25 +16,22 @@ import java.io.IOException;
  * @version 1.0 21-Dec-2013
  */
 public class ByteCodeFormatter {
+    // Parameter Size
+    private static final byte BYTE_SIZE = (byte) 0x81;
+    private static final byte SHORT_SIZE = (byte) 0x82;
+    private static final byte INT_SIZE = (byte) 0x83;
+    @SuppressWarnings("unused")
+    private static final byte STRING_SIZE = (byte) 0x84;
+    private static final byte GLOBAL_INDEX_SIZE = (byte) 0xe1;
+    private static String TAG = "ByteCodeFormatter";
     private ByteArrayOutputStream mStream;
     // Use DataOutputStream as a writer of ByteArrayOutputStream
     private DataOutputStream mWriter;
-    
-    // Parameter Size
-    private static byte BYTE_SIZE = (byte) 0x81;
-    private static byte SHORT_SIZE = (byte) 0x82;
-    private static byte INT_SIZE = (byte) 0x83;
-    @SuppressWarnings("unused")
-    private static byte STRING_SIZE = (byte) 0x84;
-    
-    private static byte GLOBAL_INDEX_SIZE = (byte) 0xe1;
-    
-    private static String TAG = "ByteCodeFormatter";
-    
+
     public ByteCodeFormatter() {
         mStream = new ByteArrayOutputStream();
         mWriter = new DataOutputStream(mStream);
-        
+
         // Add header. 1st and 2nd byte shows the length of this byte code.
         // They will be set when byteArray() is called. Next 2 bytes are
         // identification codes. You can use them to identify the pair of
@@ -49,7 +46,7 @@ public class ByteCodeFormatter {
             e.printStackTrace();
         }
     }
-    
+
     /**
      * Add opcode
      *
@@ -62,7 +59,7 @@ public class ByteCodeFormatter {
             Log.e(TAG, "Couldn't write opcode", e);
         }
     }
-    
+
     /**
      * Add global and local buffer size
      *
@@ -74,7 +71,7 @@ public class ByteCodeFormatter {
             throw new IllegalArgumentException("Global buffer must be less than 1024 bytes");
         if (local > 64)
             throw new IllegalArgumentException("Local buffer must be less than 64 bytes");
-        
+
         // Write 2 bytes in form of (llllllgg gggggggg)
         try {
             mWriter.writeByte(global); // LSB
@@ -83,7 +80,7 @@ public class ByteCodeFormatter {
             Log.e(TAG, "Couldn't write global and local buffer size", e);
         }
     }
-    
+
     /**
      * Add byte parameter
      *
@@ -97,7 +94,7 @@ public class ByteCodeFormatter {
             Log.e(TAG, "Couldn't write parameter (byte)", e);
         }
     }
-    
+
     /**
      * Add short parameter
      *
@@ -112,7 +109,7 @@ public class ByteCodeFormatter {
             Log.e(TAG, "Couldn't write parameter (short)", e);
         }
     }
-    
+
     /**
      * Add int parameter
      *
@@ -129,8 +126,8 @@ public class ByteCodeFormatter {
             Log.e(TAG, "Couldn't write parameter (int)", e);
         }
     }
-    
-    
+
+
     /**
      * Add global index
      *
@@ -144,7 +141,7 @@ public class ByteCodeFormatter {
             Log.e(TAG, "Couldn't add global index", e);
         }
     }
-    
+
     /**
      * Append command
      *
@@ -157,7 +154,7 @@ public class ByteCodeFormatter {
             Log.e(TAG, "Couldn't append command", e);
         }
     }
-    
+
     /**
      * Get the byte code in array of byte
      *
@@ -165,11 +162,11 @@ public class ByteCodeFormatter {
      */
     public byte[] byteArray() {
         byte[] byteCode = mStream.toByteArray();
-        
+
         // Subtract 2 for the first 2 bytes which are used to tell the length of
         // this byte code.
         int bodyLength = byteCode.length - 2;
-        
+
         // Update the first 2 bytes to express the length of body.
         byteCode[0] = (byte) (bodyLength & 0xff);
         byteCode[1] = (byte) ((bodyLength >>> 8) & 0xff);

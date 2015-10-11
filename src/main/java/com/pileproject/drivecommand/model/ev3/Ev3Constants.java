@@ -1,24 +1,24 @@
 package com.pileproject.drivecommand.model.ev3;
 
 public class Ev3Constants {
-    
+
     // Command Types
     public static final byte DIRECT_COMMAND_REPLY = (byte) 0x00;
     public static final byte DIRECT_COMMAND_NOREPLY = (byte) 0x80;
-    
+
     public static final byte DIRECT_COMMAND_SUCCESS = (byte) 0x02;
     public static final byte DIRECT_COMMAND_FAIL = (byte) 0x04;
-    
+
     // Direct Commands - SOUND
     public static final byte SOUND_CONTROL = (byte) 0x94;
-    
+
     // Sub code for SOUND_CONTROL
     public static final byte SOUND_BREAK = (byte) 0x00;
     public static final byte SOUND_TONE = (byte) 0x01;
     public static final byte SOUND_PLAY = (byte) 0x02;
     public static final byte SOUND_REPEAT = (byte) 0x03;
     public static final byte SOUND_SERVICE = (byte) 0x04;
-    
+
     // Direct Commands - INPUT
     public static final byte INPUT_SAMPLE = (byte) 0x97;
     public static final byte INPUT_DEVICE_LIST = (byte) 0x98;
@@ -29,7 +29,7 @@ public class Ev3Constants {
     public static final byte INPUT_READSI = (byte) 0x9D;
     public static final byte INPUT_READEXT = (byte) 0x9E;
     public static final byte INPUT_WRITE = (byte) 0x9F;
-    
+
     // Direct Commands - OUTPUT
     public static final byte OUTPUT_GET_TYPE = (byte) 0xA0;
     public static final byte OUTPUT_SET_TYPE = (byte) 0xA1;
@@ -52,7 +52,7 @@ public class Ev3Constants {
     public static final byte OUTPUT_CLR_COUNT = (byte) 0xB2;
     public static final byte OUTPUT_GET_COUNT = (byte) 0xB3;
     public static final byte OUTPUT_PRG_ST = (byte) 0xB4;
-    
+
     // Sub Commands for INPUT_DEVICE
     public static final byte GET_FORMAT = (byte) 0x02;
     public static final byte CAL_MINMAX = (byte) 0x03;
@@ -77,18 +77,18 @@ public class Ev3Constants {
     public static final byte READY_SI = (byte) 0x1D;
     public static final byte GET_MINMAX = (byte) 0x1E;
     public static final byte GET_BUMPS = (byte) 0x1F;
-    
+
     // All motors
     public static final byte ALL_MOTORS = (byte) 0x0f;
-    
+
     // Layers
     public static final byte LAYER_MASTER = (byte) 0x00;
     public static final byte LAYER_SLAVE = (byte) 0x01;
-    
+
     // Motor brakes
     public static final byte COAST = (byte) 0x00;
     public static final byte BRAKE = (byte) 0x01;
-    
+
     // Input Device Mode
     // Sensor Type:
     public static final byte TYPE_DEFAULT = (byte) 0x00;
@@ -104,7 +104,7 @@ public class Ev3Constants {
     public static final byte EV3_ULTRASONIC = (byte) 0x1E;
     public static final byte EV3_GYRO = (byte) 0x20;
     public static final byte EV3_IR = (byte) 0x21;
-    
+
     // Sensor Mode:
     public static final byte NOT_INITIALIZED = (byte) 0xff;
     public static final byte MODE_DEFAULT = (byte) 0x00;
@@ -147,7 +147,7 @@ public class Ev3Constants {
     public static final byte IR_PROX = (byte) 0x00;
     public static final byte IR_SEEK = (byte) 0x01;
     public static final byte IR_REMOTE = (byte) 0x02;
-    
+
     /**
      * L-Motor
      */
@@ -160,5 +160,5 @@ public class Ev3Constants {
     public static final byte M_MOTOR_DEGREE = (byte) 0x00;
     public static final byte M_MOTOR_ROTATE = (byte) 0x01;
     public static final byte M_MOTOR_SPEED = (byte) 0x02;
-    
+
 }

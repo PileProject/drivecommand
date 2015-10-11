@@ -11,11 +11,11 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 import java.util.Map;
 
 public class LineSensor extends DeviceBase {
-    
+
     public LineSensor(InputPort port, ProtocolBase protocol) {
         super(port, protocol);
     }
-    
+
     /**
      * Get light sensor value
      *
@@ -26,7 +26,7 @@ public class LineSensor extends DeviceBase {
         Map<String, Object> value = exec(cmd);
         return (Integer) value.get("value");
     }
-    
+
     @Override
     public DeviceType getDeviceType() {
         return DeviceType.LINE_SENSOR;

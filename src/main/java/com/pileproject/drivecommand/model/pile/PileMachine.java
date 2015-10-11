@@ -49,11 +49,11 @@ public class PileMachine extends MachineBase {
             return new LineSensor(port, mProtocol);
         }
 
-        throw new DevicePortTypeMismatchException( String.format(
-                    "Expected: %s or %s, Actual %s",
-                    PileInputPort.LINE_SENSOR_L,
-                    PileInputPort.LINE_SENSOR_R,
-                    port) );
+        throw new DevicePortTypeMismatchException(String.format(
+                "Expected: %s or %s, Actual %s",
+                PileInputPort.LINE_SENSOR_L,
+                PileInputPort.LINE_SENSOR_R,
+                port));
     }
 
     @Override
