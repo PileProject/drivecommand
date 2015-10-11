@@ -40,6 +40,6 @@ public class RemoteControlReceiver extends DeviceBase {
 
 	@Override
 	public DeviceType getDeviceType() {
-		return DeviceType.REMOTECONTROL_RECIEVER;
+		return DeviceType.REMOTECONTROL_RECEIVER;
 	}
 }

@@ -167,7 +167,7 @@ public abstract class MachineBase {
 	}
 
 	/**
-	 * Create RemoteControlReciever
+	 * Create RemoteControlReceiver
 	 *
 	 * @param port
 	 * @return

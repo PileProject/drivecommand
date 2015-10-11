@@ -36,7 +36,7 @@ public abstract class ProtocolBase {
 
 	/**
 	 * Apply commands
-	 * <p>
+	 *
 	 * This will be used with devices supporting transactions.
 	 *
 	 * @return success (true) or not (false)

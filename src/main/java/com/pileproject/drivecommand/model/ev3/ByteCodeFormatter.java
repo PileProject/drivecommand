@@ -94,7 +94,7 @@ public class ByteCodeFormatter {
 			mWriter.writeByte(BYTE_SIZE);
 			mWriter.writeByte(param);
 		} catch (IOException e) {
-			Log.e(TAG, "Couldn't write paramameter (byte)", e);
+			Log.e(TAG, "Couldn't write parameter (byte)", e);
 		}
 	}
 	
@@ -109,7 +109,7 @@ public class ByteCodeFormatter {
 			mWriter.writeByte(param);
 			mWriter.writeByte(param >> 8);
 		} catch (IOException e) {
-			Log.e(TAG, "Couldn't write paramameter (short)", e);
+			Log.e(TAG, "Couldn't write parameter (short)", e);
 		}
 	}
 	
@@ -126,7 +126,7 @@ public class ByteCodeFormatter {
 			mWriter.writeByte(param >> 16);
 			mWriter.writeByte(param >> 24);
 		} catch (IOException e) {
-			Log.e(TAG, "Couldn't write paramameter (int)", e);
+			Log.e(TAG, "Couldn't write parameter (int)", e);
 		}
 	}
 	

@@ -102,13 +102,13 @@ public enum CommandType {
 	GET_REMOTECONTROLLER_BUTTON {
 		@Override
 		public DeviceType getDeviceType() {
-			return DeviceType.REMOTECONTROL_RECIEVER;
+			return DeviceType.REMOTECONTROL_RECEIVER;
 		}
 	},
 	GET_REMOTECONTROLLER_DIST {
 		@Override
 		public DeviceType getDeviceType() {
-			return DeviceType.REMOTECONTROL_RECIEVER;
+			return DeviceType.REMOTECONTROL_RECEIVER;
 		}
 	},
 	GET_SOUND_DB {

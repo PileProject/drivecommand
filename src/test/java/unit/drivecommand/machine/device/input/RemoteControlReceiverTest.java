@@ -15,7 +15,7 @@ import mockit.Expectations;
 import mockit.Mocked;
 
 @SuppressWarnings("serial")
-public class RemoteControlRecieverTest {
+public class RemoteControlReceiverTest {
 	@Mocked
 	private ProtocolBase protocol;
 	private final InputPort PORT = new InputPort() {
@@ -53,9 +53,9 @@ public class RemoteControlRecieverTest {
 	}
 	
 	@Test
-	public void deviceTypeIsRemoteControlReciever() {
+	public void deviceTypeIsRemoteControlReceiver() {
 		RemoteControlReceiver rr = new RemoteControlReceiver(PORT, protocol);
-		AssertJUnit.assertEquals(rr.getDeviceType(), DeviceType.REMOTECONTROL_RECIEVER);
+		AssertJUnit.assertEquals(rr.getDeviceType(), DeviceType.REMOTECONTROL_RECEIVER);
 	}
 }
 

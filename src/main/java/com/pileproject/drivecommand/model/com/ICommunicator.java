@@ -25,7 +25,7 @@ public interface ICommunicator {
 	public void write(byte[] data, int timeout) throws RuntimeException;
 	
 	/**
-	 * Read the respose from the device.
+	 * Read the response from the device.
 	 *
 	 * @param length  The max length of response wanted to be read.
 	 * @param timeout Max waiting time for the end of this communication. [Unit: ms]

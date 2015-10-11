@@ -19,7 +19,7 @@ public class Ev3Constants {
 	public static final byte SOUND_REPEAT = (byte) 0x03;
 	public static final byte SOUND_SERVICE = (byte) 0x04;
 	
-	// Direct Commands - INUPT
+	// Direct Commands - INPUT
 	public static final byte INPUT_SAMPLE = (byte) 0x97;
 	public static final byte INPUT_DEVICE_LIST = (byte) 0x98;
 	public static final byte INPUT_DEVICE = (byte) 0x99;

@@ -49,7 +49,7 @@ public class ColorSensorTest {
 			}};
 		}};
 		ColorSensor cs = new ColorSensor(PORT, protocol);
-		AssertJUnit.assertEquals(cs.getIlluminace(), VALUE_ILLUMINANCE);
+		AssertJUnit.assertEquals(cs.getIlluminance(), VALUE_ILLUMINANCE);
 	}
 	
 	@Test
