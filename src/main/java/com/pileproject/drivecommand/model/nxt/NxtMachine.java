@@ -2,15 +2,15 @@ package com.pileproject.drivecommand.model.nxt;
 
 import com.pileproject.drivecommand.machine.MachineBase;
 import com.pileproject.drivecommand.machine.MachineStatus;
-import com.pileproject.drivecommand.machine.device.port.DevicePortTypeMismatchException;
 import com.pileproject.drivecommand.machine.device.DeviceType;
 import com.pileproject.drivecommand.machine.device.input.LineSensor;
 import com.pileproject.drivecommand.machine.device.input.SoundSensor;
 import com.pileproject.drivecommand.machine.device.input.TouchSensor;
 import com.pileproject.drivecommand.machine.device.output.Motor;
+import com.pileproject.drivecommand.machine.device.port.DevicePortTypeMismatchException;
 import com.pileproject.drivecommand.machine.device.port.InputPort;
 import com.pileproject.drivecommand.machine.device.port.OutputPort;
-import com.pileproject.drivecommand.model.ProtocolBase;
+import com.pileproject.drivecommand.model.com.ICommunicator;
 import com.pileproject.drivecommand.model.nxt.port.NxtInputPort;
 import com.pileproject.drivecommand.model.nxt.port.NxtOutputPort;
 
@@ -21,8 +21,8 @@ import com.pileproject.drivecommand.model.nxt.port.NxtOutputPort;
  */
 public class NxtMachine extends MachineBase {
 
-	NxtMachine(ProtocolBase protocol) {
-		super(protocol);
+	public NxtMachine(ICommunicator comm) {
+		super(new NxtProtocol(comm));
 	}
 
 	@Override
