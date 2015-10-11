@@ -71,7 +71,7 @@ public class NxtProtocol extends ProtocolBase {
 
     @Override
     public Map<String, Object> exec(int port, CommandBase cmd) {
-        HashMap<String, Object> res = new HashMap<>();
+        Map<String, Object> res = new HashMap<>();
         CommandType type = cmd.getCommandType();
         switch (type) {
             case GET_COLOR_ILLUMINANCE: {
