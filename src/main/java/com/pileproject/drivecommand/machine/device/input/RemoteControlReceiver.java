@@ -8,7 +8,7 @@ import com.pileproject.drivecommand.machine.device.port.InputPort;
 import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class RemoteControlReceiver extends DeviceBase {
 
@@ -23,7 +23,7 @@ public class RemoteControlReceiver extends DeviceBase {
 	 */
 	public int getRemoteButton() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_REMOTECONTROLLER_BUTTON, null);
-		HashMap<String, Object> res = exec(cmd);
+		Map<String, Object> res = exec(cmd);
 		return (Integer) res.get("value");
 	}
 
@@ -34,7 +34,7 @@ public class RemoteControlReceiver extends DeviceBase {
 	 */
 	public int getRemoteDistance() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_REMOTECONTROLLER_DIST, null);
-		HashMap<String, Object> res = exec(cmd);
+		Map<String, Object> res = exec(cmd);
 		return (Integer) res.get("value");
 	}
 

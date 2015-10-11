@@ -12,6 +12,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 import static com.pileproject.drivecommand.model.ev3.Ev3Constants.COL_REFLECT;
 import static com.pileproject.drivecommand.model.ev3.Ev3Constants.COL_RGB;
@@ -65,7 +66,7 @@ public class Ev3Protocol extends ProtocolBase {
 	}
 	
 	@Override
-	public HashMap<String, Object> exec(int port, CommandBase cmd) {
+	public Map<String, Object> exec(int port, CommandBase cmd) {
 		HashMap<String, Object> res = new HashMap<String, Object>();
 		CommandType type = cmd.getCommandType();
 		switch (type) {
@@ -159,7 +160,7 @@ public class Ev3Protocol extends ProtocolBase {
 				throw new UnsupportedOperationException("SET LED ON Operation hasn't been implemented yet");
 			}
 			case SET_MOTOR_SPEED: {
-				HashMap<String, Object> args = cmd.getArgs();
+				Map<String, Object> args = cmd.getArgs();
 				int speed = (Integer) args.get("speed");
 				setOutputState(port, speed);
 				break;

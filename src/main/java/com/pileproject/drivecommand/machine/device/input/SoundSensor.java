@@ -8,7 +8,7 @@ import com.pileproject.drivecommand.machine.device.port.InputPort;
 import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class SoundSensor extends DeviceBase {
 	
@@ -23,7 +23,7 @@ public class SoundSensor extends DeviceBase {
 	 */
 	public int getDb() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_SOUND_DB, null);
-		HashMap<String, Object> res = exec(cmd);
+		Map<String, Object> res = exec(cmd);
 		return (Integer) res.get("value");
 	}
 	

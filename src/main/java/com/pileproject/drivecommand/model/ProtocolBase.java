@@ -5,7 +5,7 @@ import com.pileproject.drivecommand.machine.MachineBase;
 import com.pileproject.drivecommand.model.com.ICommunicator;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.Map;
 
 public abstract class ProtocolBase {
 	protected final ICommunicator mCommunicator;
@@ -33,7 +33,7 @@ public abstract class ProtocolBase {
 	 * @param cmd
 	 * @return
 	 */
-	public abstract HashMap<String, Object> exec(int port, CommandBase cmd);
+	public abstract Map<String, Object> exec(int port, CommandBase cmd);
 
 	/**
 	 * Apply commands
