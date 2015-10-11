@@ -1,6 +1,5 @@
 package com.pileproject.drivecommand.model.ev3;
 
-import com.pileproject.drivecommand.machine.device.port.DevicePortTypeMismatchException;
 import com.pileproject.drivecommand.machine.MachineBase;
 import com.pileproject.drivecommand.machine.MachineStatus;
 import com.pileproject.drivecommand.machine.device.DeviceType;
@@ -15,9 +14,10 @@ import com.pileproject.drivecommand.machine.device.output.Buzzer;
 import com.pileproject.drivecommand.machine.device.output.Led;
 import com.pileproject.drivecommand.machine.device.output.Motor;
 import com.pileproject.drivecommand.machine.device.output.Servomotor;
+import com.pileproject.drivecommand.machine.device.port.DevicePortTypeMismatchException;
 import com.pileproject.drivecommand.machine.device.port.InputPort;
 import com.pileproject.drivecommand.machine.device.port.OutputPort;
-import com.pileproject.drivecommand.model.ProtocolBase;
+import com.pileproject.drivecommand.model.com.ICommunicator;
 import com.pileproject.drivecommand.model.ev3.port.Ev3InputPort;
 import com.pileproject.drivecommand.model.ev3.port.Ev3OutputPort;
 
@@ -28,8 +28,8 @@ import com.pileproject.drivecommand.model.ev3.port.Ev3OutputPort;
  */
 public class Ev3Machine extends MachineBase {
 
-	Ev3Machine(ProtocolBase protocol) {
-		super(protocol);
+	public Ev3Machine(ICommunicator comm) {
+		super(new Ev3Protocol(comm));
 	}
 
 	@Override

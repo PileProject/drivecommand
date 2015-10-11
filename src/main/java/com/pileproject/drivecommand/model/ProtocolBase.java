@@ -1,7 +1,6 @@
 package com.pileproject.drivecommand.model;
 
 import com.pileproject.drivecommand.command.CommandBase;
-import com.pileproject.drivecommand.machine.MachineBase;
 import com.pileproject.drivecommand.model.com.ICommunicator;
 
 import java.io.IOException;
@@ -43,11 +42,4 @@ public abstract class ProtocolBase {
 	 * @return success (true) or not (false)
 	 */
 	public abstract boolean apply();
-
-	/**
-	 * Creates an appropriate machine instance.
-	 *
-	 * @return an instance of MachineBase subclasses
-	 */
-	public abstract MachineBase createMachine();
 }
