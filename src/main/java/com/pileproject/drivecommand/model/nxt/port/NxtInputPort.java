@@ -24,6 +24,6 @@ public class NxtInputPort extends InputPort {
 
 	@Override
 	public String toString() {
-		return "[NXT] INPUT-PORT-" + mPort;
+		return "[NXT] INPUT-PORT-" + (mPort + 1);
 	}
 }
