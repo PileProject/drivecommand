@@ -46,28 +46,27 @@ task wraper(type: Wrapper) {
 
 
 // Maven repository identity setting
-group = 'com.pileproject.drivecommand'
-archivesBaseName = 'drivecommand'
-version = '1.0.1'
-
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: "file:${projectDir}")
-        }
-    }
-}
+            repository url: "file:${projectDir}"
 
-[install.repositories.mavenInstaller, uploadArchives.repositories.mavenDeployer]*.pom*.whenConfigured { pom ->
-    pom.project {
-        inceptionYear '2013'
-        packaging 'jar'
-        licenses {
-            license {
-                name 'The Apache Software License, Version 2.0'
-                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                distribution 'repo'
+            pom.version = '2.0.0'
+            pom.groupId = 'com.pileproject'
+            pom.artifactId = 'drivecommand'
+
+            pom.project {
+                inceptionYear '2013'
+                packaging 'jar'
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution 'repo'
+                    }
+                }
             }
         }
     }
 }
+
