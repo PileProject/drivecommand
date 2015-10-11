@@ -84,7 +84,7 @@ public class NxtMachine extends MachineBase {
 	}
 
 	private void checkInputPortCompatibility(InputPort port) {
-        if (port instanceof NxtInputPort) {
+		if (port instanceof NxtInputPort) {
 			return ;
 		}
 

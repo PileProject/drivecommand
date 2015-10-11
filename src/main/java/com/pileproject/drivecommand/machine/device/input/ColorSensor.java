@@ -34,7 +34,7 @@ public class ColorSensor extends DeviceBase {
 	 *
 	 * @return int (0 - 100 %)
 	 */
-	public int getIlluminace() {
+	public int getIlluminance() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_COLOR_ILLUMINANCE, null);
 		Map<String, Object> res = exec(cmd);
 		return (Integer) res.get("value");

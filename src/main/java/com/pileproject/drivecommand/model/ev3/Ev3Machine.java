@@ -132,7 +132,7 @@ public class Ev3Machine extends MachineBase {
 	public RemoteControlReceiver createRemoteControlReceiver(InputPort port) {
 		checkInputPortCompatibility(port);
 
-		mStatus.bind(port, DeviceType.REMOTECONTROL_RECIEVER);
+		mStatus.bind(port, DeviceType.REMOTECONTROL_RECEIVER);
 		return new RemoteControlReceiver(port, mProtocol);
 	}
 
