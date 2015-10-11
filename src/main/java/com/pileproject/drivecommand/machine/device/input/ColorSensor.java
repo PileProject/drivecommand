@@ -8,7 +8,7 @@ import com.pileproject.drivecommand.machine.device.port.InputPort;
 import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class ColorSensor extends DeviceBase {
 	
@@ -25,7 +25,7 @@ public class ColorSensor extends DeviceBase {
 	 */
 	public float[] getRgb() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_COLOR_RGB, null);
-		HashMap<String, Object> res = exec(cmd);
+		Map<String, Object> res = exec(cmd);
 		return (float[]) res.get("value");
 	}
 	
@@ -36,7 +36,7 @@ public class ColorSensor extends DeviceBase {
 	 */
 	public int getIlluminace() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_COLOR_ILLUMINANCE, null);
-		HashMap<String, Object> res = exec(cmd);
+		Map<String, Object> res = exec(cmd);
 		return (Integer) res.get("value");
 	}
 	

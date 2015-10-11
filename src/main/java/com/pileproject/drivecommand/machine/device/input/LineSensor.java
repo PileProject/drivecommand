@@ -8,7 +8,7 @@ import com.pileproject.drivecommand.machine.device.port.InputPort;
 import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class LineSensor extends DeviceBase {
 	
@@ -23,7 +23,7 @@ public class LineSensor extends DeviceBase {
 	 */
 	public int getSensorValue() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_LINE_VALUE, null);
-		HashMap<String, Object> value = exec(cmd);
+		Map<String, Object> value = exec(cmd);
 		return (Integer) value.get("value");
 	}
 	

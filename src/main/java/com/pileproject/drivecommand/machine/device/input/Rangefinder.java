@@ -8,7 +8,7 @@ import com.pileproject.drivecommand.machine.device.port.InputPort;
 import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class Rangefinder extends DeviceBase {
 
@@ -23,7 +23,7 @@ public class Rangefinder extends DeviceBase {
 	 */
 	public int getDistance() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_RANGEFINDER_DIST, null);
-		HashMap<String, Object> res = exec(cmd);
+		Map<String, Object> res = exec(cmd);
 		return (Integer) res.get("value");
 	}
 	

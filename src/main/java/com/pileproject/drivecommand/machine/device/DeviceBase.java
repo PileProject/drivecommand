@@ -4,7 +4,7 @@ import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.machine.device.port.DevicePort;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public abstract class DeviceBase {
 	private final DevicePort mPort;
@@ -26,7 +26,7 @@ public abstract class DeviceBase {
 	 * @param command
 	 * @return result
 	 */
-	protected HashMap<String, Object> exec(CommandBase command) {
+	protected Map<String, Object> exec(CommandBase command) {
 		return mProtocol.exec(mPort.getRaw(), command);
 	}
 	

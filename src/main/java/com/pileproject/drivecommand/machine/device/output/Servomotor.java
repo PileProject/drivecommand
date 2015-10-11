@@ -9,6 +9,7 @@ import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Servomotor extends DeviceBase {
 	
@@ -31,7 +32,7 @@ public class Servomotor extends DeviceBase {
 	 */
 	public int getAngle() {
 		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_SERVO_ANGLE, null);
-		HashMap<String, Object> res = exec(cmd);
+		Map<String, Object> res = exec(cmd);
 		return (Integer) res.get("value");
 	}
 

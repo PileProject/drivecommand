@@ -3,13 +3,13 @@ package com.pileproject.drivecommand.command;
 import com.pileproject.drivecommand.machine.device.DeviceType;
 import com.pileproject.drivecommand.model.CommandType;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public abstract class CommandBase {
 	private CommandType mType;
-	private HashMap<String, Object> mArgs;
+	private Map<String, Object> mArgs;
 	
-	public CommandBase(CommandType type, HashMap<String, Object> args) {
+	public CommandBase(CommandType type, Map<String, Object> args) {
 		mType = type;
 		mArgs = args;
 	}
@@ -37,7 +37,7 @@ public abstract class CommandBase {
 	 *
 	 * @return HashMap
 	 */
-	public HashMap<String, Object> getArgs() {
+	public Map<String, Object> getArgs() {
 		return mArgs;
 	}
 }

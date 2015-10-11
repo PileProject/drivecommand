@@ -2,7 +2,7 @@ package com.pileproject.drivecommand.command;
 
 import com.pileproject.drivecommand.model.CommandType;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class CommandFactory {
 	
@@ -13,7 +13,7 @@ public class CommandFactory {
 	 * @param args
 	 * @return command
 	 */
-	public static CommandBase createCommand(CommandType type, HashMap<String, Object> args) {
+	public static CommandBase createCommand(CommandType type, Map<String, Object> args) {
 		return new Command(type, args);
 	}
 }

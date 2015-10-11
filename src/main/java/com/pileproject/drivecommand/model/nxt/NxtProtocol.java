@@ -54,7 +54,7 @@ public class NxtProtocol extends ProtocolBase {
 	}
 	
 	@Override
-	public HashMap<String, Object> exec(int port, CommandBase cmd) {
+	public Map<String, Object> exec(int port, CommandBase cmd) {
 		HashMap<String, Object> res = new HashMap<String, Object>();
 		CommandType type = cmd.getCommandType();
 		switch (type) {
@@ -119,7 +119,7 @@ public class NxtProtocol extends ProtocolBase {
 				throw new UnsupportedOperationException("SET LED ON Operation hasn't been implemented yet");
 			}
 			case SET_MOTOR_SPEED: {
-				HashMap<String, Object> args = cmd.getArgs();
+				Map<String, Object> args = cmd.getArgs();
 				int speed = (Integer) args.get("speed");
 				setOutputState(port, speed, BRAKE + MOTORON + REGULATED,
 						REGULATION_MODE_MOTOR_SPEED, 0, MOTOR_RUN_STATE_RUNNING, 0);

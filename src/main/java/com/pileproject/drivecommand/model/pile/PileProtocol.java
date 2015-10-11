@@ -8,6 +8,7 @@ import com.pileproject.drivecommand.model.com.ICommunicator;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 public class PileProtocol extends ProtocolBase {
 	private static final String KEY_VALUE = "value";
@@ -29,7 +30,7 @@ public class PileProtocol extends ProtocolBase {
 	}
 	
 	@Override
-	public HashMap<String, Object> exec(int port, CommandBase cmd) {
+	public Map<String, Object> exec(int port, CommandBase cmd) {
 		HashMap<String, Object> res = new HashMap<String, Object>();
 		CommandType type = cmd.getCommandType();
 		switch (type) {
@@ -49,7 +50,7 @@ public class PileProtocol extends ProtocolBase {
 				break;
 			}
 			case SET_MOTOR_SPEED: {
-				HashMap<String, Object> args = cmd.getArgs();
+				Map<String, Object> args = cmd.getArgs();
 				int speed = (Integer) args.get("speed");
 				if (speed > 100 || speed < -100) {
 					throw new UnsupportedOperationException(type.name() + "Speed is out of range: " + speed);
