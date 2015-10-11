@@ -14,52 +14,52 @@ import mockit.Expectations;
 import mockit.Mocked;
 
 public class MachineBaseTest {
-	@Mocked
-	ProtocolBase protocol;
-	private final OutputPort OUT_PORT = new OutputPort() {
-		@Override
-		public int getRaw() {
-			return 1;
-		}
-	};
-	private final InputPort IN_PORT = new InputPort() {
-		@Override
-		public int getRaw() {
-			return 1;
-		}
-	};
+    @Mocked
+    ProtocolBase protocol;
+    private final OutputPort OUT_PORT = new OutputPort() {
+        @Override
+        public int getRaw() {
+            return 1;
+        }
+    };
+    private final InputPort IN_PORT = new InputPort() {
+        @Override
+        public int getRaw() {
+            return 1;
+        }
+    };
 
-	private MachineBase newMachineBase(ProtocolBase protocol) {
-		return new MachineBase(protocol) {
-			@Override
-			public MachineStatus fetchStatus() {
-				return null;
-			}
+    private MachineBase newMachineBase(ProtocolBase protocol) {
+        return new MachineBase(protocol) {
+            @Override
+            public MachineStatus fetchStatus() {
+                return null;
+            }
 
-			@Override
-			public boolean applyStatus(MachineStatus status) {
-				return false;
-			}
-		};
-	}
+            @Override
+            public boolean applyStatus(MachineStatus status) {
+                return false;
+            }
+        };
+    }
 
-	@Test
-	public void connect() throws IOException {
-		new Expectations() {{
-			protocol.open();
-		}};
-		MachineBase machineBase = newMachineBase(protocol);
-		machineBase.connect();
-	}
-	
-	@Test
-	public void disconnect() {
-		new Expectations() {{
-			protocol.close();
-		}};
-		MachineBase machineBase = newMachineBase(protocol);
-		machineBase.disconnect();
-	}
+    @Test
+    public void connect() throws IOException {
+        new Expectations() {{
+            protocol.open();
+        }};
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.connect();
+    }
+    
+    @Test
+    public void disconnect() {
+        new Expectations() {{
+            protocol.close();
+        }};
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.disconnect();
+    }
 
 //	@Test
 //	public void getMotorFromMachine() {

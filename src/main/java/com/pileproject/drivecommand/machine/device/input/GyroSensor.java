@@ -12,24 +12,24 @@ import java.util.Map;
 
 public class GyroSensor extends DeviceBase {
 
-	public GyroSensor(InputPort port, ProtocolBase protocol) {
-		super(port, protocol);
-	}
+    public GyroSensor(InputPort port, ProtocolBase protocol) {
+        super(port, protocol);
+    }
 
-	public int getRate() {
-		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_GYRO_RATE, null);
-		Map<String, Object> res = exec(cmd);
-		return (Integer) res.get("value");
-	}
+    public int getRate() {
+        CommandBase cmd = CommandFactory.createCommand(CommandType.GET_GYRO_RATE, null);
+        Map<String, Object> res = exec(cmd);
+        return (Integer) res.get("value");
+    }
 
-	public int getAngle() {
-		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_GYRO_ANGLE, null);
-		Map<String, Object> res = exec(cmd);
-		return (Integer) res.get("value");
-	}
-	
-	@Override
-	public DeviceType getDeviceType() {
-		return DeviceType.GYRO_SENSOR;
-	}
+    public int getAngle() {
+        CommandBase cmd = CommandFactory.createCommand(CommandType.GET_GYRO_ANGLE, null);
+        Map<String, Object> res = exec(cmd);
+        return (Integer) res.get("value");
+    }
+    
+    @Override
+    public DeviceType getDeviceType() {
+        return DeviceType.GYRO_SENSOR;
+    }
 }

@@ -7,28 +7,28 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 import java.util.Map;
 
 public abstract class DeviceBase {
-	private final DevicePort mPort;
-	private final ProtocolBase mProtocol;
-	
-	/**
-	 * Constructor
-	 *
-	 * @param port
-	 */
-	public DeviceBase(DevicePort port, ProtocolBase protocol) {
-		mPort = port;
-		mProtocol = protocol;
-	}
-	
-	/**
-	 * Execute command
-	 *
-	 * @param command
-	 * @return result
-	 */
-	protected Map<String, Object> exec(CommandBase command) {
-		return mProtocol.exec(mPort.getRaw(), command);
-	}
-	
-	public abstract DeviceType getDeviceType();
+    private final DevicePort mPort;
+    private final ProtocolBase mProtocol;
+    
+    /**
+     * Constructor
+     *
+     * @param port
+     */
+    public DeviceBase(DevicePort port, ProtocolBase protocol) {
+        mPort = port;
+        mProtocol = protocol;
+    }
+    
+    /**
+     * Execute command
+     *
+     * @param command
+     * @return result
+     */
+    protected Map<String, Object> exec(CommandBase command) {
+        return mProtocol.exec(mPort.getRaw(), command);
+    }
+    
+    public abstract DeviceType getDeviceType();
 }

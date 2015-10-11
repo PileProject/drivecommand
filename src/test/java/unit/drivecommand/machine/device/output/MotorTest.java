@@ -17,81 +17,81 @@ import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class MotorTest {
-	@Mocked
-	private ProtocolBase protocol;
-	@Mocked
-	private HashMap<String, Object> args;
-	private final OutputPort PORT = new OutputPort() {
-		@Override
-		public int getRaw() {
-			return 1;
-		}
-	};
-	private final String KEY_VALID = "valid";
-	private final int VALUE_SPEED = 30;
-	private final int VALUE_SPEED_OUT_OF_RANGE = -1;
-	private final boolean VALUE_VALID = true;
-	private final int INITIAL_SPEED = 50;
-	
-	private Motor motor;
-	
-	@BeforeMethod
-	public void setUp() {
-		motor = new Motor(PORT, protocol);
-		motor.setSpeed(VALUE_SPEED);
-	}
-	
-	@Test
-	public void setMotorSpeed() {
-		Motor motor = new Motor(PORT, protocol);
-		AssertJUnit.assertEquals(motor.getSpeed(), INITIAL_SPEED);    // initial power
-		motor.setSpeed(VALUE_SPEED);
-		AssertJUnit.assertEquals(motor.getSpeed(), VALUE_SPEED);
-	}
-	
-	@Test
-	public void setMotorSpeedButItIsOutOfRange() {
-		Motor motor = new Motor(PORT, protocol);
-		AssertJUnit.assertEquals(motor.getSpeed(), INITIAL_SPEED);    // initial power
-		motor.setSpeed(VALUE_SPEED_OUT_OF_RANGE);
-		AssertJUnit.assertEquals(motor.getSpeed(), INITIAL_SPEED);
-	}
+    @Mocked
+    private ProtocolBase protocol;
+    @Mocked
+    private HashMap<String, Object> args;
+    private final OutputPort PORT = new OutputPort() {
+        @Override
+        public int getRaw() {
+            return 1;
+        }
+    };
+    private final String KEY_VALID = "valid";
+    private final int VALUE_SPEED = 30;
+    private final int VALUE_SPEED_OUT_OF_RANGE = -1;
+    private final boolean VALUE_VALID = true;
+    private final int INITIAL_SPEED = 50;
+    
+    private Motor motor;
+    
+    @BeforeMethod
+    public void setUp() {
+        motor = new Motor(PORT, protocol);
+        motor.setSpeed(VALUE_SPEED);
+    }
+    
+    @Test
+    public void setMotorSpeed() {
+        Motor motor = new Motor(PORT, protocol);
+        AssertJUnit.assertEquals(motor.getSpeed(), INITIAL_SPEED);    // initial power
+        motor.setSpeed(VALUE_SPEED);
+        AssertJUnit.assertEquals(motor.getSpeed(), VALUE_SPEED);
+    }
+    
+    @Test
+    public void setMotorSpeedButItIsOutOfRange() {
+        Motor motor = new Motor(PORT, protocol);
+        AssertJUnit.assertEquals(motor.getSpeed(), INITIAL_SPEED);    // initial power
+        motor.setSpeed(VALUE_SPEED_OUT_OF_RANGE);
+        AssertJUnit.assertEquals(motor.getSpeed(), INITIAL_SPEED);
+    }
 
-	@Test
-	public void forwardMotor() {
-		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase) any);
-			result = new HashMap<String, Object>() {{
-				put(KEY_VALID, VALUE_VALID);
-			}};
-		}};
-		motor.forward();
-	}
+    @Test
+    public void forwardMotor() {
+        new Expectations() {{
+            protocol.exec(PORT.getRaw(), (CommandBase) any);
+            result = new HashMap<String, Object>() {{
+                put(KEY_VALID, VALUE_VALID);
+            }};
+        }};
+        motor.forward();
+    }
 
-	@Test
-	public void backwardMotor() {
-		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase) any);
-			result = new HashMap<String, Object>() {{
-				put(KEY_VALID, VALUE_VALID);
-			}};
-		}};
-		motor.backward();
-	}
-	
-	@Test
-	public void stopMotor() {
-		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase) any);
-			result = new HashMap<String, Object>() {{
-				put(KEY_VALID, VALUE_VALID);
-			}};
-		}};
-		motor.stop();
-	}
-	
-	@Test
-	public void deviceTypeIsMotor() {
-		AssertJUnit.assertEquals(motor.getDeviceType(), DeviceType.MOTOR);
-	}
+    @Test
+    public void backwardMotor() {
+        new Expectations() {{
+            protocol.exec(PORT.getRaw(), (CommandBase) any);
+            result = new HashMap<String, Object>() {{
+                put(KEY_VALID, VALUE_VALID);
+            }};
+        }};
+        motor.backward();
+    }
+    
+    @Test
+    public void stopMotor() {
+        new Expectations() {{
+            protocol.exec(PORT.getRaw(), (CommandBase) any);
+            result = new HashMap<String, Object>() {{
+                put(KEY_VALID, VALUE_VALID);
+            }};
+        }};
+        motor.stop();
+    }
+    
+    @Test
+    public void deviceTypeIsMotor() {
+        AssertJUnit.assertEquals(motor.getDeviceType(), DeviceType.MOTOR);
+    }
 }

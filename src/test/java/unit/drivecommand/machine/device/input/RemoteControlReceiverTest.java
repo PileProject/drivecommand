@@ -16,46 +16,46 @@ import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class RemoteControlReceiverTest {
-	@Mocked
-	private ProtocolBase protocol;
-	private final InputPort PORT = new InputPort() {
-		@Override
-		public int getRaw() {
-			return 1;
-		}
-	};
-	private final int VALUE_BUTTON = 3;
-	private final int VALUE_DISTANCE = 3;
-	private final String KEY_VALUE = "value";
-	
-	@Test
-	public void getRemoteControllerButton() {
-		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase) any);
-			result = new HashMap<String, Object>() {{
-				put(KEY_VALUE, VALUE_BUTTON);
-			}};
-		}};
-		RemoteControlReceiver rr = new RemoteControlReceiver(PORT, protocol);
-		AssertJUnit.assertEquals(rr.getRemoteButton(), VALUE_BUTTON);
-	}
-	
-	@Test
-	public void getRemoteControllerDistance() {
-		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase) any);
-			result = new HashMap<String, Object>() {{
-				put(KEY_VALUE, VALUE_DISTANCE);
-			}};
-		}};
-		RemoteControlReceiver rr = new RemoteControlReceiver(PORT, protocol);
-		AssertJUnit.assertEquals(rr.getRemoteDistance(), VALUE_DISTANCE);
-	}
-	
-	@Test
-	public void deviceTypeIsRemoteControlReceiver() {
-		RemoteControlReceiver rr = new RemoteControlReceiver(PORT, protocol);
-		AssertJUnit.assertEquals(rr.getDeviceType(), DeviceType.REMOTECONTROL_RECEIVER);
-	}
+    @Mocked
+    private ProtocolBase protocol;
+    private final InputPort PORT = new InputPort() {
+        @Override
+        public int getRaw() {
+            return 1;
+        }
+    };
+    private final int VALUE_BUTTON = 3;
+    private final int VALUE_DISTANCE = 3;
+    private final String KEY_VALUE = "value";
+    
+    @Test
+    public void getRemoteControllerButton() {
+        new Expectations() {{
+            protocol.exec(PORT.getRaw(), (CommandBase) any);
+            result = new HashMap<String, Object>() {{
+                put(KEY_VALUE, VALUE_BUTTON);
+            }};
+        }};
+        RemoteControlReceiver rr = new RemoteControlReceiver(PORT, protocol);
+        AssertJUnit.assertEquals(rr.getRemoteButton(), VALUE_BUTTON);
+    }
+    
+    @Test
+    public void getRemoteControllerDistance() {
+        new Expectations() {{
+            protocol.exec(PORT.getRaw(), (CommandBase) any);
+            result = new HashMap<String, Object>() {{
+                put(KEY_VALUE, VALUE_DISTANCE);
+            }};
+        }};
+        RemoteControlReceiver rr = new RemoteControlReceiver(PORT, protocol);
+        AssertJUnit.assertEquals(rr.getRemoteDistance(), VALUE_DISTANCE);
+    }
+    
+    @Test
+    public void deviceTypeIsRemoteControlReceiver() {
+        RemoteControlReceiver rr = new RemoteControlReceiver(PORT, protocol);
+        AssertJUnit.assertEquals(rr.getDeviceType(), DeviceType.REMOTECONTROL_RECEIVER);
+    }
 }
 

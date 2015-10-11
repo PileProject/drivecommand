@@ -11,24 +11,24 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 import java.util.Map;
 
 public class SoundSensor extends DeviceBase {
-	
-	public SoundSensor(InputPort port, ProtocolBase protocol) {
-		super(port, protocol);
-	}
-	
-	/**
-	 * Get the sound in dB
-	 *
-	 * @return dB
-	 */
-	public int getDb() {
-		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_SOUND_DB, null);
-		Map<String, Object> res = exec(cmd);
-		return (Integer) res.get("value");
-	}
-	
-	@Override
-	public DeviceType getDeviceType() {
-		return DeviceType.SOUND_SENSOR;
-	}
+    
+    public SoundSensor(InputPort port, ProtocolBase protocol) {
+        super(port, protocol);
+    }
+    
+    /**
+     * Get the sound in dB
+     *
+     * @return dB
+     */
+    public int getDb() {
+        CommandBase cmd = CommandFactory.createCommand(CommandType.GET_SOUND_DB, null);
+        Map<String, Object> res = exec(cmd);
+        return (Integer) res.get("value");
+    }
+    
+    @Override
+    public DeviceType getDeviceType() {
+        return DeviceType.SOUND_SENSOR;
+    }
 }

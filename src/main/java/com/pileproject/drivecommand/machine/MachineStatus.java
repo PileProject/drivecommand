@@ -10,30 +10,30 @@ import java.util.Map;
  * Created by tatsuya on 15/09/03.
  */
 public class MachineStatus {
-	private Map<DevicePort, DeviceType> mDevices;
+    private Map<DevicePort, DeviceType> mDevices;
 
-	public MachineStatus() {
-		mDevices = new HashMap<>();
-	}
+    public MachineStatus() {
+        mDevices = new HashMap<>();
+    }
 
-	public MachineStatus(Map<DevicePort, DeviceType> devices) {
-		this.mDevices = devices;
-	}
+    public MachineStatus(Map<DevicePort, DeviceType> devices) {
+        this.mDevices = devices;
+    }
 
-	/**
-	 * Bind ports and device types
-	 *
-	 * @param port
-	 * @param type
-	 * @return updated or not
-	 */
-	public boolean bind(DevicePort port, DeviceType type) {
-		boolean isUpdated = mDevices.containsKey(port);
-		mDevices.put(port, type);
-		return isUpdated;
-	}
+    /**
+     * Bind ports and device types
+     *
+     * @param port
+     * @param type
+     * @return updated or not
+     */
+    public boolean bind(DevicePort port, DeviceType type) {
+        boolean isUpdated = mDevices.containsKey(port);
+        mDevices.put(port, type);
+        return isUpdated;
+    }
 
-	public Map<DevicePort, DeviceType> getPorts() {
-		return mDevices;
-	}
+    public Map<DevicePort, DeviceType> getPorts() {
+        return mDevices;
+    }
 }

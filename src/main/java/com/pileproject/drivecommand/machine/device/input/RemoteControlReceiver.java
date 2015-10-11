@@ -12,34 +12,34 @@ import java.util.Map;
 
 public class RemoteControlReceiver extends DeviceBase {
 
-	public RemoteControlReceiver(InputPort port, ProtocolBase protocol) {
-		super(port, protocol);
-	}
-	
-	/**
-	 * Get pushed buttons on the controller.
-	 *
-	 * @return button number
-	 */
-	public int getRemoteButton() {
-		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_REMOTECONTROLLER_BUTTON, null);
-		Map<String, Object> res = exec(cmd);
-		return (Integer) res.get("value");
-	}
+    public RemoteControlReceiver(InputPort port, ProtocolBase protocol) {
+        super(port, protocol);
+    }
+    
+    /**
+     * Get pushed buttons on the controller.
+     *
+     * @return button number
+     */
+    public int getRemoteButton() {
+        CommandBase cmd = CommandFactory.createCommand(CommandType.GET_REMOTECONTROLLER_BUTTON, null);
+        Map<String, Object> res = exec(cmd);
+        return (Integer) res.get("value");
+    }
 
-	/**
-	 * Get distance between this device and the controller.
-	 *
-	 * @return distance [cm] TODO: not tested
-	 */
-	public int getRemoteDistance() {
-		CommandBase cmd = CommandFactory.createCommand(CommandType.GET_REMOTECONTROLLER_DIST, null);
-		Map<String, Object> res = exec(cmd);
-		return (Integer) res.get("value");
-	}
+    /**
+     * Get distance between this device and the controller.
+     *
+     * @return distance [cm] TODO: not tested
+     */
+    public int getRemoteDistance() {
+        CommandBase cmd = CommandFactory.createCommand(CommandType.GET_REMOTECONTROLLER_DIST, null);
+        Map<String, Object> res = exec(cmd);
+        return (Integer) res.get("value");
+    }
 
-	@Override
-	public DeviceType getDeviceType() {
-		return DeviceType.REMOTECONTROL_RECEIVER;
-	}
+    @Override
+    public DeviceType getDeviceType() {
+        return DeviceType.REMOTECONTROL_RECEIVER;
+    }
 }

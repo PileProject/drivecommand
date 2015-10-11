@@ -16,33 +16,33 @@ import mockit.Mocked;
 
 @SuppressWarnings("serial")
 public class SoundSensorTest {
-	@Mocked
-	private ProtocolBase protocol;
-	private final InputPort PORT = new InputPort() {
-		@Override
-		public int getRaw() {
-			return 1;
-		}
-	};
-	private final int VALUE_DB = 100;
-	private final String KEY_VALUE = "value";
-	
-	@Test
-	public void getSoundDb() {
-		new Expectations() {{
-			protocol.exec(PORT.getRaw(), (CommandBase) any);
-			result = new HashMap<String, Object>() {{
-				put(KEY_VALUE, VALUE_DB);
-			}};
-		}};
-		SoundSensor ss = new SoundSensor(PORT, protocol);
-		AssertJUnit.assertEquals(ss.getDb(), VALUE_DB);
-	}
-	
-	@Test
-	public void deviceTypeIsSoundSensor() {
-		SoundSensor ss = new SoundSensor(PORT, protocol);
-		AssertJUnit.assertEquals(ss.getDeviceType(), DeviceType.SOUND_SENSOR);
-	}
+    @Mocked
+    private ProtocolBase protocol;
+    private final InputPort PORT = new InputPort() {
+        @Override
+        public int getRaw() {
+            return 1;
+        }
+    };
+    private final int VALUE_DB = 100;
+    private final String KEY_VALUE = "value";
+    
+    @Test
+    public void getSoundDb() {
+        new Expectations() {{
+            protocol.exec(PORT.getRaw(), (CommandBase) any);
+            result = new HashMap<String, Object>() {{
+                put(KEY_VALUE, VALUE_DB);
+            }};
+        }};
+        SoundSensor ss = new SoundSensor(PORT, protocol);
+        AssertJUnit.assertEquals(ss.getDb(), VALUE_DB);
+    }
+    
+    @Test
+    public void deviceTypeIsSoundSensor() {
+        SoundSensor ss = new SoundSensor(PORT, protocol);
+        AssertJUnit.assertEquals(ss.getDeviceType(), DeviceType.SOUND_SENSOR);
+    }
 }
 
