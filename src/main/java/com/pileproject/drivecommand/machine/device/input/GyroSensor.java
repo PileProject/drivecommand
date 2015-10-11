@@ -27,7 +27,7 @@ public class GyroSensor extends DeviceBase {
         Map<String, Object> res = exec(cmd);
         return (Integer) res.get("value");
     }
-    
+
     @Override
     public DeviceType getDeviceType() {
         return DeviceType.GYRO_SENSOR;

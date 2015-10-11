@@ -138,7 +138,7 @@ public class Ev3Machine extends MachineBase {
 
     private void checkInputPortCompatibility(InputPort port) {
         if (port instanceof Ev3InputPort) {
-            return ;
+            return;
         }
 
         throw new DevicePortTypeMismatchException("Expected: Ev3InputPort class, Actual: " + port);
@@ -146,7 +146,7 @@ public class Ev3Machine extends MachineBase {
 
     private void checkOutputPortCompatibility(OutputPort port) {
         if (port instanceof Ev3OutputPort) {
-            return ;
+            return;
         }
 
         throw new DevicePortTypeMismatchException("Expected: Ev3OutputPort class, Actual: " + port);

@@ -11,11 +11,11 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 import java.util.Map;
 
 public class TouchSensor extends DeviceBase {
-    
+
     public TouchSensor(InputPort port, ProtocolBase protocol) {
         super(port, protocol);
     }
-    
+
     /**
      * Check this sensor is touched now
      *
@@ -26,7 +26,7 @@ public class TouchSensor extends DeviceBase {
         Map<String, Object> res = exec(cmd);
         return (Boolean) res.get("value");
     }
-    
+
     /**
      * Get the touched count
      *
@@ -37,7 +37,7 @@ public class TouchSensor extends DeviceBase {
         Map<String, Object> res = exec(cmd);
         return (Integer) res.get("value");
     }
-    
+
     @Override
     public DeviceType getDeviceType() {
         return DeviceType.TOUCH_SENSOR;

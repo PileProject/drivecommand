@@ -117,6 +117,6 @@ public enum CommandType {
             return DeviceType.SOUND_SENSOR;
         }
     };
-    
+
     public abstract DeviceType getDeviceType();
 }

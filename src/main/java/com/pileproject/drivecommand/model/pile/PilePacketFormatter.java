@@ -8,7 +8,7 @@ public class PilePacketFormatter {
     private ByteArrayOutputStream mByteStream;
     private boolean mIsValid;
     private boolean mIsFixed;
-    
+
     public PilePacketFormatter(PileConstants.CommandTypes type) {
         mByteStream = new ByteArrayOutputStream();
         mByteStream.write(type.value());
@@ -32,12 +32,12 @@ public class PilePacketFormatter {
             mIsValid = false;
         }
         mIsFixed = true;
-    }	
-    
+    }
+
     public void setDataByte(byte dataByte) {
         if (mIsFixed)
             return;
-        mByteStream.write((int)dataByte);
+        mByteStream.write((int) dataByte);
     }
 
     public void calculateChecksum() {
@@ -46,7 +46,7 @@ public class PilePacketFormatter {
         byte[] dataArray = mByteStream.toByteArray();
         int size = mByteStream.size() + 2; // (+2 means checksum)
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream(size);
-        byte checksum = (byte)(size & 0xFF);
+        byte checksum = (byte) (size & 0xFF);
         // Length
         byteStream.write(size);
         // Type, Data
@@ -61,13 +61,13 @@ public class PilePacketFormatter {
         mIsValid = true;
         mIsFixed = true;
     }
-    
+
     public byte[] byteArray() {
         if (!mIsValid)
             return null;
         return mByteStream.toByteArray();
     }
-    
+
     public byte[] data() {
         if (!mIsValid)
             return null;
@@ -76,11 +76,11 @@ public class PilePacketFormatter {
         System.arraycopy(src, 2, dst, 0, src.length - 3);
         return dst;
     }
-    
+
     public boolean isValid() {
         return mIsValid;
     }
-    
+
     public boolean isFixed() {
         return mIsFixed;
     }

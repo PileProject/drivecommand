@@ -48,36 +48,36 @@ public class Ev3Protocol extends ProtocolBase {
     private static final String KEY_VALUE = "value";
     private static final int TIMEOUT = 1000;
     private static final String TAG = "Ev3Protocol";
-    private static final byte OUTPUTPORT_OFFSET = 0x10;
-    
+    private static final byte OUTPUT_PORT_OFFSET = 0x10;
+
     public Ev3Protocol(ICommunicator comm) {
         super(comm);
     }
-    
+
     @Override
     public void open() throws IOException {
         mCommunicator.open();
     }
-    
+
     @Override
     public void close() {
         mCommunicator.close();
     }
-    
+
     @Override
     public Map<String, Object> exec(int port, CommandBase cmd) {
-        HashMap<String, Object> res = new HashMap<String, Object>();
+        HashMap<String, Object> res = new HashMap<>();
         CommandType type = cmd.getCommandType();
         switch (type) {
             case GET_COLOR_ILLUMINANCE: {
-                // TOOD: EV3 also can use NXT's color sensor (NXT_COLOR). 
+                // TODO: EV3 also can use NXT's color sensor (NXT_COLOR).
                 // I should switch the types (EV3_COLOR/NXT_COLOR) based on the device info.
                 short[] values = getPercentValue(port, EV3_COLOR, COL_REFLECT, 1);
                 res.put(KEY_VALUE, (int) values[0]);
                 break;
             }
             case GET_COLOR_RGB: {
-                // TOOD: EV3 also can use NXT's color sensor (NXT_COLOR). 
+                // TODO: EV3 also can use NXT's color sensor (NXT_COLOR).
                 // I should switch the types (EV3_COLOR/NXT_COLOR) based on the device info.
                 // TODO: Reading value is failed because ev3 returns
                 // DIRECT_COMMAND_FAILED.
@@ -120,7 +120,7 @@ public class Ev3Protocol extends ProtocolBase {
                 break;
             }
             case GET_SERVO_ANGLE: {
-                float[] values = getSiValue((OUTPUTPORT_OFFSET | port), L_MOTOR, L_MOTOR_DEGREE, 1);
+                float[] values = getSiValue((OUTPUT_PORT_OFFSET | port), L_MOTOR, L_MOTOR_DEGREE, 1);
                 res.put(KEY_VALUE, (int) values[0]);
                 break;
             }
@@ -173,7 +173,7 @@ public class Ev3Protocol extends ProtocolBase {
         }
         return res;
     }
-    
+
     /**
      * Get SI unit value
      *
@@ -186,7 +186,7 @@ public class Ev3Protocol extends ProtocolBase {
     private float[] getSiValue(int port, int type, int mode, int nvalue) {
         ByteCodeFormatter byteCode = new ByteCodeFormatter();
         byteCode.addOpCode(DIRECT_COMMAND_REPLY);
-        
+
         // TODO: NOT TESTED when nvalue is more than 2
         byteCode.addGlobalAndLocalBufferSize(4 * nvalue, 0);
         byteCode.addOpCode(INPUT_DEVICE);
@@ -197,15 +197,15 @@ public class Ev3Protocol extends ProtocolBase {
         byteCode.addParameter((byte) mode);
         byteCode.addParameter((byte) nvalue); // number of values
         byteCode.addGlobalIndex((byte) 0x00);
-        
+
         // Send message
         mCommunicator.write(byteCode.byteArray(), TIMEOUT);
-        
+
         byte[] reply = readData();
-        
+
         // Check the validity of the response
         // boolean valid = (reply[2] == DIRECT_COMMAND_SUCCESS);
-        
+
         // Read the SI unit value in float type
         float[] result = new float[nvalue];
         for (int i = 0; i < nvalue; i++) {
@@ -214,7 +214,7 @@ public class Ev3Protocol extends ProtocolBase {
         }
         return result;
     }
-    
+
     /**
      * Get percent value
      *
@@ -227,7 +227,7 @@ public class Ev3Protocol extends ProtocolBase {
     private short[] getPercentValue(int port, int type, int mode, int nvalue) {
         ByteCodeFormatter byteCode = new ByteCodeFormatter();
         byteCode.addOpCode(DIRECT_COMMAND_REPLY);
-        
+
         // TODO: NOT TESTED when nvalue is more than 2
         byteCode.addGlobalAndLocalBufferSize(1 * nvalue, 0);
         byteCode.addOpCode(INPUT_DEVICE);
@@ -238,15 +238,15 @@ public class Ev3Protocol extends ProtocolBase {
         byteCode.addParameter((byte) mode);
         byteCode.addParameter((byte) nvalue); // number of values
         byteCode.addGlobalIndex((byte) 0x00);
-        
+
         // Send message
         mCommunicator.write(byteCode.byteArray(), TIMEOUT);
-        
+
         byte[] reply = readData();
-        
+
         // Check the validity of the response
         // boolean valid = (reply[2] == DIRECT_COMMAND_SUCCESS);
-        
+
         // Read the percent value in short type
         short[] result = new short[nvalue];
         for (int i = 0; i < nvalue; i++) {
@@ -254,7 +254,7 @@ public class Ev3Protocol extends ProtocolBase {
         }
         return result;
     }
-    
+
     /**
      * Convert output port to byte code port
      *
@@ -265,7 +265,7 @@ public class Ev3Protocol extends ProtocolBase {
         if (port >= 0x00 && port <= 0x03) return (byte) (0x01 << port);
         else return 0x00; // this will not happen
     }
-    
+
     /**
      * Set output device condition.
      *
@@ -274,26 +274,26 @@ public class Ev3Protocol extends ProtocolBase {
      */
     private void setOutputState(int port, int speed) {
         ByteCodeFormatter byteCode = new ByteCodeFormatter();
-        
+
         // Convert port number
         byte byteCodePort = toByteCodePort(port);
-        
+
         byteCode.addOpCode(DIRECT_COMMAND_NOREPLY);
         byteCode.addGlobalAndLocalBufferSize(0, 0);
-        
+
         byteCode.addOpCode(OUTPUT_POWER);
         byteCode.addParameter(LAYER_MASTER);
         byteCode.addParameter(byteCodePort);
         byteCode.addParameter((byte) speed);
-        
+
         byteCode.addOpCode(OUTPUT_START);
         byteCode.addParameter(LAYER_MASTER);
         byteCode.addParameter(byteCodePort);
-        
+
         // Send message
         mCommunicator.write(byteCode.byteArray(), TIMEOUT);
     }
-    
+
     /**
      * Make a sound
      *
@@ -303,20 +303,20 @@ public class Ev3Protocol extends ProtocolBase {
      */
     private void soundTone(int volume, int freq, int duration) {
         ByteCodeFormatter byteCode = new ByteCodeFormatter();
-        
+
         byteCode.addOpCode(DIRECT_COMMAND_NOREPLY);
         byteCode.addGlobalAndLocalBufferSize(0, 0);
-        
+
         byteCode.addOpCode(SOUND_CONTROL);
         byteCode.addOpCode(SOUND_TONE);
         byteCode.addParameter((byte) volume);
         byteCode.addParameter((short) freq);
         byteCode.addParameter((short) duration);
-        
+
         // Send message
         mCommunicator.write(byteCode.byteArray(), TIMEOUT);
     }
-    
+
     /**
      * Read data from the device
      *
@@ -326,11 +326,11 @@ public class Ev3Protocol extends ProtocolBase {
         // Calculate the size of response by reading 2 bytes.
         byte[] header = mCommunicator.read(2, TIMEOUT);
         int numBytes = ((header[1] & 0x00ff) << 8) | (header[0] & 0x00ff);
-        
+
         // Get result
         byte[] result = mCommunicator.read(numBytes, TIMEOUT);
         Log.d(TAG, "read: " + result.length + " bytes");
-        
+
         return result;
     }
 

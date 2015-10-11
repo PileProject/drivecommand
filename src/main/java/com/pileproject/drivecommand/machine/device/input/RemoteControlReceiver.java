@@ -15,7 +15,7 @@ public class RemoteControlReceiver extends DeviceBase {
     public RemoteControlReceiver(InputPort port, ProtocolBase protocol) {
         super(port, protocol);
     }
-    
+
     /**
      * Get pushed buttons on the controller.
      *

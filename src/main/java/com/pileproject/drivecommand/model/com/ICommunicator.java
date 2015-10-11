@@ -9,12 +9,12 @@ public interface ICommunicator {
      * @throws IOException
      */
     void open() throws IOException;
-    
+
     /**
      * Close the connection between devices.
      */
     void close();
-    
+
     /**
      * Write the byte array data to the device.
      *
@@ -23,7 +23,7 @@ public interface ICommunicator {
      * @throws RuntimeException
      */
     void write(byte[] data, int timeout) throws RuntimeException;
-    
+
     /**
      * Read the response from the device.
      *

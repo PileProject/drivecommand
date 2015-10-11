@@ -11,11 +11,11 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 import java.util.Map;
 
 public class ColorSensor extends DeviceBase {
-    
+
     public ColorSensor(InputPort port, ProtocolBase protocol) {
         super(port, protocol);
     }
-    
+
     /**
      * Get the color in RGB (0 - 255)
      * <p>
@@ -28,7 +28,7 @@ public class ColorSensor extends DeviceBase {
         Map<String, Object> res = exec(cmd);
         return (float[]) res.get("value");
     }
-    
+
     /**
      * Get the illuminance in percent (0 - 100)
      *
@@ -39,7 +39,7 @@ public class ColorSensor extends DeviceBase {
         Map<String, Object> res = exec(cmd);
         return (Integer) res.get("value");
     }
-    
+
     @Override
     public DeviceType getDeviceType() {
         return DeviceType.COLOR_SENSOR;

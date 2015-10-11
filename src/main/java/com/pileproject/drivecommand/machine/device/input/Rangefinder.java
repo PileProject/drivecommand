@@ -26,7 +26,7 @@ public class Rangefinder extends DeviceBase {
         Map<String, Object> res = exec(cmd);
         return (Integer) res.get("value");
     }
-    
+
     @Override
     public DeviceType getDeviceType() {
         return DeviceType.RANGEFINDER;

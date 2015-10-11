@@ -6,7 +6,7 @@ public enum DeviceType {
      * cf. SERVOMOTOR
      */
     MOTOR,
-    
+
     /**
      * Servomotor
      * cf. MOTOR
@@ -14,7 +14,7 @@ public enum DeviceType {
     SERVOMOTOR,
     BUZZER,
     LED,
-    
+
     /**
      * Line sensor
      * ex. Light sensor for ev3
@@ -23,7 +23,7 @@ public enum DeviceType {
     GYRO_SENSOR,
     TOUCH_SENSOR,
     COLOR_SENSOR,
-    
+
     /**
      * Range finder
      * ex. Ultrasonic sensor for ev3

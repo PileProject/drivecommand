@@ -5,7 +5,7 @@ import com.pileproject.drivecommand.model.CommandType;
 import java.util.Map;
 
 public class CommandFactory {
-    
+
     /**
      * Create command
      *

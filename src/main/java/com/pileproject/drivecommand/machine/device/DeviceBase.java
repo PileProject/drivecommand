@@ -9,7 +9,7 @@ import java.util.Map;
 public abstract class DeviceBase {
     private final DevicePort mPort;
     private final ProtocolBase mProtocol;
-    
+
     /**
      * Constructor
      *
@@ -19,7 +19,7 @@ public abstract class DeviceBase {
         mPort = port;
         mProtocol = protocol;
     }
-    
+
     /**
      * Execute command
      *
@@ -29,6 +29,6 @@ public abstract class DeviceBase {
     protected Map<String, Object> exec(CommandBase command) {
         return mProtocol.exec(mPort.getRaw(), command);
     }
-    
+
     public abstract DeviceType getDeviceType();
 }

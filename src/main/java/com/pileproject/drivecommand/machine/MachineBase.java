@@ -25,7 +25,7 @@ public abstract class MachineBase {
         mProtocol = protocol;
         mStatus = new MachineStatus();
     }
-    
+
     /**
      * connect to device
      *
@@ -34,14 +34,14 @@ public abstract class MachineBase {
     public void connect() throws IOException {
         mProtocol.open();
     }
-    
+
     /**
      * disconnect from device
      */
     public void disconnect() {
         mProtocol.close();
     }
-    
+
     /**
      * transaction apply command
      * for Pile Robot

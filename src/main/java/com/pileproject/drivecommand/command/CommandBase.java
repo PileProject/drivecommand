@@ -8,12 +8,12 @@ import java.util.Map;
 public abstract class CommandBase {
     private CommandType mType;
     private Map<String, Object> mArgs;
-    
+
     public CommandBase(CommandType type, Map<String, Object> args) {
         mType = type;
         mArgs = args;
     }
-    
+
     /**
      * Get its command type
      *
@@ -22,7 +22,7 @@ public abstract class CommandBase {
     public CommandType getCommandType() {
         return mType;
     }
-    
+
     /**
      * Get the device type which is used in its command
      *
@@ -31,7 +31,7 @@ public abstract class CommandBase {
     public DeviceType getDeviceType() {
         return mType.getDeviceType();
     }
-    
+
     /**
      * Get the arguments
      *
