@@ -6,6 +6,23 @@ A general library which enables robots and devices to communicate each other thr
 * Android <-> LEGO MINDSTORMS EV3
 * Android <-> Pile Original Robot
 
+## How to use
+### From gradle
+
+in your `build.gradle`
+```
+repositories {
+    maven { url 'http://pileproject.github.io/drivecommand/' }
+}
+
+dependencies {
+    compile 'com.pileproject:drivecommand:VERSION'
+}
+```
+
+### From jar file
+See below
+
 ## Build
 
 ```
