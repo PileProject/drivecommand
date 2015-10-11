@@ -26,6 +26,7 @@ import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Motor extends DeviceBase {
     private int mSpeed = 50; // initial value
@@ -38,7 +39,7 @@ public class Motor extends DeviceBase {
      * Move motor forward
      */
     public void forward() {
-        HashMap<String, Object> args = new HashMap<>();
+        Map<String, Object> args = new HashMap<>();
         args.put("speed", mSpeed);
         CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);
         exec(cmd);
@@ -48,7 +49,7 @@ public class Motor extends DeviceBase {
      * Move motor backward
      */
     public void backward() {
-        HashMap<String, Object> args = new HashMap<>();
+        Map<String, Object> args = new HashMap<>();
         args.put("speed", -mSpeed);
         CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);
         exec(cmd);
@@ -58,7 +59,7 @@ public class Motor extends DeviceBase {
      * Stop motor
      */
     public void stop() {
-        HashMap<String, Object> args = new HashMap<>();
+        Map<String, Object> args = new HashMap<>();
         args.put("speed", 0);
         CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);
         exec(cmd);
