@@ -51,7 +51,7 @@ uploadArchives {
         mavenDeployer {
             repository url: "file:${projectDir}"
 
-            pom.version = '2.0.0'
+            pom.version = '2.0.1'
             pom.groupId = 'com.pileproject'
             pom.artifactId = 'drivecommand'
 
