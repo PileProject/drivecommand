@@ -52,11 +52,6 @@ public class MachineBaseTest {
             public MachineStatus fetchStatus() {
                 return null;
             }
-
-            @Override
-            public boolean applyStatus(MachineStatus status) {
-                return false;
-            }
         };
     }
 

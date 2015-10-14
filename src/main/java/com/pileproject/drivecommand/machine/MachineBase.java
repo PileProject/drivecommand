@@ -76,14 +76,6 @@ public abstract class MachineBase {
     public abstract MachineStatus fetchStatus();
 
     /**
-     * apply MachineStatus to this machine
-     *
-     * @param status
-     * @return
-     */
-    public abstract boolean applyStatus(MachineStatus status);
-
-    /**
      * Create Motor
      *
      * @param port
