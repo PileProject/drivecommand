@@ -50,11 +50,6 @@ public class PileMachine extends MachineBase {
     }
 
     @Override
-    public boolean applyStatus(MachineStatus status) {
-        return false;
-    }
-
-    @Override
     public Motor createMotor(OutputPort port) {
         return new Motor(port, mProtocol);
     }

@@ -60,12 +60,6 @@ public class Ev3Machine extends MachineBase {
     }
 
     @Override
-    public boolean applyStatus(MachineStatus status) {
-        mStatus = status;
-        return true;
-    }
-
-    @Override
     public Motor createMotor(OutputPort port) {
         checkOutputPortCompatibility(port);
 

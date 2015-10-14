@@ -53,14 +53,6 @@ public class NxtMachine extends MachineBase {
     }
 
     @Override
-    public boolean applyStatus(MachineStatus status) {
-        mStatus = status;
-        // TODO: give some information to this machine with the argument "status"
-        // Is this necessary? We can update the status with each creation method
-        return true;
-    }
-
-    @Override
     public Motor createMotor(OutputPort port) {
         checkOutputPortCompatibility(port);
 
