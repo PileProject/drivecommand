@@ -45,6 +45,16 @@ public class PileMachine extends MachineBase {
     }
 
     @Override
+    public byte[] load(int key) {
+        return mProtocol.load(key);
+    }
+
+    @Override
+    public boolean store(int key, byte[] data) {
+        return mProtocol.store(key, data);
+    }
+
+    @Override
     public MachineStatus fetchStatus() {
         return mStatus;
     }
