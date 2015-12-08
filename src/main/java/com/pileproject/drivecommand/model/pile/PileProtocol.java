@@ -155,4 +155,14 @@ public class PileProtocol extends ProtocolBase {
         byte[] ack = mCommunicator.read(4, TIMEOUT);
         return ((ack[2] & 0x01) == 0x01);
     }
+
+    @Override
+    public byte[] load(int key) {
+        return null;
+    }
+
+    @Override
+    public boolean store(int key, byte[] data) {
+        return false;
+    }
 }

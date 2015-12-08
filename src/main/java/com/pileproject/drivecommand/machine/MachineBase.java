@@ -68,6 +68,27 @@ public abstract class MachineBase {
     }
 
     /**
+     * load data from device
+     *
+     * @param int key
+     * @return byte[] raw value
+     */
+    public byte[] load(int key) {
+        throw new UnsupportedOperationException("This machine does not support 'load' command");
+    }
+
+    /**
+     * store data to device
+     *
+     * @param int key
+     * @param byte[] raw value
+     * @return boolean success (true) or not (false)
+     */
+    public boolean store(int key, byte[] data) {
+        throw new UnsupportedOperationException("This machine does not support 'store' command");
+    }
+
+    /**
      * fetch MachineStatus from this machine
      * by making connection
      *
