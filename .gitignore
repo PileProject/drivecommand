@@ -55,3 +55,4 @@ proguard/
 .classpath
 .settings/
 .project
+*.iml
