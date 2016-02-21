@@ -58,25 +58,25 @@ public class NxtMachineTest {
 
     @Test
     public void createMotorSuccessfully() throws Exception {
-        MachineBase machineBase = new NxtMachine(communicator);
-        assertTrue(machineBase.createMotor(OUT_PORT) instanceof Motor);
+        MachineBase machine = new NxtMachine(communicator);
+        assertTrue(machine.createMotor(OUT_PORT) instanceof Motor);
     }
 
     @Test
     public void createLineSensorSuccessfully() throws Exception {
-        MachineBase machineBase = new NxtMachine(communicator);
-        assertTrue(machineBase.createLineSensor(IN_PORT) instanceof LineSensor);
+        MachineBase machine = new NxtMachine(communicator);
+        assertTrue(machine.createLineSensor(IN_PORT) instanceof LineSensor);
     }
 
     @Test
     public void createTouchSensorSuccessfully() throws Exception {
-        MachineBase machineBase = new NxtMachine(communicator);
-        assertTrue(machineBase.createTouchSensor(IN_PORT) instanceof TouchSensor);
+        MachineBase machine = new NxtMachine(communicator);
+        assertTrue(machine.createTouchSensor(IN_PORT) instanceof TouchSensor);
     }
 
     @Test
     public void createSoundSensorSuccessfully() throws Exception {
-        MachineBase machineBase = new NxtMachine(communicator);
-        assertTrue(machineBase.createSoundSensor(IN_PORT) instanceof SoundSensor);
+        MachineBase machine = new NxtMachine(communicator);
+        assertTrue(machine.createSoundSensor(IN_PORT) instanceof SoundSensor);
     }
 }
