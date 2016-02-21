@@ -1,0 +1,82 @@
+/*
+ * Copyright (C) 2011-2015 PILE Project, Inc. <dev@pileproject.com>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package unit.drivecommand.model.nxt;
+
+import com.pileproject.drivecommand.machine.MachineBase;
+import com.pileproject.drivecommand.machine.device.input.LineSensor;
+import com.pileproject.drivecommand.machine.device.input.SoundSensor;
+import com.pileproject.drivecommand.machine.device.input.TouchSensor;
+import com.pileproject.drivecommand.machine.device.output.Motor;
+import com.pileproject.drivecommand.machine.device.port.InputPort;
+import com.pileproject.drivecommand.machine.device.port.OutputPort;
+import com.pileproject.drivecommand.model.com.ICommunicator;
+import com.pileproject.drivecommand.model.nxt.NxtMachine;
+import com.pileproject.drivecommand.model.nxt.port.NxtInputPort;
+import com.pileproject.drivecommand.model.nxt.port.NxtOutputPort;
+
+import org.testng.annotations.Test;
+
+import mockit.Mocked;
+
+import static org.testng.Assert.assertTrue;
+
+/**
+ * Created by tatsuya on 2016/02/21.
+ */
+public class NxtMachineTest {
+    @Mocked
+    protected ICommunicator communicator;
+    private final OutputPort OUT_PORT = NxtOutputPort.PORT_A;
+    private final InputPort IN_PORT = NxtInputPort.PORT_1;
+
+    // TODO: add negative version of tests
+
+    @Test
+    public void applySuccessfully() throws Exception {
+        // TODO: check a protocol use 'apply' method in the communicator
+    }
+
+    @Test
+    public void fetchStatusSuccessfully() throws Exception {
+        // TODO: check a protocol use 'fetch' method in the communicator
+    }
+
+    @Test
+    public void createMotorSuccessfully() throws Exception {
+        MachineBase machineBase = new NxtMachine(communicator);
+        assertTrue(machineBase.createMotor(OUT_PORT) instanceof Motor);
+    }
+
+    @Test
+    public void createLineSensorSuccessfully() throws Exception {
+        MachineBase machineBase = new NxtMachine(communicator);
+        assertTrue(machineBase.createLineSensor(IN_PORT) instanceof LineSensor);
+    }
+
+    @Test
+    public void createTouchSensorSuccessfully() throws Exception {
+        MachineBase machineBase = new NxtMachine(communicator);
+        assertTrue(machineBase.createTouchSensor(IN_PORT) instanceof TouchSensor);
+    }
+
+    @Test
+    public void createSoundSensorSuccessfully() throws Exception {
+        MachineBase machineBase = new NxtMachine(communicator);
+        assertTrue(machineBase.createSoundSensor(IN_PORT) instanceof SoundSensor);
+    }
+}
