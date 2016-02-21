@@ -15,11 +15,11 @@
  *
  */
 
-package unit.drivecommand.model.ev3;
+package unit.drivecommand.model.nxt;
 
 import com.pileproject.drivecommand.model.ProtocolBase;
 import com.pileproject.drivecommand.model.com.ICommunicator;
-import com.pileproject.drivecommand.model.ev3.Ev3Protocol;
+import com.pileproject.drivecommand.model.nxt.NxtProtocol;
 
 import org.testng.annotations.Test;
 
@@ -29,7 +29,7 @@ import mockit.Mocked;
 /**
  * Created by tatsuya on 2016/02/22.
  */
-public class Ev3ProtocolTest {
+public class NxtProtocolTest {
     @Mocked
     private ICommunicator communicator;
 
@@ -40,7 +40,7 @@ public class Ev3ProtocolTest {
         new Expectations() {{
             communicator.open();
         }};
-        ProtocolBase protocol = new Ev3Protocol(communicator);
+        ProtocolBase protocol = new NxtProtocol(communicator);
         protocol.open();
     }
 
@@ -49,7 +49,7 @@ public class Ev3ProtocolTest {
         new Expectations() {{
             communicator.close();
         }};
-        ProtocolBase protocol = new Ev3Protocol(communicator);
+        ProtocolBase protocol = new NxtProtocol(communicator);
         protocol.close();
     }
 
@@ -64,19 +64,19 @@ public class Ev3ProtocolTest {
         new Expectations() {{
             // communicator.write(foo);
         }};
-        ProtocolBase protocol = new Ev3Protocol(communicator);
+        ProtocolBase protocol = new NxtProtocol(communicator);
         // protocol.apply();
     }
 
     @Test(expectedExceptions = UnsupportedOperationException.class)
     public void loadAndThrowAnException() throws Exception {
-        ProtocolBase protocol = new Ev3Protocol(communicator);
-         protocol.load(0);
+        ProtocolBase protocol = new NxtProtocol(communicator);
+        protocol.load(0);
     }
 
     @Test(expectedExceptions = UnsupportedOperationException.class)
     public void storeAndThrowAnException() throws Exception {
-        ProtocolBase protocol = new Ev3Protocol(communicator);
+        ProtocolBase protocol = new NxtProtocol(communicator);
         protocol.store(0, null);
     }
 }
