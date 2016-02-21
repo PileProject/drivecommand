@@ -32,7 +32,7 @@ import mockit.Mocked;
 
 public class MachineBaseTest {
     @Mocked
-    ProtocolBase protocol;
+    private ProtocolBase protocol;
     private final OutputPort OUT_PORT = new OutputPort() {
         @Override
         public int getRaw() {
