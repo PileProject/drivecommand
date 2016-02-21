@@ -74,67 +74,85 @@ public class MachineBaseTest {
     }
 
     @Test(expectedExceptions = UnsupportedOperationException.class)
-    public void getMotorFromMachine() {
+    public void applyAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.apply();
+    }
+
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void loadAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.load(0); // the data has no meaning
+    }
+
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void storeAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.store(0, null); // these data have no meaning
+    }
+
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void getMotorFromMachineAndThrowAnException() {
         MachineBase machineBase = newMachineBase(protocol);
         machineBase.createMotor(OUT_PORT);
     }
 
     @Test(expectedExceptions = UnsupportedOperationException.class)
-    public void getServomotorFromMachine() {
+    public void getServomotorFromAndThrowAnException() {
         MachineBase machineBase = newMachineBase(protocol);
         machineBase.createServomotor(OUT_PORT);
     }
 
     @Test(expectedExceptions = UnsupportedOperationException.class)
-    public void getBuzzerFromMachine() {
+    public void getBuzzerFromAndThrowAnException() {
         MachineBase machineBase = newMachineBase(protocol);
         machineBase.createBuzzer(OUT_PORT);
     }
 
     @Test(expectedExceptions = UnsupportedOperationException.class)
-    public void getLedFromMachine() {
+    public void getLedFromAndThrowAnException() {
         MachineBase machineBase = newMachineBase(protocol);
         machineBase.createLed(OUT_PORT);
     }
 
     @Test(expectedExceptions = UnsupportedOperationException.class)
-    public void getLineSensorFromMachine() {
+    public void getLineSensorFromAndThrowAnException() {
         MachineBase machineBase = newMachineBase(protocol);
         machineBase.createLineSensor(IN_PORT);
     }
 
     @Test(expectedExceptions = UnsupportedOperationException.class)
-    public void getGyroFromMachine() {
+    public void getGyroFromAndThrowAnException() {
         MachineBase machineBase = newMachineBase(protocol);
         machineBase.createGyroSensor(IN_PORT);
     }
 
     @Test(expectedExceptions = UnsupportedOperationException.class)
-    public void getTouchSensorFromMachine() {
+    public void getTouchSensorFromAndThrowAnException() {
         MachineBase machineBase = newMachineBase(protocol);
         machineBase.createTouchSensor(IN_PORT);
     }
 
     @Test(expectedExceptions = UnsupportedOperationException.class)
-    public void getColorSensorFromMachine() {
+    public void getColorSensorFromAndThrowAnException() {
         MachineBase machineBase = newMachineBase(protocol);
         machineBase.createColorSensor(IN_PORT);
     }
 
     @Test(expectedExceptions = UnsupportedOperationException.class)
-    public void getRangefinderFromMachine() {
+    public void getRangefinderFromAndThrowAnException() {
         MachineBase machineBase = newMachineBase(protocol);
         machineBase.createRangefinder(IN_PORT);
     }
 
     @Test(expectedExceptions = UnsupportedOperationException.class)
-    public void getSoundSensorFromMachine() {
+    public void getSoundSensorFromAndThrowAnException() {
         MachineBase machineBase = newMachineBase(protocol);
         machineBase.createSoundSensor(IN_PORT);
     }
 
     @Test(expectedExceptions = UnsupportedOperationException.class)
-    public void getRemoteControlReceiverFromMachine() {
+    public void getRemoteControlReceiverFromAndThrowAnException() {
         MachineBase machineBase = newMachineBase(protocol);
         machineBase.createRemoteControlReceiver(IN_PORT);
     }
