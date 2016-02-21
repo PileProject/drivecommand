@@ -23,6 +23,11 @@ repositories {
     jcenter()
 }
 
+targetCompatibility = JavaVersion.VERSION_1_7
+sourceCompatibility = JavaVersion.VERSION_1_7
+
+configurations { jmockit }
+
 // In this section you declare the dependencies for your production and test code
 dependencies {
     // The production code uses the SLF4J logging API at compile time
@@ -36,8 +41,9 @@ dependencies {
     // TestNG is also supported by the Gradle Test task. Just change the
     // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
     // 'test.useTestNG()' to your build script.
-    testCompile 'org.testng:testng:6.9.4'
-    testCompile 'com.googlecode.jmockit:jmockit:1.4'
+    testCompile 'org.testng:testng:6.9.10'
+    testCompile 'com.googlecode.jmockit:jmockit:1.7'
+
 }
 
 task wraper(type: Wrapper) {
@@ -51,7 +57,7 @@ uploadArchives {
         mavenDeployer {
             repository url: "file:${projectDir}"
 
-            pom.version = '2.0.1'
+            pom.version = '2.1.0'
             pom.groupId = 'com.pileproject'
             pom.artifactId = 'drivecommand'
 
