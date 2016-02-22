@@ -32,7 +32,7 @@ import mockit.Mocked;
 
 public class MachineBaseTest {
     @Mocked
-    ProtocolBase protocol;
+    private ProtocolBase protocol;
     private final OutputPort OUT_PORT = new OutputPort() {
         @Override
         public int getRaw() {
@@ -63,7 +63,7 @@ public class MachineBaseTest {
         MachineBase machineBase = newMachineBase(protocol);
         machineBase.connect();
     }
-    
+
     @Test
     public void disconnect() {
         new Expectations() {{
@@ -73,69 +73,87 @@ public class MachineBaseTest {
         machineBase.disconnect();
     }
 
-//	@Test
-//	public void getMotorFromMachine() {
-//		MachineBase machineBase = newMachineBase(protocol);
-//		AssertJUnit.assertTrue(machineBase.createMotor(OUT_PORT) instanceof Motor);
-//	}
-//
-//	@Test
-//	public void getServomotorFromMachine() {
-//		MachineBase machineBase = newMachineBase(protocol);
-//		AssertJUnit.assertTrue(machineBase.createServomotor(OUT_PORT) instanceof Servomotor);
-//	}
-//
-//	@Test
-//	public void getBuzzerFromMachine() {
-//		MachineBase machineBase = newMachineBase(protocol);
-//		AssertJUnit.assertTrue(machineBase.createBuzzer(OUT_PORT) instanceof Buzzer);
-//	}
-//
-//	@Test
-//	public void getLedFromMachine() {
-//		MachineBase machineBase = newMachineBase(protocol);
-//		AssertJUnit.assertTrue(machineBase.createLed(OUT_PORT) instanceof Led);
-//	}
-//
-//	@Test
-//	public void getLineSensorFromMachine() {
-//		MachineBase machineBase = newMachineBase(protocol);
-//		AssertJUnit.assertTrue(machineBase.createLineSensor(IN_PORT) instanceof LineSensor);
-//	}
-//
-//	@Test
-//	public void getGyroFromMachine() {
-//		MachineBase machineBase = newMachineBase(protocol);
-//		AssertJUnit.assertTrue(machineBase.createGyroSensor(IN_PORT) instanceof GyroSensor);
-//	}
-//
-//	@Test
-//	public void getTouchSensorFromMachine() {
-//		MachineBase machineBase = newMachineBase(protocol);
-//		AssertJUnit.assertTrue(machineBase.createTouchSensor(IN_PORT) instanceof TouchSensor);
-//	}
-//
-//	@Test
-//	public void getColorSensorFromMachine() {
-//		MachineBase machineBase = newMachineBase(protocol);
-//		AssertJUnit.assertTrue(machineBase.createColorSensor(IN_PORT) instanceof ColorSensor);
-//	}
-//
-//	@Test
-//	public void getRangefinderFromMachine() {
-//		MachineBase machineBase = newMachineBase(protocol);
-//		AssertJUnit.assertTrue(machineBase.createRangefinder(IN_PORT) instanceof Rangefinder);
-//	}
-//
-//	@Test
-//	public void getSoundSensorFromMachine() {
-//		MachineBase machineBase = newMachineBase(protocol);
-//		AssertJUnit.assertTrue(machineBase.createSoundSensor(IN_PORT) instanceof SoundSensor);
-//	}
-//
-//	@Test
-//	public void getRemoteControlReceiverFromMachine() {
-//		MachineBase machineBase = newMachineBase(protocol);
-//		AssertJUnit.assertTrue(machineBase.createRemoteControlReceiver(IN_PORT) instanceof RemoteControlReceiver);
-//	}
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void applyAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.apply();
+    }
+
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void loadAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.load(0); // the data has no meaning
+    }
+
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void storeAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.store(0, null); // these data have no meaning
+    }
+
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void getMotorFromMachineAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.createMotor(OUT_PORT);
+    }
+
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void getServomotorFromAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.createServomotor(OUT_PORT);
+    }
+
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void getBuzzerFromAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.createBuzzer(OUT_PORT);
+    }
+
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void getLedFromAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.createLed(OUT_PORT);
+    }
+
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void getLineSensorFromAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.createLineSensor(IN_PORT);
+    }
+
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void getGyroFromAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.createGyroSensor(IN_PORT);
+    }
+
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void getTouchSensorFromAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.createTouchSensor(IN_PORT);
+    }
+
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void getColorSensorFromAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.createColorSensor(IN_PORT);
+    }
+
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void getRangefinderFromAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.createRangefinder(IN_PORT);
+    }
+
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void getSoundSensorFromAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.createSoundSensor(IN_PORT);
+    }
+
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void getRemoteControlReceiverFromAndThrowAnException() {
+        MachineBase machineBase = newMachineBase(protocol);
+        machineBase.createRemoteControlReceiver(IN_PORT);
+    }
 }

@@ -354,6 +354,16 @@ public class Ev3Protocol extends ProtocolBase {
     @Override
     public boolean apply() {
         // this protocol does not support transactions.
-        throw new UnsupportedOperationException("Nxt Protocol does not support transactions");
+        throw new UnsupportedOperationException("Ev3 Protocol does not support transactions");
+    }
+
+    @Override
+    public byte[] load(int key) {
+        throw new UnsupportedOperationException("Ev3 Protocol hasn't supported key-value store yet");
+    }
+
+    @Override
+    public boolean store(int key, byte[] data) {
+        throw new UnsupportedOperationException("Ev3 Protocol hasn't supported key-value store yet");
     }
 }
