@@ -15,11 +15,11 @@
  *
  */
 
-package unit.drivecommand.model.ev3;
+package unit.drivecommand.model.pile;
 
 import com.pileproject.drivecommand.model.ProtocolBase;
 import com.pileproject.drivecommand.model.com.ICommunicator;
-import com.pileproject.drivecommand.model.ev3.Ev3Protocol;
+import com.pileproject.drivecommand.model.pile.PileProtocol;
 
 import org.testng.annotations.Test;
 
@@ -29,7 +29,7 @@ import mockit.Mocked;
 /**
  * Created by tatsuya on 2016/02/22.
  */
-public class Ev3ProtocolTest {
+public class PileProtocolTest {
     @Mocked
     private ICommunicator communicator;
 
@@ -40,7 +40,7 @@ public class Ev3ProtocolTest {
         new Expectations() {{
             communicator.open();
         }};
-        ProtocolBase protocol = new Ev3Protocol(communicator);
+        ProtocolBase protocol = new PileProtocol(communicator);
         protocol.open();
     }
 
@@ -49,7 +49,7 @@ public class Ev3ProtocolTest {
         new Expectations() {{
             communicator.close();
         }};
-        ProtocolBase protocol = new Ev3Protocol(communicator);
+        ProtocolBase protocol = new PileProtocol(communicator);
         protocol.close();
     }
 
@@ -64,19 +64,30 @@ public class Ev3ProtocolTest {
         new Expectations() {{
             // communicator.write(foo);
         }};
-        ProtocolBase protocol = new Ev3Protocol(communicator);
+        ProtocolBase protocol = new PileProtocol(communicator);
         // protocol.apply();
     }
 
-    @Test(expectedExceptions = UnsupportedOperationException.class)
-    public void loadAndThrowAnException() throws Exception {
-        ProtocolBase protocol = new Ev3Protocol(communicator);
-         protocol.load(0);
+    @Test
+    public void loadSuccessfully() throws Exception {
+        // TODO: complete this method
+        new Expectations() {{
+            // communicator.write(foo);
+            // communicator.read(foo);
+        }};
+        ProtocolBase protocol = new PileProtocol(communicator);
+        // TODO: check the value and add a value for this before this
+        // protocol.load(0);
     }
 
-    @Test(expectedExceptions = UnsupportedOperationException.class)
-    public void storeAndThrowAnException() throws Exception {
-        ProtocolBase protocol = new Ev3Protocol(communicator);
-        protocol.store(0, null);
+    @Test
+    public void storeSuccessfully() throws Exception {
+        // TODO: complete this method
+        new Expectations() {{
+            // communicator.write();
+        }};
+        ProtocolBase protocol = new PileProtocol(communicator);
+        // TODO: specify key and value, and read the value after this
+        // protocol.store(0, null);
     }
 }

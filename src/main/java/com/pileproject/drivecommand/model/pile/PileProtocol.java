@@ -22,6 +22,7 @@ import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 import com.pileproject.drivecommand.model.com.ICommunicator;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -150,6 +151,43 @@ public class PileProtocol extends ProtocolBase {
     public boolean apply() {
         PilePacketFormatter packet = new PilePacketFormatter(PileConstants.CommandTypes.APPLY);
         packet.setDataByte((byte) 0); // any data (1 byte) is OK
+        packet.calculateChecksum();
+        mCommunicator.write(packet.byteArray(), TIMEOUT);
+        byte[] ack = mCommunicator.read(4, TIMEOUT);
+        return ((ack[2] & 0x01) == 0x01);
+    }
+
+    @Override
+    public byte[] load(int key) {
+        PilePacketFormatter packet = new PilePacketFormatter(PileConstants.CommandTypes.LOAD);
+        packet.setDataByte((byte) key); // any data (1 byte) is OK
+        packet.calculateChecksum();
+        mCommunicator.write(packet.byteArray(), TIMEOUT);
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        byte outputLength = mCommunicator.read(1, TIMEOUT)[0];   // read LENGTH info
+        outputStream.write(outputLength);
+        // read the rest data
+        try {
+            // -1 means the length of LENGTH data
+            outputStream.write(mCommunicator.read((int) outputLength - 1, TIMEOUT));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        byte[] receivedByteArray = outputStream.toByteArray();
+        packet = new PilePacketFormatter(receivedByteArray);
+        if (!packet.isValid())
+            return null;
+        return packet.data();
+    }
+
+    @Override
+    public boolean store(int key, byte[] data) {
+        PilePacketFormatter packet = new PilePacketFormatter(PileConstants.CommandTypes.STORE);
+        packet.setDataByte((byte) key);
+        for (byte d : data) {
+            packet.setDataByte(d);
+        }
         packet.calculateChecksum();
         mCommunicator.write(packet.byteArray(), TIMEOUT);
         byte[] ack = mCommunicator.read(4, TIMEOUT);

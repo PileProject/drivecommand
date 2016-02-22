@@ -59,4 +59,21 @@ public abstract class ProtocolBase {
      * @return success (true) or not (false)
      */
     public abstract boolean apply();
+
+    /**
+     * load value from device
+     *
+     * @param int key
+     * @return byte[] raw value
+     */
+    public abstract byte[] load(int key);
+
+    /**
+     * store value to device
+     *
+     * @param int key
+     * @param byte[] raw value
+     * @return boolean success (true) or not (false)
+     */
+    public abstract boolean store(int key, byte[] data);
 }
