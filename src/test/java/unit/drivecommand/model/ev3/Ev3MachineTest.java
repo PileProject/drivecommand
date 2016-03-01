@@ -39,6 +39,7 @@ import com.pileproject.drivecommand.model.ev3.port.Ev3OutputPort;
 import org.testng.annotations.Test;
 
 import mockit.Mocked;
+import mockit.Expectations;
 
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -48,6 +49,7 @@ import static org.testng.AssertJUnit.assertTrue;
 public class Ev3MachineTest {
     @Mocked
     protected ICommunicator communicator;
+    protected Ev3Machine ev3Machine;
     private final OutputPort OUT_PORT = Ev3OutputPort.PORT_A;
     private final InputPort IN_PORT = Ev3InputPort.PORT_1;
 
@@ -56,11 +58,23 @@ public class Ev3MachineTest {
     @Test
     public void applySuccessfully() throws Exception {
         // TODO: check a protocol use 'apply' method in the communicator
+        new Expectations() {{
+            ev3Machine.apply();
+        }};
+
+        MachineBase machine = new Ev3Machine(communicator);
+        machine.apply();
     }
 
     @Test
     public void fetchStatusSuccessfully() throws Exception {
         // TODO: check a protocol use 'fetchStatus' method in the communicator
+        new Expectations() {{
+           ev3Machine.fetchStatus();
+        }};
+
+        MachineBase machine = new Ev3Machine(communicator);
+        machine.fetchStatus();
     }
 
     @Test
