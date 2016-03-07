@@ -36,6 +36,7 @@ import com.pileproject.drivecommand.model.ev3.Ev3Machine;
 import com.pileproject.drivecommand.model.ev3.port.Ev3InputPort;
 import com.pileproject.drivecommand.model.ev3.port.Ev3OutputPort;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import mockit.Mocked;
@@ -49,97 +50,94 @@ import static org.testng.AssertJUnit.assertTrue;
 public class Ev3MachineTest {
     @Mocked
     protected ICommunicator communicator;
-    protected Ev3Machine ev3Machine;
     private final OutputPort OUT_PORT = Ev3OutputPort.PORT_A;
     private final InputPort IN_PORT = Ev3InputPort.PORT_1;
+    private MachineBase machine;
 
     // TODO: add negative version of tests
 
-    @Test
-    public void applySuccessfully() throws Exception {
+    @Test(expectedExceptions = UnsupportedOperationException.class)
+    public void applyAndThrowAnException() throws Exception {
         // TODO: check a protocol use 'apply' method in the communicator
-        new Expectations() {{
-            ev3Machine.apply();
-        }};
-
-        MachineBase machine = new Ev3Machine(communicator);
+        //MachineBase machine = new Ev3Machine(communicator);
         machine.apply();
     }
 
     @Test
     public void fetchStatusSuccessfully() throws Exception {
         // TODO: check a protocol use 'fetchStatus' method in the communicator
-        new Expectations() {{
-           ev3Machine.fetchStatus();
-        }};
-
-        MachineBase machine = new Ev3Machine(communicator);
+        //MachineBase machine = new Ev3Machine(communicator);
         machine.fetchStatus();
     }
 
     @Test
     public void createMotorSuccessfully() throws Exception {
-        MachineBase machine = new Ev3Machine(communicator);
+        //MachineBase machine = new Ev3Machine(communicator);
         assertTrue(machine.createMotor(OUT_PORT) instanceof Motor);
     }
 
     @Test
     public void createServomotorSuccessfully() throws Exception {
-        MachineBase machine = new Ev3Machine(communicator);
+        //MachineBase machine = new Ev3Machine(communicator);
         assertTrue(machine.createServomotor(OUT_PORT) instanceof Servomotor);
     }
 
     @Test
     public void createBuzzerSuccessfully() throws Exception {
-        MachineBase machine = new Ev3Machine(communicator);
+        //MachineBase machine = new Ev3Machine(communicator);
         assertTrue(machine.createBuzzer(OUT_PORT) instanceof Buzzer);
     }
 
     @Test
     public void createLedSuccessfully() throws Exception {
-        MachineBase machine = new Ev3Machine(communicator);
+        //MachineBase machine = new Ev3Machine(communicator);
         assertTrue(machine.createLed(OUT_PORT) instanceof Led);
     }
 
     @Test
     public void createLineSensorSuccessfully() throws Exception {
-        MachineBase machine = new Ev3Machine(communicator);
+        //MachineBase machine = new Ev3Machine(communicator);
         assertTrue(machine.createLineSensor(IN_PORT) instanceof LineSensor);
     }
 
     @Test
     public void createTouchSensorSuccessfully() throws Exception {
-        MachineBase machine = new Ev3Machine(communicator);
+        //MachineBase machine = new Ev3Machine(communicator);
         assertTrue(machine.createTouchSensor(IN_PORT) instanceof TouchSensor);
     }
 
     @Test
     public void createSoundSensorSuccessfully() throws Exception {
-        MachineBase machine = new Ev3Machine(communicator);
+        //MachineBase machine = new Ev3Machine(communicator);
         assertTrue(machine.createSoundSensor(IN_PORT) instanceof SoundSensor);
     }
 
     @Test
     public void createGyroSensorSuccessfully() throws Exception {
-        MachineBase machine = new Ev3Machine(communicator);
+        //MachineBase machine = new Ev3Machine(communicator);
         assertTrue(machine.createGyroSensor(IN_PORT) instanceof GyroSensor);
     }
 
     @Test
     public void createColorSensorSuccessfully() throws Exception {
-        MachineBase machine = new Ev3Machine(communicator);
+        //MachineBase machine = new Ev3Machine(communicator);
         assertTrue(machine.createColorSensor(IN_PORT) instanceof ColorSensor);
     }
 
     @Test
     public void createRangefinderSuccessfully() throws Exception {
-        MachineBase machine = new Ev3Machine(communicator);
+        //MachineBase machine = new Ev3Machine(communicator);
         assertTrue(machine.createRangefinder(IN_PORT) instanceof Rangefinder);
     }
 
     @Test
     public void createRemoteControlReceiverSuccessfully() throws Exception {
-        MachineBase machine = new Ev3Machine(communicator);
+        //MachineBase machine = new Ev3Machine(communicator);
         assertTrue(machine.createRemoteControlReceiver(IN_PORT) instanceof RemoteControlReceiver);
+    }
+
+    @BeforeMethod
+    public void init(){
+        machine = new Ev3Machine(communicator);
     }
 }
