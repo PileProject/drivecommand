@@ -48,7 +48,6 @@ import static com.pileproject.drivecommand.model.nxt.NxtConstants.SWITCH;
  */
 public class NxtProtocol extends ProtocolBase {
     private static final String KEY_VALUE = "value";
-    private static final int TIMEOUT = 1000;
     private static final String TAG = "NxtProtocol";
     private static final int MAX_RES_LENGTH = 66;
     private Map<Integer, Byte> mPortTypes;
@@ -197,7 +196,7 @@ public class NxtProtocol extends ProtocolBase {
         System.arraycopy(request, 0, data, 2, request.length);
 
         // Send request
-        mCommunicator.write(data, TIMEOUT);
+        mCommunicator.write(data);
     }
 
     private InputValues getInputValues(int port) {
@@ -207,7 +206,7 @@ public class NxtProtocol extends ProtocolBase {
                 (byte) port
         };
         sendData(request);
-        byte[] reply = mCommunicator.read(MAX_RES_LENGTH, TIMEOUT);
+        byte[] reply = mCommunicator.read(MAX_RES_LENGTH);
         InputValues inputValues = new InputValues();
         inputValues.inputPort = reply[3];
         // 0 is false, 1 is true.

@@ -63,7 +63,6 @@ import static com.pileproject.drivecommand.model.ev3.Ev3Constants.US_CM;
 
 public class Ev3Protocol extends ProtocolBase {
     private static final String KEY_VALUE = "value";
-    private static final int TIMEOUT = 1000;
     private static final String TAG = "Ev3Protocol";
     private static final byte OUTPUT_PORT_OFFSET = 0x10;
 
@@ -216,7 +215,7 @@ public class Ev3Protocol extends ProtocolBase {
         byteCode.addGlobalIndex((byte) 0x00);
 
         // Send message
-        mCommunicator.write(byteCode.byteArray(), TIMEOUT);
+        mCommunicator.write(byteCode.byteArray());
 
         byte[] reply = readData();
 
@@ -257,7 +256,7 @@ public class Ev3Protocol extends ProtocolBase {
         byteCode.addGlobalIndex((byte) 0x00);
 
         // Send message
-        mCommunicator.write(byteCode.byteArray(), TIMEOUT);
+        mCommunicator.write(byteCode.byteArray());
 
         byte[] reply = readData();
 
@@ -308,7 +307,7 @@ public class Ev3Protocol extends ProtocolBase {
         byteCode.addParameter(byteCodePort);
 
         // Send message
-        mCommunicator.write(byteCode.byteArray(), TIMEOUT);
+        mCommunicator.write(byteCode.byteArray());
     }
 
     /**
@@ -331,7 +330,7 @@ public class Ev3Protocol extends ProtocolBase {
         byteCode.addParameter((short) duration);
 
         // Send message
-        mCommunicator.write(byteCode.byteArray(), TIMEOUT);
+        mCommunicator.write(byteCode.byteArray());
     }
 
     /**
@@ -341,11 +340,11 @@ public class Ev3Protocol extends ProtocolBase {
      */
     private byte[] readData() {
         // Calculate the size of response by reading 2 bytes.
-        byte[] header = mCommunicator.read(2, TIMEOUT);
+        byte[] header = mCommunicator.read(2);
         int numBytes = ((header[1] & 0x00ff) << 8) | (header[0] & 0x00ff);
 
         // Get result
-        byte[] result = mCommunicator.read(numBytes, TIMEOUT);
+        byte[] result = mCommunicator.read(numBytes);
         Log.d(TAG, "read: " + result.length + " bytes");
 
         return result;
