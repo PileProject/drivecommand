@@ -29,7 +29,6 @@ import java.util.Map;
 
 public class PileProtocol extends ProtocolBase {
     private static final String KEY_VALUE = "value";
-    private static final int TIMEOUT = 1000;
     private static final String TAG = "PileProtocol";
 
     public PileProtocol(ICommunicator comm) {
@@ -113,8 +112,8 @@ public class PileProtocol extends ProtocolBase {
         PilePacketFormatter packet = new PilePacketFormatter(type);
         packet.setDataByte((byte) port);
         packet.calculateChecksum();
-        mCommunicator.write(packet.byteArray(), TIMEOUT);
-        byte[] receivedByteArray = mCommunicator.read(4, TIMEOUT);
+        mCommunicator.write(packet.byteArray());
+        byte[] receivedByteArray = mCommunicator.read(4);
         packet = new PilePacketFormatter(receivedByteArray);
         if (!packet.isValid())
             return -1;
@@ -127,8 +126,8 @@ public class PileProtocol extends ProtocolBase {
                 PileConstants.LedState.ON.value()
                 : PileConstants.LedState.OFF.value());
         packet.calculateChecksum();
-        mCommunicator.write(packet.byteArray(), TIMEOUT);
-        byte[] ack = mCommunicator.read(4, TIMEOUT);
+        mCommunicator.write(packet.byteArray());
+        byte[] ack = mCommunicator.read(4);
         return ((ack[2] & 0x01) == 0x01);
     }
 
@@ -142,8 +141,8 @@ public class PileProtocol extends ProtocolBase {
         packet.setDataByte((byte) (((port & 0x0F) << 2) | dir.value())); // Byte 0
         packet.setDataByte((byte) (speed & 0xFF)); // Byte 1
         packet.calculateChecksum();
-        mCommunicator.write(packet.byteArray(), TIMEOUT);
-        byte[] ack = mCommunicator.read(4, TIMEOUT);
+        mCommunicator.write(packet.byteArray());
+        byte[] ack = mCommunicator.read(4);
         return ((ack[2] & 0x01) == 0x01);
     }
 
@@ -152,8 +151,8 @@ public class PileProtocol extends ProtocolBase {
         PilePacketFormatter packet = new PilePacketFormatter(PileConstants.CommandTypes.APPLY);
         packet.setDataByte((byte) 0); // any data (1 byte) is OK
         packet.calculateChecksum();
-        mCommunicator.write(packet.byteArray(), TIMEOUT);
-        byte[] ack = mCommunicator.read(4, TIMEOUT);
+        mCommunicator.write(packet.byteArray());
+        byte[] ack = mCommunicator.read(4);
         return ((ack[2] & 0x01) == 0x01);
     }
 
@@ -162,15 +161,15 @@ public class PileProtocol extends ProtocolBase {
         PilePacketFormatter packet = new PilePacketFormatter(PileConstants.CommandTypes.LOAD);
         packet.setDataByte((byte) key); // any data (1 byte) is OK
         packet.calculateChecksum();
-        mCommunicator.write(packet.byteArray(), TIMEOUT);
+        mCommunicator.write(packet.byteArray());
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        byte outputLength = mCommunicator.read(1, TIMEOUT)[0];   // read LENGTH info
+        byte outputLength = mCommunicator.read(1)[0];   // read LENGTH info
         outputStream.write(outputLength);
         // read the rest data
         try {
             // -1 means the length of LENGTH data
-            outputStream.write(mCommunicator.read((int) outputLength - 1, TIMEOUT));
+            outputStream.write(mCommunicator.read((int) outputLength - 1));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -189,8 +188,8 @@ public class PileProtocol extends ProtocolBase {
             packet.setDataByte(d);
         }
         packet.calculateChecksum();
-        mCommunicator.write(packet.byteArray(), TIMEOUT);
-        byte[] ack = mCommunicator.read(4, TIMEOUT);
+        mCommunicator.write(packet.byteArray());
+        byte[] ack = mCommunicator.read(4);
         return ((ack[2] & 0x01) == 0x01);
     }
 }
