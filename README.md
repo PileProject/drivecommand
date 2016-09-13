@@ -28,7 +28,7 @@ dependencies {
 [v2.1.1](https://github.com/PileProject/drivecommand/releases/tag/v2.1.1) is the latest version.
 
 ### From jar file
-After building sources (see: [Build](./#build)),
+After building sources (See [Build](#build)),
 you can find `drive-command.jar` in `build/libs`.
 
 ## Build
@@ -94,7 +94,7 @@ NxtMachine machine = new NxtMachine(new BluetoothCommunicator(device));
 ```
 
 ## Development setup
-Please fork this repository and modify it, send Pull Request.
+Please fork this repository, modify it and send Pull Request.
 
 If you want to make more machines available like Drone,
 you can follow the below steps.
