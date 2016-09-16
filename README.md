@@ -126,8 +126,7 @@ PILE Project – [@pileproject](https://twitter.com/pileproject) - dev@pileproje
 
 Distributed under the Apache License, Version 2.0. See ``LICENSE`` for more information.
 
-[https://github.com/pileproject](https://github.com/pileproject/)
-
+Let's discuss anything on our [Mailing List](https://groups.google.com/forum/#!forum/pile-dev)!
 
 [drive]: https://github.com/PileProject/drive
 [ICommunicator]: https://github.com/PileProject/drivecommand/blob/develop/src/main/java/com/pileproject/drivecommand/model/com/ICommunicator.java
