@@ -1,6 +1,8 @@
 DriveCommand 
 =====
-[![Build Status](https://travis-ci.org/PileProject/drivecommand.svg?branch=master)](https://travis-ci.org/PileProject/drivecommand)
+master: [![Build Status](https://travis-ci.org/PileProject/drivecommand.svg?branch=master)](https://travis-ci.org/PileProject/drivecommand)
+
+develop: [![Build Status](https://travis-ci.org/PileProject/drivecommand.svg?branch=develop)](https://travis-ci.org/PileProject/drivecommand)
 
 A general library written in Java which enables robots and devices
 to communicate with each other through the same interface.
@@ -111,7 +113,7 @@ They contain implementations of `MachineBase` and Input/Output port classes, etc
 
 ## Release History
 * 2.1.1
-    * CHANGE: Remove `timeout` for write/read
+    * CHANGE: Remove `timeout` from write/read
     * ADD: Add more tests
 * 2.1.0
     * CHANGE: Update test libraries
