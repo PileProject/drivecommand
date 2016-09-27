@@ -1,6 +1,6 @@
 DriveCommand 
 =====
-[![Build Status](https://travis-ci.org/PileProject/drivecommand.svg?branch=master)](https://travis-ci.org/PileProject/drivecommand)
+[![Build Status](https://travis-ci.org/PileProject/drivecommand.svg?branch=develop)](https://travis-ci.org/PileProject/drivecommand)
 
 A general library written in Java which enables robots and devices
 to communicate with each other through the same interface.
