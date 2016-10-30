@@ -42,6 +42,10 @@ public class NxtMachine extends MachineBase {
         super(new NxtProtocol(comm));
     }
 
+    protected NxtMachine(NxtProtocol protocol) {
+        super(protocol);
+    }
+
     @Override
     public void apply() {
         mProtocol.apply();
@@ -84,7 +88,7 @@ public class NxtMachine extends MachineBase {
         return new SoundSensor(port, mProtocol);
     }
 
-    private void checkOutputPortCompatibility(OutputPort port) {
+    protected void checkOutputPortCompatibility(OutputPort port) {
         if (port instanceof NxtOutputPort) {
             return;
         }
@@ -92,7 +96,7 @@ public class NxtMachine extends MachineBase {
         throw new DevicePortTypeMismatchException("Expected: NxtOutputPort, Actual: " + port.getClass());
     }
 
-    private void checkInputPortCompatibility(InputPort port) {
+    protected void checkInputPortCompatibility(InputPort port) {
         if (port instanceof NxtInputPort) {
             return;
         }
