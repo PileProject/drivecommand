@@ -27,6 +27,9 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 
 import java.util.Map;
 
+/**
+ * A touch sensor class.
+ */
 public class TouchSensor extends DeviceBase {
 
     public TouchSensor(InputPort port, ProtocolBase protocol) {
@@ -34,9 +37,9 @@ public class TouchSensor extends DeviceBase {
     }
 
     /**
-     * Check this sensor is touched now
+     * Check this sensor is touched now.
      *
-     * @return boolean
+     * @return touched (true) or not (false)
      */
     public boolean isTouched() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.GET_TOUCH_TOUCHED, null);
@@ -45,9 +48,9 @@ public class TouchSensor extends DeviceBase {
     }
 
     /**
-     * Get the touched count
+     * Get the touched count.
      *
-     * @return number of count
+     * @return the number of count
      */
     public int getTouchedCount() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.GET_TOUCH_COUNT, null);

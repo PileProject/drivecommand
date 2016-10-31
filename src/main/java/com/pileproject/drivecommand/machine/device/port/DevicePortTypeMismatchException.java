@@ -20,9 +20,10 @@ package com.pileproject.drivecommand.machine.device.port;
 /***
  * An exception thrown when an attempt to create a subclass of
  * {@link com.pileproject.drivecommand.machine.device.DeviceBase}
- * with inappropriate {@link com.pileproject.drivecommand.machine.device.port.DevicePort} type is occurred.
- * <p>
- * Unchecked exception
+ * with inappropriate {@link com.pileproject.drivecommand.machine.device.port.DevicePort}
+ * type is occurred.
+ *
+ * Unchecked exception.
  */
 public class DevicePortTypeMismatchException extends IllegalArgumentException {
     private static final long serialVersionUID = -2018969863883469894L;

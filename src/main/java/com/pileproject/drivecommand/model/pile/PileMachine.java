@@ -30,9 +30,7 @@ import com.pileproject.drivecommand.model.com.ICommunicator;
 import com.pileproject.drivecommand.model.pile.port.PileInputPort;
 
 /**
- * PILE Robot
- *
- * @author Tatsuya Iwanari
+ * A machine class for PILE robots.
  */
 public class PileMachine extends MachineBase {
     public PileMachine(ICommunicator comm) {

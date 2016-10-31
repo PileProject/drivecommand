@@ -26,6 +26,9 @@ import com.pileproject.drivecommand.machine.device.port.OutputPort;
 import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
+/**
+ * A LED class.
+ */
 public class Led extends DeviceBase {
 
     public Led(OutputPort port, ProtocolBase protocol) {
@@ -33,7 +36,7 @@ public class Led extends DeviceBase {
     }
 
     /**
-     * Turn on the LED if it is off
+     * Turn on this LED if it is off.
      */
     public void turnOn() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.SET_LED_ON, null);
@@ -41,7 +44,7 @@ public class Led extends DeviceBase {
     }
 
     /**
-     * Turn off the LED if it is on
+     * Turn off this LED if it is on.
      */
     public void turnOff() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.SET_LED_OFF, null);

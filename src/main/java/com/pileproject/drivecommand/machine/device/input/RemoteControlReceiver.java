@@ -27,6 +27,9 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 
 import java.util.Map;
 
+/**
+ * A remote control receiver class.
+ */
 public class RemoteControlReceiver extends DeviceBase {
 
     public RemoteControlReceiver(InputPort port, ProtocolBase protocol) {
@@ -34,7 +37,7 @@ public class RemoteControlReceiver extends DeviceBase {
     }
 
     /**
-     * Get pushed buttons on the controller.
+     * Get the pushed buttons on the controller.
      *
      * @return button number
      */
@@ -45,9 +48,10 @@ public class RemoteControlReceiver extends DeviceBase {
     }
 
     /**
-     * Get distance between this device and the controller.
+     * Get the distance between this device and the controller.
      *
-     * @return distance [cm] TODO: not tested
+     * @return distance [cm]
+     * TODO: not tested
      */
     public int getRemoteDistance() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.GET_REMOTECONTROLLER_DIST, null);

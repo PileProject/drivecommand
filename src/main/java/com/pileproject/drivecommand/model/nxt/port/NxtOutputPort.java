@@ -20,7 +20,13 @@ package com.pileproject.drivecommand.model.nxt.port;
 import com.pileproject.drivecommand.machine.device.port.OutputPort;
 
 /**
- * Created by tatsuya on 15/09/03.
+ * An output port class for Nxt.
+ * This class is used for connecting devices to a machine.
+ *
+ * There are static instances of this class;
+ *  {@link NxtOutputPort#PORT_A}
+ *  {@link NxtOutputPort#PORT_B}
+ *  {@link NxtOutputPort#PORT_C}
  */
 public class NxtOutputPort extends OutputPort {
     public static final NxtOutputPort PORT_A = new NxtOutputPort(0);

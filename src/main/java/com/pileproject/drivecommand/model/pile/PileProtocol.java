@@ -27,6 +27,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * A protocol class for Pile robots.
+ */
 public class PileProtocol extends ProtocolBase {
     private static final String KEY_VALUE = "value";
     private static final String TAG = "PileProtocol";

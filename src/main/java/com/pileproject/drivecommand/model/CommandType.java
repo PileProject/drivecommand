@@ -19,6 +19,9 @@ package com.pileproject.drivecommand.model;
 
 import com.pileproject.drivecommand.machine.device.DeviceType;
 
+/**
+ * An enum class which expresses types of commands.
+ */
 public enum CommandType {
     SET_LED_ON {
         @Override

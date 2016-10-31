@@ -20,7 +20,14 @@ package com.pileproject.drivecommand.model.ev3.port;
 import com.pileproject.drivecommand.machine.device.port.InputPort;
 
 /**
- * Created by yusaku on 2015/10/04.
+ * An input port class for Ev3.
+ * This class is used for connecting devices to a machine.
+ *
+ * There are static instances of this class;
+ *  {@link Ev3InputPort#PORT_1}
+ *  {@link Ev3InputPort#PORT_2}
+ *  {@link Ev3InputPort#PORT_3}
+ *  {@link Ev3InputPort#PORT_4}
  */
 public class Ev3InputPort extends InputPort {
     public static final Ev3InputPort PORT_1 = new Ev3InputPort(0);

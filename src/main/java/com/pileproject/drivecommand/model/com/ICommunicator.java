@@ -19,33 +19,36 @@ package com.pileproject.drivecommand.model.com;
 
 import java.io.IOException;
 
+/**
+ * An interface class for communication between machines.
+ */
 public interface ICommunicator {
     /**
-     * Open the connection between devices.
+     * Open a connection between machines.
      *
-     * @throws IOException
+     * @throws IOException open fails
      */
     void open() throws IOException;
 
     /**
-     * Close the connection between devices.
+     * Close the connection between machines.
      */
     void close();
 
     /**
-     * Write the byte array data to the device.
+     * Write the byte array data to a machine.
      *
-     * @param data
-     * @throws RuntimeException
+     * @param data the array of a data to be passed
+     * @throws RuntimeException write fails
      */
     void write(byte[] data) throws RuntimeException;
 
     /**
-     * Read the response from the device.
+     * Read the response from a machine.
      *
-     * @param length  The max length of response wanted to be read.
-     * @return
-     * @throws RuntimeException
+     * @param length  the max length of response wanted to be read.
+     * @return read results
+     * @throws RuntimeException read fails
      */
     byte[] read(int length) throws RuntimeException;
 }

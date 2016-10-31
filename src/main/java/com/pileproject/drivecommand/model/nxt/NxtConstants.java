@@ -17,6 +17,9 @@
 
 package com.pileproject.drivecommand.model.nxt;
 
+/**
+ * A class holding constants for Nxt.
+ */
 public class NxtConstants {
 
     // Command types constants.

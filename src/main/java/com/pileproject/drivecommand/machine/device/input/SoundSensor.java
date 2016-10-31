@@ -27,6 +27,9 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 
 import java.util.Map;
 
+/**
+ * A sound sensor class.
+ */
 public class SoundSensor extends DeviceBase {
 
     public SoundSensor(InputPort port, ProtocolBase protocol) {
@@ -34,7 +37,7 @@ public class SoundSensor extends DeviceBase {
     }
 
     /**
-     * Get the sound in dB
+     * Get the sound volume in dB.
      *
      * @return dB
      */
