@@ -17,6 +17,9 @@
 
 package com.pileproject.drivecommand.machine.device;
 
+/**
+ * An enum class which expresses types of devices.
+ */
 public enum DeviceType {
     /**
      * Motor

@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by tatsuya on 15/09/03.
+ * A container class which keeps the port connection status of a machine.
  */
 public class MachineStatus {
     private Map<DevicePort, DeviceType> mDevices;
@@ -38,10 +38,10 @@ public class MachineStatus {
     }
 
     /**
-     * Bind ports and device types
+     * Bind a port and device type.
      *
-     * @param port
-     * @param type
+     * @param port a port bound with a device type
+     * @param type a type bound with a port
      * @return updated or not
      */
     public boolean bind(DevicePort port, DeviceType type) {
@@ -50,7 +50,12 @@ public class MachineStatus {
         return isUpdated;
     }
 
-    public Map<DevicePort, DeviceType> getPorts() {
+    /**
+     * Get the connections of ports.
+     *
+     * @return a map of {@link DevicePort} and {@link DeviceType}
+     */
+    public Map<DevicePort, DeviceType> getPortConnections() {
         return mDevices;
     }
 }

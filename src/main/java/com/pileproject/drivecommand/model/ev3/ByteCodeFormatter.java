@@ -24,16 +24,12 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
- * EV3 Byte Code Formatter.
- * This class make a byte array which is used as a byte code to control
- * EV3 with Android. The command has some additional data to tell the type
- * of previous byte data to EV3.
- *
- * @author <a href="mailto:tatsuyaw0c@gmail.com">Tatsuya Iwanari</a>
- * @version 1.0 21-Dec-2013
+ * A formatter class for Ev3 byte codes.
+ * This class makes byte arrays which are used as byte code commands to control
+ * Ev3 with a device.
  */
 public class ByteCodeFormatter {
-    // Parameter Size
+    // parameter size
     private static final byte BYTE_SIZE = (byte) 0x81;
     private static final byte SHORT_SIZE = (byte) 0x82;
     private static final byte INT_SIZE = (byte) 0x83;
@@ -42,18 +38,20 @@ public class ByteCodeFormatter {
     private static final byte GLOBAL_INDEX_SIZE = (byte) 0xe1;
     private static String TAG = "ByteCodeFormatter";
     private ByteArrayOutputStream mStream;
-    // Use DataOutputStream as a writer of ByteArrayOutputStream
+    // use DataOutputStream as a writer of ByteArrayOutputStream
     private DataOutputStream mWriter;
 
     public ByteCodeFormatter() {
         mStream = new ByteArrayOutputStream();
         mWriter = new DataOutputStream(mStream);
 
-        // Add header. 1st and 2nd byte shows the length of this byte code.
-        // They will be set when byteArray() is called. Next 2 bytes are
-        // identification codes. You can use them to identify the pair of
-        // request and response. (in current implementation, default
-        // is 0x00, 0x00)
+        // add header
+        // the 1st and 2nd byte show the length of this byte code
+        // they will be set when byteArray() is called
+        // next 2 bytes are identification codes
+        // you can use them to identify the pair of
+        // request and response
+        // (in current implementation, the default is [0x00, 0x00]).
         byte[] header = {
                 0x00, 0x00, 0x00, 0x00
         };
@@ -65,9 +63,9 @@ public class ByteCodeFormatter {
     }
 
     /**
-     * Add opcode
+     * Add an opcode.
      *
-     * @param opcode
+     * @param opcode the operation code
      */
     public void addOpCode(byte opcode) {
         try {
@@ -78,10 +76,10 @@ public class ByteCodeFormatter {
     }
 
     /**
-     * Add global and local buffer size
+     * Add global and local buffer size.
      *
-     * @param global size of global buffer in bytes
-     * @param local  size of local buffer in bytes
+     * @param global size of global buffer in byte
+     * @param local  size of local buffer in byte
      */
     public void addGlobalAndLocalBufferSize(int global, int local) {
         if (global > 1024)
@@ -89,7 +87,7 @@ public class ByteCodeFormatter {
         if (local > 64)
             throw new IllegalArgumentException("Local buffer must be less than 64 bytes");
 
-        // Write 2 bytes in form of (llllllgg gggggggg)
+        // write 2 bytes in form of (llllllgg gggggggg)
         try {
             mWriter.writeByte(global); // LSB
             mWriter.writeByte((local << 2) | ((global >> 8) & 0x03)); // MSB
@@ -99,9 +97,9 @@ public class ByteCodeFormatter {
     }
 
     /**
-     * Add byte parameter
+     * Add a byte type parameter.
      *
-     * @param param
+     * @param param a parameter in byte
      */
     public void addParameter(byte param) {
         try {
@@ -113,9 +111,9 @@ public class ByteCodeFormatter {
     }
 
     /**
-     * Add short parameter
+     * Add a short type parameter.
      *
-     * @param param
+     * @param param a parameter in short
      */
     public void addParameter(short param) {
         try {
@@ -128,9 +126,9 @@ public class ByteCodeFormatter {
     }
 
     /**
-     * Add int parameter
+     * Add an int type parameter.
      *
-     * @param param
+     * @param param a parameter in int
      */
     public void addParameter(int param) {
         try {
@@ -146,9 +144,9 @@ public class ByteCodeFormatter {
 
 
     /**
-     * Add global index
+     * Add the global index.
      *
-     * @param index
+     * @param index the global index
      */
     public void addGlobalIndex(byte index) {
         try {
@@ -160,9 +158,9 @@ public class ByteCodeFormatter {
     }
 
     /**
-     * Append command
+     * Append other command.
      *
-     * @param command
+     * @param command an other command
      */
     public void appendCommand(ByteCodeFormatter command) {
         try {
@@ -173,18 +171,18 @@ public class ByteCodeFormatter {
     }
 
     /**
-     * Get the byte code in array of byte
+     * Get the byte code in array of byte.
      *
-     * @return byte[]
+     * @return byte[] an array of bytes
      */
     public byte[] byteArray() {
         byte[] byteCode = mStream.toByteArray();
 
-        // Subtract 2 for the first 2 bytes which are used to tell the length of
-        // this byte code.
+        // subtract 2 for the first 2 bytes
+        // which are used to tell the length of this byte code
         int bodyLength = byteCode.length - 2;
 
-        // Update the first 2 bytes to express the length of body.
+        // update the first 2 bytes to express the length of body
         byteCode[0] = (byte) (bodyLength & 0xff);
         byteCode[1] = (byte) ((bodyLength >>> 8) & 0xff);
         return byteCode;

@@ -21,14 +21,17 @@ import com.pileproject.drivecommand.model.CommandType;
 
 import java.util.Map;
 
+/**
+ * A factory class to make a command.
+ */
 public class CommandFactory {
 
     /**
-     * Create command
+     * Create a command.
      *
-     * @param type
-     * @param args
-     * @return command
+     * @param type a type of a command
+     * @param args arguments of a command
+     * @return created command
      */
     public static CommandBase createCommand(CommandType type, Map<String, Object> args) {
         return new Command(type, args);

@@ -18,7 +18,9 @@
 package com.pileproject.drivecommand.machine.device.port;
 
 /**
- * Created by tatsuya on 15/09/03.
+ * A port of a device
+ * (see: {@link com.pileproject.drivecommand.machine.device.DeviceType})
+ * on a machine.
  */
 public interface DevicePort {
     int getRaw();

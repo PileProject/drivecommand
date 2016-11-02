@@ -17,6 +17,9 @@
 
 package com.pileproject.drivecommand.model.ev3;
 
+/**
+ * A class holding constants for Ev3.
+ */
 public class Ev3Constants {
 
     // Command Types

@@ -17,6 +17,9 @@
 
 package com.pileproject.drivecommand.util;
 
+/**
+ * A utility class to show logs on console.
+ */
 public class Log {
     public static void e(String tag, String msg) {
         System.err.println(String.format("%s: %s", tag, msg));

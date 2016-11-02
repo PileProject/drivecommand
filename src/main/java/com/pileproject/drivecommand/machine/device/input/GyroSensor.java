@@ -27,18 +27,30 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 
 import java.util.Map;
 
+/**
+ * A gyro sensor class.
+ */
 public class GyroSensor extends DeviceBase {
 
     public GyroSensor(InputPort port, ProtocolBase protocol) {
         super(port, protocol);
     }
 
+    /**
+     * Get the rate of rotations.
+     *
+     * @return the current rate
+     */
     public int getRate() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.GET_GYRO_RATE, null);
         Map<String, Object> res = exec(cmd);
         return (Integer) res.get("value");
     }
 
+    /**
+     * GEt the angle of this Gyro sensor.
+     * @return the current angle
+     */
     public int getAngle() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.GET_GYRO_ANGLE, null);
         Map<String, Object> res = exec(cmd);

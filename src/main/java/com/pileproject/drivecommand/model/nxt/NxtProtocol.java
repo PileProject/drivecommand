@@ -44,6 +44,8 @@ import static com.pileproject.drivecommand.model.nxt.NxtConstants.SOUND_DB;
 import static com.pileproject.drivecommand.model.nxt.NxtConstants.SWITCH;
 
 /**
+ * A protocol class for Nxt.
+ *
  * @see <a href="http://sourceforge.net/projects/lejos/files/lejos-NXJ/">LeJOS</a>
  */
 public class NxtProtocol extends ProtocolBase {
@@ -151,16 +153,16 @@ public class NxtProtocol extends ProtocolBase {
     }
 
     /**
-     * Set output device condition.
+     * Set the output device status.
      *
-     * @param port           The port of the device (0 ~ 3).
-     * @param speed          The speed of the device.
-     * @param mode           The mode of the device. (ex. MOTORON, BRAKE, and/or
-     *                       REGULATED). This field is a bitfield.
-     * @param regulationMode see NxtConstants.
-     * @param turnRatio      Use this parameter to move more than two motor.
-     * @param runState       see NxtConstants.
-     * @param tachoLimit     - Number of degrees to rotate before stopping.
+     * @param port           the port of a device (0 ~ 3)
+     * @param speed          the speed of a device
+     * @param mode           the mode of the device (ex. MOTORON, BRAKE, and/or
+     *                       REGULATED) This field is a bit field
+     * @param regulationMode see {@link NxtConstants}
+     * @param turnRatio      use this parameter to move more than two motor
+     * @param runState       see {@link NxtConstants}
+     * @param tachoLimit     the number of degrees to rotate before stopping
      */
     private void setOutputState(int port, int speed, int mode,
                                 int regulationMode, int turnRatio, int runState, int tachoLimit) {
@@ -183,13 +185,14 @@ public class NxtProtocol extends ProtocolBase {
     }
 
     /**
-     * A small helper to send data. This method calculates the size of the data
+     * A small helper to send data.
+     * This method calculates the size of the data
      * and append it to the data.
      *
-     * @param request
+     * @param request a request to be sent to a machine
      */
     private void sendData(byte[] request) {
-        // Calculate the size of request and append them.
+        // Calculate the size of request and append them
         byte[] data = new byte[request.length + 2];
         data[0] = (byte) request.length;
         data[1] = (byte) (request.length >> 8);
@@ -209,9 +212,9 @@ public class NxtProtocol extends ProtocolBase {
         byte[] reply = mCommunicator.read(MAX_RES_LENGTH);
         InputValues inputValues = new InputValues();
         inputValues.inputPort = reply[3];
-        // 0 is false, 1 is true.
+        // 0 is false, 1 is true
         inputValues.valid = (reply[4] != 0);
-        // 0 is false, 1 is true.
+        // 0 is false, 1 is true
         inputValues.isCalibrated = (reply[5] == 0);
         inputValues.sensorType = reply[6];
         inputValues.sensorMode = reply[7];
@@ -224,12 +227,12 @@ public class NxtProtocol extends ProtocolBase {
     }
 
     /**
-     * Tells the NXT what type of sensor you are using and the mode to operate
-     * in.
+     * Tells an NXT what type of sensor you are
+     * using and the mode to operate in.
      *
-     * @param port       The port of the device (0 ~ 3).
-     * @param sensorType see NxtConstants
-     * @param sensorMode see NxtConstants
+     * @param port       the port of a device (0 ~ 3)
+     * @param sensorType see {@link NxtConstants}
+     * @param sensorMode see {@link NxtConstants}
      */
     public void setInputMode(int port, int sensorType, int sensorMode) {
         // If the port is not initialized, set the mode
@@ -249,8 +252,8 @@ public class NxtProtocol extends ProtocolBase {
             sendData(request);
             getInputValues(port); // Skip the first value (it may be invalid)
 
-            // Sound sensor needs more initializing time based on our
-            // experiments.
+            // sound sensor needs more initializing
+            // time based on our experiments
             if (sensorType == SOUND_DB) waitMillSeconds(250);
         }
     }
@@ -258,7 +261,7 @@ public class NxtProtocol extends ProtocolBase {
     /**
      * A helper method to wait for specified milli seconds.
      *
-     * @param milliseconds
+     * @param milliseconds time to wait in millisecond
      */
     private void waitMillSeconds(int milliseconds) {
         try {
@@ -270,7 +273,7 @@ public class NxtProtocol extends ProtocolBase {
 
     @Override
     public boolean apply() {
-        // this protocol does not support transactions.
+        // this protocol does not support transactions
         throw new UnsupportedOperationException("Nxt Protocol does not support transactions");
     }
 

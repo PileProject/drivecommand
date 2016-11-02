@@ -61,6 +61,9 @@ import static com.pileproject.drivecommand.model.ev3.Ev3Constants.TOUCH_BUMPS;
 import static com.pileproject.drivecommand.model.ev3.Ev3Constants.TOUCH_TOUCH;
 import static com.pileproject.drivecommand.model.ev3.Ev3Constants.US_CM;
 
+/**
+ * A protocol class for Ev3.
+ */
 public class Ev3Protocol extends ProtocolBase {
     private static final String KEY_VALUE = "value";
     private static final String TAG = "Ev3Protocol";
@@ -191,13 +194,13 @@ public class Ev3Protocol extends ProtocolBase {
     }
 
     /**
-     * Get SI unit value
+     * Get SI unit value.
      *
-     * @param port   The port of the device
-     * @param type   The device type
-     * @param mode   The mode of the device
-     * @param nvalue The number of the response value
-     * @return
+     * @param port   the port of a device
+     * @param type   the device type
+     * @param mode   the mode of the device
+     * @param nvalue the number of the response value
+     * @return returned value in SI unit
      */
     private float[] getSiValue(int port, int type, int mode, int nvalue) {
         ByteCodeFormatter byteCode = new ByteCodeFormatter();
@@ -232,13 +235,13 @@ public class Ev3Protocol extends ProtocolBase {
     }
 
     /**
-     * Get percent value
+     * Get percent value.
      *
-     * @param port   The port of the device
-     * @param type   The device type
-     * @param mode   The mode of the device
-     * @param nvalue The number of the response value
-     * @return
+     * @param port   the port of a device
+     * @param type   the device type
+     * @param mode   the mode of the device
+     * @param nvalue the number of the response value
+     * @return returned value in percent
      */
     private short[] getPercentValue(int port, int type, int mode, int nvalue) {
         ByteCodeFormatter byteCode = new ByteCodeFormatter();
@@ -272,10 +275,10 @@ public class Ev3Protocol extends ProtocolBase {
     }
 
     /**
-     * Convert output port to byte code port
+     * Convert a output port to a byte code port.
      *
-     * @param port
-     * @return
+     * @param port port to be converted
+     * @return a byte code which expresses a output port
      */
     private byte toByteCodePort(int port) {
         if (port >= 0x00 && port <= 0x03) return (byte) (0x01 << port);
@@ -285,8 +288,8 @@ public class Ev3Protocol extends ProtocolBase {
     /**
      * Set output device condition.
      *
-     * @param port  The port of the device
-     * @param speed The speed of the device
+     * @param port  the port of a device
+     * @param speed the speed of a device
      */
     private void setOutputState(int port, int speed) {
         ByteCodeFormatter byteCode = new ByteCodeFormatter();
@@ -311,11 +314,11 @@ public class Ev3Protocol extends ProtocolBase {
     }
 
     /**
-     * Make a sound
+     * Make a sound.
      *
-     * @param volume   The volume of the sound (0 ~ 100 [%])
-     * @param freq     The frequency [Hz]
-     * @param duration The duration of the tone [msec]
+     * @param volume   the volume of a sound (0 ~ 100 [%])
+     * @param freq     the frequency [Hz]
+     * @param duration the duration of a sound [msec]
      */
     private void soundTone(int volume, int freq, int duration) {
         ByteCodeFormatter byteCode = new ByteCodeFormatter();
@@ -334,9 +337,9 @@ public class Ev3Protocol extends ProtocolBase {
     }
 
     /**
-     * Read data from the device
+     * Read data from a machine.
      *
-     * @return
+     * @return returned results
      */
     private byte[] readData() {
         // Calculate the size of response by reading 2 bytes.

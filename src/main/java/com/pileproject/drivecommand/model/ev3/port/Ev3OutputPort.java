@@ -20,7 +20,14 @@ package com.pileproject.drivecommand.model.ev3.port;
 import com.pileproject.drivecommand.machine.device.port.OutputPort;
 
 /**
- * Created by yusaku on 2015/10/04.
+ * An output port class for Ev3.
+ * This class is used for connecting devices to a machine.
+ *
+ * There are static instances of this class;
+ *  {@link Ev3OutputPort#PORT_A}
+ *  {@link Ev3OutputPort#PORT_B}
+ *  {@link Ev3OutputPort#PORT_C}
+ *  {@link Ev3OutputPort#PORT_D}
  */
 public class Ev3OutputPort extends OutputPort {
     public static final Ev3OutputPort PORT_A = new Ev3OutputPort(0);

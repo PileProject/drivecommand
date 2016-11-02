@@ -28,6 +28,9 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * A servomotor class.
+ */
 public class Servomotor extends DeviceBase {
 
     public Servomotor(OutputPort port, ProtocolBase protocol) {
@@ -35,7 +38,9 @@ public class Servomotor extends DeviceBase {
     }
 
     /**
-     * Get the angle of the servomotor
+     * Get the angle of this servomotor.
+     *
+     * @return the current angle
      */
     public int getAngle() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.GET_SERVO_ANGLE, null);
@@ -44,12 +49,14 @@ public class Servomotor extends DeviceBase {
     }
 
     /**
-     * Set the angle to this servomotor
+     * Set the angle to this servomotor.
+     *
+     * @param angle an angle to be set
      */
     public void setAngle(int angle) {
         Map<String, Object> args = new HashMap<>();
-        args.put("speed", angle);
-        CommandBase cmd = CommandFactory.createCommand(CommandType.SET_MOTOR_SPEED, args);
+        args.put("angle", angle);
+        CommandBase cmd = CommandFactory.createCommand(CommandType.SET_SERVO_ANGLE, args);
         exec(cmd);
     }
 
