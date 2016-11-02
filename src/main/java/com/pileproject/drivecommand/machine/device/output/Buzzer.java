@@ -25,6 +25,9 @@ import com.pileproject.drivecommand.machine.device.port.OutputPort;
 import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 
+/**
+ * A buzzer class.
+ */
 public class Buzzer extends DeviceBase {
 
     public Buzzer(OutputPort port, ProtocolBase protocol) {
@@ -32,7 +35,7 @@ public class Buzzer extends DeviceBase {
     }
 
     /**
-     * Turn on the buzzer if it is off
+     * Turn on this buzzer if it is off.
      */
     public void turnOn() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.SET_BUZZER_ON, null);
@@ -40,7 +43,7 @@ public class Buzzer extends DeviceBase {
     }
 
     /**
-     * Turn off the buzzer if it is on
+     * Turn off this buzzer if it is on.
      */
     public void turnOff() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.SET_BUZZER_OFF, null);
@@ -48,7 +51,7 @@ public class Buzzer extends DeviceBase {
     }
 
     /**
-     * Keep buzzer beeping
+     * Keep this buzzer beeping.
      */
     public void beep() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.SET_BUZZER_BEEP, null);

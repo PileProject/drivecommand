@@ -17,6 +17,9 @@
 
 package com.pileproject.drivecommand.model.pile;
 
+/**
+ * A class holding constants for Pile robots.
+ */
 public class PileConstants {
     // Command Types
     public enum CommandTypes {

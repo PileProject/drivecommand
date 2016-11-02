@@ -20,7 +20,12 @@ package com.pileproject.drivecommand.model.pile.port;
 import com.pileproject.drivecommand.machine.device.port.OutputPort;
 
 /**
- * Created by yusaku on 2015/10/04.
+ * An output port class for Pile robots.
+ * This class is used for connecting devices to a machine.
+ *
+ * There are static instances of this class;
+ *  {@link PileOutputPort#MOTOR_LEFT}
+ *  {@link PileOutputPort#MOTOR_RIGHT}
  */
 public class PileOutputPort extends OutputPort {
     public static final PileOutputPort MOTOR_LEFT
@@ -30,6 +35,7 @@ public class PileOutputPort extends OutputPort {
             = new PileOutputPort(1, Type.MOTOR_RIGHT);
     private final int mPort;
     private final Type mType;
+
     private PileOutputPort(int port, Type type) {
         mPort = port;
         mType = type;

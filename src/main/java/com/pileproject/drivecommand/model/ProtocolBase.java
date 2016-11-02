@@ -23,6 +23,11 @@ import com.pileproject.drivecommand.model.com.ICommunicator;
 import java.io.IOException;
 import java.util.Map;
 
+/**
+ * A base class for protocols which is used for
+ * {@link com.pileproject.drivecommand.machine.MachineBase}
+ * to interpret machine-specific byte codes.
+ */
 public abstract class ProtocolBase {
     protected final ICommunicator mCommunicator;
 
@@ -31,9 +36,9 @@ public abstract class ProtocolBase {
     }
 
     /**
-     * Open the connection between devices.
+     * Open a connection between devices.
      *
-     * @throws IOException
+     * @throws IOException open fails
      */
     public abstract void open() throws IOException;
 
@@ -43,36 +48,35 @@ public abstract class ProtocolBase {
     public abstract void close();
 
     /**
-     * Execute the command.
+     * Execute a command.
      *
-     * @param port
-     * @param cmd
-     * @return
+     * @param port a port to be controled
+     * @param cmd {@link CommandBase} which is to be executed
+     * @return the result of the command
      */
     public abstract Map<String, Object> exec(int port, CommandBase cmd);
 
     /**
-     * Apply commands
-     * <p>
-     * This will be used with devices supporting transactions.
+     * Apply commands.
+     * This will be used with devices supporting 'transactions'.
      *
      * @return success (true) or not (false)
      */
     public abstract boolean apply();
 
     /**
-     * load value from device
+     * Load value from a machine.
      *
-     * @param int key
-     * @return byte[] raw value
+     * @param key a key of a key-value store
+     * @return byte[] raw values
      */
     public abstract byte[] load(int key);
 
     /**
-     * store value to device
+     * Store value to a machine.
      *
-     * @param int key
-     * @param byte[] raw value
+     * @param key a key of a key-value store
+     * @param data a value fo a key-value store
      * @return boolean success (true) or not (false)
      */
     public abstract boolean store(int key, byte[] data);

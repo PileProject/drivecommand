@@ -20,7 +20,9 @@ package com.pileproject.drivecommand.model.pile;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-
+/**
+ * A formatter class for Pile packets.
+ */
 public class PilePacketFormatter {
     private ByteArrayOutputStream mByteStream;
     private boolean mIsValid;
@@ -51,12 +53,20 @@ public class PilePacketFormatter {
         mIsFixed = true;
     }
 
+    /**
+     * Set a data byte to the packet.
+     *
+     * @param dataByte a data to be appended
+     */
     public void setDataByte(byte dataByte) {
         if (mIsFixed)
             return;
         mByteStream.write((int) dataByte);
     }
 
+    /**
+     * Calculate the checksum.
+     */
     public void calculateChecksum() {
         if (mIsFixed)
             return;
@@ -79,12 +89,22 @@ public class PilePacketFormatter {
         mIsFixed = true;
     }
 
+    /**
+     * Return the packet in a byte array format.
+     *
+     * @return a packet in a byte array
+     */
     public byte[] byteArray() {
         if (!mIsValid)
             return null;
         return mByteStream.toByteArray();
     }
 
+    /**
+     * Get the packet without its header.
+     *
+     * @return a data packet without its header
+     */
     public byte[] data() {
         if (!mIsValid)
             return null;
@@ -94,10 +114,20 @@ public class PilePacketFormatter {
         return dst;
     }
 
+    /**
+     * Check the validity of this packet.
+     *
+     * @return valid (true) or not (false)
+     */
     public boolean isValid() {
         return mIsValid;
     }
 
+    /**
+     * Check whether this packet is fixed or not.
+     *
+     * @return fixed (true) or not (false)
+     */
     public boolean isFixed() {
         return mIsFixed;
     }

@@ -32,9 +32,7 @@ import com.pileproject.drivecommand.model.nxt.port.NxtInputPort;
 import com.pileproject.drivecommand.model.nxt.port.NxtOutputPort;
 
 /**
- * LEGO MINDSTORMS NXT
- *
- * @author Tatsuya Iwanari
+ * A machine class for LEGO MINDSTORMS NXT.
  */
 public class NxtMachine extends MachineBase {
 

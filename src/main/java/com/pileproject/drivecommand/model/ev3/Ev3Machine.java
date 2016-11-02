@@ -39,9 +39,7 @@ import com.pileproject.drivecommand.model.ev3.port.Ev3InputPort;
 import com.pileproject.drivecommand.model.ev3.port.Ev3OutputPort;
 
 /**
- * LEGO MINDSTORMS EV3
- *
- * @author Tatsuya Iwanari
+ * A machine class for LEGO MINDSTORMS EV3.
  */
 public class Ev3Machine extends MachineBase {
 

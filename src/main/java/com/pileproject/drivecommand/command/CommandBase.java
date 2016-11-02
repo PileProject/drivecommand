@@ -22,6 +22,9 @@ import com.pileproject.drivecommand.model.CommandType;
 
 import java.util.Map;
 
+/**
+ * A base class for a command.
+ */
 public abstract class CommandBase {
     private CommandType mType;
     private Map<String, Object> mArgs;
@@ -32,27 +35,28 @@ public abstract class CommandBase {
     }
 
     /**
-     * Get its command type
+     * Get this command type.
      *
-     * @return CommandType
+     * @return {@link CommandType}
      */
     public CommandType getCommandType() {
         return mType;
     }
 
     /**
-     * Get the device type which is used in its command
+     * Get the device type which is used in this command.
      *
-     * @return DeviceType
+     * @return {@link DeviceType}
      */
     public DeviceType getDeviceType() {
         return mType.getDeviceType();
     }
 
     /**
-     * Get the arguments
+     * Get the arguments of this command.
      *
-     * @return HashMap
+     * @return a map of {@link String} and {@link Object} which expresses
+     * arguments
      */
     public Map<String, Object> getArgs() {
         return mArgs;

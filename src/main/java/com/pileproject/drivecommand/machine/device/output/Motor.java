@@ -28,6 +28,9 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * A motor class.
+ */
 public class Motor extends DeviceBase {
     private int mSpeed = 50; // initial value
 
@@ -36,7 +39,7 @@ public class Motor extends DeviceBase {
     }
 
     /**
-     * Move motor forward
+     * Move this motor forward.
      */
     public void forward() {
         Map<String, Object> args = new HashMap<>();
@@ -46,7 +49,7 @@ public class Motor extends DeviceBase {
     }
 
     /**
-     * Move motor backward
+     * Move this motor backward.
      */
     public void backward() {
         Map<String, Object> args = new HashMap<>();
@@ -56,7 +59,7 @@ public class Motor extends DeviceBase {
     }
 
     /**
-     * Stop motor
+     * Stop this motor.
      */
     public void stop() {
         Map<String, Object> args = new HashMap<>();
@@ -66,20 +69,20 @@ public class Motor extends DeviceBase {
     }
 
     /**
-     * Get the speed of motor
+     * Get the speed of this motor.
      *
-     * @return speed (0 - 100%)
+     * @return speed (0 - 100)
      */
     public int getSpeed() {
         return mSpeed;
     }
 
     /**
-     * Set speed (0 - 100%)
-     * if the speed is out of the range,
+     * Set the speed (0 - 100) of this motor.
+     * If the speed is out of the range,
      * this method do nothing.
      *
-     * @param speed
+     * @param speed a speed to be set to this motor.
      */
     public void setSpeed(int speed) {
         if (speed < 0 || speed > 100) return;

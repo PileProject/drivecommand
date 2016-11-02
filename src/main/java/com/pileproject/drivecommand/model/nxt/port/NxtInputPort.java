@@ -20,7 +20,14 @@ package com.pileproject.drivecommand.model.nxt.port;
 import com.pileproject.drivecommand.machine.device.port.InputPort;
 
 /**
- * Created by tatsuya on 15/09/03.
+ * An input port class for Nxt.
+ * This class is used for connecting devices to a machine.
+ *
+ * There are static instances of this class;
+ *  {@link NxtInputPort#PORT_1}
+ *  {@link NxtInputPort#PORT_2}
+ *  {@link NxtInputPort#PORT_3}
+ *  {@link NxtInputPort#PORT_4}
  */
 public class NxtInputPort extends InputPort {
     public static final NxtInputPort PORT_1 = new NxtInputPort(0);

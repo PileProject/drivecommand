@@ -20,7 +20,14 @@ package com.pileproject.drivecommand.model.pile.port;
 import com.pileproject.drivecommand.machine.device.port.InputPort;
 
 /**
- * Created by yusaku on 2015/10/04.
+ * An input port class for Pile robots.
+ * This class is used for connecting devices to a machine.
+ *
+ * There are static instances of this class;
+ *  {@link PileInputPort#LINE_SENSOR_L}
+ *  {@link PileInputPort#LINE_SENSOR_R}
+ *  {@link PileInputPort#TOUCH_SENSOR}
+ *  {@link PileInputPort#RANGEFINDER}
  */
 public class PileInputPort extends InputPort {
     public static final PileInputPort LINE_SENSOR_L
@@ -36,6 +43,7 @@ public class PileInputPort extends InputPort {
             = new PileInputPort(0, Type.RANGEFINDER);
     private final int mPort;
     private final Type mType;
+
     private PileInputPort(int port, Type type) {
         mPort = port;
         mType = type;

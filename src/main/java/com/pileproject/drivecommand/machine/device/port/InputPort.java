@@ -18,7 +18,7 @@
 package com.pileproject.drivecommand.machine.device.port;
 
 /**
- * Created by tatsuya on 15/09/04.
+ * An input port class derived from {@link DevicePort}.
  */
 public abstract class InputPort implements DevicePort {
     @Override

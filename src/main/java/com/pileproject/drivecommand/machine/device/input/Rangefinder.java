@@ -27,6 +27,9 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 
 import java.util.Map;
 
+/**
+ * A rangefinder class.
+ */
 public class Rangefinder extends DeviceBase {
 
     public Rangefinder(InputPort port, ProtocolBase protocol) {
@@ -34,7 +37,7 @@ public class Rangefinder extends DeviceBase {
     }
 
     /**
-     * Get the distance between obstacles and this sensor
+     * Get the distance between an obstacle and this sensor.
      *
      * @return distance (in centimeter)
      */
