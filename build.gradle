@@ -65,7 +65,7 @@ uploadArchives {
             pom.artifactId = 'drivecommand'
 
             pom.project {
-                inceptionYear '2013'
+                inceptionYear '2011'
                 packaging 'jar'
                 licenses {
                     license {
