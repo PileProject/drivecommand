@@ -7,14 +7,12 @@
  * user guide available at http://gradle.org/docs/2.5/userguide/tutorial_java_projects.html
  */
 
-// Apply the java plugin to add support for Java
-apply plugin: 'java'
-
-// Apply the eclipse plugin to generate eclipse project files
-apply plugin: 'eclipse'
-
-// Apply the maven plugin to deploy this project to a maven repository
-apply plugin: 'maven'
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'maven'
+    id "com.github.hierynomus.license" version "0.13.1"
+}
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -50,6 +48,11 @@ task wraper(type: Wrapper) {
     gradleVersion = '2.5'
 }
 
+// for our license
+license {
+    header rootProject.file('LICENSE')
+    includes(["**/*.java", "**/*.xml"])
+}
 
 // Maven repository identity setting
 uploadArchives {
@@ -62,7 +65,7 @@ uploadArchives {
             pom.artifactId = 'drivecommand'
 
             pom.project {
-                inceptionYear '2013'
+                inceptionYear '2011'
                 packaging 'jar'
                 licenses {
                     license {
@@ -75,4 +78,3 @@ uploadArchives {
         }
     }
 }
-
