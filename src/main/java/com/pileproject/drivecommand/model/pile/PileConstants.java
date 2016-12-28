@@ -24,7 +24,7 @@ import com.pileproject.drivecommand.machine.device.output.Motor;
 public class PileConstants {
 
     /**
-     * An enum class for the types of commands. This class will be used as <code>Type</code>in a command which has the
+     * An enum class for the types of commands. This class will be used as <code>Type</code> in a command which has the
      * following syntax.
      *
      * <pre><code>
