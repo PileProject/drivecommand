@@ -40,7 +40,7 @@ public class MachineStatus {
      *
      * @param port a port to be bounded with a device type
      * @param type a type to be bounded with a port
-     * @return succeeded to update (<code>true</code>) or not (<code>false</code>)
+     * @return succeeded (<code>true</code>) or not (<code>false</code>)
      */
     public boolean bind(DevicePort port, DeviceType type) {
         boolean isUpdated = mDevices.containsKey(port);

@@ -131,7 +131,7 @@ public class PileConstants {
          * <ul>
          *      <li>DISTANCE: Raw value of the sensor will be returned (no unit).</li>
          * </ul>
-         * If <code>PORT</code> is out of range, <code>STATUS</code> will be zero.
+         * If <code>PORT</code> is out of range, <code>DISTANCE</code> will be zero.
          */
         DISTANCE(0x11),
         /**
