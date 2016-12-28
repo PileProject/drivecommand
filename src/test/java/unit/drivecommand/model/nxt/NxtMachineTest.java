@@ -33,9 +33,6 @@ import mockit.Mocked;
 
 import static org.testng.Assert.assertTrue;
 
-/**
- * Created by tatsuya on 2016/02/21.
- */
 public class NxtMachineTest {
     @Mocked
     protected ICommunicator communicator;

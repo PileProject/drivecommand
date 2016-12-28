@@ -24,9 +24,6 @@ import org.testng.annotations.Test;
 import mockit.Expectations;
 import mockit.Mocked;
 
-/**
- * Created by tatsuya on 2016/02/22.
- */
 public class Ev3ProtocolTest {
     @Mocked
     private ICommunicator communicator;

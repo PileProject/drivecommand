@@ -26,9 +26,6 @@ import java.util.regex.Pattern;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-/**
- * Created by yusaku on 2015/10/07.
- */
 public class Ev3OutputPortTest {
 
     @DataProvider(name = "ports")

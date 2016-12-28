@@ -31,9 +31,6 @@ import mockit.Mocked;
 
 import static org.testng.AssertJUnit.assertTrue;
 
-/**
- * Created by tatsuya on 2016/02/22.
- */
 public class PileMachineTest {
     @Mocked
     protected ICommunicator communicator;
