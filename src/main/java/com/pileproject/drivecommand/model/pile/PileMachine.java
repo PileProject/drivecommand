@@ -28,7 +28,7 @@ import com.pileproject.drivecommand.model.com.ICommunicator;
 import com.pileproject.drivecommand.model.pile.port.PileInputPort;
 
 /**
- * A machine class for PILE robots.
+ * A machine class for PILE machines.
  */
 public class PileMachine extends MachineBase {
     public PileMachine(ICommunicator comm) {

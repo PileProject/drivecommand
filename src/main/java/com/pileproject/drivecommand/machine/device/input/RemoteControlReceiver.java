@@ -35,9 +35,9 @@ public class RemoteControlReceiver extends DeviceBase {
     }
 
     /**
-     * Get the pushed buttons on the controller.
+     * Gets the pushed button on the controller.
      *
-     * @return button number
+     * @return the button number
      */
     public int getRemoteButton() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.GET_REMOTECONTROLLER_BUTTON, null);
@@ -46,9 +46,9 @@ public class RemoteControlReceiver extends DeviceBase {
     }
 
     /**
-     * Get the distance between this device and the controller.
+     * Gets the distance between this device and the controller.
      *
-     * @return distance [cm]
+     * @return the distance in centimeter
      * TODO: not tested
      */
     public int getRemoteDistance() {

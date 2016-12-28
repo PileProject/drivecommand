@@ -34,7 +34,7 @@ public class Led extends DeviceBase {
     }
 
     /**
-     * Turn on this LED if it is off.
+     * Turns on this LED if it is off.
      */
     public void turnOn() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.SET_LED_ON, null);
@@ -42,7 +42,7 @@ public class Led extends DeviceBase {
     }
 
     /**
-     * Turn off this LED if it is on.
+     * Turns off this LED if it is on.
      */
     public void turnOff() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.SET_LED_OFF, null);

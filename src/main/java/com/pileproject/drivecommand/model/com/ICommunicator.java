@@ -22,31 +22,31 @@ import java.io.IOException;
  */
 public interface ICommunicator {
     /**
-     * Open a connection between machines.
+     * Opens a connection between machines.
      *
-     * @throws IOException open fails
+     * @throws IOException if failed to open a connection
      */
     void open() throws IOException;
 
     /**
-     * Close the connection between machines.
+     * Closes the connection between machines.
      */
     void close();
 
     /**
-     * Write the byte array data to a machine.
+     * Writes the byte array data to a machine.
      *
      * @param data the array of a data to be passed
-     * @throws RuntimeException write fails
+     * @throws RuntimeException if failed to write data
      */
     void write(byte[] data) throws RuntimeException;
 
     /**
-     * Read the response from a machine.
+     * Reads the response from a machine.
      *
-     * @param length  the max length of response wanted to be read.
-     * @return read results
-     * @throws RuntimeException read fails
+     * @param length the max length of response to be read
+     * @return the read results
+     * @throws RuntimeException if failed to read data
      */
     byte[] read(int length) throws RuntimeException;
 }

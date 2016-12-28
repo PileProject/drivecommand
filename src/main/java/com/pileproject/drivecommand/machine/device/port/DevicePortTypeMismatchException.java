@@ -15,11 +15,11 @@
  */
 package com.pileproject.drivecommand.machine.device.port;
 
+import com.pileproject.drivecommand.machine.device.DeviceBase;
+
 /***
- * An exception thrown when an attempt to create a subclass of
- * {@link com.pileproject.drivecommand.machine.device.DeviceBase}
- * with inappropriate {@link com.pileproject.drivecommand.machine.device.port.DevicePort}
- * type is occurred.
+ * An exception thrown when an attempt to create a subclass of {@link DeviceBase}
+ * with inappropriate {@link DevicePort} type is used.
  *
  * Unchecked exception.
  */

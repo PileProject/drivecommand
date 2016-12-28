@@ -15,10 +15,12 @@
  */
 package com.pileproject.drivecommand.machine.device.port;
 
+import com.pileproject.drivecommand.machine.device.DeviceType;
+
 /**
- * A port of a device
- * (see: {@link com.pileproject.drivecommand.machine.device.DeviceType})
- * on a machine.
+ * A port of a device on a machine.
+ *
+ * @see DeviceType
  */
 public interface DevicePort {
     int getRaw();

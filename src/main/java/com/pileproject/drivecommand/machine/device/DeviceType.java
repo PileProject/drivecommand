@@ -16,26 +16,23 @@
 package com.pileproject.drivecommand.machine.device;
 
 /**
- * An enum class which expresses types of devices.
+ * An enum class which represents types of devices.
  */
 public enum DeviceType {
     /**
-     * Motor
-     * cf. SERVOMOTOR
+     * @see #SERVOMOTOR
      */
     MOTOR,
 
     /**
-     * Servomotor
-     * cf. MOTOR
+     * @see #MOTOR
      */
     SERVOMOTOR,
     BUZZER,
     LED,
 
     /**
-     * Line sensor
-     * ex. Light sensor for ev3
+     * e.g., LightSensor for EV3
      */
     LINE_SENSOR,
     GYRO_SENSOR,
@@ -43,8 +40,7 @@ public enum DeviceType {
     COLOR_SENSOR,
 
     /**
-     * Range finder
-     * ex. Ultrasonic sensor for ev3
+     * e.g., UltrasonicSensor for EV3
      */
     RANGEFINDER,
     SOUND_SENSOR,

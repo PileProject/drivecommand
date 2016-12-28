@@ -15,10 +15,11 @@
  */
 package com.pileproject.drivecommand.model;
 
+import com.pileproject.drivecommand.command.Command;
 import com.pileproject.drivecommand.machine.device.DeviceType;
 
 /**
- * An enum class which expresses types of commands.
+ * An enum class which contains the types of {@link Command}s.
  */
 public enum CommandType {
     SET_LED_ON {

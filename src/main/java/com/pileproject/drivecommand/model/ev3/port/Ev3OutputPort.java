@@ -18,14 +18,15 @@ package com.pileproject.drivecommand.model.ev3.port;
 import com.pileproject.drivecommand.machine.device.port.OutputPort;
 
 /**
- * An output port class for Ev3.
- * This class is used for connecting devices to a machine.
+ * An output port class for LEGO MINDSTORMS EV3. This class is used for connecting a device to an output port.
  *
- * There are static instances of this class;
- *  {@link Ev3OutputPort#PORT_A}
- *  {@link Ev3OutputPort#PORT_B}
- *  {@link Ev3OutputPort#PORT_C}
- *  {@link Ev3OutputPort#PORT_D}
+ * There are static instances of this class:
+ * <ul>
+ *  <li>{@link Ev3OutputPort#PORT_A}</li>
+ *  <li>{@link Ev3OutputPort#PORT_B}</li>
+ *  <li>{@link Ev3OutputPort#PORT_C}</li>
+ *  <li>{@link Ev3OutputPort#PORT_D}</li>
+ * </ul>
  */
 public class Ev3OutputPort extends OutputPort {
     public static final Ev3OutputPort PORT_A = new Ev3OutputPort(0);

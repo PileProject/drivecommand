@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * A protocol class for Pile robots.
+ * A protocol class for PILE machines.
  */
 public class PileProtocol extends ProtocolBase {
     private static final String KEY_VALUE = "value";
@@ -99,8 +99,9 @@ public class PileProtocol extends ProtocolBase {
             case SET_BUZZER_BEEP:
             case SET_BUZZER_OFF:
             case SET_BUZZER_ON:
-            case SET_SERVO_ANGLE:
-                throw new UnsupportedOperationException(type.name() + "Operation hasn't been implemented yet");
+            case SET_SERVO_ANGLE: {
+                throw new UnsupportedOperationException(type.name() + " Operation hasn't been implemented yet");
+            }
 
             default: {
                 throw new UnsupportedOperationException("This Operation hasn't been implemented yet");

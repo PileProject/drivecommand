@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- * A base class for protocols which is used for
+ * A base class of protocols which are used for
  * {@link com.pileproject.drivecommand.machine.MachineBase}
  * to interpret machine-specific byte codes.
  */
@@ -34,48 +34,48 @@ public abstract class ProtocolBase {
     }
 
     /**
-     * Open a connection between devices.
+     * Opens a connection between devices.
      *
-     * @throws IOException open fails
+     * @throws IOException if failed to open the connection
      */
     public abstract void open() throws IOException;
 
     /**
-     * Close the connection between devices.
+     * Closes the connection between devices.
      */
     public abstract void close();
 
     /**
-     * Execute a command.
+     * Executes a {@link CommandBase} with a port and returns the result as a map.
      *
-     * @param port a port to be controled
-     * @param cmd {@link CommandBase} which is to be executed
+     * @param port a port to be used with the command
+     * @param cmd a {@link CommandBase} which is to be executed
      * @return the result of the command
      */
     public abstract Map<String, Object> exec(int port, CommandBase cmd);
 
     /**
-     * Apply commands.
-     * This will be used with devices supporting 'transactions'.
+     * Applies commands.
+     * This method will be used with devices supporting 'transactions'.
      *
-     * @return success (true) or not (false)
+     * @return succeed (<code>true</code>) or not (<code>false</code>)
      */
     public abstract boolean apply();
 
     /**
-     * Load value from a machine.
+     * Loads a value which has the specified key from a machine.
      *
      * @param key a key of a key-value store
-     * @return byte[] raw values
+     * @return raw values in an array of <code>byte</code>
      */
     public abstract byte[] load(int key);
 
     /**
-     * Store value to a machine.
+     * Stores a value with a key to a machine.
      *
      * @param key a key of a key-value store
      * @param data a value fo a key-value store
-     * @return boolean success (true) or not (false)
+     * @return succeed (<code>true</code>) or not (<code>false</code>)
      */
     public abstract boolean store(int key, byte[] data);
 }

@@ -38,18 +38,19 @@ public abstract class DeviceBase {
     }
 
     /**
-     * Execute a command.
+     * Executes a command.
      *
      * @param command a command to be executed
-     * @return returned result
+     * @return the returned result as a map
      */
     protected Map<String, Object> exec(CommandBase command) {
         return mProtocol.exec(mPort.getRaw(), command);
     }
 
     /**
-     * Get the type of this device.
-     * @return {@link DeviceType}
+     * Gets the type of this device.
+     *
+     * @return a {@link DeviceType}
      */
     public abstract DeviceType getDeviceType();
 }

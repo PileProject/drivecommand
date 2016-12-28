@@ -16,7 +16,7 @@
 package com.pileproject.drivecommand.model.ev3;
 
 /**
- * A class holding constants for Ev3.
+ * A class that holds <code>byte</code> constants for LEGO MINDSTORMS EV3.
  */
 public class Ev3Constants {
 
@@ -30,7 +30,7 @@ public class Ev3Constants {
     // Direct Commands - SOUND
     public static final byte SOUND_CONTROL = (byte) 0x94;
 
-    // Sub code for SOUND_CONTROL
+    // Sub codes for SOUND_CONTROL
     public static final byte SOUND_BREAK = (byte) 0x00;
     public static final byte SOUND_TONE = (byte) 0x01;
     public static final byte SOUND_PLAY = (byte) 0x02;
@@ -107,8 +107,8 @@ public class Ev3Constants {
     public static final byte COAST = (byte) 0x00;
     public static final byte BRAKE = (byte) 0x01;
 
-    // Input Device Mode
-    // Sensor Type:
+    // Input Device Modes
+    // Sensor Types
     public static final byte TYPE_DEFAULT = (byte) 0x00;
     public static final byte NXT_TOUCH = (byte) 0x01;
     public static final byte NXT_LIGHT = (byte) 0x02;
@@ -123,58 +123,42 @@ public class Ev3Constants {
     public static final byte EV3_GYRO = (byte) 0x20;
     public static final byte EV3_IR = (byte) 0x21;
 
-    // Sensor Mode:
+    // Sensor Modes
+    // constants for all the sensors
     public static final byte NOT_INITIALIZED = (byte) 0xff;
     public static final byte MODE_DEFAULT = (byte) 0x00;
-    /**
-     * Light
-     */
+    // constants for LightSensor
     public static final byte LIGHT_REFLECT = (byte) 0x00;
     public static final byte LIGHT_AMBIENT = (byte) 0x01;
-    /**
-     * Sound
-     */
+    // constants for SoundSensor
     public static final byte SOUND_DB = (byte) 0x00;
     public static final byte SOUND_DBA = (byte) 0x01;
-    /**
-     * Touch
-     */
+    // constants for TouchSensor
     public static final byte TOUCH_TOUCH = (byte) 0x00;
     public static final byte TOUCH_BUMPS = (byte) 0x01;
-    /**
-     * Color
-     */
+    // constants for ColorSensor
     public static final byte COL_REFLECT = (byte) 0x00;
     public static final byte COL_AMBIENT = (byte) 0x01;
     public static final byte COL_COLOR = (byte) 0x02;
     public static final byte COL_RGB = (byte) 0x04;
-    /**
-     * Ultrasonic
-     */
+    // constants for UltrasonicSensor
     public static final byte US_CM = (byte) 0x00;
     public static final byte US_INCH = (byte) 0x01;
     public static final byte US_LISTEN = (byte) 0x02;
-    /**
-     * Gyro
-     */
+    // constants for GyroSensor
     public static final byte GYRO_ANGLE = (byte) 0x00;
     public static final byte GYRO_RATE = (byte) 0x01;
-    /**
-     * IR
-     */
+    // constants for IRSensor (InfraRed)
     public static final byte IR_PROX = (byte) 0x00;
     public static final byte IR_SEEK = (byte) 0x01;
     public static final byte IR_REMOTE = (byte) 0x02;
 
-    /**
-     * L-Motor
-     */
+    // Motor Modes
+    // constants for L-Motor
     public static final byte L_MOTOR_DEGREE = (byte) 0x00;
     public static final byte L_MOTOR_ROTATE = (byte) 0x01;
     public static final byte L_MOTOR_SPEED = (byte) 0x02;
-    /**
-     * M-Motor
-     */
+    // constants for M-Motor
     public static final byte M_MOTOR_DEGREE = (byte) 0x00;
     public static final byte M_MOTOR_ROTATE = (byte) 0x01;
     public static final byte M_MOTOR_SPEED = (byte) 0x02;

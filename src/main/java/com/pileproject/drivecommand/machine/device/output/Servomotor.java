@@ -36,7 +36,7 @@ public class Servomotor extends DeviceBase {
     }
 
     /**
-     * Get the angle of this servomotor.
+     * Gets the angle of this servomotor.
      *
      * @return the current angle
      */
@@ -47,7 +47,7 @@ public class Servomotor extends DeviceBase {
     }
 
     /**
-     * Set the angle to this servomotor.
+     * Sets the angle to this servomotor.
      *
      * @param angle an angle to be set
      */

@@ -27,7 +27,7 @@ import java.util.Map;
 
 /**
  * A line sensor class.
- * This is also known as 'Light' sensor for Ev3.
+ * This is also known as 'light' sensor for EV3.
  */
 public class LineSensor extends DeviceBase {
 
@@ -36,9 +36,9 @@ public class LineSensor extends DeviceBase {
     }
 
     /**
-     * Get the value of light sensor.
+     * Gets the value of light sensor.
      *
-     * @return sensor value (0 ~ 100%)
+     * @return sensor value (0 - 100%)
      */
     public int getSensorValue() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.GET_LINE_VALUE, null);

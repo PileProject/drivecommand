@@ -22,7 +22,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
- * A formatter class for Ev3 byte codes.
+ * A formatter class for byte codes of LEGO MINDSTORMS EV3.
  * This class makes byte arrays which are used as byte code commands to control
  * Ev3 with a device.
  */
@@ -36,6 +36,7 @@ public class ByteCodeFormatter {
     private static final byte GLOBAL_INDEX_SIZE = (byte) 0xe1;
     private static String TAG = "ByteCodeFormatter";
     private ByteArrayOutputStream mStream;
+
     // use DataOutputStream as a writer of ByteArrayOutputStream
     private DataOutputStream mWriter;
 
@@ -44,11 +45,8 @@ public class ByteCodeFormatter {
         mWriter = new DataOutputStream(mStream);
 
         // add header
-        // the 1st and 2nd byte show the length of this byte code
-        // they will be set when byteArray() is called
-        // next 2 bytes are identification codes
-        // you can use them to identify the pair of
-        // request and response
+        // The 1st and 2nd bytes show the length of this byte code. They will be set when byteArray() is called.
+        // Next 2 bytes are identification codes. You can use them to identify the pair of a request and a response
         // (in current implementation, the default is [0x00, 0x00]).
         byte[] header = {
                 0x00, 0x00, 0x00, 0x00
@@ -61,7 +59,7 @@ public class ByteCodeFormatter {
     }
 
     /**
-     * Add an opcode.
+     * Adds an opcode.
      *
      * @param opcode the operation code
      */
@@ -74,10 +72,10 @@ public class ByteCodeFormatter {
     }
 
     /**
-     * Add global and local buffer size.
+     * Adds the global and local buffer size.
      *
-     * @param global size of global buffer in byte
-     * @param local  size of local buffer in byte
+     * @param global the size of global buffer in byte
+     * @param local the size of local buffer in byte
      */
     public void addGlobalAndLocalBufferSize(int global, int local) {
         if (global > 1024)
@@ -95,7 +93,7 @@ public class ByteCodeFormatter {
     }
 
     /**
-     * Add a byte type parameter.
+     * Adds a <code>byte</code> type parameter.
      *
      * @param param a parameter in byte
      */
@@ -109,7 +107,7 @@ public class ByteCodeFormatter {
     }
 
     /**
-     * Add a short type parameter.
+     * Adds a <code>short</code> type parameter.
      *
      * @param param a parameter in short
      */
@@ -124,7 +122,7 @@ public class ByteCodeFormatter {
     }
 
     /**
-     * Add an int type parameter.
+     * Adds an <code>int</code> type parameter.
      *
      * @param param a parameter in int
      */
@@ -142,7 +140,7 @@ public class ByteCodeFormatter {
 
 
     /**
-     * Add the global index.
+     * Adds the global index.
      *
      * @param index the global index
      */
@@ -156,7 +154,7 @@ public class ByteCodeFormatter {
     }
 
     /**
-     * Append other command.
+     * Appends other command after this command.
      *
      * @param command an other command
      */
@@ -169,9 +167,9 @@ public class ByteCodeFormatter {
     }
 
     /**
-     * Get the byte code in array of byte.
+     * Gets the byte code in an array of byte.
      *
-     * @return byte[] an array of bytes
+     * @return an array of bytes
      */
     public byte[] byteArray() {
         byte[] byteCode = mStream.toByteArray();

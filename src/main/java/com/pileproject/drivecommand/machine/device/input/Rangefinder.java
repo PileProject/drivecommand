@@ -35,9 +35,9 @@ public class Rangefinder extends DeviceBase {
     }
 
     /**
-     * Get the distance between an obstacle and this sensor.
+     * Gets the distance between an obstacle and this sensor.
      *
-     * @return distance (in centimeter)
+     * @return the distance in centimeter
      */
     public int getDistance() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.GET_RANGEFINDER_DIST, null);

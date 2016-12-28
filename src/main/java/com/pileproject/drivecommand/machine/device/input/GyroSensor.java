@@ -35,7 +35,7 @@ public class GyroSensor extends DeviceBase {
     }
 
     /**
-     * Get the rate of rotations.
+     * Gets the rate of rotations.
      *
      * @return the current rate
      */
@@ -46,7 +46,8 @@ public class GyroSensor extends DeviceBase {
     }
 
     /**
-     * GEt the angle of this Gyro sensor.
+     * Gets the angle of this gyro sensor.
+     *
      * @return the current angle
      */
     public int getAngle() {

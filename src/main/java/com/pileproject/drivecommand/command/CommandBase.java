@@ -33,28 +33,27 @@ public abstract class CommandBase {
     }
 
     /**
-     * Get this command type.
+     * Gets this command type.
      *
-     * @return {@link CommandType}
+     * @return the {@link CommandType}
      */
     public CommandType getCommandType() {
         return mType;
     }
 
     /**
-     * Get the device type which is used in this command.
+     * Gets the device type which is used in this command.
      *
-     * @return {@link DeviceType}
+     * @return the {@link DeviceType}
      */
     public DeviceType getDeviceType() {
         return mType.getDeviceType();
     }
 
     /**
-     * Get the arguments of this command.
+     * Gets the arguments of this command.
      *
-     * @return a map of {@link String} and {@link Object} which expresses
-     * arguments
+     * @return a map of {@link String} and {@link Object} which expresses arguments
      */
     public Map<String, Object> getArgs() {
         return mArgs;

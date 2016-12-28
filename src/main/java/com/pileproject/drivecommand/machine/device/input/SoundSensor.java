@@ -35,9 +35,9 @@ public class SoundSensor extends DeviceBase {
     }
 
     /**
-     * Get the sound volume in dB.
+     * Gets the sound volume in dB.
      *
-     * @return dB
+     * @return the volume in dB
      */
     public int getDb() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.GET_SOUND_DB, null);
