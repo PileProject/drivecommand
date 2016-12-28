@@ -33,7 +33,7 @@ public abstract class CommandBase {
     }
 
     /**
-     * Gets this command type.
+     * Gets the type of this command.
      *
      * @return the {@link CommandType}
      */
@@ -42,7 +42,7 @@ public abstract class CommandBase {
     }
 
     /**
-     * Gets the device type which is used in this command.
+     * Gets the type of the device which is used with this command.
      *
      * @return the {@link DeviceType}
      */
