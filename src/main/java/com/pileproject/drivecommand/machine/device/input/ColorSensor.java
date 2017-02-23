@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,9 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 
 import java.util.Map;
 
+/**
+ * A color sensor class.
+ */
 public class ColorSensor extends DeviceBase {
 
     public ColorSensor(InputPort port, ProtocolBase protocol) {
@@ -32,10 +35,10 @@ public class ColorSensor extends DeviceBase {
     }
 
     /**
-     * Get the color in RGB (0 - 255)
+     * Gets the color in RGB (0 - 255)
      * TODO: this method doesn't return proper value.
      *
-     * @return float[] ([0]: r, [1]: g, [2]: b)
+     * @return RGB values in an array of float ([0]: r, [1]: g, [2]: b)
      */
     public float[] getRgb() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.GET_COLOR_RGB, null);
@@ -44,9 +47,9 @@ public class ColorSensor extends DeviceBase {
     }
 
     /**
-     * Get the illuminance in percent (0 - 100)
+     * Gets the illuminance in percent (0 - 100)
      *
-     * @return int (0 - 100 %)
+     * @return the illuminance (0 - 100%)
      */
     public int getIlluminance() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.GET_COLOR_ILLUMINANCE, null);

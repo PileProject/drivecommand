@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ import com.pileproject.drivecommand.model.CommandType;
 import java.util.Map;
 
 /**
- * A simple command.
+ * The simplest implementation of {@link CommandBase}.
  */
 public class Command extends CommandBase {
     public Command(CommandType type, Map<String, Object> args) {

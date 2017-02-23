@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,9 +26,6 @@ import java.util.regex.Pattern;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-/**
- * Created by yusaku on 2015/10/07.
- */
 public class PileOutputPortTest {
 
     @DataProvider(name = "ports")

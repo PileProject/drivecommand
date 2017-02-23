@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,11 +15,11 @@
  */
 package com.pileproject.drivecommand.machine.device.port;
 
+import com.pileproject.drivecommand.machine.device.DeviceBase;
+
 /***
- * An exception thrown when an attempt to create a subclass of
- * {@link com.pileproject.drivecommand.machine.device.DeviceBase}
- * with inappropriate {@link com.pileproject.drivecommand.machine.device.port.DevicePort}
- * type is occurred.
+ * An exception thrown when an attempt to create a subclass of {@link DeviceBase}
+ * with inappropriate {@link DevicePort} type is used.
  *
  * Unchecked exception.
  */

@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ public class Motor extends DeviceBase {
     }
 
     /**
-     * Move this motor forward.
+     * Moves this motor forward.
      */
     public void forward() {
         Map<String, Object> args = new HashMap<>();
@@ -47,7 +47,7 @@ public class Motor extends DeviceBase {
     }
 
     /**
-     * Move this motor backward.
+     * Moves this motor backward.
      */
     public void backward() {
         Map<String, Object> args = new HashMap<>();
@@ -57,7 +57,7 @@ public class Motor extends DeviceBase {
     }
 
     /**
-     * Stop this motor.
+     * Stops this motor.
      */
     public void stop() {
         Map<String, Object> args = new HashMap<>();
@@ -67,7 +67,7 @@ public class Motor extends DeviceBase {
     }
 
     /**
-     * Get the speed of this motor.
+     * Gets the speed of this motor.
      *
      * @return speed (0 - 100)
      */
@@ -76,11 +76,11 @@ public class Motor extends DeviceBase {
     }
 
     /**
-     * Set the speed (0 - 100) of this motor.
+     * Sets the speed (0 - 100) of this motor.
      * If the speed is out of the range,
      * this method do nothing.
      *
-     * @param speed a speed to be set to this motor.
+     * @param speed a speed to be set to this motor
      */
     public void setSpeed(int speed) {
         if (speed < 0 || speed > 100) return;

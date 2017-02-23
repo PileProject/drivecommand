@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ public class Servomotor extends DeviceBase {
     }
 
     /**
-     * Get the angle of this servomotor.
+     * Gets the angle of this servomotor.
      *
      * @return the current angle
      */
@@ -47,7 +47,7 @@ public class Servomotor extends DeviceBase {
     }
 
     /**
-     * Set the angle to this servomotor.
+     * Sets the angle to this servomotor.
      *
      * @param angle an angle to be set
      */

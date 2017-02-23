@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,9 +24,6 @@ import org.testng.annotations.Test;
 import mockit.Expectations;
 import mockit.Mocked;
 
-/**
- * Created by tatsuya on 2016/02/22.
- */
 public class Ev3ProtocolTest {
     @Mocked
     private ICommunicator communicator;

@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,11 +36,11 @@ public class MachineStatus {
     }
 
     /**
-     * Bind a port and device type.
+     * Binds a port and device type.
      *
-     * @param port a port bound with a device type
-     * @param type a type bound with a port
-     * @return updated or not
+     * @param port a port to be bounded with a device type
+     * @param type a type to be bounded with a port
+     * @return succeeded (<code>true</code>) or not (<code>false</code>)
      */
     public boolean bind(DevicePort port, DeviceType type) {
         boolean isUpdated = mDevices.containsKey(port);
@@ -49,7 +49,7 @@ public class MachineStatus {
     }
 
     /**
-     * Get the connections of ports.
+     * Gets the connection status of ports.
      *
      * @return a map of {@link DevicePort} and {@link DeviceType}
      */

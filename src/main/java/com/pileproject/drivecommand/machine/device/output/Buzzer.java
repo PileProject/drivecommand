@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,7 @@ public class Buzzer extends DeviceBase {
     }
 
     /**
-     * Turn on this buzzer if it is off.
+     * Turns on this buzzer if it is off.
      */
     public void turnOn() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.SET_BUZZER_ON, null);
@@ -41,7 +41,7 @@ public class Buzzer extends DeviceBase {
     }
 
     /**
-     * Turn off this buzzer if it is on.
+     * Turns off this buzzer if it is on.
      */
     public void turnOff() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.SET_BUZZER_OFF, null);
@@ -49,7 +49,7 @@ public class Buzzer extends DeviceBase {
     }
 
     /**
-     * Keep this buzzer beeping.
+     * Keeps this buzzer beeping.
      */
     public void beep() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.SET_BUZZER_BEEP, null);

@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,9 +35,9 @@ public class TouchSensor extends DeviceBase {
     }
 
     /**
-     * Check this sensor is touched now.
+     * Checks if this sensor is touched now.
      *
-     * @return touched (true) or not (false)
+     * @return touched (<code>true</code>) or (<code>false</code>)
      */
     public boolean isTouched() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.GET_TOUCH_TOUCHED, null);
@@ -46,9 +46,9 @@ public class TouchSensor extends DeviceBase {
     }
 
     /**
-     * Get the touched count.
+     * Gets the touched count.
      *
-     * @return the number of count
+     * @return the number of touched count
      */
     public int getTouchedCount() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.GET_TOUCH_COUNT, null);

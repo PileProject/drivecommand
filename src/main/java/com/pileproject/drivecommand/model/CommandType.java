@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,10 +15,11 @@
  */
 package com.pileproject.drivecommand.model;
 
+import com.pileproject.drivecommand.command.Command;
 import com.pileproject.drivecommand.machine.device.DeviceType;
 
 /**
- * An enum class which expresses types of commands.
+ * An enum class which contains the types of {@link Command}s.
  */
 public enum CommandType {
     SET_LED_ON {

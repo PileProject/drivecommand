@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ public class GyroSensor extends DeviceBase {
     }
 
     /**
-     * Get the rate of rotations.
+     * Gets the rate of rotations.
      *
      * @return the current rate
      */
@@ -46,7 +46,8 @@ public class GyroSensor extends DeviceBase {
     }
 
     /**
-     * GEt the angle of this Gyro sensor.
+     * Gets the angle of this gyro sensor.
+     *
      * @return the current angle
      */
     public int getAngle() {

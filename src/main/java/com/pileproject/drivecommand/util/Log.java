@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 package com.pileproject.drivecommand.util;
 
 /**
- * A utility class to show logs on console.
+ * A utility class that shows logs on console.
  */
 public class Log {
     public static void e(String tag, String msg) {

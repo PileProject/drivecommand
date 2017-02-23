@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,7 +60,7 @@ import static com.pileproject.drivecommand.model.ev3.Ev3Constants.TOUCH_TOUCH;
 import static com.pileproject.drivecommand.model.ev3.Ev3Constants.US_CM;
 
 /**
- * A protocol class for Ev3.
+ * A protocol class for LEGO MINDSTORMS EV3.
  */
 public class Ev3Protocol extends ProtocolBase {
     private static final String KEY_VALUE = "value";
@@ -163,27 +163,21 @@ public class Ev3Protocol extends ProtocolBase {
                 soundTone(50, 600, 200);
                 break;
             }
-            case SET_BUZZER_OFF: {
-                throw new UnsupportedOperationException("SET BUZZER OFF Operation hasn't been implemented yet");
-            }
-            case SET_BUZZER_ON: {
-                throw new UnsupportedOperationException("SET BUZZER ON Operation hasn't been implemented yet");
-            }
-            case SET_LED_OFF: {
-                throw new UnsupportedOperationException("SET LED OFF Operation hasn't been implemented yet");
-            }
-            case SET_LED_ON: {
-                throw new UnsupportedOperationException("SET LED ON Operation hasn't been implemented yet");
-            }
             case SET_MOTOR_SPEED: {
                 Map<String, Object> args = cmd.getArgs();
                 int speed = (Integer) args.get("speed");
                 setOutputState(port, speed);
                 break;
             }
+
+            case SET_BUZZER_OFF:
+            case SET_BUZZER_ON:
+            case SET_LED_OFF:
+            case SET_LED_ON:
             case SET_SERVO_ANGLE: {
-                throw new UnsupportedOperationException("SET SERVO ANGLE Operation hasn't been implemented yet");
+                throw new UnsupportedOperationException(type.name() + " Operation hasn't been implemented yet");
             }
+
             default: {
                 throw new UnsupportedOperationException("This Operation hasn't been implemented yet");
             }
@@ -192,13 +186,13 @@ public class Ev3Protocol extends ProtocolBase {
     }
 
     /**
-     * Get SI unit value.
+     * Gets the value in SI unit from a machine. This method sends a request and receives the result.
      *
-     * @param port   the port of a device
-     * @param type   the device type
-     * @param mode   the mode of the device
+     * @param port the port of a device
+     * @param type the device type
+     * @param mode the mode of the device
      * @param nvalue the number of the response value
-     * @return returned value in SI unit
+     * @return a returned value in SI unit
      */
     private float[] getSiValue(int port, int type, int mode, int nvalue) {
         ByteCodeFormatter byteCode = new ByteCodeFormatter();
@@ -215,15 +209,15 @@ public class Ev3Protocol extends ProtocolBase {
         byteCode.addParameter((byte) nvalue); // number of values
         byteCode.addGlobalIndex((byte) 0x00);
 
-        // Send message
+        // send message
         mCommunicator.write(byteCode.byteArray());
 
         byte[] reply = readData();
 
-        // Check the validity of the response
+        // check the validity of the response
         // boolean valid = (reply[2] == DIRECT_COMMAND_SUCCESS);
 
-        // Read the SI unit value in float type
+        // read the SI unit value in float type
         float[] result = new float[nvalue];
         for (int i = 0; i < nvalue; i++) {
             byte[] data = Arrays.copyOfRange(reply, 3 + 4 * i, 7 + 4 * i);
@@ -233,13 +227,13 @@ public class Ev3Protocol extends ProtocolBase {
     }
 
     /**
-     * Get percent value.
+     * Gets the value in percent from a machine. This method sends a request and receives the result.
      *
-     * @param port   the port of a device
-     * @param type   the device type
-     * @param mode   the mode of the device
+     * @param port the port of a device
+     * @param type the device type
+     * @param mode the mode of the device
      * @param nvalue the number of the response value
-     * @return returned value in percent
+     * @return a returned value in percent
      */
     private short[] getPercentValue(int port, int type, int mode, int nvalue) {
         ByteCodeFormatter byteCode = new ByteCodeFormatter();
@@ -261,10 +255,10 @@ public class Ev3Protocol extends ProtocolBase {
 
         byte[] reply = readData();
 
-        // Check the validity of the response
-        // boolean valid = (reply[2] == DIRECT_COMMAND_SUCCESS);
+        // check the validity of the response
+        // boolean valid = (reply[2] == direct_command_success);
 
-        // Read the percent value in short type
+        // read the percent value in short type
         short[] result = new short[nvalue];
         for (int i = 0; i < nvalue; i++) {
             result[i] = (short) reply[3 + i];
@@ -273,9 +267,9 @@ public class Ev3Protocol extends ProtocolBase {
     }
 
     /**
-     * Convert a output port to a byte code port.
+     * Converts an output port to a byte code port.
      *
-     * @param port port to be converted
+     * @param port the port to be converted
      * @return a byte code which expresses a output port
      */
     private byte toByteCodePort(int port) {
@@ -284,15 +278,15 @@ public class Ev3Protocol extends ProtocolBase {
     }
 
     /**
-     * Set output device condition.
+     * Sets the speed of output device.
      *
-     * @param port  the port of a device
+     * @param port the port of a device
      * @param speed the speed of a device
      */
     private void setOutputState(int port, int speed) {
         ByteCodeFormatter byteCode = new ByteCodeFormatter();
 
-        // Convert port number
+        // convert port number
         byte byteCodePort = toByteCodePort(port);
 
         byteCode.addOpCode(DIRECT_COMMAND_NOREPLY);
@@ -307,15 +301,15 @@ public class Ev3Protocol extends ProtocolBase {
         byteCode.addParameter(LAYER_MASTER);
         byteCode.addParameter(byteCodePort);
 
-        // Send message
+        // send message
         mCommunicator.write(byteCode.byteArray());
     }
 
     /**
-     * Make a sound.
+     * Makes a sound.
      *
-     * @param volume   the volume of a sound (0 ~ 100 [%])
-     * @param freq     the frequency [Hz]
+     * @param volume the volume of a sound (0 ~ 100 [%])
+     * @param freq the frequency [Hz]
      * @param duration the duration of a sound [msec]
      */
     private void soundTone(int volume, int freq, int duration) {
@@ -335,16 +329,16 @@ public class Ev3Protocol extends ProtocolBase {
     }
 
     /**
-     * Read data from a machine.
+     * Reads data from a machine.
      *
-     * @return returned results
+     * @return the returned results
      */
     private byte[] readData() {
-        // Calculate the size of response by reading 2 bytes.
+        // calculate the size of response by reading 2 bytes
         byte[] header = mCommunicator.read(2);
         int numBytes = ((header[1] & 0x00ff) << 8) | (header[0] & 0x00ff);
 
-        // Get result
+        // get result
         byte[] result = mCommunicator.read(numBytes);
         Log.d(TAG, "read: " + result.length + " bytes");
 
@@ -353,7 +347,6 @@ public class Ev3Protocol extends ProtocolBase {
 
     @Override
     public boolean apply() {
-        // this protocol does not support transactions.
         throw new UnsupportedOperationException("Ev3 Protocol does not support transactions");
     }
 

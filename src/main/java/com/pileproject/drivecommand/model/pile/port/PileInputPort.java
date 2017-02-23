@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,27 +18,26 @@ package com.pileproject.drivecommand.model.pile.port;
 import com.pileproject.drivecommand.machine.device.port.InputPort;
 
 /**
- * An input port class for Pile robots.
- * This class is used for connecting devices to a machine.
+ * An input port class for PILE machines. This class is used for connecting a device to an input port.
  *
- * There are static instances of this class;
- *  {@link PileInputPort#LINE_SENSOR_L}
- *  {@link PileInputPort#LINE_SENSOR_R}
- *  {@link PileInputPort#TOUCH_SENSOR}
- *  {@link PileInputPort#RANGEFINDER}
+ * There are static instances of this class:
+ * <ul>
+ *  <li>{@link PileInputPort#LINE_SENSOR_L}</li>
+ *  <li>{@link PileInputPort#LINE_SENSOR_R}</li>
+ *  <li>{@link PileInputPort#TOUCH_SENSOR}</li>
+ *  <li>{@link PileInputPort#RANGEFINDER}</li>
+ * </ul>
  */
 public class PileInputPort extends InputPort {
     public static final PileInputPort LINE_SENSOR_L
             = new PileInputPort(0, Type.LINE_SENSOR_L);
-
     public static final PileInputPort LINE_SENSOR_R
             = new PileInputPort(1, Type.LINE_SENSOR_R);
-
     public static final PileInputPort TOUCH_SENSOR
             = new PileInputPort(0, Type.TOUCH_SENSOR);
-
     public static final PileInputPort RANGEFINDER
             = new PileInputPort(0, Type.RANGEFINDER);
+
     private final int mPort;
     private final Type mType;
 

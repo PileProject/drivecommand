@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,9 +35,9 @@ public class Rangefinder extends DeviceBase {
     }
 
     /**
-     * Get the distance between an obstacle and this sensor.
+     * Gets the distance between an obstacle and this sensor.
      *
-     * @return distance (in centimeter)
+     * @return the distance in centimeter
      */
     public int getDistance() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.GET_RANGEFINDER_DIST, null);

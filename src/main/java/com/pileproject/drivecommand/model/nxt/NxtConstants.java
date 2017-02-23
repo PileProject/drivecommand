@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,18 +16,18 @@
 package com.pileproject.drivecommand.model.nxt;
 
 /**
- * A class holding constants for Nxt.
+ * A class that holds <code>byte</code> constants for LEGO MINDSTORMS NXT.
  */
 public class NxtConstants {
 
-    // Command types constants.
+    // Command type constants
     public static final byte DIRECT_COMMAND_REPLY = 0x00;
     public static final byte SYSTEM_COMMAND_REPLY = 0x01;
     public static final byte REPLY_COMMAND = 0x02;
     public static final byte DIRECT_COMMAND_NOREPLY = (byte) 0x80;
     public static final byte SYSTEM_COMMAND_NOREPLY = (byte) 0x81;
 
-    // System Commands
+    // System commands
     public static final byte OPEN_READ = (byte) 0x80;
     public static final byte OPEN_WRITE = (byte) 0x81;
     public static final byte READ = (byte) 0x82;
@@ -48,11 +48,11 @@ public class NxtConstants {
     public static final byte POLL_LENGTH = (byte) 0xA1;
     public static final byte POLL = (byte) 0xA2;
 
-    // Poll constants:
+    // Poll constants
     public static final byte POLL_BUFFER = (byte) 0x00;
     public static final byte HIGH_SPEED_BUFFER = (byte) 0x01;
 
-    // Direct Commands
+    // Direct commands
     public static final byte START_PROGRAM = 0x00;
     public static final byte STOP_PROGRAM = 0x01;
     public static final byte PLAY_SOUND_FILE = 0x02;
@@ -78,54 +78,54 @@ public class NxtConstants {
     public static final byte NXJ_DEFRAG = 0x21;
 
     // Output state constants
-    // Mode:
+    // Modes:
     /**
-     * Turn on the specified motor
+     * Turns on the specified motor.
      */
     public static final byte MOTORON = 0x01;
     /**
-     * Use run/brake instead of run/float in PWM
+     * Uses run/brake instead of run/float in PWM.
      */
     public static final byte BRAKE = 0x02;
     /**
-     * Turns on the regulation
+     * Turns on the regulation.
      */
     public static final byte REGULATED = 0x04;
 
-    // Regulation Mode:
+    // Regulation modes:
     /**
-     * No regulation will be enabled
+     * No regulation will be enabled.
      */
     public static final byte REGULATION_MODE_IDLE = 0x00;
     /**
-     * Power control will be enabled on specified output
+     * Power control will be enabled on the specified output.
      */
     public static final byte REGULATION_MODE_MOTOR_SPEED = 0x01;
     /**
-     * Synchronization will be enabled (Needs enabled on two output)
+     * Synchronization will be enabled (needs enabled for two or more outputs).
      */
     public static final byte REGULATION_MODE_MOTOR_SYNC = 0x02;
 
-    // RunState:
+    // Run states:
     /**
-     * Output will be idle
+     * Output will be idle.
      */
     public static final byte MOTOR_RUN_STATE_IDLE = 0x00;
     /**
-     * Output will ramp-up
+     * Output will ramp-up.
      */
     public static final byte MOTOR_RUN_STATE_RAMPUP = 0x10;
     /**
-     * Output will be running
+     * Output will be running.
      */
     public static final byte MOTOR_RUN_STATE_RUNNING = 0x20;
     /**
-     * Output will ramp-down
+     * Output will ramp-down.
      */
     public static final byte MOTOR_RUN_STATE_RAMPDOWN = 0x40;
 
-    // Input Mode Constants
-    // Port Type:
+    // Input mode constants
+    // Port types:
     public static final byte NO_SENSOR = 0x00;
     public static final byte SWITCH = 0x01;
     public static final byte TEMPERATURE = 0x02;
@@ -140,7 +140,7 @@ public class NxtConstants {
     public static final byte LOWSPEED_9V = 0x0B;
     public static final byte NO_OF_SENSOR_TYPES = 0x0C;
 
-    // Port Mode:
+    // Port modes:
     public static final byte RAWMODE = 0x00;
     public static final byte BOOLEANMODE = 0x20;
     public static final byte TRANSITIONCNTMODE = 0x40;

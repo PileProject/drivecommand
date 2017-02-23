@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@ import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.model.CommandType;
 import com.pileproject.drivecommand.model.ProtocolBase;
 import com.pileproject.drivecommand.model.com.ICommunicator;
-import com.pileproject.drivecommand.util.Log;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -42,9 +41,7 @@ import static com.pileproject.drivecommand.model.nxt.NxtConstants.SOUND_DB;
 import static com.pileproject.drivecommand.model.nxt.NxtConstants.SWITCH;
 
 /**
- * A protocol class for Nxt.
- *
- * @see <a href="http://sourceforge.net/projects/lejos/files/lejos-NXJ/">LeJOS</a>
+ * A protocol class for LEGO MINDSTORMS NXT.
  */
 public class NxtProtocol extends ProtocolBase {
     private static final String KEY_VALUE = "value";
@@ -73,35 +70,11 @@ public class NxtProtocol extends ProtocolBase {
         Map<String, Object> res = new HashMap<>();
         CommandType type = cmd.getCommandType();
         switch (type) {
-            case GET_COLOR_ILLUMINANCE: {
-                throw new UnsupportedOperationException("GET COLOR ILLUMINANCE Operation hasn't been implemented yet");
-            }
-            case GET_COLOR_RGB: {
-                throw new UnsupportedOperationException("GET COLOR RGB Operation hasn't been implemented yet");
-            }
-            case GET_GYRO_ANGLE: {
-                throw new UnsupportedOperationException("GET GYRO ANGLE Operation hasn't been implemented yet");
-            }
-            case GET_GYRO_RATE: {
-                throw new UnsupportedOperationException("GET GYRO RATE Operation hasn't been implemented yet");
-            }
             case GET_LINE_VALUE: {
                 setInputMode(port, LIGHT_ACTIVE, PCTFULLSCALEMODE);
                 InputValues values = getInputValues(port);
                 res.put(KEY_VALUE, values.scaledValue / 10);
                 break;
-            }
-            case GET_RANGEFINDER_DIST: {
-                throw new UnsupportedOperationException("GET RANGEFINDER DIST Operation hasn't been implemented yet");
-            }
-            case GET_REMOTECONTROLLER_BUTTON: {
-                throw new UnsupportedOperationException("GET REMOTECONTROLLER BUTTON Operation hasn't been implemented yet");
-            }
-            case GET_REMOTECONTROLLER_DIST: {
-                throw new UnsupportedOperationException("GET GET REMOTECONTROLLER DIST Operation hasn't been implemented yet");
-            }
-            case GET_SERVO_ANGLE: {
-                throw new UnsupportedOperationException("GET SERVO ANGLE Operation hasn't been implemented yet");
             }
             case GET_SOUND_DB: {
                 setInputMode(port, SOUND_DB, PCTFULLSCALEMODE);
@@ -109,29 +82,11 @@ public class NxtProtocol extends ProtocolBase {
                 res.put(KEY_VALUE, values.scaledValue / 10);
                 break;
             }
-            case GET_TOUCH_COUNT: {
-                throw new UnsupportedOperationException("GET TOUCH COUNT Operation hasn't been implemented yet");
-            }
             case GET_TOUCH_TOUCHED: {
                 setInputMode(port, SWITCH, BOOLEANMODE);
                 InputValues values = getInputValues(port);
                 res.put(KEY_VALUE, values.scaledValue < 600);
                 break;
-            }
-            case SET_BUZZER_BEEP: {
-                throw new UnsupportedOperationException("SET BUZZER BEEP Operation hasn't been implemented yet");
-            }
-            case SET_BUZZER_OFF: {
-                throw new UnsupportedOperationException("SET BUZZER OFF Operation hasn't been implemented yet");
-            }
-            case SET_BUZZER_ON: {
-                throw new UnsupportedOperationException("SET BUZZER ON Operation hasn't been implemented yet");
-            }
-            case SET_LED_OFF: {
-                throw new UnsupportedOperationException("SET LED OFF Operation hasn't been implemented yet");
-            }
-            case SET_LED_ON: {
-                throw new UnsupportedOperationException("SET LED ON Operation hasn't been implemented yet");
             }
             case SET_MOTOR_SPEED: {
                 Map<String, Object> args = cmd.getArgs();
@@ -140,9 +95,25 @@ public class NxtProtocol extends ProtocolBase {
                         REGULATION_MODE_MOTOR_SPEED, 0, MOTOR_RUN_STATE_RUNNING, 0);
                 break;
             }
+
+            case GET_COLOR_ILLUMINANCE:
+            case GET_COLOR_RGB:
+            case GET_GYRO_ANGLE:
+            case GET_GYRO_RATE:
+            case GET_RANGEFINDER_DIST:
+            case GET_REMOTECONTROLLER_BUTTON:
+            case GET_REMOTECONTROLLER_DIST:
+            case GET_SERVO_ANGLE:
+            case GET_TOUCH_COUNT:
+            case SET_BUZZER_BEEP:
+            case SET_BUZZER_OFF:
+            case SET_BUZZER_ON:
+            case SET_LED_OFF:
+            case SET_LED_ON:
             case SET_SERVO_ANGLE: {
-                throw new UnsupportedOperationException("SET SERVO ANGLE Operation hasn't been implemented yet");
+                throw new UnsupportedOperationException(type.name() + " Operation hasn't been implemented yet");
             }
+
             default: {
                 throw new UnsupportedOperationException("This Operation hasn't been implemented yet");
             }
@@ -151,16 +122,15 @@ public class NxtProtocol extends ProtocolBase {
     }
 
     /**
-     * Set the output device status.
+     * Sets the status of an output device.
      *
-     * @param port           the port of a device (0 ~ 3)
-     * @param speed          the speed of a device
-     * @param mode           the mode of the device (ex. MOTORON, BRAKE, and/or
-     *                       REGULATED) This field is a bit field
+     * @param port the port of a device (0 ~ 3)
+     * @param speed the speed of an output device
+     * @param mode the mode of an output device (ex. MOTORON, BRAKE, and/or REGULATED). This field is a bit field.
      * @param regulationMode see {@link NxtConstants}
-     * @param turnRatio      use this parameter to move more than two motor
-     * @param runState       see {@link NxtConstants}
-     * @param tachoLimit     the number of degrees to rotate before stopping
+     * @param turnRatio Use this parameter to move more than two motors
+     * @param runState see {@link NxtConstants}
+     * @param tachoLimit the number of degrees to rotate before stopping
      */
     private void setOutputState(int port, int speed, int mode,
                                 int regulationMode, int turnRatio, int runState, int tachoLimit) {
@@ -178,14 +148,12 @@ public class NxtProtocol extends ProtocolBase {
                 (byte) (tachoLimit >>> 16),
                 (byte) (tachoLimit >>> 24)
         };
-        // Send request
+        // send request
         sendData(request);
     }
 
     /**
-     * A small helper to send data.
-     * This method calculates the size of the data
-     * and append it to the data.
+     * Sends data to a machine. This method calculates the size of the data and append it to the data.
      *
      * @param request a request to be sent to a machine
      */
@@ -225,19 +193,17 @@ public class NxtProtocol extends ProtocolBase {
     }
 
     /**
-     * Tells an NXT what type of sensor you are
-     * using and the mode to operate in.
+     * Tells an NXT what type of sensor is used and the mode to operate in.
      *
-     * @param port       the port of a device (0 ~ 3)
+     * @param port the port of a device (0 ~ 3)
      * @param sensorType see {@link NxtConstants}
      * @param sensorMode see {@link NxtConstants}
      */
     public void setInputMode(int port, int sensorType, int sensorMode) {
-        // If the port is not initialized, set the mode
+        // if the port has not been initialized yet, set the mode
         if (!mPortTypes.containsKey(port) || sensorType != mPortTypes.get(port)) {
-            // Save the setting to a map and set the mode of sensor
+            // save the port setting to a map and set the mode of sensor
             mPortTypes.put(port, (byte) sensorType);
-            Log.d(TAG, "port(" + port + ") is initailized to " + sensorType);
 
             byte[] request = {
                     DIRECT_COMMAND_NOREPLY,
@@ -248,7 +214,7 @@ public class NxtProtocol extends ProtocolBase {
             };
 
             sendData(request);
-            getInputValues(port); // Skip the first value (it may be invalid)
+            getInputValues(port); // skip the first value (it may be invalid)
 
             // sound sensor needs more initializing
             // time based on our experiments
@@ -271,7 +237,6 @@ public class NxtProtocol extends ProtocolBase {
 
     @Override
     public boolean apply() {
-        // this protocol does not support transactions
         throw new UnsupportedOperationException("Nxt Protocol does not support transactions");
     }
 

@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ public class Led extends DeviceBase {
     }
 
     /**
-     * Turn on this LED if it is off.
+     * Turns on this LED if it is off.
      */
     public void turnOn() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.SET_LED_ON, null);
@@ -42,7 +42,7 @@ public class Led extends DeviceBase {
     }
 
     /**
-     * Turn off this LED if it is on.
+     * Turns off this LED if it is on.
      */
     public void turnOff() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.SET_LED_OFF, null);

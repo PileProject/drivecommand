@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,9 +35,9 @@ public class RemoteControlReceiver extends DeviceBase {
     }
 
     /**
-     * Get the pushed buttons on the controller.
+     * Gets the pushed button on the controller.
      *
-     * @return button number
+     * @return the button number
      */
     public int getRemoteButton() {
         CommandBase cmd = CommandFactory.createCommand(CommandType.GET_REMOTECONTROLLER_BUTTON, null);
@@ -46,9 +46,9 @@ public class RemoteControlReceiver extends DeviceBase {
     }
 
     /**
-     * Get the distance between this device and the controller.
+     * Gets the distance between this device and the controller.
      *
-     * @return distance [cm]
+     * @return the distance in centimeter
      * TODO: not tested
      */
     public int getRemoteDistance() {

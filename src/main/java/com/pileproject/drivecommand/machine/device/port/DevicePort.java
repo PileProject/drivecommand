@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,10 +15,12 @@
  */
 package com.pileproject.drivecommand.machine.device.port;
 
+import com.pileproject.drivecommand.machine.device.DeviceType;
+
 /**
- * A port of a device
- * (see: {@link com.pileproject.drivecommand.machine.device.DeviceType})
- * on a machine.
+ * A port of a device on a machine.
+ *
+ * @see DeviceType
  */
 public interface DevicePort {
     int getRaw();

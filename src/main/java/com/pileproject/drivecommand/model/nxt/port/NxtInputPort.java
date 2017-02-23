@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,14 +18,15 @@ package com.pileproject.drivecommand.model.nxt.port;
 import com.pileproject.drivecommand.machine.device.port.InputPort;
 
 /**
- * An input port class for Nxt.
- * This class is used for connecting devices to a machine.
+ * An input port class for LEGO MINDSTORMS NXT. This class is used for connecting a device to an input port.
  *
- * There are static instances of this class;
- *  {@link NxtInputPort#PORT_1}
- *  {@link NxtInputPort#PORT_2}
- *  {@link NxtInputPort#PORT_3}
- *  {@link NxtInputPort#PORT_4}
+ * There are static instances of this class:
+ * <ul>
+ *  <li>{@link NxtInputPort#PORT_1}</li>
+ *  <li>{@link NxtInputPort#PORT_2}</li>
+ *  <li>{@link NxtInputPort#PORT_3}</li>
+ *  <li>{@link NxtInputPort#PORT_4}</li>
+ * </ul>
  */
 public class NxtInputPort extends InputPort {
     public static final NxtInputPort PORT_1 = new NxtInputPort(0);

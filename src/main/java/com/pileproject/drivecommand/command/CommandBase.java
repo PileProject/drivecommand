@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,28 +33,27 @@ public abstract class CommandBase {
     }
 
     /**
-     * Get this command type.
+     * Gets the type of this command.
      *
-     * @return {@link CommandType}
+     * @return the {@link CommandType}
      */
     public CommandType getCommandType() {
         return mType;
     }
 
     /**
-     * Get the device type which is used in this command.
+     * Gets the type of the device which is used with this command.
      *
-     * @return {@link DeviceType}
+     * @return the {@link DeviceType}
      */
     public DeviceType getDeviceType() {
         return mType.getDeviceType();
     }
 
     /**
-     * Get the arguments of this command.
+     * Gets the arguments of this command.
      *
-     * @return a map of {@link String} and {@link Object} which expresses
-     * arguments
+     * @return a map of {@link String} and {@link Object} which expresses arguments
      */
     public Map<String, Object> getArgs() {
         return mArgs;

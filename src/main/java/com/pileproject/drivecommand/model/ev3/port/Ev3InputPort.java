@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,14 +18,15 @@ package com.pileproject.drivecommand.model.ev3.port;
 import com.pileproject.drivecommand.machine.device.port.InputPort;
 
 /**
- * An input port class for Ev3.
- * This class is used for connecting devices to a machine.
+ * An input port class for LEGO MINDSTORMS EV3. This class is used for connecting a device to an input port.
  *
- * There are static instances of this class;
- *  {@link Ev3InputPort#PORT_1}
- *  {@link Ev3InputPort#PORT_2}
- *  {@link Ev3InputPort#PORT_3}
- *  {@link Ev3InputPort#PORT_4}
+ * There are static instances of this class:
+ * <ul>
+ *  <li>{@link Ev3InputPort#PORT_1}</li>
+ *  <li>{@link Ev3InputPort#PORT_2}</li>
+ *  <li>{@link Ev3InputPort#PORT_3}</li>
+ *  <li>{@link Ev3InputPort#PORT_4}</li>
+ * </ul>
  */
 public class Ev3InputPort extends InputPort {
     public static final Ev3InputPort PORT_1 = new Ev3InputPort(0);

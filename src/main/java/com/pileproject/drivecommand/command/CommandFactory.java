@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,16 +20,16 @@ import com.pileproject.drivecommand.model.CommandType;
 import java.util.Map;
 
 /**
- * A factory class to make a command.
+ * A factory class to make a command. This class creates {@link Command} at present.
  */
 public class CommandFactory {
 
     /**
-     * Create a command.
+     * Creates a command.
      *
      * @param type a type of a command
      * @param args arguments of a command
-     * @return created command
+     * @return a created {@link Command}
      */
     public static CommandBase createCommand(CommandType type, Map<String, Object> args) {
         return new Command(type, args);

@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011-2016 The DriveCommand Authors <pile-dev@googlegroups.com>
+ * Copyright (C) 2011-2017 The PILE Developers <pile-dev@googlegroups.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,163 +46,162 @@ public abstract class MachineBase {
     }
 
     /**
-     * Connect to this machine.
+     * Connects to this machine.
      *
-     * @throws IOException connection fails
+     * @throws IOException if failed to open a connection
      */
     public void connect() throws IOException {
         mProtocol.open();
     }
 
     /**
-     * Disconnect from this machine.
+     * Disconnects from this machine.
      */
     public void disconnect() {
         mProtocol.close();
     }
 
     /**
-     * Transaction apply command
-     * (for Pile machine).
+     * Applies the commands as a transaction (for PILE machines).
      */
     public void apply() {
         throw new UnsupportedOperationException("This machine does not support 'apply' command");
     }
 
     /**
-     * Load data from this machine.
+     * Loads data from this machine.
      *
      * @param key a key of a key-value store
-     * @return byte[] raw values
+     * @return raw values in an array of bytes
      */
     public byte[] load(int key) {
         throw new UnsupportedOperationException("This machine does not support 'load' command");
     }
 
     /**
-     * Store data to this machine.
+     * Stores data to this machine.
      *
      * @param key a key of a key-value store
      * @param data a value of a key-value store
-     * @return boolean success (true) or not (false)
+     * @return succeed (<code>true</code>) or (<code>false</code>)
      */
     public boolean store(int key, byte[] data) {
         throw new UnsupportedOperationException("This machine does not support 'store' command");
     }
 
     /**
-     * Fetch {@link MachineStatus} from this machine.
-     * NOTE: before this command, do  by making connection
+     * Fetches {@link MachineStatus} from this machine.
+     * NOTE: before this command, makes connection
      *
-     * @return {@link MachineStatus}
+     * @return the {@link MachineStatus}
      */
     public abstract MachineStatus fetchStatus();
 
     /**
-     * Create {@link Motor}.
+     * Creates a {@link Motor}.
      *
-     * @param port an {@link OutputPort} which is supposed to be bound
-     * @return {@link Motor} which is connected to the specified port
+     * @param port an {@link OutputPort} which is supposed to be bounded
+     * @return a {@link Motor} which is connected to the specified port
      */
     public Motor createMotor(OutputPort port) {
         throw new UnsupportedOperationException("This machine does not support Motor");
     }
 
     /**
-     * Create {@link Servomotor}.
+     * Creates a {@link Servomotor}.
      *
-     * @param port an {@link OutputPort} which is supposed to be bound
-     * @return {@link Servomotor} which is connected to the specified port
+     * @param port an {@link OutputPort} which is supposed to be bounded
+     * @return a {@link Servomotor} which is connected to the specified port
      */
     public Servomotor createServomotor(OutputPort port) {
         throw new UnsupportedOperationException("This machine does not support Servomotor");
     }
 
     /**
-     * Create {@link Buzzer}.
+     * Creates a {@link Buzzer}.
      *
-     * @param port an {@link OutputPort} which is supposed to be bound
-     * @return {@link Buzzer} which is connected to the specified port
+     * @param port an {@link OutputPort} which is supposed to be bounded
+     * @return a {@link Buzzer} which is connected to the specified port
      */
     public Buzzer createBuzzer(OutputPort port) {
         throw new UnsupportedOperationException("This machine does not support Buzzer");
     }
 
     /**
-     * Create {@link Led}.
+     * Creates a {@link Led}.
      *
-     * @param port an {@link OutputPort} which is supposed to be bound
-     * @return {@link Led} which is connected to the specified port
+     * @param port an {@link OutputPort} which is supposed to be bounded
+     * @return a {@link Led} which is connected to the specified port
      */
     public Led createLed(OutputPort port) {
         throw new UnsupportedOperationException("This machine does not support LED");
     }
 
     /**
-     * Create {@link LineSensor}.
+     * Creates a {@link LineSensor}.
      *
-     * @param port an {@link InputPort} which is supposed to be bound
-     * @return {@link LineSensor} which is connected to the specified port
+     * @param port an {@link InputPort} which is supposed to be bounded
+     * @return a {@link LineSensor} which is connected to the specified port
      */
     public LineSensor createLineSensor(InputPort port) {
         throw new UnsupportedOperationException("This machine does not support LineSensor");
     }
 
     /**
-     * Create {@link GyroSensor}.
+     * Creates a {@link GyroSensor}.
      *
-     * @param port an {@link InputPort} which is supposed to be bound
-     * @return {@link GyroSensor} which is connected to the specified port
+     * @param port an {@link InputPort} which is supposed to be bounded
+     * @return a {@link GyroSensor} which is connected to the specified port
      */
     public GyroSensor createGyroSensor(InputPort port) {
         throw new UnsupportedOperationException("This machine does not support GyroSensor");
     }
 
     /**
-     * Create {@link TouchSensor}.
+     * Creates a {@link TouchSensor}.
      *
-     * @param port an {@link InputPort} which is supposed to be bound
-     * @return {@link TouchSensor} which is connected to the specified port
+     * @param port an {@link InputPort} which is supposed to be bounded
+     * @return a {@link TouchSensor} which is connected to the specified port
      */
     public TouchSensor createTouchSensor(InputPort port) {
         throw new UnsupportedOperationException("This machine does not support TouchSensor");
     }
 
     /**
-     * Create {@link ColorSensor}.
+     * Creates a {@link ColorSensor}.
      *
-     * @param port an {@link InputPort} which is supposed to be bound
-     * @return {@link ColorSensor} which is connected to the specified port
+     * @param port an {@link InputPort} which is supposed to be bounded
+     * @return a {@link ColorSensor} which is connected to the specified port
      */
     public ColorSensor createColorSensor(InputPort port) {
         throw new UnsupportedOperationException("This machine does not support ColorSensor");
     }
 
     /**
-     * Create {@link Rangefinder}.
+     * Creates a {@link Rangefinder}.
      *
-     * @param port an {@link InputPort} which is supposed to be bound
-     * @return {@link Rangefinder} which is connected to the specified port
+     * @param port an {@link InputPort} which is supposed to be bounded
+     * @return a {@link Rangefinder} which is connected to the specified port
      */
     public Rangefinder createRangefinder(InputPort port) {
         throw new UnsupportedOperationException("This machine does not support Rangefinder");
     }
 
     /**
-     * Create {@link SoundSensor}.
+     * Creates a {@link SoundSensor}.
      *
-     * @param port an {@link InputPort} which is supposed to be bound
-     * @return {@link SoundSensor} which is connected to the specified port
+     * @param port an {@link InputPort} which is supposed to be bounded
+     * @return a {@link SoundSensor} which is connected to the specified port
      */
     public SoundSensor createSoundSensor(InputPort port) {
         throw new UnsupportedOperationException("This machine does not support SoundSensor");
     }
 
     /**
-     * Create {@link RemoteControlReceiver}.
+     * Creates a {@link RemoteControlReceiver}.
      *
-     * @param port an {@link InputPort} which is supposed to be bound
-     * @return {@link RemoteControlReceiver} which is connected to the specified port
+     * @param port an {@link InputPort} which is supposed to be bounded
+     * @return a {@link RemoteControlReceiver} which is connected to the specified port
      */
     public RemoteControlReceiver createRemoteControlReceiver(InputPort port) {
         throw new UnsupportedOperationException("This machine does not support RemoteControlReceiver");
