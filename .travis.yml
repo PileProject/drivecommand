@@ -1,18 +1,24 @@
 language: java
 jdk: oraclejdk8
-
 sudo: required
-
+env:
+  global:
+  - secure: hR4oxYjZ1wkDcd1O+z8wXCyrNw2BXCtwxd41BfBC6O1IcQzE4csFjJBVJxSHmpII+8v3eJ7sEelLiCubEWUB+o1p1vkBjf48OOE2btnQdr1wY7x8LxTpQEl9Jgi2te22lFIBiREdQuTCu1xhFsOcnW7EHtvnAHrEBbhQQy6p3R/Uq629kyfjgpOQi4DBmRwd4Q+YNhN7N1T4e58RC8ppoY2fP2+PR3NEVjZgMwoGpst1PNcO39nQczE8GXDW+puAozkcnA0SuDnuEOtvHb5YJLt635/z/obHXFt0vcZannxSQdMynQMM2eeWQp/yZXAdTM4SOX2qjj+oOxOErm9FRCT2adnvDLYgYCt61B8g7nvJ8TgD09HAnhvRgltbqlpjtp+tLvR2nM2nEFuR1onuPLKgH2cQwJHWbC99Oug74Y/OwxN6Y7uWjOFvm1nYY66EOHa/EhtuCxWejGWVj2M396t7U6TnbvOep8Jw0ANYCY3NwIEbtI8o/ePydUTllQVjvO2xmEMH87X1WJnUjVZkr/98OwcZj6ZrIbr0jy/YE4vxbTXOT3sxrRvwi2XdClSeRnc6rYoTE2I8zohnt5YZMC7qB2idQ8sJSoHnwUYk60aGzYs57D9mCeNvBcUCmkzDk856US2PZFY2EPNbd5gLJ8T2S3Tx5iCDBTBu0LuOOBY=
 before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
-    - $HOME/.gradle/caches/2.10
-    - $HOME/.gradle/caches/jars-1
-    - $HOME/.gradle/daemon
-    - $HOME/.gradle/wrapper
-
+  - "$HOME/.gradle/caches/2.10"
+  - "$HOME/.gradle/caches/jars-1"
+  - "$HOME/.gradle/daemon"
+  - "$HOME/.gradle/wrapper"
 script:
-  - ./gradlew license check --continue --stacktrace
+- "./gradlew license check --continue --stacktrace"
+deploy:
+  provider: script
+  script: scripts/deploy-gh-pages.sh
+  skip_cleanup: true
+  on:
+    branch: master
+    tags: true
