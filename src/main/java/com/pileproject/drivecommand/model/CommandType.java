@@ -70,10 +70,10 @@ public enum CommandType {
             return DeviceType.BUZZER;
         }
     },
-    GET_LINE_VALUE {
+    GET_LIGHT_VALUE {
         @Override
         public DeviceType getDeviceType() {
-            return DeviceType.LINE_SENSOR;
+            return DeviceType.LIGHT_SENSOR;
         }
     },
     GET_GYRO_ANGLE {

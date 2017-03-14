@@ -16,7 +16,7 @@
 package unit.drivecommand.model.nxt;
 
 import com.pileproject.drivecommand.machine.MachineBase;
-import com.pileproject.drivecommand.machine.device.input.LineSensor;
+import com.pileproject.drivecommand.machine.device.input.LightSensor;
 import com.pileproject.drivecommand.machine.device.input.SoundSensor;
 import com.pileproject.drivecommand.machine.device.input.TouchSensor;
 import com.pileproject.drivecommand.machine.device.output.Motor;
@@ -58,9 +58,9 @@ public class NxtMachineTest {
     }
 
     @Test
-    public void createLineSensorSuccessfully() throws Exception {
+    public void createLightSensorSuccessfully() throws Exception {
         MachineBase machine = new NxtMachine(communicator);
-        assertTrue(machine.createLineSensor(IN_PORT) instanceof LineSensor);
+        assertTrue(machine.createLightSensor(IN_PORT) instanceof LightSensor);
     }
 
     @Test

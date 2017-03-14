@@ -16,7 +16,7 @@
 package unit.drivecommand.model.pile;
 
 import com.pileproject.drivecommand.machine.MachineBase;
-import com.pileproject.drivecommand.machine.device.input.LineSensor;
+import com.pileproject.drivecommand.machine.device.input.LightSensor;
 import com.pileproject.drivecommand.machine.device.input.Rangefinder;
 import com.pileproject.drivecommand.machine.device.input.TouchSensor;
 import com.pileproject.drivecommand.machine.device.output.Motor;
@@ -68,10 +68,10 @@ public class PileMachineTest {
     }
 
     @Test
-    public void createLineSensorSuccessfully() throws Exception {
+    public void createLightSensorSuccessfully() throws Exception {
         MachineBase machine = new PileMachine(communicator);
-        assertTrue(machine.createLineSensor(PileInputPort.LINE_SENSOR_L)
-                           instanceof LineSensor);
+        assertTrue(machine.createLightSensor(PileInputPort.LIGHT_SENSOR_L)
+                           instanceof LightSensor);
     }
 
     @Test

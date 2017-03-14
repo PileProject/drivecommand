@@ -135,7 +135,7 @@ public class PileConstants {
          */
         DISTANCE(0x11),
         /**
-         * Returns the brightness from a line sensor.
+         * Returns the brightness from a light sensor.
          *
          * <pre><code>
          *  INPUT:  |PORT[1 byte]|
@@ -158,7 +158,7 @@ public class PileConstants {
          * </ul>
          * If <code>PORT</code> is out of range, <code>BRIGHTNESS</code> will be zero.
          */
-        LINESENSOR(0x12),
+        LIGHTSENSOR(0x12),
         /**
          * Changes the status of a LED.
          * <p><b>NOTE: It is necessary to call {@link #APPLY} command after this command.</b></p>

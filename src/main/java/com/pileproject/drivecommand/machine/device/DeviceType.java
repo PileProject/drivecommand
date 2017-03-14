@@ -34,7 +34,7 @@ public enum DeviceType {
     /**
      * e.g., LightSensor for EV3
      */
-    LINE_SENSOR,
+    LIGHT_SENSOR,
     GYRO_SENSOR,
     TOUCH_SENSOR,
     COLOR_SENSOR,
