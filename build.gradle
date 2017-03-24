@@ -44,10 +44,6 @@ dependencies {
 
 }
 
-task wraper(type: Wrapper) {
-    gradleVersion = '2.5'
-}
-
 // for our license
 license {
     header rootProject.file('LICENSE')
@@ -55,26 +51,42 @@ license {
 }
 
 // Maven repository identity setting
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository url: "file:${projectDir}"
+uploadArchives.repositories.mavenDeployer {
+    repository url: "file:${projectDir}/docs"
+    pom {
+        version = 'unspecified'
+        groupId = 'com.pileproject'
+        artifactId = 'drivecommand'
 
-            pom.version = '2.1.0'
-            pom.groupId = 'com.pileproject'
-            pom.artifactId = 'drivecommand'
-
-            pom.project {
-                inceptionYear '2011'
-                packaging 'jar'
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                        distribution 'repo'
-                    }
+        project {
+            inceptionYear '2011'
+            packaging 'jar'
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
                 }
             }
         }
+    }
+}
+
+task deploy {
+    description = "Deploys current sourceset into .jar file via 'uploadArchives' task."
+
+    doLast {
+        if (!project.hasProperty('tag')) {
+            throw new GradleException('Tag not specified. Run with -Ptag=$TAG')
+        }
+
+        if (!(project.tag =~ /^v\d.*$/)) {
+            throw new GradleException('Wrong format tag. A tag for deploy should be /^v[0-9].*$/')
+        }
+
+        // remove the prefix 'v'
+        uploadArchives.repositories.mavenDeployer.pom.version = project.tag.substring(1)
+
+        uploadArchives.execute()
     }
 }
