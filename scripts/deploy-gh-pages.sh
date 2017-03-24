@@ -5,13 +5,13 @@ set -eu
 REPO=`git config remote.origin.url`
 REPO_WITH_TOKEN=${REPO/https:\/\/github.com\//https://${GH_TOKEN}@github.com/}
 
-rootdir=`pwd`
-tmpdir="${rootdir}/`mktemp -d`"
+tmpdir=`mktemp -d`
 
-git clone $REPO $tmpdir
+git clone -b master $REPO $tmpdir
 cd $tmpdir
 
 # build a release
+./gradlew build
 ./gradlew deploy -Ptag=$TRAVIS_TAG
 
 # commit the changes
