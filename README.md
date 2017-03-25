@@ -1,4 +1,4 @@
-DriveCommand 
+DriveCommand
 =====
 master: [![Build Status](https://travis-ci.org/PileProject/drivecommand.svg?branch=master)](https://travis-ci.org/PileProject/drivecommand)
 
@@ -29,7 +29,7 @@ dependencies {
 }
 ```
 
-[v2.1.1](https://github.com/PileProject/drivecommand/releases/tag/v2.1.1) is the latest version.
+[v2.2.0](https://github.com/PileProject/drivecommand/releases/tag/v2.2.0) is the latest version.
 
 ### From jar file
 After building sources (See [Build](#build)),
@@ -112,6 +112,8 @@ They contain implementations of `MachineBase` and Input/Output port classes, etc
 
 
 ## Release History
+* 2.2.0
+    * CHANGE: Clean up JavaDocs
 * 2.1.1
     * CHANGE: Remove `timeout` from write/read
     * ADD: Add more tests
