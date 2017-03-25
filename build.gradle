@@ -90,3 +90,5 @@ task deploy {
         uploadArchives.execute()
     }
 }
+
+deploy.dependsOn build

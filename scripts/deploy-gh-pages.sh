@@ -11,7 +11,6 @@ git clone -b master $REPO $tmpdir
 cd $tmpdir
 
 # build a release
-./gradlew build
 ./gradlew deploy -Ptag=$TRAVIS_TAG
 
 # commit the changes
