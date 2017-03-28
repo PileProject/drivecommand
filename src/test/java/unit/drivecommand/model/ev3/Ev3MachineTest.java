@@ -18,7 +18,7 @@ package unit.drivecommand.model.ev3;
 import com.pileproject.drivecommand.machine.MachineBase;
 import com.pileproject.drivecommand.machine.device.input.ColorSensor;
 import com.pileproject.drivecommand.machine.device.input.GyroSensor;
-import com.pileproject.drivecommand.machine.device.input.LineSensor;
+import com.pileproject.drivecommand.machine.device.input.LightSensor;
 import com.pileproject.drivecommand.machine.device.input.Rangefinder;
 import com.pileproject.drivecommand.machine.device.input.RemoteControlReceiver;
 import com.pileproject.drivecommand.machine.device.input.SoundSensor;
@@ -83,9 +83,9 @@ public class Ev3MachineTest {
     }
 
     @Test
-    public void createLineSensorSuccessfully() throws Exception {
+    public void createLightSensorSuccessfully() throws Exception {
         MachineBase machine = new Ev3Machine(communicator);
-        assertTrue(machine.createLineSensor(IN_PORT) instanceof LineSensor);
+        assertTrue(machine.createLightSensor(IN_PORT) instanceof LightSensor);
     }
 
     @Test

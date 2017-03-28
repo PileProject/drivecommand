@@ -114,9 +114,9 @@ public class MachineBaseTest {
     }
 
     @Test(expectedExceptions = UnsupportedOperationException.class)
-    public void getLineSensorFromAndThrowAnException() {
+    public void getLightSensorFromAndThrowAnException() {
         MachineBase machineBase = newMachineBase(protocol);
-        machineBase.createLineSensor(IN_PORT);
+        machineBase.createLightSensor(IN_PORT);
     }
 
     @Test(expectedExceptions = UnsupportedOperationException.class)

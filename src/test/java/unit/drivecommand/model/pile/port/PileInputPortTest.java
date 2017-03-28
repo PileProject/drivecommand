@@ -31,15 +31,15 @@ public class PileInputPortTest {
     @DataProvider(name = "ports")
     public static Object[][] ports() {
         return new Object[][] {
-                { PileInputPort.LINE_SENSOR_L },
-                { PileInputPort.LINE_SENSOR_R },
+                { PileInputPort.LIGHT_SENSOR_L},
+                { PileInputPort.LIGHT_SENSOR_R},
                 { PileInputPort.TOUCH_SENSOR },
                 { PileInputPort.RANGEFINDER },
         };
     }
 
     public static Pattern pattern = Pattern.compile(
-            "^\\[PILE\\] INPUT-PORT-(LINE_SENSOR_*|TOUCH_SENSOR|RANGEFINDER).*$"
+            "^\\[PILE\\] INPUT-PORT-(LIGHT_SENSOR_*|TOUCH_SENSOR|RANGEFINDER).*$"
     );
 
     @Test(dataProvider = "ports")
@@ -52,7 +52,7 @@ public class PileInputPortTest {
     public void testGetRaw() throws Exception {
         assertEquals(PileInputPort.RANGEFINDER  .getRaw(), 0);
         assertEquals(PileInputPort.TOUCH_SENSOR .getRaw(), 0);
-        assertEquals(PileInputPort.LINE_SENSOR_L.getRaw(), 0);
-        assertEquals(PileInputPort.LINE_SENSOR_R.getRaw(), 1);
+        assertEquals(PileInputPort.LIGHT_SENSOR_L.getRaw(), 0);
+        assertEquals(PileInputPort.LIGHT_SENSOR_R.getRaw(), 1);
     }
 }

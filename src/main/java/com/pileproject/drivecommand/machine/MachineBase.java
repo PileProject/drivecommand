@@ -17,7 +17,7 @@ package com.pileproject.drivecommand.machine;
 
 import com.pileproject.drivecommand.machine.device.input.ColorSensor;
 import com.pileproject.drivecommand.machine.device.input.GyroSensor;
-import com.pileproject.drivecommand.machine.device.input.LineSensor;
+import com.pileproject.drivecommand.machine.device.input.LightSensor;
 import com.pileproject.drivecommand.machine.device.input.Rangefinder;
 import com.pileproject.drivecommand.machine.device.input.RemoteControlReceiver;
 import com.pileproject.drivecommand.machine.device.input.SoundSensor;
@@ -138,13 +138,13 @@ public abstract class MachineBase {
     }
 
     /**
-     * Creates a {@link LineSensor}.
+     * Creates a {@link LightSensor}.
      *
      * @param port an {@link InputPort} which is supposed to be bounded
-     * @return a {@link LineSensor} which is connected to the specified port
+     * @return a {@link LightSensor} which is connected to the specified port
      */
-    public LineSensor createLineSensor(InputPort port) {
-        throw new UnsupportedOperationException("This machine does not support LineSensor");
+    public LightSensor createLightSensor(InputPort port) {
+        throw new UnsupportedOperationException("This machine does not support LightSensor");
     }
 
     /**

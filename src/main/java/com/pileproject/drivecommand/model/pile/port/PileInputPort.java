@@ -22,17 +22,17 @@ import com.pileproject.drivecommand.machine.device.port.InputPort;
  *
  * There are static instances of this class:
  * <ul>
- *  <li>{@link PileInputPort#LINE_SENSOR_L}</li>
- *  <li>{@link PileInputPort#LINE_SENSOR_R}</li>
+ *  <li>{@link PileInputPort#LIGHT_SENSOR_L}</li>
+ *  <li>{@link PileInputPort#LIGHT_SENSOR_R}</li>
  *  <li>{@link PileInputPort#TOUCH_SENSOR}</li>
  *  <li>{@link PileInputPort#RANGEFINDER}</li>
  * </ul>
  */
 public class PileInputPort extends InputPort {
-    public static final PileInputPort LINE_SENSOR_L
-            = new PileInputPort(0, Type.LINE_SENSOR_L);
-    public static final PileInputPort LINE_SENSOR_R
-            = new PileInputPort(1, Type.LINE_SENSOR_R);
+    public static final PileInputPort LIGHT_SENSOR_L
+            = new PileInputPort(0, Type.LIGHT_SENSOR_L);
+    public static final PileInputPort LIGHT_SENSOR_R
+            = new PileInputPort(1, Type.LIGHT_SENSOR_R);
     public static final PileInputPort TOUCH_SENSOR
             = new PileInputPort(0, Type.TOUCH_SENSOR);
     public static final PileInputPort RANGEFINDER
@@ -57,6 +57,6 @@ public class PileInputPort extends InputPort {
     }
 
     private enum Type {
-        LINE_SENSOR_R, LINE_SENSOR_L, TOUCH_SENSOR, RANGEFINDER
+        LIGHT_SENSOR_R, LIGHT_SENSOR_L, TOUCH_SENSOR, RANGEFINDER
     }
 }
