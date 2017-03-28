@@ -70,7 +70,7 @@ public class NxtProtocol extends ProtocolBase {
         Map<String, Object> res = new HashMap<>();
         CommandType type = cmd.getCommandType();
         switch (type) {
-            case GET_LINE_VALUE: {
+            case GET_LIGHT_VALUE: {
                 setInputMode(port, LIGHT_ACTIVE, PCTFULLSCALEMODE);
                 InputValues values = getInputValues(port);
                 res.put(KEY_VALUE, values.scaledValue / 10);

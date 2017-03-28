@@ -26,12 +26,11 @@ import com.pileproject.drivecommand.model.ProtocolBase;
 import java.util.Map;
 
 /**
- * A line sensor class.
- * This is also known as 'light' sensor for EV3.
+ * A light sensor class.
  */
-public class LineSensor extends DeviceBase {
+public class LightSensor extends DeviceBase {
 
-    public LineSensor(InputPort port, ProtocolBase protocol) {
+    public LightSensor(InputPort port, ProtocolBase protocol) {
         super(port, protocol);
     }
 
@@ -41,13 +40,13 @@ public class LineSensor extends DeviceBase {
      * @return sensor value (0 - 100%)
      */
     public int getSensorValue() {
-        CommandBase cmd = CommandFactory.createCommand(CommandType.GET_LINE_VALUE, null);
+        CommandBase cmd = CommandFactory.createCommand(CommandType.GET_LIGHT_VALUE, null);
         Map<String, Object> value = exec(cmd);
         return (Integer) value.get("value");
     }
 
     @Override
     public DeviceType getDeviceType() {
-        return DeviceType.LINE_SENSOR;
+        return DeviceType.LIGHT_SENSOR;
     }
 }

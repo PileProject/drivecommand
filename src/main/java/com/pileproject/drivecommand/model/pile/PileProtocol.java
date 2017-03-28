@@ -51,8 +51,8 @@ public class PileProtocol extends ProtocolBase {
         Map<String, Object> res = new HashMap<>();
         CommandType type = cmd.getCommandType();
         switch (type) {
-            case GET_LINE_VALUE: {
-                int response = requestOneByte(port, PileConstants.CommandTypes.LINESENSOR);
+            case GET_LIGHT_VALUE: {
+                int response = requestOneByte(port, PileConstants.CommandTypes.LIGHTSENSOR);
                 res.put(KEY_VALUE, response);
                 break;
             }

@@ -113,7 +113,7 @@ public class Ev3Protocol extends ProtocolBase {
                 res.put(KEY_VALUE, (int) value[0]);
                 break;
             }
-            case GET_LINE_VALUE: {
+            case GET_LIGHT_VALUE: {
                 // TODO: NOT TESTED
                 short[] values = getPercentValue(port, NXT_LIGHT, LIGHT_REFLECT, 1);
                 res.put(KEY_VALUE, (int) values[0]);

@@ -20,7 +20,7 @@ import com.pileproject.drivecommand.machine.MachineStatus;
 import com.pileproject.drivecommand.machine.device.DeviceType;
 import com.pileproject.drivecommand.machine.device.input.ColorSensor;
 import com.pileproject.drivecommand.machine.device.input.GyroSensor;
-import com.pileproject.drivecommand.machine.device.input.LineSensor;
+import com.pileproject.drivecommand.machine.device.input.LightSensor;
 import com.pileproject.drivecommand.machine.device.input.Rangefinder;
 import com.pileproject.drivecommand.machine.device.input.RemoteControlReceiver;
 import com.pileproject.drivecommand.machine.device.input.SoundSensor;
@@ -88,11 +88,11 @@ public class Ev3Machine extends MachineBase {
     }
 
     @Override
-    public LineSensor createLineSensor(InputPort port) {
+    public LightSensor createLightSensor(InputPort port) {
         checkInputPortCompatibility(port);
 
-        mStatus.bind(port, DeviceType.LINE_SENSOR);
-        return new LineSensor(port, mProtocol);
+        mStatus.bind(port, DeviceType.LIGHT_SENSOR);
+        return new LightSensor(port, mProtocol);
     }
 
     @Override

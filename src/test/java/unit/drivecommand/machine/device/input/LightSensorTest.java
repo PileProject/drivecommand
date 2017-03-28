@@ -17,7 +17,7 @@ package unit.drivecommand.machine.device.input;
 
 import com.pileproject.drivecommand.command.CommandBase;
 import com.pileproject.drivecommand.machine.device.DeviceType;
-import com.pileproject.drivecommand.machine.device.input.LineSensor;
+import com.pileproject.drivecommand.machine.device.input.LightSensor;
 import com.pileproject.drivecommand.machine.device.port.InputPort;
 import com.pileproject.drivecommand.model.ProtocolBase;
 import com.pileproject.drivecommand.model.nxt.port.NxtInputPort;
@@ -31,7 +31,7 @@ import mockit.Expectations;
 import mockit.Mocked;
 
 @SuppressWarnings("serial")
-public class LineSensorTest {
+public class LightSensorTest {
     @Mocked
     private ProtocolBase protocol;
     private final InputPort PORT = new InputPort() {
@@ -52,13 +52,13 @@ public class LineSensorTest {
             }};
         }};
 
-        LineSensor ls = new LineSensor(PORT, protocol);
+        LightSensor ls = new LightSensor(PORT, protocol);
         AssertJUnit.assertEquals(ls.getSensorValue(), VALUE_SENSOR);
     }
     
     @Test
-    public void deviceTypeIsLineSensor() {
-        LineSensor ls = new LineSensor(NxtInputPort.PORT_1, protocol);
-        AssertJUnit.assertEquals(ls.getDeviceType(), DeviceType.LINE_SENSOR);
+    public void deviceTypeIsLightSensor() {
+        LightSensor ls = new LightSensor(NxtInputPort.PORT_1, protocol);
+        AssertJUnit.assertEquals(ls.getDeviceType(), DeviceType.LIGHT_SENSOR);
     }
 }

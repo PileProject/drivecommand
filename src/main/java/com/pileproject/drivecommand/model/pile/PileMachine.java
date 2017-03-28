@@ -17,7 +17,7 @@ package com.pileproject.drivecommand.model.pile;
 
 import com.pileproject.drivecommand.machine.MachineBase;
 import com.pileproject.drivecommand.machine.MachineStatus;
-import com.pileproject.drivecommand.machine.device.input.LineSensor;
+import com.pileproject.drivecommand.machine.device.input.LightSensor;
 import com.pileproject.drivecommand.machine.device.input.Rangefinder;
 import com.pileproject.drivecommand.machine.device.input.TouchSensor;
 import com.pileproject.drivecommand.machine.device.output.Motor;
@@ -61,16 +61,16 @@ public class PileMachine extends MachineBase {
     }
 
     @Override
-    public LineSensor createLineSensor(InputPort port) {
-        if (port.equals(PileInputPort.LINE_SENSOR_L)
-                || port.equals(PileInputPort.LINE_SENSOR_R)) {
-            return new LineSensor(port, mProtocol);
+    public LightSensor createLightSensor(InputPort port) {
+        if (port.equals(PileInputPort.LIGHT_SENSOR_L)
+                || port.equals(PileInputPort.LIGHT_SENSOR_R)) {
+            return new LightSensor(port, mProtocol);
         }
 
         throw new DevicePortTypeMismatchException(String.format(
                 "Expected: %s or %s, Actual %s",
-                PileInputPort.LINE_SENSOR_L,
-                PileInputPort.LINE_SENSOR_R,
+                PileInputPort.LIGHT_SENSOR_L,
+                PileInputPort.LIGHT_SENSOR_R,
                 port));
     }
 
